@@ -1,0 +1,56 @@
+import SearchResultsView from "../views/searchResultsView.js";
+import SearchFormView from "../views/searchFormView.js";
+import React from "react";
+import promiseNoData from "../views/promiseNoData.js";
+import { getFishDetails } from "../fishSource.js";
+import resolvePromise from "../resolvePromise.js";
+
+export default 
+function Search(props) {
+    const [promise, setPromise]= React.useState(function initializePromiseACB() {return getFishDetails(1)});
+    const [data, setData]= React.useState(null);
+    const [error, setError]= React.useState(null);
+    const [fishId, setFishId] = React.useState(1);
+
+
+    function promiseChangedACB(){ 
+        setData(null); 
+        setError(null); 
+
+            let cancelled=false;
+
+        function changedAgainACB(){ 
+            cancelled=true; 
+        };  // also called at teardown!
+            
+        if(promise)
+                promise.then(function saveDataACB(dt){  if(!cancelled) setData(dt);})
+                    .catch(function saveErrACB(er){ if(!cancelled) setError(er);});
+        return changedAgainACB;  // promiseChangedACB will be called for the new value!
+          }
+        
+          React.useEffect(promiseChangedACB , [promise] );
+
+
+          function searchNowACB() {
+              setPromise(getFishDetails(fishId))
+          }
+        
+          function setSearchTextACB(newFishId) {
+                let normalizedFishId = newFishId.toLowerCase().replace(" ","_");
+                setFishId(normalizedFishId)  
+          }
+
+        return <div>
+
+            <SearchFormView 
+                onSearchNow={searchNowACB}
+                onSetSearchText={setSearchTextACB}
+            />
+        
+        {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
+              <SearchResultsView searchResults={data} />}
+
+              </div>
+              
+} 

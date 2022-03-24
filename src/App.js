@@ -1,23 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import "./css/style.css";
+import "./css/topbar.css";
+import TopbarView from './views/topbarView';
+import Show from './presenters/show';
 
-function App() {
-  return (
+const Search = require("./presenters/searchPresenter.js").default;
+const Details = require("./presenters/detailsPresenter.js").default;
+
+function App(props) {
+
+  if(window.location.hash !== "#search" || window.location.hash !== "#details" || window.location.hash !== "#summary") window.location.hash = "#search";
+
+ return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    
+
+      <TopbarView/>
+      
+      <Show hash="#search">
+        <Search model={props.model}/>
+      </Show>
+      <Show hash="#details">
+        <Details model={props.model}/>
+      </Show>
+
+
     </div>
   );
 }

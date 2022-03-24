@@ -4,9 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+const FishModel=require("./FishModel.js").default;
+const model= new FishModel();
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App model={model} />
   </React.StrictMode>,
   document.getElementById('root')
 );
