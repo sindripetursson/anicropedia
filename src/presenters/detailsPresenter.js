@@ -15,6 +15,7 @@ function Search(props) {
         setPromise(getFishDetails(props.model.currentFish)); 
         // setData(props.model.currentDishPromiseState.data); 
         // setError(props.model.currentDishPromiseState.error); 
+        // test
     }
 
     function wasCreatedACB(){  
