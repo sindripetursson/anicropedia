@@ -1,16 +1,9 @@
-import SearchResultsView from "../views/searchResultsView.js";
 import SearchFormView from "../views/searchFormView.js";
 import React from "react";
-import promiseNoData from "../views/promiseNoData.js";
-import { getFishDetails } from "../fishSource.js";
-import resolvePromise from "../resolvePromise.js";
-import { doSearch } from "../FishModel";
 
 export default 
 function Details(props) {
     const [fishId, setFishId] = React.useState(1);
-
-
 
           function searchNowACB() {
             props.model.setCurrentFish(fishId);
@@ -23,12 +16,9 @@ function Details(props) {
           }
 
         return <div >
-
-            <SearchFormView 
-                onSearchNow={searchNowACB}
-                onSetSearchText={setSearchTextACB}
-            />
-
-              </div>
-              
+                    <SearchFormView 
+                        onSearchNow={searchNowACB}
+                        onSetSearchText={setSearchTextACB}
+                    />
+               </div>       
 } 

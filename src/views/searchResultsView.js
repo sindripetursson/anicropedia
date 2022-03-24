@@ -7,7 +7,7 @@ function SearchResultsView(props) {
             <div class="page-left"></div>
             <div class="grid-container">
               <div class="grid-item grid-item-1">
-                <img class="image" src={singleResult.icon_uri} />
+                <img class="image" alt="" src={singleResult.icon_uri} />
               </div>
               {/* <div class="grid-item grid-item-2">{singleResult.name["name-EUen"]}</div> */}
               <div class="grid-item grid-item-3">

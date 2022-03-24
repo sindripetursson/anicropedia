@@ -9,9 +9,6 @@ export function getFishDetails(fishId) {
     return fetch(BASE_URL+"/fish/"+fishId, {
         method: "GET",
         headers: {
-            //'Content-Type': 'application/json'
-            //
-            //
         },
         //redirect: 'follow'
     }).then(treatHTTPResponseACB);

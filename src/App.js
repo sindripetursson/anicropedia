@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import "./css/style.css";
 import "./css/topbar.css";
@@ -15,8 +14,6 @@ function App(props) {
  return (
     <div className="App">
 
-    
-
       <TopbarView/>
       
       <Show hash="#search">
@@ -25,8 +22,6 @@ function App(props) {
       <Show hash="#details">
         <Details model={props.model}/>
       </Show>
-
-
     </div>
   );
 }

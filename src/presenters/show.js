@@ -4,10 +4,7 @@ export default
 function Show(props){
         const [hashState, setHash]=React.useState(window.location.hash);
 
-
         function hashStateChangedACB(){ 
-            
-            
             if(window.location.hash !== props.hash) setHash("hidden");
                 else setHash("");
 
@@ -21,8 +18,6 @@ function Show(props){
 
        React.useEffect(hashStateChangedACB, [hashState, window.location.hash])
        
-
-
         function hashListenerACB(){ 
             setHash(window.location.hash);
         }
@@ -39,5 +34,5 @@ function Show(props){
         React.useEffect(wasCreatedACB, []); 
 
     return <div class={hashState}>{props.children}</div>;
-    }  
+}  
     

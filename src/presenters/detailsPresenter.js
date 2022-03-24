@@ -1,9 +1,7 @@
 import SearchResultsView from "../views/searchResultsView.js";
-import SearchFormView from "../views/searchFormView.js";
 import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import { getFishDetails } from "../fishSource.js";
-import resolvePromise from "../resolvePromise.js";
 
 export default 
 function Search(props) {
@@ -13,9 +11,6 @@ function Search(props) {
 
     function observerACB(){ 
         setPromise(getFishDetails(props.model.currentFish)); 
-        // setData(props.model.currentDishPromiseState.data); 
-        // setError(props.model.currentDishPromiseState.error); 
-        // test
     }
 
     function wasCreatedACB(){  
@@ -53,10 +48,6 @@ function promiseChangedACB(){
   }
 
   React.useEffect(promiseChangedACB, [promise]);
-
-
-
-
         return <div>
         
         {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
