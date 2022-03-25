@@ -10,6 +10,7 @@ class FishModel{
         this.searchParams = {};
     }
     //test
+    //test2
     
     setSearchQuery(q){
         this.searchParams.query = q;
