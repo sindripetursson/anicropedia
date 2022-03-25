@@ -9,6 +9,7 @@ class FishModel{
         this.currentFishPromiseState = {};
         this.searchParams = {};
     }
+    //test
     
     setSearchQuery(q){
         this.searchParams.query = q;
