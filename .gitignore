@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# skip styles.css and styles.css.map in the styles folder because they are made from styles.scss
+./src/styles/styles.css
+./src/styles/styles.css.map
