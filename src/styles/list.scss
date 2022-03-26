@@ -1,0 +1,9 @@
+@import "config";
+
+.list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    flex-wrap: wrap;
+}
