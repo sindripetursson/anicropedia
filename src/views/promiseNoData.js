@@ -4,10 +4,10 @@ export default function promiseNoData(promiseState) {
         return <div>No data</div>
     }
     if(!promiseState.data && !promiseState.error) {
-        return <img src="https://c.tenor.com/5o2p0tH5LFQAAAAj/hug.gif" alt="" class="loadingIcon" />
+        return <img src="https://c.tenor.com/5o2p0tH5LFQAAAAj/hug.gif" alt="" className="loadingIcon" />
     }  
     if(!promiseState.data && promiseState.error) {
-        return <div class="debug" >{promiseState.error}</div>
+        return <div className="debug" >{promiseState.error}</div>
     }
         return false;
 }

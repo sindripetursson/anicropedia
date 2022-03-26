@@ -88,3 +88,38 @@
     grid-column: 4 / 6;
     grid-row: 4 / 5;
 }
+
+.encyclopedia{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    flex-wrap: wrap;
+}
+
+.encyclopedia-item{
+    padding: 2px;
+    border: green 1px solid;
+}
+
+.encyclopedia-text{
+    width: 90%;
+}
+
+.encyclopedia-nav{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    transform: translate(50%, 0);
+    cursor: pointer;
+}
+
+.buttons{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 30%;
+}
+
+.buttons:hover{
+    background-color: aqua;
+}

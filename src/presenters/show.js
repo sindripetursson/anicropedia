@@ -33,6 +33,6 @@ function Show(props){
 
         React.useEffect(wasCreatedACB, []); 
 
-    return <div class={hashState}>{props.children}</div>;
+    return <div className={hashState}>{props.children}</div>;
 }  
     
