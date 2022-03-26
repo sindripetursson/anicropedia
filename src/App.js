@@ -4,7 +4,7 @@ import "./css/topbar.css";
 import TopbarView from './views/topbarView';
 import Show from './presenters/show';
 import Encyclopedia from './presenters/encyclopediaPresenter';
-// import Encyclopedia from './presenters/encyclopediaPresenter';
+import Villagers from './presenters/villagersPresenter';
 
 const Search = require("./presenters/searchPresenter.js").default;
 const Details = require("./presenters/detailsPresenter.js").default;
@@ -26,6 +26,9 @@ function App(props) {
       </Show>
       <Show hash='#encyclopedia'>
         <Encyclopedia species={'fish'}/>
+      </Show>
+      <Show hash='#villagers'>
+        <Villagers model={props.model}/>
       </Show>
     </div>
   );

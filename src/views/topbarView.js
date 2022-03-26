@@ -9,6 +9,9 @@ function TopbarView(props) {
     function goToSearch(){
         window.location.hash = "#search";
     }
+    function goToVillagers(){
+        window.location.hash = "#villagers";
+    }
 
   return (
     <div className='top'>
@@ -18,6 +21,7 @@ function TopbarView(props) {
                 <ul className='topList'>
                     <li onClick={goToSearch} className='topListItem'>Search</li>
                     <li onClick={goToEncyclopedia} className='topListItem'>Encyclopedia</li>
+                    <li onClick={goToVillagers} className='topListItem'>Villagers</li>
                 </ul>
             </div>
         </div>
