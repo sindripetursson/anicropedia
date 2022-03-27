@@ -14,6 +14,7 @@ function TopbarView(props) {
     }
     function goToMusic(){
         window.location.hash = "#music";
+    }
     function goToCollectibles() {
         window.location.hash = "#collectibles";
     }
