@@ -10,6 +10,7 @@ import Collectible from './presenters/collectiblePresenter';
 
 const Search = require("./presenters/searchPresenter.js").default;
 const Details = require("./presenters/detailsPresenter.js").default;
+const Music = require("./presenters/musicPresenter.js").default;
 
 function App(props) {
 
@@ -31,6 +32,9 @@ function App(props) {
       </Show>
       <Show hash='#villagers'>
         <Villagers model={props.model}/>
+      </Show>
+      <Show hash='#music'>
+        <Music model={props.model}/>
       </Show>
       <Show hash='#collectibles'>
         <Collectible model={props.model}/>

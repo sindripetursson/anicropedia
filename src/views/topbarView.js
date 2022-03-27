@@ -12,6 +12,8 @@ function TopbarView(props) {
     function goToVillagers(){
         window.location.hash = "#villagers";
     }
+    function goToMusic(){
+        window.location.hash = "#music";
     function goToCollectibles() {
         window.location.hash = "#collectibles";
     }
@@ -25,6 +27,7 @@ function TopbarView(props) {
                     <li onClick={goToSearch} className='topListItem'>Search</li>
                     <li onClick={goToEncyclopedia} className='topListItem'>Encyclopedia</li>
                     <li onClick={goToVillagers} className='topListItem'>Villagers</li>
+                    <li onClick={goToMusic} className='topListItem'>Music</li>
                     <li onClick={goToCollectibles} className='topListItem'>Collectibles</li>
                 </ul>
             </div>

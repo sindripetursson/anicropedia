@@ -78,13 +78,11 @@
 }
 
 .grid-item-8 {
-    /* border-style:solid; */
     grid-column: 3 / 5;
     grid-row: 4 / 5;
 }
 
 .grid-item-9 {
-    /* border-style:solid; */
     grid-column: 4 / 6;
     grid-row: 4 / 5;
 }
@@ -112,6 +110,23 @@
     width: 50%;
     transform: translate(50%, 0);
     cursor: pointer;
+}
+
+.music{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    flex-wrap: wrap;
+}
+
+.music-item{
+    padding: 2px;
+    border: green 1px solid;
+}
+
+.music-text{
+    width: 90%;
 }
 
 .buttons{
