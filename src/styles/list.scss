@@ -33,4 +33,12 @@
             @include columns(2);
         }
     }
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        transform: translate(50%, 0);
+        cursor: pointer;
+    }
 }

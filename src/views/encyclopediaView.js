@@ -2,19 +2,27 @@ function EncyclopediaView(props){
 
     function renderData(data){
         function renderSingleData(singleResult){
-            return <div className="encyclopedia-item" key={singleResult.id}>
-                <img className="image" alt="" src={singleResult.icon_uri}/>
-                <div className="encyclopedia-text">
-                    {singleResult.name["name-EUen"]}
+            return (
+                <div className="list__col">
+                    <div className="listItem" key={singleResult.id}>
+                        <img className="listItem__image" alt="" src={singleResult.icon_uri}/>
+                        <div className="listItem__text">
+                            {singleResult.name["name-EUen"]}
+                        </div>
+                    </div>
                 </div>
-            </div>
+            );
         }
         return Object.values(data).map(renderSingleData);
     }
 
     return(
-        <div className="encyclopedia">
-            {renderData(props.data)}
+        <div className="list">
+            <div className="list__container">
+                <div className="list__row">
+                    {renderData(props.data)}
+                </div>
+            </div>
         </div>
     );
 

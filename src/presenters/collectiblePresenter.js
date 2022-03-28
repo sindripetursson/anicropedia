@@ -42,7 +42,7 @@ function Collectible(props) {
 
     return ( 
       <div>
-        <div className="collectible__nav">
+        <div className="list__nav">
           <div 
             className="buttons" 
             onClick={() => { setPromise(getCollectible('fossils'));}}>

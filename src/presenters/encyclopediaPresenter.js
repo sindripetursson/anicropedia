@@ -41,7 +41,7 @@ function Encyclopedia(props) {
       React.useEffect(promiseChangedACB, [promise]);
 
     return <div>
-    <div className="encyclopedia-nav">
+    <div className="list__nav">
         <div className="buttons" onClick={() => {
         setPromise(getSpecies('fish'));
         }}>Fish </div>

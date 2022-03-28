@@ -19,19 +19,27 @@ function MusicView(props){
                 };
 
                 return (
-                    <div className="music-item" key={singleResult.id}>
-                        <div className="music-text">
-                                {singleResult.name["name-EUen"]}
+                    <div className="list__col">
+                        <div className="listItem" key={singleResult.id}>
+                            <img className="listItem__image" alt="" src={singleResult.image_uri}/>
+                            <div className="listItem__text">
+                                    {singleResult.name["name-EUen"]}
+                            </div>
+                            <img onClick={play} width="30" height="30" src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt=""/>
                         </div>
-                        <img onClick={play} width="30" height="30" src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt=""/>
-                    </div>)
+                    </div>
+                );
             }
             return Object.values(data).map(renderSingleData);
         }
 
     return(
-        <div className="music">
-            {renderData(props.data)}
+        <div className="list">
+            <div className="list__container">
+                <div className="list__row">
+                    {renderData(props.data)}
+                </div>
+            </div>
         </div>
     );
 }
