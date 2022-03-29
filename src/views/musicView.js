@@ -19,8 +19,8 @@ function MusicView(props){
                 };
 
                 return (
-                    <div className="list__col">
-                        <div className="listItem" key={singleResult.id}>
+                    <div className="list__col" key={"music_"+singleResult.id}>
+                        <div className="listItem" >
                             <img className="listItem__image" alt="" src={singleResult.image_uri}/>
                             <div className="listItem__text">
                                     {singleResult.name["name-EUen"]}

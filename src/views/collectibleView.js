@@ -3,8 +3,8 @@ function CollectibleView(props){
     function renderData(data){
         function renderSingleData(singleResult){
             return (
-                <div className="list__col">
-                    <div className="listItem" key={singleResult.id}>
+                <div className="list__col" key={"collectible_" + singleResult['file-name']}>
+                    <div className="listItem" >
                         <img className="listItem__image" alt="" src={singleResult.image_uri}/>
                         <div className="listItem__text">
                             {singleResult.name["name-EUen"]}

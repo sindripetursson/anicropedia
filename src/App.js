@@ -8,25 +8,22 @@ import Encyclopedia from './presenters/encyclopediaPresenter';
 import Villagers from './presenters/villagersPresenter';
 import Collectible from './presenters/collectiblePresenter';
 
-const Search = require("./presenters/searchPresenter.js").default;
-const Details = require("./presenters/detailsPresenter.js").default;
+// const Search = require("./presenters/searchPresenter.js").default;
+// const Details = require("./presenters/detailsPresenter.js").default;
 const Music = require("./presenters/musicPresenter.js").default;
 
 function App(props) {
 
-  if(window.location.hash !== "#search" || window.location.hash !== "#details" || window.location.hash !== "#summary") window.location.hash = "#search";
+  // if(window.location.hash !== "#search" || window.location.hash !== "#details" || window.location.hash !== "#summary") window.location.hash = "#search";
 
  return (
     <div className="App">
 
       <TopbarView/>
-      
-      <Show hash="#search">
-        <Search model={props.model}/>
-      </Show>
-      <Show hash="#details">
+
+      {/* <Show hash="#details">
         <Details model={props.model}/>
-      </Show>
+      </Show> */}
       <Show hash='#encyclopedia'>
         <Encyclopedia species={'fish'}/>
       </Show>
