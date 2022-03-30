@@ -3,6 +3,7 @@ import "./css/style.css";
 import "./css/topbar.css";
 import "./styles/styles.css";
 import TopbarView from './views/topbarView';
+import HomeView from './views/homeView';
 import Show from './presenters/show';
 import Encyclopedia from './presenters/encyclopediaPresenter';
 import Villagers from './presenters/villagersPresenter';
@@ -23,8 +24,9 @@ function App(props) {
         <Details model={props.model} setDetailsOn={setDetailsOn}/>  
       </div>
       <BrowserRouter>
+      <TopbarView setDetailsOn={setDetailsOn}/>
         <Routes>
-          <Route path="/" exact element={<TopbarView setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/" exact element={<HomeView setDetailsOn={setDetailsOn}/>}/>
           <Route path="/encyclopedia" element={<Encyclopedia model={props.model} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
           <Route path="/villagers" element={ <Villagers model={props.model} setDetailsOn={setDetailsOn}/>}/>
           <Route path="/music" element={ <Music model={props.model}/>}/>
