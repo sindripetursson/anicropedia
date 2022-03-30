@@ -11,7 +11,7 @@ function Search(props) {
     const [error, setError]= React.useState(null);
 
     function observerACB(){ 
-        setPromise(getDetails(props.model.currentCategory,props.model.currentId)); 
+        setPromise(getDetails(props.detailsModel.currentCategory,props.detailsModel.currentId)); 
     }
 
     function closeClicked(){
@@ -20,10 +20,10 @@ function Search(props) {
 
     function wasCreatedACB(){  
 
-        props.model.addObserver(observerACB);   // 1. subscribe
+        props.detailsModel.addObserver(observerACB);   // 1. subscribe
 
             function isTakenDownACB(){ 
-                props.model.removeObserver(observerACB);
+                props.detailsModel.removeObserver(observerACB);
             } // 2.unsubscribe
 
         return isTakenDownACB;

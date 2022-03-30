@@ -6,7 +6,7 @@ function Details(props) {
     const [fishId, setFishId] = React.useState(1);
 
           function searchNowACB() {
-            props.model.setCurrentItem('fish',fishId);
+            props.detailsModel.setCurrentItem('fish',fishId);
             window.location.hash = "#details";
           }
         

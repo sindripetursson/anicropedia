@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import UserModel from './UserModel';
+import promiseNoData from './views/promiseNoData';
 
 
 const DetailsModel = require("./DetailsModel.js").default;
-const model= new DetailsModel();
+const detailsModel= new DetailsModel();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App model={model} />
+    <App detailsModel={detailsModel} />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -12,7 +12,7 @@ function Villagers(props) {
 
     function getDetails(clickedItem){
       console.log(clickedItem);
-      props.model.setCurrentItem('villagers', clickedItem.id);
+      props.detailsModel.setCurrentItem('villagers', clickedItem.id);
       props.setDetailsOn(true);
     }
 

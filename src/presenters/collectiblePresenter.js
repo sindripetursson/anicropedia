@@ -13,7 +13,7 @@ function Collectible(props) {
 
     function getDetails(clickedItem){
       console.log(clickedItem['file-name']);
-      props.model.setCurrentItem(category, clickedItem['file-name']);
+      props.detailsModel.setCurrentItem(category, clickedItem['file-name']);
       props.setDetailsOn(true);
     }
 

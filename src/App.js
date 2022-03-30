@@ -22,20 +22,20 @@ function App(props) {
 
       <TopbarView setDetailsOn={setDetailsOn}/>
       <div className={detailsOn ? "details" : "hidden"}>
-        <Details model={props.model} setDetailsOn={setDetailsOn}/>  
+        <Details detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>  
       </div>
       
       <Show hash='#encyclopedia'>
-        <Encyclopedia model={props.model} species={'fish'} setDetailsOn={setDetailsOn}/>
+        <Encyclopedia detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>
       </Show>
       <Show hash='#villagers'>
-        <Villagers model={props.model} setDetailsOn={setDetailsOn}/>
+        <Villagers detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>
       </Show>
       <Show hash='#music'>
-        <Music model={props.model}/>
+        <Music detailsModel={props.detailsModel}/>
       </Show>
       <Show hash='#collectibles'>
-        <Collectible model={props.model} setDetailsOn={setDetailsOn}/>
+        <Collectible detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>
       </Show>
     </div>
   );

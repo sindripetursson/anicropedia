@@ -13,7 +13,7 @@ function Encyclopedia(props) {
 
     function getDetails(clickedItem){
       console.log(clickedItem);
-      props.model.setCurrentItem(currentSpecies, clickedItem.id);
+      props.detailsModel.setCurrentItem(currentSpecies, clickedItem.id);
       props.setDetailsOn(true);
     }
 
