@@ -20,6 +20,7 @@
     &__container {
         width: 60%;
         max-width: $max-width;
+        max-height: 80vh;
         margin: 0 auto;
         position: absolute;
         left: 50%;
@@ -41,6 +42,7 @@
 
     &__col {
         @include columns(6);
+        // padding-left: 5%;
         &__three{
             @include columns(4);
             padding: 2%;
@@ -57,10 +59,24 @@
             padding: 2%;
         }
 
+        &__splitter{
+            @include columns(6);
+            padding-left: 5%;
+            border-left: #835B26 dashed 2px;
+
+            @media (max-width: 1000px){
+                @include columns(12);
+                padding-left: 0;
+                border-left: none;
+                border-top: #835B26 dashed 2px;
+            }
+        }
+
         @media (max-width: 1000px) {
             @include columns(12);
         }
         
+
     }
 
     &__nav {
@@ -100,7 +116,7 @@
 
 .close{
     position: absolute;
-    transform: translate(-25%, 25%) scale(0.75);
+    transform: translate(30%, -30%) scale(0.75);
     top: 0;
     right: 0;
     cursor: pointer;
@@ -122,4 +138,10 @@ button{
 
 button:hover{
     background-color: white;
+}
+
+.image{
+    @media(max-width: 1000px){
+        max-height: 20vh;
+    }
 }

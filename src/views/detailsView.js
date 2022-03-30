@@ -21,7 +21,7 @@ function DetailsView(props) {
           <div className="details__col">
             <img className="image" alt="" src={singleResult.image_uri} />
           </div>
-        <div className="details__col">
+        <div className="details__col__splitter">
           <div className="details__row">
             <div className="details__title">
               {capitalizeFirstLetter(singleResult.name["name-EUen"])}
@@ -68,7 +68,7 @@ function DetailsView(props) {
           <div className="details__col">
             <img className="image" alt="" src={singleResult.image_uri} />
           </div>
-        <div className="details__col">
+        <div className="details__col__splitter">
           <div className="details__row">
             <div className="details__title">
               {capitalizeFirstLetter(singleResult.name["name-EUen"])}
@@ -133,7 +133,7 @@ function DetailsView(props) {
           <div className="details__col">
             <img className="image" alt="" src={singleResult.image_uri} />
           </div>
-        <div className="details__col">
+        <div className="details__col__splitter">
           <div className="details__row">
             <div className="details__title">
               {capitalizeFirstLetter(singleResult.name["name-EUen"])}
@@ -216,7 +216,7 @@ function DetailsView(props) {
           <div className="details__col">
             <img className="image" alt="" src={singleResult.image_uri} />
           </div>
-        <div className="details__col">
+        <div className="details__col__splitter">
           <div className="details__row">
             <div className="details__title">
               {capitalizeFirstLetter(singleResult.name["name-EUen"])}
@@ -291,7 +291,7 @@ function DetailsView(props) {
           <div className="details__col">
             <img className="image" alt="" src={singleResult.image_uri} />
           </div>
-        <div className="details__col">
+        <div className="details__col__splitter">
           <div className="details__row">
             <div className="details__title">
               {capitalizeFirstLetter(singleResult.name["name-EUen"])}
@@ -362,6 +362,7 @@ function DetailsView(props) {
               </div>
             </div>
           </div>
+          <div></div>
           <div  onClick={() => props.onCloseClicked()} className="close">
               <CloseButton />
             </div>
@@ -371,10 +372,10 @@ function DetailsView(props) {
     else return (
       <div className="details__container">
         <div className="details__row">
-          <div className="details__col">
+          <div className="details__col" >
             <img className="image" alt="" src={singleResult.image_uri} />
           </div>
-          <div className="details__col">
+          <div className="details__col__splitter">
             <div className="details__row">
               <div className="details__title">
                 {capitalizeFirstLetter(singleResult.name["name-EUen"])}
