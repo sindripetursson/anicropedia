@@ -5,15 +5,19 @@ function TopbarView(props) {
 
     function goToEncyclopedia(){
         window.location.hash = "#encyclopedia";
+        props.setDetailsOn(false);
     }
     function goToVillagers(){
         window.location.hash = "#villagers";
+        props.setDetailsOn(false);
     }
     function goToMusic(){
         window.location.hash = "#music";
+        props.setDetailsOn(false);
     }
     function goToCollectibles() {
         window.location.hash = "#collectibles";
+        props.setDetailsOn(false);
     }
 
   return (

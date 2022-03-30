@@ -1,5 +1,13 @@
 function CollectibleView(props){
 
+    function capitalizeFirstLetter(string){
+        let arr = string.split(" ");
+        for(let i = 0; i < arr.length; i++){
+          arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+        return arr.join(" ");
+      }
+
     function renderData(data){
 
         function renderSingleData(singleResult){
@@ -12,7 +20,7 @@ function CollectibleView(props){
                     <div className="listItem" >
                         <img className="listItem__image" alt="" src={singleResult.image_uri}/>
                         <div className="listItem__text">
-                            {singleResult.name["name-EUen"]}
+                            {capitalizeFirstLetter(singleResult.name["name-EUen"])}
                         </div>
                     </div>
                 </div>

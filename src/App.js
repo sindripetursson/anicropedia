@@ -20,7 +20,7 @@ function App(props) {
  return (
     <div className="App">
 
-      <TopbarView/>
+      <TopbarView setDetailsOn={setDetailsOn}/>
       <div className={detailsOn ? "details" : "hidden"}>
         <Details model={props.model} setDetailsOn={setDetailsOn}/>  
       </div>
