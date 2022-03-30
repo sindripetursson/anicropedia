@@ -1,5 +1,6 @@
 @import "config";
 
+
 .details {
     /*display: flex;
     flex-direction: row;
@@ -7,31 +8,59 @@
     height: fit-content;
     flex-wrap: wrap;
     */
+    position:fixed;
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    z-index: 1000;
+    // vertical-align: middle;
+    // align-items: center;
 
     &__container {
+        width: 60%;
         max-width: $max-width;
         margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background: #EFEAC8;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+        border-radius: 5vw;
     }
 
     &__row {
         @include row();
         flex-wrap: wrap;
+        margin-top: 5%;
     }
 
     &__col {
         @include columns(6);
-
-        @media (min-width: 400px) {
+        &__three{
             @include columns(4);
+            padding: 2%;
+            // border: green 1px solid;
         }
 
-        @media (min-width: 800px) {
-            @include columns(3);
+        &__one{
+            @include columns(12);
+            padding: 2%;
         }
 
-        @media (min-width: $max-width) {
-            @include columns(2);
+        &__two{
+            @include columns(6);
+            padding: 2%;
         }
+
+        @media (max-width: 1000px) {
+            @include columns(12);
+        }
+        
     }
 
     &__nav {
@@ -41,8 +70,55 @@
         transform: translate(50%, 0);
         cursor: pointer;
     }
+
+    &__title{
+        font-family: $font-header;
+        font-size: 24pt;
+        color: #835B26;
+        text-align: left;
+    }
+
+    &__heading{
+        font-family: $font-main;
+        font-weight: 500;
+        color: #835B26;
+        text-align: left;
+    }
+
+    &__content{
+        font-family: $font-main;
+        font-size: 10pt;
+        font-weight: 400;
+        color: #887C66;
+        text-align: left;
+    }
 }
 
 .hidden{
     display: none;
+}
+
+.close{
+    position: absolute;
+    transform: translate(-25%, 25%) scale(0.75);
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+button{
+    background-color: #F5F7E1;
+    border: #DED9C0 2px solid;
+    color: #8B7A66;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    font-family: $font-main;
+    font-size: 0.75em;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 25px;
+}
+button:hover{
+    background-color: white;
 }

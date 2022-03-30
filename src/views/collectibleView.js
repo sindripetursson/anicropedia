@@ -2,8 +2,6 @@ function CollectibleView(props){
 
     function renderData(data){
 
-
-
         function renderSingleData(singleResult){
 
             function itemClicked(){

@@ -1,0 +1,35 @@
+@import "config";
+
+.months {
+
+    &__container {
+        // max-width: $max-width;
+        // margin: 0 auto;
+        width: 80%;
+        margin-left: 2%;
+    }
+
+    &__row {
+        @include row();
+        flex-wrap: wrap;
+        padding: 5px;
+        background-color: #F7F4E4;
+    }
+
+    &__col {
+        @include columns(2);
+        padding: 2px;
+
+    }
+
+    &__colActive{
+        @include columns(2);
+        padding: 2px;
+        background-color: #61D16C;
+        color: white
+    }
+}
+
+.hidden{
+    display: none;
+}
