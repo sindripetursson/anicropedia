@@ -41,4 +41,21 @@
         transform: translate(50%, 0);
         cursor: pointer;
     }
+
+    &__home {
+        display: flex;
+        @include columns(6);
+
+        @media (min-width: 400px) {
+            @include columns(4);
+        }
+
+        @media (min-width: 800px) {
+            @include columns(8);
+        }
+
+        @media (min-width: $max-width) {
+            @include columns(10);
+        }
+    }
 }

@@ -33,6 +33,7 @@ function DetailsView(props) {
                 Price
               </div>
               <div className="details__content">
+                <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult.price}
               </div>
             </div>
@@ -81,6 +82,7 @@ function DetailsView(props) {
                 Buy Price
               </div>
               <div className="details__content">
+                <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult["buy-price"]}
               </div>
             </div>
@@ -89,6 +91,7 @@ function DetailsView(props) {
                 Sell Price
               </div>
               <div className="details__content">
+                <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult["sell-price"]}
               </div>
             </div>
@@ -236,6 +239,7 @@ function DetailsView(props) {
                 Price
               </div>
               <div className="details__content">
+                <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult.price}
               </div>
             </div>
@@ -311,6 +315,7 @@ function DetailsView(props) {
                 Price
               </div>
               <div className="details__content">
+              <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult.price}
               </div>
             </div>
@@ -395,6 +400,7 @@ function DetailsView(props) {
                   Price
                 </div>
                 <div className="details__content">
+                  <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                   {singleResult.price}
                 </div>
               </div>

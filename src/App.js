@@ -3,40 +3,34 @@ import "./css/style.css";
 import "./css/topbar.css";
 import "./styles/styles.css";
 import TopbarView from './views/topbarView';
-import Show from './presenters/show';
+import HomeView from './views/homeView';
 import Encyclopedia from './presenters/encyclopediaPresenter';
 import Villagers from './presenters/villagersPresenter';
 import Collectible from './presenters/collectiblePresenter';
 import React from 'react';
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
-const Search = require("./presenters/searchPresenter.js").default;
 const Details = require("./presenters/detailsPresenter.js").default;
 const Music = require("./presenters/musicPresenter.js").default;
 
 function App(props) {
   const [detailsOn, setDetailsOn] = React.useState(false);
-  // if(window.location.hash !== "#search" || window.location.hash !== "#details" || window.location.hash !== "#summary") window.location.hash = "#search";
 
  return (
     <div className="App">
-
-      <TopbarView setDetailsOn={setDetailsOn}/>
       <div className={detailsOn ? "details" : "hidden"}>
         <Details detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>  
       </div>
-      
-      <Show hash='#encyclopedia'>
-        <Encyclopedia detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>
-      </Show>
-      <Show hash='#villagers'>
-        <Villagers detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>
-      </Show>
-      <Show hash='#music'>
-        <Music detailsModel={props.detailsModel}/>
-      </Show>
-      <Show hash='#collectibles'>
-        <Collectible detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>
-      </Show>
+      <BrowserRouter>
+      <TopbarView setDetailsOn={setDetailsOn}/>
+        <Routes>
+          <Route path="/" exact element={<HomeView setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/encyclopedia" element={<Encyclopedia detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/villagers" element={ <Villagers detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/music" element={ <Music detailsModel={props.detailsModel}/>}/>
+          <Route path="/collectibles" element={ <Collectible detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
