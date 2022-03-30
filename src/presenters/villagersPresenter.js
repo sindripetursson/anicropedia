@@ -5,10 +5,16 @@ import resolvePromise from "../resolvePromise";
 import VillagersView from "../views/villagersView";
 
 export default 
-function Villagers() {
+function Villagers(props) {
     const [promise, setPromise]=React.useState(getVillagers('villagers'));
     const [data, setData]= React.useState(getVillagers('villagers'));
     const [error, setError]= React.useState(null);
+
+    function getDetails(clickedItem){
+      console.log(clickedItem);
+      props.model.setCurrentItem('villagers', clickedItem.id);
+      props.setDetailsOn(true);
+    }
 
     function wasCreatedACB(){
         if(!promise){
@@ -40,6 +46,6 @@ function Villagers() {
       React.useEffect(promiseChangedACB, [promise]);
 
     return <div>
-    {promiseNoData({promise, data, error}) || <VillagersView data={data} />}
+    {promiseNoData({promise, data, error}) || <VillagersView onItemClicked={getDetails} data={data} />}
     </div>
 }

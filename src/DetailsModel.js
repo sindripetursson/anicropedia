@@ -1,32 +1,32 @@
 import resolvePromise from "./resolvePromise";
-import { getFishDetails } from "./fishSource";
+import { getDetails } from "./detailsSource";
 
 
-class FishModel{
-    constructor(currentFish){
+class DetailsModel{
+    constructor(currentId, currentCategory){
         this.observers = [];
-        this.searchResultsPromiseState = {}; 
-        this.currentFishPromiseState = {};
-        this.searchParams = {};
+        // this.searchResultsPromiseState = {}; 
+        this.currentDetailsPromiseState = {};
+        // this.searchParams = {};
     }
     //test
     //test2
     
-    setSearchQuery(q){
-        this.searchParams.query = q;
-    }
+    // setSearchQuery(q){
+    //     this.searchParams.query = q;
+    // }
 
-    setCurrentFish(id){
+    setCurrentItem(category,id){
         const model = this;
         function notifyACB(){
             model.notifyObservers();
         }
 
-        if(id !== undefined && id !== this.currentFish) {
-            this.currentFish = id
-            resolvePromise(getFishDetails(id), this.currentFishPromiseState, notifyACB);
-            this.notifyObservers({setFishId: id});
-            console.log(this.currentFishPromiseState.data);
+        if(id !== undefined && id !== this.currentId || category !== this.currentCategory) {
+            this.currentId = id;
+            this.currentCategory = category;
+            resolvePromise(getDetails(category,id), this.currentDetailsPromiseState, notifyACB);
+            this.notifyObservers({setDetailsId: id, setDetailsCategory: category});
         }
     }
 
@@ -52,4 +52,4 @@ class FishModel{
     }
 }
 
-export default FishModel;
+export default DetailsModel;

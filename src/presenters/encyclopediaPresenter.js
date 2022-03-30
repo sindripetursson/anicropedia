@@ -9,6 +9,13 @@ function Encyclopedia(props) {
     const [promise, setPromise]=React.useState(getSpecies('fish'));
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);
+    const [currentSpecies, setCurrentSpecies] = React.useState('fish');
+
+    function getDetails(clickedItem){
+      console.log(clickedItem);
+      props.model.setCurrentItem(currentSpecies, clickedItem.id);
+      props.setDetailsOn(true);
+    }
 
     function wasCreatedACB(){
         if(!promise){
@@ -43,16 +50,19 @@ function Encyclopedia(props) {
     return <div>
     <div className="list__nav">
         <div className="buttons" onClick={() => {
-        setPromise(getSpecies('fish'));
+          setPromise(getSpecies('fish'));
+          setCurrentSpecies('fish');
         }}>Fish </div>
         <div className="buttons" onClick={() => {
             setPromise(getSpecies('bugs'));
+            setCurrentSpecies('bugs');
             }}>Insects </div>
         <div className="buttons" onClick={() => {
-        setPromise(getSpecies('sea'));
+          setPromise(getSpecies('sea'));
+          setCurrentSpecies('sea');
         }}>Sea Creatures </div>
     </div>
     {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
-        <EncyclopediaView data={data} />}
+        <EncyclopediaView onItemClicked={getDetails} data={data} />}
     </div>
 }

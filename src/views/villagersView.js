@@ -2,8 +2,11 @@ function VillagersView(props){
 
     function renderData(data){
         function renderSingleData(singleResult){
+            function itemClicked(){
+                props.onItemClicked(singleResult);
+            }
             return (
-                <div className="list__col" key={"villagers_"+singleResult.id}>
+                <div className="list__col" key={"villagers_"+singleResult.id} onClick={() => itemClicked()}>
                     <div className="listItem" >
                         <img className="listItem__image" alt="" src={singleResult.icon_uri}/>
                         <div className="listItem__text">

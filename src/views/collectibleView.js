@@ -1,9 +1,16 @@
 function CollectibleView(props){
 
     function renderData(data){
+
+
+
         function renderSingleData(singleResult){
+
+            function itemClicked(){
+                props.onItemClicked(singleResult);
+            }
             return (
-                <div className="list__col" key={"collectible_" + singleResult['file-name']}>
+                <div className="list__col" key={"collectible_" + singleResult['file-name']} onClick={() => itemClicked()}>
                     <div className="listItem" >
                         <img className="listItem__image" alt="" src={singleResult.image_uri}/>
                         <div className="listItem__text">

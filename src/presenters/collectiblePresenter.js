@@ -9,6 +9,14 @@ function Collectible(props) {
     const [promise, setPromise]=React.useState(getCollectible('fossils'));
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);
+    const [category, setCurrentCategory] = React.useState('fossils');
+
+    function getDetails(clickedItem){
+      console.log(clickedItem['file-name']);
+      props.model.setCurrentItem(category, clickedItem['file-name']);
+      props.setDetailsOn(true);
+    }
+
 
     function wasCreatedACB(){
         if(!promise){
@@ -45,17 +53,17 @@ function Collectible(props) {
         <div className="list__nav">
           <div 
             className="buttons" 
-            onClick={() => { setPromise(getCollectible('fossils'));}}>
+            onClick={() => { setPromise(getCollectible('fossils'));setCurrentCategory('fossils');}}>
               Fossils 
           </div>
           <div 
             className="buttons" 
-            onClick={() => {setPromise(getCollectible('art'));}}>
+            onClick={() => {setPromise(getCollectible('art'));setCurrentCategory('art');}}>
               Art 
           </div>
         </div>
         {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
-          <CollectibleView data={data} />}
+          <CollectibleView onItemClicked={getDetails} data={data} />}
       </div>
     );
 }

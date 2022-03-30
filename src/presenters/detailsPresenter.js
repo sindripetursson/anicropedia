@@ -1,7 +1,8 @@
-import SearchResultsView from "../views/searchResultsView.js";
+import DetailsView from "../views/detailsView.js";
 import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import { getFishDetails } from "../fishSource.js";
+import { getDetails } from "../detailsSource.js";
 
 export default 
 function Search(props) {
@@ -10,7 +11,11 @@ function Search(props) {
     const [error, setError]= React.useState(null);
 
     function observerACB(){ 
-        setPromise(getFishDetails(props.model.currentFish)); 
+        setPromise(getDetails(props.model.currentCategory,props.model.currentId)); 
+    }
+
+    function closeClicked(){
+      props.setDetailsOn(false);
     }
 
     function wasCreatedACB(){  
@@ -51,7 +56,7 @@ function promiseChangedACB(){
         return <div>
         
         {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
-              <SearchResultsView searchResults={data} />}
+              <DetailsView onCloseClicked={closeClicked} data={data} />}
               </div>
               
 } 

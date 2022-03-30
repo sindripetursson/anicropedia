@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-const FishModel=require("./FishModel.js").default;
-const model= new FishModel();
+const DetailsModel = require("./DetailsModel.js").default;
+const model= new DetailsModel();
 
 ReactDOM.render(
   <React.StrictMode>
