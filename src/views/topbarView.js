@@ -1,4 +1,5 @@
 import React from 'react'
+import { Outlet, Link } from "react-router-dom";
 
 export default 
 function TopbarView(props) {
@@ -26,10 +27,10 @@ function TopbarView(props) {
         <div className='topCenter'>
             <div className='topCenter'>
                 <ul className='topList'>
-                    <li onClick={goToEncyclopedia} className='topListItem'>Encyclopedia</li>
-                    <li onClick={goToVillagers} className='topListItem'>Villagers</li>
-                    <li onClick={goToMusic} className='topListItem'>Music</li>
-                    <li onClick={goToCollectibles} className='topListItem'>Collectibles</li>
+                    <li className='topListItem'> <Link to="/encyclopedia"> Encyclopedia </Link></li>
+                    <li className='topListItem'> <Link to="/villagers"> Villagers </Link></li>
+                    <li className='topListItem'> <Link to="/music"> Music </Link></li>
+                    <li className='topListItem'> <Link to="/collectibles"> Collectibles </Link></li>
                 </ul>
             </div>
         </div>
