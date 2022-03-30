@@ -17,6 +17,11 @@ function DetailsView(props) {
               Museum Phrase {singleResult["museum-phrase"]}
           </div>
         </div>
+        <div className="grid-item grid-item-8">
+          <a href={"https://animalcrossing.fandom.com/wiki/"+singleResult["file-name"]}>
+            <button>Link to </button>
+          </a>
+        </div>
         <div className="grid-item grid-item-10">
         <button onClick={() => props.onCloseClicked()}>Close</button>
       </div>
@@ -44,6 +49,11 @@ function DetailsView(props) {
             Museum Phrase {singleResult["museum-desc"]}
         </div>
       </div>
+      <div className="grid-item grid-item-8">
+          <a href={"https://animalcrossing.fandom.com/wiki/"+singleResult["file-name"]}>
+            <button>Link to </button>
+          </a>
+        </div>
       <div className="grid-item grid-item-10">
         <button onClick={() => props.onCloseClicked()}>Close</button>
       </div>
@@ -76,49 +86,141 @@ function DetailsView(props) {
       <div className="grid-item grid-item-7">
           Catch Phrase {singleResult['catch-phrase']}
       </div>
+      <div className="grid-item grid-item-8">
+          <a href={"https://animalcrossing.fandom.com/wiki/"+singleResult.name["name-EUen"]}>
+            <button>Link to </button>
+          </a>
+        </div>
       <div className="grid-item grid-item-10">
         <button onClick={() => props.onCloseClicked()}>Close</button>
       </div>
     </div>
     <div className="page-right"></div>
   </div>
-);
-      else return (
-          <div className="details__container">
-            <div className="page-left"></div>
-            <div className="grid-container">
-              <div className="grid-item grid-item-1">
-                <img className="image" alt="" src={singleResult.image_uri} />
-              </div>
-              <div className="grid-item grid-item-2">{singleResult.name["name-EUen"]}</div>
-              <div className={"grid-item grid-item-3"}>
-                Location {singleResult.availability.location}
-              </div>
-              <div className="grid-item grid-item-4">
-                Price {singleResult.price}
-              </div>
-              <div className="grid-item grid-item-5">
-                Rarity {singleResult.availability.rarity}
-              </div>
-              <div className="grid-item grid-item-6">
-                Month {singleResult.availability["month-northern"]}
-              </div>
-              <div className="grid-item grid-item-7">
-                Time of day {singleResult.availability["time-array"]}
-              </div>
-              <div className="grid-item grid-item-8">
-                <button>Link to </button>
-              </div>
-              <div className="grid-item grid-item-9">
-                <button>Add to my collection</button>
-              </div>
-              <div className="grid-item grid-item-10">
-                <button onClick={() => props.onCloseClicked()}>Close</button>
-              </div>
-            </div>
-            <div className="page-right"></div>
+  );
+  else if(singleResult.speed) return (
+    <div className="details__container">
+      <div className="page-left"></div>
+      <div className="grid-container">
+        <div className="grid-item grid-item-1">
+          <img className="image" alt="" src={singleResult.image_uri} />
+        </div>
+        <div className="grid-item grid-item-2">{singleResult.name["name-EUen"]}</div>
+        <div className={"grid-item grid-item-3"}>
+          Location {singleResult.availability.location}
+        </div>
+        <div className="grid-item grid-item-4">
+          Price {singleResult.price}
+        </div>
+        <div className="grid-item grid-item-5">
+          Rarity {singleResult.availability.rarity}
+        </div>
+        <div className="grid-item grid-item-5">
+          Shadow {singleResult.shadow}
+        </div>
+        <div className="grid-item grid-item-5">
+          Speed {singleResult.speed}
+        </div>
+        <div className="grid-item grid-item-6">
+          Month {singleResult.availability["month-northern"]}
+        </div>
+        <div className="grid-item grid-item-7">
+          Time of day {singleResult.availability["time-array"]}
+        </div>
+        <div className="grid-item grid-item-8">
+          <a href={"https://animalcrossing.fandom.com/wiki/"+singleResult["file-name"]}>
+            <button>Link to </button>
+          </a>
+        </div>
+        <div className="grid-item grid-item-9">
+          <button>Add to my collection</button>
+        </div>
+        <div className="grid-item grid-item-10">
+          <button onClick={() => props.onCloseClicked()}>Close</button>
+        </div>
+      </div>
+      <div className="page-right"></div>
+    </div>
+  );
+  else if(singleResult.shadow) return (
+      <div className="details__container">
+        <div className="page-left"></div>
+        <div className="grid-container">
+          <div className="grid-item grid-item-1">
+            <img className="image" alt="" src={singleResult.image_uri} />
           </div>
-        );
+          <div className="grid-item grid-item-2">{singleResult.name["name-EUen"]}</div>
+          <div className={"grid-item grid-item-3"}>
+            Location {singleResult.availability.location}
+          </div>
+          <div className="grid-item grid-item-4">
+            Price {singleResult.price}
+          </div>
+          <div className="grid-item grid-item-5">
+            Rarity {singleResult.availability.rarity}
+          </div>
+          <div className="grid-item grid-item-5">
+            Shadow {singleResult.shadow}
+          </div>
+          <div className="grid-item grid-item-6">
+            Month {singleResult.availability["month-northern"]}
+          </div>
+          <div className="grid-item grid-item-7">
+            Time of day {singleResult.availability["time-array"]}
+          </div>
+          <div className="grid-item grid-item-8">
+            <a href={"https://animalcrossing.fandom.com/wiki/"+singleResult["file-name"]}>
+              <button>Link to </button>
+            </a>
+          </div>
+          <div className="grid-item grid-item-9">
+            <button>Add to my collection</button>
+          </div>
+          <div className="grid-item grid-item-10">
+            <button onClick={() => props.onCloseClicked()}>Close</button>
+          </div>
+        </div>
+        <div className="page-right"></div>
+      </div>
+    );
+    else return (
+      <div className="details__container">
+        <div className="page-left"></div>
+        <div className="grid-container">
+          <div className="grid-item grid-item-1">
+            <img className="image" alt="" src={singleResult.image_uri} />
+          </div>
+          <div className="grid-item grid-item-2">{singleResult.name["name-EUen"]}</div>
+          <div className={"grid-item grid-item-3"}>
+            Location {singleResult.availability.location}
+          </div>
+          <div className="grid-item grid-item-4">
+            Price {singleResult.price}
+          </div>
+          <div className="grid-item grid-item-5">
+            Rarity {singleResult.availability.rarity}
+          </div>
+          <div className="grid-item grid-item-6">
+            Month {singleResult.availability["month-northern"]}
+          </div>
+          <div className="grid-item grid-item-7">
+            Time of day {singleResult.availability["time-array"]}
+          </div>
+          <div className="grid-item grid-item-8">
+            <a href={"https://animalcrossing.fandom.com/wiki/"+singleResult["file-name"]}>
+              <button>Link to </button>
+            </a>
+          </div>
+          <div className="grid-item grid-item-9">
+            <button>Add to my collection</button>
+          </div>
+          <div className="grid-item grid-item-10">
+            <button onClick={() => props.onCloseClicked()}>Close</button>
+          </div>
+        </div>
+        <div className="page-right"></div>
+      </div>
+    );
     }
 
 
