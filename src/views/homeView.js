@@ -4,37 +4,45 @@ import { Link } from "react-router-dom";
 export default 
 function HomeView(props) {
   return (
-    <div className="list__home">
-        <div className="listItem__home" >
-            <Link to="/">
-            <img className="listItem__image" alt="" src={"https://dodo.ac/np/images/e/e9/Menu_Map_NH_Icon.png"}/>
-            My Island </Link>
-        </div>
-        <div className="listItem__home" >
-            <Link to="/encyclopedia">
-            <img className="listItem__image" alt="" src={"https://acnhapi.com/v1/icons/fish/1"}/>
-            Encyclopedia </Link>
-        </div>
-        <div className="listItem__home" >
-            <Link to="/villagers">
-            <img className="listItem__image" alt="" src={"https://acnhapi.com/v1/icons/villagers/1"}/>
-            Villagers </Link>
-        </div>
-        <div className="listItem__home" >
-            <Link to="/music">
-            <img className="listItem__image" alt="" src={"https://acnhapi.com/v1/images/songs/1"}/>
-            Music </Link>
-        </div>
-        <div className="listItem__home" >
-            <Link to="/collectibles">
-            <img className="listItem__image" alt="" src={"https://acnhapi.com/v1/images/art/academic_painting"}/>
-             Collectibles </Link>
-        </div>
-        <div className="listItem__home" >
-            <Link to="/">
-            <img className="listItem__image" alt="" src={"https://dodo.ac/np/images/6/65/Menu_Custom_Designs_NH_Icon.png"}/>
-            Help/Info </Link>
-        </div>
+    <div className="home">
+            <div className='home__row'>
+                <div className="home__box" >
+                    <Link className="home__link" to="/">
+                        <img className="home__image" alt="" src={"../../images/homeIcons/myIsland.png"}/>
+                        <h3 className="home__text"> My Island </h3>
+                    </Link>
+                </div>
+                <div className="home__box" >
+                    <Link className="home__link" to="/encyclopedia">
+                        <img className="home__image" alt="" src={"../../images/homeIcons/encyclopedia.png"}/>
+                        <h3 className="home__text"> Encyclopedia </h3>
+                    </Link>
+                </div>
+                <div className="home__box" >
+                    <Link className="home__link" to="/villagers">
+                        <img className="home__image" alt="" src={"../../images/homeIcons/villagers.png"}/>
+                        <h3 className="home__text"> Villagers </h3>
+                    </Link>
+                </div>
+                <div className="home__box" >
+                    <Link className="home__link" to="/music">
+                        <img className="home__image" alt="" src={"../../images/homeIcons/music.png"}/>
+                        <h3 className="home__text"> Music </h3>
+                    </Link>
+                </div>
+                <div className="home__box" >
+                    <Link className="home__link" to="/collectibles">
+                        <img className="home__image" alt="" src={"../../images/homeIcons/collectibles.png"}/>
+                        <h3 className="home__text"> Collectibles </h3>
+                    </Link>
+                </div>
+                <div className="home__box" >
+                    <Link className="home__link" to="/">
+                        <img className="home__image" alt="" src={"../../images/homeIcons/help.png"}/>
+                        <h3 className="home__text"> Info </h3>
+                    </Link>
+                </div>
+            </div>
     </div>
   )
 }
