@@ -7,9 +7,9 @@ function VillagersView(props){
             }
             return (
                 <div className="list__col" key={"villagers_"+singleResult.id} onClick={() => itemClicked()}>
-                    <div className="listItem" >
-                        <img className="listItem__image" alt="" src={singleResult.icon_uri}/>
-                        <div className="listItem__text">
+                    <div className="listItem__villagers" >
+                        <img className="listItem__image_villagers" alt="" src={singleResult.icon_uri}/>
+                        <div className="listItem__text_villagers">
                             {singleResult.name["name-EUen"]}
                         </div>
                     </div>

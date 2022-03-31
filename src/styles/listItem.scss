@@ -13,4 +13,33 @@
     &__text {
         width: 90%;
     }
+
+    &__villagers {
+        padding: 2px;
+        cursor: pointer;
+        margin: 10px;
+        width: 170px;
+        height: 170px;
+        background: #F7F4E4;
+        border-radius: 50px;
+        transition: 1s;
+        &:hover {
+            background: #DED9C0;;
+            transition: 1s;
+            transform: scale(1.05);
+        }
+    }
+
+    &__text_villagers {
+        width: 90%;
+        font-family: 'Rubik';
+        font-style: normal;
+        color: #835B26;
+        font-weight: bold;
+    }
+
+    &__image_villagers {
+        // border-style:solid;
+        // border-color: tomato;
+    }
 }
