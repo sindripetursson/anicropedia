@@ -15,7 +15,7 @@ function MenuBarView(props) {
             </div>
             <div className='menuBar__sides'>
                 <Link className='menuBar__link' to="/"> 
-                <i className="menuBar__icon fa-solid fa-circle-user"></i>
+                    <img src='../../images/user.svg' className="menuBar__icon" />
                 </Link> 
             </div>
         </div>
@@ -23,7 +23,7 @@ function MenuBarView(props) {
         <div className='menuBar__lower'>
             <div className='menuBar__sides'> 
                 <Link className='menuBar__link' to="/"> 
-                    <i className="menuBar__icon fa-solid fa-reply"></i> 
+                    <img src='../../images/back.svg' className="menuBar__icon" /> 
                 </Link> 
             </div>
             <div className='menuBar__sides'> 
