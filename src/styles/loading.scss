@@ -1,0 +1,23 @@
+@import "config";
+
+.loading {
+
+    &__container{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: url(../../public/images/bg_cream.png) no-repeat center center fixed;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+    }
+
+    &__icon{
+        width: 20%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+}

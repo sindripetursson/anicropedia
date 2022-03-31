@@ -23,9 +23,6 @@
     max-width: 100%;
   }
 
-  .loadingIcon{
-    width: 20%;
-  }
   
   // TODO import
   @import "listItem";
@@ -34,3 +31,4 @@
   @import "months";
   @import "menuBar";
   @import "home";
+  @import "loading";
