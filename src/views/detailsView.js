@@ -134,7 +134,8 @@ function DetailsView(props) {
     <div className="details__container">
       <div className="details__row">
           <div className="details__col">
-            <img className="image" alt="" src={singleResult.image_uri} />
+            <img className="frame" src='../../images/Frame.svg' />
+            <img className="image__villagers" alt="" src={singleResult.image_uri} />
           </div>
         <div className="details__col__splitter">
           <div className="details__row">

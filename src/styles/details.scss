@@ -29,9 +29,12 @@
         background: #EFEAC8;
         padding-left: 5vw;
         padding-right: 5vw;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
+        padding-top: 5vw;
+        padding-bottom: 5vw;
         border-radius: 5vw;
+        overflow: scroll;
+        overflow-y: auto;
+        overflow-x: auto;
     }
 
     &__row {
@@ -68,6 +71,7 @@
                 @include columns(12);
                 padding-left: 0;
                 border-left: none;
+                margin-top: 10%;
                 border-top: #835B26 dashed 2px;
             }
         }
@@ -116,9 +120,9 @@
 
 .close{
     position: absolute;
-    transform: translate(30%, -30%) scale(0.75);
-    top: 0;
-    right: 0;
+    transform: scale(0.75);
+    top: 5%;
+    right: 5%;
     cursor: pointer;
 }
 
@@ -141,7 +145,48 @@ button:hover{
 }
 
 .image{
+
+    &__villagers{
+        width: 20vw;
+        max-width: 300px;
+        min-width: 200px;
+    }
+
     @media(max-width: 1000px){
         max-height: 20vh;
     }
 }
+
+.frame{
+    position: absolute;
+    width: 25vw;
+    max-width: 360px;
+    min-width: 250px;
+    min-height: 250px;
+    transform: translate(-10%,-10%);
+    @media(max-width: 1000px){
+        max-height: 20vh;
+    }
+}
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+          }
+          
+          /* Track */
+          ::-webkit-scrollbar-track {
+            background: #DED9C0; 
+            border-radius: 10px;
+          }
+          
+          /* Handle */
+          ::-webkit-scrollbar-thumb {
+            background: #8B7A66; 
+            border-radius: 10px;
+          }
+          
+          /* Handle on hover */
+          ::-webkit-scrollbar-thumb:hover {
+            background: #835B26; 
+          }
