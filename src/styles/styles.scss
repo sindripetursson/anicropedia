@@ -22,6 +22,10 @@
   img { /* stylelint-disable-line */
     max-width: 100%;
   }
+
+  .loadingIcon{
+    width: 20%;
+  }
   
   // TODO import
   @import "listItem";
