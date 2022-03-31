@@ -2,7 +2,7 @@ import './App.css';
 import "./css/style.css";
 import "./css/topbar.css";
 import "./styles/styles.css";
-import TopbarView from './views/topbarView';
+import MenuBarView from './views/menuBarView';
 import HomeView from './views/homeView';
 import Encyclopedia from './presenters/encyclopediaPresenter';
 import Villagers from './presenters/villagersPresenter';
@@ -22,7 +22,7 @@ function App(props) {
         <Details detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>  
       </div>
       <BrowserRouter>
-      <TopbarView setDetailsOn={setDetailsOn}/>
+      <MenuBarView setDetailsOn={setDetailsOn}/>
         <Routes>
           <Route path="/" exact element={<HomeView setDetailsOn={setDetailsOn}/>}/>
           <Route path="/encyclopedia" element={<Encyclopedia detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
