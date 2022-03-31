@@ -20,12 +20,12 @@ function MusicView(props){
 
                 return (
                     <div className="list__col" key={"music_"+singleResult.id}>
-                        <div className="listItem" >
-                            <img className="listItem__image" alt="" src={singleResult.image_uri}/>
-                            <div className="listItem__text">
+                        <div className="listItem__music" >
+                            <img className="listItem__image_music" alt="" src={singleResult.image_uri}/>
+                            <div className="listItem__text_music">
                                     {singleResult.name["name-EUen"]}
                             </div>
-                            <img onClick={play} width="30" height="30" src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt=""/>
+                            <img className="listItem__music play_button listItem__play_button" onClick={play} src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt=""/>
                         </div>
                     </div>
                 );
