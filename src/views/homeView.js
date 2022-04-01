@@ -37,7 +37,7 @@ function HomeView(props) {
                     </Link>
                 </div>
                 <div className="home__box" >
-                    <Link className="home__link" to="/">
+                    <Link className="home__link" to="/info">
                         <img className="home__image" alt="" src={"../../images/homeIcons/help.png"}/>
                         <h3 className="home__text"> Info </h3>
                     </Link>

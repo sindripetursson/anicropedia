@@ -1,0 +1,157 @@
+@import "config";
+
+.info {
+    display: grid;
+    grid-template-columns: 5fr 5fr 8fr;
+    grid-template-areas:
+        "about villagers api-devs"
+        "island music img"
+        "collectable art img"
+        "collectable art img";  
+    width: 900px;
+    height: 800px;
+    background-color: #F7F4E4;
+    border-radius: 50px;
+    transform: translate(10%,15%);
+    overflow: hidden;
+    bottom: 50%;
+    @include columns-grid(4);
+    @include row-grid();
+
+    &__heading {
+        text-align: left;
+        font-family: $font-main;
+        font-weight: bold;
+        color: #835B26;
+        margin-bottom: 2%;
+    }
+    
+    &__text {
+        text-align: justify;
+        text-justify: inter-word;
+        font-family: $font-main;
+        font-size: 11pt;
+        font-weight: 400;
+        color: #887C66;
+    }  
+}
+
+.image {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%;
+}
+
+.image-name {
+    text-align: left;
+    font-family: $font-main;
+    font-weight: bold;
+    color: #835B26;
+    margin-bottom: 2%;
+    transform: translateY(100%)
+}  
+
+.image-mail {
+    text-align: left;
+    font-family: $font-main;
+    font-size: 11pt;
+    font-weight: 400;
+    color: #887C66;
+    transform: translateY(120%)
+}  
+
+@media (max-width: 1000px){ 
+.info {
+    grid-template-areas:
+        "about about about"
+        "villagers villagers villagers"
+        "api-devs api-devs api-devs"
+        "island island island"
+        "music music music"
+        "collectable collectable collectable"
+        "art art art"
+        "img img img";
+    overflow-y: scroll;
+    }
+}
+
+@media (max-width: 1000px){ 
+    .info::-webkit-scrollbar-track {
+        margin-block: 3em;
+    }
+}
+
+.grids{
+    margin: 8px;
+    // border: solid;
+    margin-left: 15px;
+    margin-right: 15px;
+    line-height: 1.5;
+
+    &__about {
+        grid-area: about;
+    }
+
+    &__island {
+        grid-area: island;
+    }
+
+    &__collectable {
+        grid-area: collectable;
+    }
+
+    &__villagers {
+        grid-area: villagers;
+    }
+
+    &__music-info {
+        grid-area: music;
+    }
+
+    &__art {
+        grid-area: art;
+    }
+
+    &__api-devs {
+        grid-area: api-devs;
+    }
+
+    &__img {
+        grid-area: img;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        &__contact-a {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        &__contact-at {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        &__contact-b {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        &__contact-bt {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        &__contact-c {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        &__contact-ct {
+            grid-column: 2;
+            grid-row: 3;
+        }
+        &__contact-d {
+            grid-column: 1;
+            grid-row: 4;
+        }
+        &__contact-dt {
+            grid-column: 2;
+            grid-row: 4;
+        }
+    }
+}
+

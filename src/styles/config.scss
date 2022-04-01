@@ -18,12 +18,22 @@ $transition: 300ms ease-in-out;
   margin-left: -($gutter *0.5);
 }
 
+@mixin row-grid() {
+  display: grid;
+}
+
 @mixin columns($col: 1) {
   width: (calc($col / 12) * 100) *1%;
   padding-right: $gutter *0.5;
   padding-left: $gutter *0.5;
 }
 
+@mixin columns-grid($col: 1) {
+  display: grid;
+  width: (calc($col / 5) * 100) *1%;
+}
+
 @mixin offset-left($cols: 0) {
   margin-left: (calc($cols / 12) * 100) * 1%;
 }
+
