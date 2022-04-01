@@ -13,16 +13,13 @@ class UserModel {
     }
 
     addItem(itemToAdd, category) {
-        console.log('Fish to add : ', itemToAdd);
         function hasSameIdCB(item){
             return itemToAdd.id === item.id;
         }
         let currentArray = this.getCategoryArray(category);
         const newItemArray = currentArray.filter(hasSameIdCB); 
-        console.log('NewFishArray: ', newItemArray);
 
         if (newItemArray.length === 0) {
-            console.log('Add item: ', itemToAdd, ' category: ', category);
             switch(category) {
                 case 'fish':
                     this.fishes= [...this.fishes, itemToAdd];
@@ -82,10 +79,8 @@ class UserModel {
             return itemToRemove.id !== fish.id;
         }
         let currentArray = this.getCategoryArray(category);
-        console.log('Current array: ', currentArray);
         const newArray = currentArray.filter(hasSameIdCB); 
         if(newArray.length !== currentArray.length) {
-            console.log('Remove item: ', itemToRemove);
             switch(category) {
                 case 'fish':
                     this.fishes = newArray;

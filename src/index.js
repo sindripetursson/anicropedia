@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 const UserModel = require("./UserModel.js").default;
 const userModel= new UserModel();
-console.log('UserModel: ', userModel);
 const DetailsModel = require("./DetailsModel.js").default;
 const detailsModel= new DetailsModel();
 let firebaseModel = require("./firebaseModel.js");
@@ -22,7 +21,6 @@ function ReactRoot() {
       updateModelFromFirebase(userModel);
     }
   }, []);
-  console.log('UserModel in ReactRoot: ', userModel);
   return <App userModel={userModel} detailsModel={detailsModel}/>;
 }
 
