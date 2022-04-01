@@ -1,7 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/database";
 import firebaseConfig from "./firebaseConfig.js";
-import {getFishDetails} from "./fishSource.js";
+import { getFishDetails } from "./source/fishSource.js";
 import UserModel from "./UserModel.js";
 firebase.initializeApp(firebaseConfig);  
 

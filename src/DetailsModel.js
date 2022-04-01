@@ -1,5 +1,5 @@
 import resolvePromise from "./resolvePromise";
-import { getDetails } from "./detailsSource";
+import { getDetails } from "./source/detailsSource";
 
 
 class DetailsModel{

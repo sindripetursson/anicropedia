@@ -1,7 +1,7 @@
 import MusicView from "../views/musicView.js";
 import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
-import { getMusic } from "../musicSource.js";
+import { getMusic } from "../source/musicSource.js";
 import resolvePromise from "../resolvePromise";
 
 export default 

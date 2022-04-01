@@ -1,4 +1,4 @@
-import { getSpecies } from "../encyclopediaSource";
+import { getSpecies } from "../source/encyclopediaSource";
 import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";

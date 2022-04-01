@@ -1,4 +1,4 @@
-import { getCollectible } from "../collectibleSource";
+import { getCollectible } from "../source/collectibleSource";
 import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
