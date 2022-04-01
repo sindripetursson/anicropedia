@@ -4,6 +4,7 @@ import "./css/topbar.css";
 import "./styles/styles.css";
 import MenuBarView from './views/menuBarView';
 import HomeView from './views/homeView';
+import InfoView from './views/infoView';
 import Encyclopedia from './presenters/encyclopediaPresenter';
 import Villagers from './presenters/villagersPresenter';
 import Collectible from './presenters/collectiblePresenter';
@@ -29,6 +30,7 @@ function App(props) {
           <Route path="/villagers" element={ <Villagers detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
           <Route path="/music" element={ <Music detailsModel={props.detailsModel}/>}/>
           <Route path="/collectibles" element={ <Collectible detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/info" element={ <InfoView setDetailsOn={setDetailsOn}/>}/>
         </Routes>
       </BrowserRouter>
     </div>
