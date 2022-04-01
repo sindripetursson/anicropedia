@@ -19,7 +19,7 @@ function App(props) {
  return (
     <div className="App">
       <div className={detailsOn ? "details" : "hidden"}>
-        <Details detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>  
+        <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
       </div>
       <BrowserRouter>
       <TopbarView setDetailsOn={setDetailsOn}/>

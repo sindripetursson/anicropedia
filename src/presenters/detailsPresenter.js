@@ -9,21 +9,38 @@ function Search(props) {
     const [promise, setPromise]= React.useState(function initializePromiseACB() {return getFishDetails(1)});
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);
+	const [isInCollection, setIsInCollection] = React.useState(false);
 
-    function observerACB(){ 
+    function isItemInCurrentCollection() {
+        function itemInCollectionCB(item) {
+			return item.id === props.detailsModel.currentId;
+      	}
+		return (props.userModel.getCategoryArray(props.detailsModel.currentCategory).filter(itemInCollectionCB)).length > 0; 
+    }
+
+    function detailsObserverACB(){ 
         setPromise(getDetails(props.detailsModel.currentCategory,props.detailsModel.currentId)); 
+		setIsInCollection(isItemInCurrentCollection());
+    }
+
+    function changeCollectionACB() {
+      	if(isInCollection) {
+			props.userModel.removeItem(data, props.detailsModel.currentCategory);
+			setIsInCollection(isItemInCurrentCollection());
+		} else {
+			props.userModel.addItem(data, props.detailsModel.currentCategory);
+			setIsInCollection(isItemInCurrentCollection());
+		}
     }
 
     function closeClicked(){
-      props.setDetailsOn(false);
+    	props.setDetailsOn(false);
     }
 
     function wasCreatedACB(){  
-
-        props.detailsModel.addObserver(observerACB);   // 1. subscribe
-
+      	props.detailsModel.addObserver(detailsObserverACB);   // 1. subscribe
             function isTakenDownACB(){ 
-                props.detailsModel.removeObserver(observerACB);
+                props.detailsModel.removeObserver(detailsObserverACB);
             } // 2.unsubscribe
 
         return isTakenDownACB;
@@ -37,16 +54,16 @@ function promiseChangedACB(){
 
     let cancelled = false;
     function changedAgainACB() { 
-      cancelled = true; 
+      	cancelled = true; 
     };  // also called at teardown!
     if(promise) {
-      promise
-      .then(function saveDataACB(dt) {  
-        if(!cancelled) setData(dt);
-      })
-      .catch(function saveErrACB(err) { 
-        if(!cancelled) setError(err);
-      });
+      	promise
+      	.then(function saveDataACB(dt) {  
+        	if(!cancelled) setData(dt);
+      	})
+      	.catch(function saveErrACB(err) { 
+        	if(!cancelled) setError(err);
+      	});
     }
 
     return changedAgainACB;  // promiseChangedACB will be called for the new value!
@@ -56,7 +73,7 @@ function promiseChangedACB(){
         return <div>
         
         {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
-              <DetailsView onCloseClicked={closeClicked} data={data} />}
+              <DetailsView onCloseClicked={closeClicked} data={data} onCollectionChange={changeCollectionACB} isInCollection={isInCollection}/>}
               </div>
               
 } 

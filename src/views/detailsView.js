@@ -53,7 +53,7 @@ function DetailsView(props) {
               </a>
             </div>
             <div className="details__col">
-              <button>Add to my collection</button>
+              <button onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
             </div>
           </div>
           </div>
@@ -120,7 +120,7 @@ function DetailsView(props) {
               </a>
             </div>
             <div className="details__col">
-              <button>Add to my collection</button>
+              <button onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
             </div>
           </div>
         </div>
@@ -204,7 +204,7 @@ function DetailsView(props) {
               </a>
             </div>
             <div className="details__col">
-              <button>Add to my villagers</button>
+              <button onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my village':'Add to my village'}</button>
             </div>
           </div>
         </div>
@@ -280,7 +280,7 @@ function DetailsView(props) {
                 </a>
               </div>
               <div className="details__col">
-                <button>Add to my collection</button>
+                <button onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
               </div>
             </div>
           </div>
@@ -364,7 +364,7 @@ function DetailsView(props) {
                 </a>
               </div>
               <div className="details__col">
-                <button>Add to my collection</button>
+                <button onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
               </div>
             </div>
           </div>
@@ -441,7 +441,7 @@ function DetailsView(props) {
                 </a>
               </div>
               <div className="details__col">
-                <button>Add to my collection</button>
+                <button onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
               </div>
             </div>
             
