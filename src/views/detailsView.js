@@ -33,7 +33,7 @@ function DetailsView(props) {
                 Price
               </div>
               <div className="details__content">
-                <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
+                <img width="15" alt="bells" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult.price}
               </div>
             </div>
@@ -82,7 +82,7 @@ function DetailsView(props) {
                 Buy Price
               </div>
               <div className="details__content">
-                <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
+                <img width="15" alt="bells" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult["buy-price"]}
               </div>
             </div>
@@ -91,7 +91,7 @@ function DetailsView(props) {
                 Sell Price
               </div>
               <div className="details__content">
-                <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
+                <img width="15" alt="bells" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult["sell-price"]}
               </div>
             </div>
@@ -134,7 +134,7 @@ function DetailsView(props) {
     <div className="details__container">
       <div className="details__row">
           <div className="details__col">
-            <img className="frame" src='../../images/Frame.svg' />
+            <img className="frame" alt="frame" src='../../images/Frame.svg' />
             <img className="image__villagers" alt="" src={singleResult.image_uri} />
           </div>
         <div className="details__col__splitter">
@@ -240,7 +240,7 @@ function DetailsView(props) {
                 Price
               </div>
               <div className="details__content">
-                <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
+                <img width="15" alt="bells" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult.price}
               </div>
             </div>
@@ -316,7 +316,7 @@ function DetailsView(props) {
                 Price
               </div>
               <div className="details__content">
-              <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
+              <img width="15" alt="bells" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                 {singleResult.price}
               </div>
             </div>
@@ -401,7 +401,7 @@ function DetailsView(props) {
                   Price
                 </div>
                 <div className="details__content">
-                  <img width="15" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
+                  <img width="15" alt="bells" style={{transform: "translate(0,15%)"}} src="../../images/bells.png"/>
                   {singleResult.price}
                 </div>
               </div>

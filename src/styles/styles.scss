@@ -22,9 +22,13 @@
   img { /* stylelint-disable-line */
     max-width: 100%;
   }
+
   
   // TODO import
   @import "listItem";
   @import "list";
   @import "details";
   @import "months";
+  @import "menuBar";
+  @import "home";
+  @import "loading";

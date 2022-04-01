@@ -1,0 +1,70 @@
+@import "config";
+
+.menuBar {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    flex-direction: column;
+
+    &__upper {
+        height: 50px;
+        background-color: white;
+        display: flex;
+        width: 100%;
+    }
+
+    &__lower {
+        height: 60px;
+        background-color: white;
+        display: flex;
+        width: 100%;
+    }
+
+    &__sides {
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        width: 15%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__center {
+        flex: 6;
+        display: flex;
+        align-items: center;
+    }
+
+    &__link {
+        color: inherit;
+    }
+
+    &__icon {
+        font-size: 40px;
+        margin-right: 10px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__title {
+        width: 100%;
+    }
+
+    &__image {
+        height: 50px;
+        background-color: white;
+    }
+
+    &__logo {
+        height: 50px;
+    }
+}
