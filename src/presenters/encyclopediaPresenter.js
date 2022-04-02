@@ -3,6 +3,7 @@ import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import EncyclopediaView from "../views/encyclopediaView";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 export default 
 function Encyclopedia(props) {
@@ -47,22 +48,50 @@ function Encyclopedia(props) {
     
       React.useEffect(promiseChangedACB, [promise]);
 
-    return <div>
-    <div className="list__nav">
-        <div className="buttons" onClick={() => {
-          setPromise(getSpecies('fish'));
-          setCurrentSpecies('fish');
-        }}>Fish </div>
-        <div className="buttons" onClick={() => {
-            setPromise(getSpecies('bugs'));
-            setCurrentSpecies('bugs');
-            }}>Insects </div>
-        <div className="buttons" onClick={() => {
-          setPromise(getSpecies('sea'));
-          setCurrentSpecies('sea');
-        }}>Sea Creatures </div>
-    </div>
-    {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
-        <EncyclopediaView onItemClicked={getDetails} data={data} />}
+    return <div className="dropshadow">
+    {promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
+          <div>
+            <div className="list__nav">
+            <div className="list__row__nav">
+              <div 
+                className={currentSpecies === 'fish' ? "list__col__button" : "list__col__button inactive" }
+                onClick={() => {
+                  setPromise(getSpecies('fish'));
+                  setCurrentSpecies('fish');
+                }}
+                >
+                  <div className="list__nav__container">
+                    <img className="list__nav__icon" src="../../images/fishIcon.svg"/>
+                    <div className="list__nav__text">Fish</div>
+                  </div>
+              </div>
+              <div 
+                className={currentSpecies === 'bugs' ? "list__col__button" : "list__col__button inactive" }
+                onClick={() => {
+                  setPromise(getSpecies('bugs'));
+                  setCurrentSpecies('bugs');
+                }
+                }>
+                  <div className="list__nav__container">
+                    <img className="list__nav__icon" src="../../images/bugsIcon.svg"/>
+                    <div className="list__nav__text">Insects</div>
+                  </div>
+              </div>
+              <div
+                className={currentSpecies === 'sea' ? "list__col__button" : "list__col__button inactive" }
+                onClick={() => {
+                  setPromise(getSpecies('sea'));
+                  setCurrentSpecies('sea');
+                }
+                }>
+                  <div className="list__nav__container">
+                    <img className="list__nav__icon" src="../../images/seaIcon.svg"/>
+                    <div className="list__nav__text">Sea Creatures</div>
+                  </div>
+              </div>
+            </div>
+          </div>  
+          <EncyclopediaView onItemClicked={getDetails} data={data} />
+        </div>}
     </div>
 }

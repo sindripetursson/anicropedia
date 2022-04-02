@@ -72,7 +72,7 @@ function InfoView(props){
             </div>
             <div className="grids grids__img">
                 <div className="grids grids__img__contact-a">
-                    <img className="image" src="../../images/benjamin-esdor.png" alt="" />
+                    <img className="info_image" src="../../images/benjamin-esdor.png" alt="" />
                 </div>
                 <div className="grids grids__img__contact-at">
                     <div className="image-name">
@@ -83,7 +83,7 @@ function InfoView(props){
                     </div>
                 </div>
                 <div className="grids grids__img__contact-b">
-                    <img className="image" src="../../images/benjamin-esdor.png" alt="" />
+                    <img className="info_image" src="../../images/benjamin-esdor.png" alt="" />
                 </div>
                 <div className="grids grids__img__contact-bt">
                     <div className="image-name">
@@ -94,7 +94,7 @@ function InfoView(props){
                     </div>
                 </div>
                 <div className="grids grids__img__contact-c">
-                    <img className="image" src="../../images/benjamin-esdor.png" alt="" />
+                    <img className="info_image" src="../../images/benjamin-esdor.png" alt="" />
                 </div>
                 <div className="grids grids__img__contact-ct">
                     <div className="image-name">
@@ -105,7 +105,7 @@ function InfoView(props){
                     </div>
                 </div>
                 <div className="grids grids__img__contact-d">
-                    <img className="image" src="../../images/benjamin-esdor.png" alt="" />
+                    <img className="info_image" src="../../images/benjamin-esdor.png" alt="" />
                 </div>
                 <div className="grids grids__img__contact-dt">
                     <div className="image-name">

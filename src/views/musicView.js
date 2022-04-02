@@ -38,8 +38,8 @@ function MusicView(props){
                 return (
                     <div className="list__col" key={"music_"+singleResult.id}>
                         <div className="listItem__music" >
-                            <img className="listItem__image_music" alt="" src={singleResult.image_uri}/>
-                            <div className="listItem__text_music">
+                            <img className="listItem__image__music" alt="" src={singleResult.image_uri}/>
+                            <div className="listItem__text__music">
                                     {singleResult.name["name-EUen"]}
                             </div>
                             <img className="listItem__music play_button-is-hover listItem__play_button-transparent" onClick={play} src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt=""/>
