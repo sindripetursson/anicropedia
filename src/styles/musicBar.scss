@@ -1,0 +1,26 @@
+   .player {
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+        
+  .buttons-music {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+    
+  .playpause-track,
+  .stop-track {
+    padding: 10px;
+    opacity: 0.8;
+    transition: opacity .2s;
+  }
+  
+  .playpause-track:hover,
+  .stop-track:hover {
+    opacity: 1.0;
+  }
