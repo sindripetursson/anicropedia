@@ -58,10 +58,10 @@
         filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
         transition: 1s;
         &:hover {
-            background: #DED9C0;;
+            background: #DED9C0;
             transition: 1s;
             transform: scale(1.05);
-            .play_button {
+            .play_button-is-hover {
                 opacity: 1;
                 background: transparent;
             }
@@ -93,12 +93,32 @@
         font-weight: bold;
     }
 
-    &__play_button {
+    &__play_button-transparent {
         opacity: 0;
         display: grid;
         grid-column: 1 / -1;
         grid-row: 1 / -1;
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+    }
+
+    &__play_button-is-clicked-to-play {
+        opacity: 1;
+        display: grid;
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        width: 40px;
+        height: 40px;
+        background: #DED9C0;
+    }
+    &__play_button-is-not-playing-anymore {
+        opacity: 0;
+        display: grid;
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        width: 40px;
+        height: 40px;
+        background: #DED9C0;
     }
 }
