@@ -1,5 +1,5 @@
 import React from "react";
-import { getVillagers } from "../villagersSource";
+import { getVillagers } from "../source/villagersSource";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import VillagersView from "../views/villagersView";

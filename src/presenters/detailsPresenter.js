@@ -1,12 +1,12 @@
 import DetailsView from "../views/detailsView.js";
 import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
-import { getFishDetails } from "../fishSource.js";
-import { getDetails } from "../detailsSource.js";
+// import { getFishDetails } from "../fishSource.js";
+import { getDetails } from "../source/detailsSource.js";
 
 export default 
 function Search(props) {
-    const [promise, setPromise]= React.useState(function initializePromiseACB() {return getFishDetails(1)});
+    const [promise, setPromise]= React.useState(function initializePromiseACB() {return getDetails('fish',1)});
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);
 	const [isInCollection, setIsInCollection] = React.useState(false);

@@ -126,12 +126,3 @@
     width: 90%;
 }
 
-.buttons{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 30%;
-}
-
-.buttons:hover{
-    background-color: aqua;
-}

@@ -1,4 +1,4 @@
-import { getCollectible } from "../collectibleSource";
+import { getCollectible } from "../source/collectibleSource";
 import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
@@ -48,21 +48,39 @@ function Collectible(props) {
       React.useEffect(promiseChangedACB, [promise]);
 
     return ( 
-      <div>
-        <div className="list__nav">
-          <div 
-            className="buttons" 
-            onClick={() => { setPromise(getCollectible('fossils'));setCurrentCategory('fossils');}}>
-              Fossils 
-          </div>
-          <div 
-            className="buttons" 
-            onClick={() => {setPromise(getCollectible('art'));setCurrentCategory('art');}}>
-              Art 
-          </div>
-        </div>
-        {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
-          <CollectibleView onItemClicked={getDetails} data={data} />}
+      <div className="dropshadow">
+        {promiseNoData({promise, data, error}) ||     // same as {promise:promise, data:data, error:error}
+          <div>
+            <div className="list__nav">
+              <div className="list__row__nav">
+                <div 
+                  className={category === 'fossils' ? "list__col__button" : "list__col__button inactive" }
+                  onClick={() => {
+                    setPromise(getCollectible('fossils'));
+                    setCurrentCategory('fossils');
+                  }}
+                  >
+                    <div className="list__nav__container">
+                      <img className="list__nav__icon" src="../../images/fossilsIcon.svg"/>
+                      <div className="list__nav__text">Fossils</div>
+                    </div>
+                </div>
+                <div 
+                  className={category === 'art' ? "list__col__button" : "list__col__button inactive" }
+                  onClick={() => {
+                    setPromise(getCollectible('art'));
+                    setCurrentCategory('art');
+                  }
+                  }>
+                    <div className="list__nav__container">
+                      <img className="list__nav__icon" src="../../images/artIcon.svg"/>
+                      <div className="list__nav__text">Art</div>
+                    </div>
+                </div>
+              </div>
+            </div>   
+            <CollectibleView onItemClicked={getDetails} data={data} />
+          </div>}
       </div>
     );
 }

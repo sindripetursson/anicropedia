@@ -1,12 +1,6 @@
-function CollectibleView(props){
+import { capitalizeFirstLetter } from "../utils";
 
-    function capitalizeFirstLetter(string){
-        let arr = string.split(" ");
-        for(let i = 0; i < arr.length; i++){
-          arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
-        }
-        return arr.join(" ");
-      }
+function CollectibleView(props){
 
     function renderData(data){
 
@@ -16,10 +10,10 @@ function CollectibleView(props){
                 props.onItemClicked(singleResult);
             }
             return (
-                <div className="list__col" key={"collectible_" + singleResult['file-name']} onClick={() => itemClicked()}>
-                    <div className="listItem" >
-                        <img className="listItem__image" alt="" src={singleResult.image_uri}/>
-                        <div className="listItem__text">
+                <div className="list__col__encyclopedia" key={"collectible_" + singleResult['file-name']} onClick={() => itemClicked()}>
+                    <div className="listItem__encyclopedia" >
+                        <img className="listItem__image__encyclopedia" alt="" src={singleResult.image_uri}/>
+                        <div className="listItem__text__encyclopedia">
                             {capitalizeFirstLetter(singleResult.name["name-EUen"])}
                         </div>
                     </div>
@@ -31,8 +25,8 @@ function CollectibleView(props){
 
     return(
         <div className="list">
-            <div className="list__container">
-                <div className="list__row">
+            <div className="list__container__encyclopedia">
+                <div className="list__row__encyclopedia">
                     {renderData(props.data)}
                 </div>
             </div>

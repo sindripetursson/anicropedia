@@ -23,6 +23,10 @@
     max-width: 100%;
   }
 
+  body{
+    background: url(../../public/images/bg_cream.png) center;
+  }
+
   
   // TODO import
   @import "listItem";
@@ -32,3 +36,4 @@
   @import "menuBar";
   @import "home";
   @import "loading";
+  @import "info";
