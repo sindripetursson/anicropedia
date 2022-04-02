@@ -25,10 +25,13 @@ function Search(props) {
 
     function changeCollectionACB() {
       	if(isInCollection) {
+			console.log('Remove item');
 			props.userModel.removeItem(data, props.detailsModel.currentCategory);
 			setIsInCollection(isItemInCurrentCollection());
 		} else {
+			console.log('Add item');
 			props.userModel.addItem(data, props.detailsModel.currentCategory);
+			console.log('User model: ', props.userModel);
 			setIsInCollection(isItemInCurrentCollection());
 		}
     }
