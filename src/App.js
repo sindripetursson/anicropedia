@@ -23,7 +23,7 @@ function App(props) {
         <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
       </div>
       <BrowserRouter>
-      <MenuBarView setDetailsOn={setDetailsOn}/>
+      <MenuBarView/>
         <Routes>
           <Route path="/" exact element={<HomeView setDetailsOn={setDetailsOn}/>}/>
           <Route path="/encyclopedia" element={<Encyclopedia detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>

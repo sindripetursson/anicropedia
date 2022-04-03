@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default 
 function MenuBarView(props) {
-  return (
+    const location = useLocation();
+    console.log(location.pathname);
+    return (
     <div className='menuBar'>    
         <div className='menuBar__upper'>
             <div className='menuBar__sides'> 
@@ -13,16 +15,19 @@ function MenuBarView(props) {
             </div>
             <div className='menuBar__sides'>
                 <Link className='menuBar__link' to="/"> 
-                    <img src='../../images/user.svg' className="menuBar__icon" />
+                    <img src='../../images/user.svg' alt="user" className="menuBar__icon" />
                 </Link> 
             </div>
         </div>
 
         <div className='menuBar__lower'>
             <div className='menuBar__sides'> 
-                <Link className='menuBar__link' to="/"> 
-                    <img src='../../images/back.svg' className="menuBar__icon" /> 
+                {location.pathname === "/" ? 
+                    <></> : 
+                    <Link className='menuBar__link' to="/"> 
+                    <img src='../../images/back.svg' alt="back" className="menuBar__icon" /> 
                 </Link> 
+                }
             </div>
             <div className='menuBar__sides'> 
             </div>
@@ -30,13 +35,19 @@ function MenuBarView(props) {
                     <h1 className='menuBar__title'> Anicropedia </h1>
             </div>
             <div className='menuBar__sides'>
-                <input className='menuBar__search' placeholder="Search item" />
+                {location.pathname === "/" || location.pathname === "/info" ? 
+                    <></> : 
+                    <input className='menuBar__search' placeholder="Search item" />
+                }
             </div>
             <div className='menuBar__sides'>
-                <button className='menuBar__filter'> Filter </button>
+                {location.pathname === "/" || location.pathname === "/info" ? 
+                    <></> : 
+                    <button className='menuBar__filter'> Filter </button>
+                }
             </div>
         </div>
 
     </div>
-  )
+    )
 }
