@@ -9,15 +9,11 @@ firebase.initializeApp(firebaseConfig);
 const REF="userModel";
 
 function updateFirebaseFromModel(model) {
-    console.log(firebase.database());
-    console.log('In updateFirebaseFromModel');
     function firebaseObserverACB(payload) {
         if(payload && payload.addFish) {
-            console.log('In firebaseObserverACB addFish with payload: ', payload);
             firebase.database().ref(REF+"/fishes/"+payload.addFish.id).set(payload.addFish.id);
         }
         if(payload && payload.removeFish) {
-            console.log('In firebaseObserverACB removeFish with payload: ', payload);
             firebase.database().ref(REF+"/fishes/"+payload.removeFish.id).set(null);
         }
     }
