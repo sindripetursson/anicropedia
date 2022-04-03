@@ -4,37 +4,33 @@
     height: 110px;
     display: flex;
     align-items: center;
-    border-bottom-color: black;
-    border-bottom-style: solid;
     flex-direction: column;
 
     &__upper {
         height: 50px;
-        background-color: white;
         display: flex;
         width: 100%;
     }
 
     &__lower {
         height: 60px;
-        background-color: white;
         display: flex;
         width: 100%;
     }
 
     &__sides {
-        background-color: white;
         flex-direction: column;
         align-items: center;
         width: 15%;
         display: flex;
         justify-content: center;
+        padding-top: 10px;
     }
 
     &__center {
         flex: 6;
-        display: flex;
         align-items: center;
+        padding-top: 10px;
     }
 
     &__link {
@@ -61,10 +57,25 @@
 
     &__image {
         height: 50px;
-        background-color: white;
     }
 
     &__logo {
-        height: 50px;
+        height: 40px;
+    }
+
+    &__search {
+        background-color: #F5F7E1;
+        border: #DED9C0 2px solid;
+        color: #8B7A66;
+        font-size: 0.75em;
+        border-radius: 25px;
+        display: inline-block;
+        cursor: pointer;
+        width: 200px;
+        padding: 10px;
+    }
+
+    &__filter {
+        width: 100px;
     }
 }

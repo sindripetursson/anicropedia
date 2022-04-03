@@ -7,11 +7,9 @@ function MenuBarView(props) {
     <div className='menuBar'>    
         <div className='menuBar__upper'>
             <div className='menuBar__sides'> 
-                <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
             </div>
             <div className='menuBar__center'>
-                <div className='menuBar__center'>
-                </div>
+                <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
             </div>
             <div className='menuBar__sides'>
                 <Link className='menuBar__link' to="/"> 
@@ -29,15 +27,13 @@ function MenuBarView(props) {
             <div className='menuBar__sides'> 
             </div>
             <div className='menuBar__center'>
-                <div className='menuBar__center'>
                     <h1 className='menuBar__title'> Anicropedia </h1>
-                </div>
             </div>
             <div className='menuBar__sides'>
-                <input placeholder="Search item" />
+                <input className='menuBar__search' placeholder="Search item" />
             </div>
             <div className='menuBar__sides'>
-                <button> Filter </button>
+                <button className='menuBar__filter'> Filter </button>
             </div>
         </div>
 
