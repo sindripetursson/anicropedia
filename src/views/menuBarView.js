@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 export default 
 function MenuBarView(props) {
     const location = useLocation();
-    console.log(location.pathname);
     return (
     <div className='menuBar'>    
         <div className='menuBar__upper'>
@@ -32,7 +31,10 @@ function MenuBarView(props) {
             <div className='menuBar__sides'> 
             </div>
             <div className='menuBar__center'>
-                    <h1 className='menuBar__title'> Anicropedia </h1>
+                {location.pathname === "/" ? 
+                    <h1 className='menuBar__title'> Anicropedia </h1> : 
+                    <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1>
+                }
             </div>
             <div className='menuBar__sides'>
                 {location.pathname === "/" || location.pathname === "/info" ? 

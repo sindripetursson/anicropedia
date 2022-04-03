@@ -54,6 +54,10 @@
     &__title {
         width: 100%;
     }
+    
+    &__title:first-letter {
+        text-transform: uppercase;
+    }
 
     &__image {
         height: 50px;
