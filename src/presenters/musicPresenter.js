@@ -67,13 +67,15 @@ function promiseChangedACB(){
         var btPlayPause = document.getElementById("togglePlayPause");
         btPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
       }
-    } 
+    }
   }
 
   function pauseTrack() {
+    if(audio.src !== "") { 
     audio.pause();
     var btPlayPause = document.getElementById("togglePlayPause");
     btPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+    }
   }
 
   function stopTrack() {
