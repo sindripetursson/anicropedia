@@ -47,31 +47,31 @@ The following are all folders/files in the /src folder:
 Each file within this folder holds a React component which can be used (and reused) in other parts of our web application. We used components also in the creation of our detailsView, to make the code more manageable and easier to understand.
 
 **art.js**
-This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the art category.
+- This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the art category.
 
 **bugs.js**
-This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the insects category.
+- This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the insects category.
 
 **close_button.js**
-This holds an svg component that renders a close button.
+- This holds an svg component that renders a close button.
 
 **fish.js**
-This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the fish category.
+- This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the fish category.
 
 **fossils.js**
-This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the fossils category.
+- This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the fossils category.
 
 **loading.js**
-This holds the component that renders the loading animation.
+- This holds the component that renders the loading animation.
 
 **months.js**
-This holds a “calendar” for rendering a component that informs the user about the availability of each bug/fish/sea creature in terms of the months.
+- This holds a “calendar” for rendering a component that informs the user about the availability of each bug/fish/sea creature in terms of the months.
 
 **sea.js**
-This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the sea creatures category.
+- This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the sea creatures category.
 
 **villagers.js**
-This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the villagers category.
+- This component holds the elements that will get rendered in the detailsView when the user requests details for an item in the villagers category.
 
 ### Css
 This folder and all of its content will be removed in the future, as we have moved all styling over to SASS.
@@ -83,141 +83,127 @@ Contains the font that is used in the app.
 This folder contains all of the presenters used in the app:
 
 **collectiblePresenter.js**
-
-This presenter manages the CollectibleView. It keeps a hold of which of the two collectible tabs are active and makes a promise that displays either the fossils or the art. To get the relevant collectables it makes a fetch call and passes it down to the view.
+- This presenter manages the CollectibleView. It keeps a hold of which of the two collectible tabs are active and makes a promise that displays either the fossils or the art. To get the relevant collectables it makes a fetch call and passes it down to the view.
 
 **detailsPresenter.js**
-
-This presenter manages the DetailsView. It fetches the details of whatever element was clicked. It also has a connection to the UserModel and if the user presses the “Add/remove from collection” button, it will update the model.
+- This presenter manages the DetailsView. It fetches the details of whatever element was clicked. It also has a connection to the UserModel and if the user presses the “Add/remove from collection” button, it will update the model.
 
 **encyclopediaPresenter.js**
-
-This presenter manages the EncyclopediaView. It keeps a hold of which of the three encyclopedia tabs are active and makes a promise that fetches either the fish, insects or sea creatures and passes it down to the view.
+- This presenter manages the EncyclopediaView. It keeps a hold of which of the three encyclopedia tabs are active and makes a promise that fetches either the fish, insects or sea creatures and passes it down to the view.
 
 **musicPresenter.js**
-
-This presenter manages the MusicView. It has different functions to play/pause/stop the music from playing. It also makes a fetch call to the API to get all of the music tracks in the game and passes it down to the view.
+- This presenter manages the MusicView. It has different functions to play/pause/stop the music from playing. It also makes a fetch call to the API to get all of the music tracks in the game and passes it down to the view.
 
 **searchPresenter.js**
-
-This presenter is currently not used, since we haven’t implemented the search functionality.
+- This presenter is currently not used, since we haven’t implemented the search functionality.
 
 **show.js**
-
-This is old code that is no longer used and will be removed. We have changed from using hashes to using react routes.
+- This is old code that is no longer used and will be removed. We have changed from using hashes to using react routes.
 
 **villagersPresenter.js**
-
-This presenter manages the VillagersView. It makes a fetch call to the API to get all villagers and sends them to the view.
+- This presenter manages the VillagersView. It makes a fetch call to the API to get all villagers and sends them to the view.
  
 ### Source
 The source files are contained within this folder, holding all the fetch calls we need, and the api configuration.
 
 **apiConfig.js**
-
-Holds the base URL for fetch calls.
+- Holds the base URL for fetch calls.
 
 **collectibleSource.js**
-
-Holds the fetch call for requesting the collectibles from the API.
+- Holds the fetch call for requesting the collectibles from the API.
 
 **detailsSource.js**
-
-Holds the fetch call for requesting specific details for any selected item within a selected category.
+- Holds the fetch call for requesting specific details for any selected item within a selected category.
 
 **encyclopediaSource.js**
-
-Holds the fetch call for requesting the encyclopedia from the API.
+- Holds the fetch call for requesting the encyclopedia from the API.
 
 **fishSource.js**
-
-Will be removed in the future, as we are using a different approach for fetching now.
+- Will be removed in the future, as we are using a different approach for fetching now.
 
 **musicSource.js**
-
-Holds the fetch call for requesting the music from the API.
+- Holds the fetch call for requesting the music from the API.
 
 **villagersSource.js**
-
-Holds the fetch call for requesting the villagers from the API.
+- Holds the fetch call for requesting the villagers from the API.
  
 ### Styles
 This folder contains all of the different SASS files that are combined into one in the styles.scss file.
 
 **collectible.scss**
-Old code that will be removed in the future. Instead of using this style we are now using list.scss and listItem.scss.
+- Old code that will be removed in the future. Instead of using this style we are now using list.scss and listItem.scss.
 
 **config.scss**
-Contains general rules and functions that can be used in other scss files.
+- Contains general rules and functions that can be used in other scss files.
 
 **details.scss**
-Styles for the details view.
+- Styles for the details view.
 
 **home.scss**
-Styles for the home view.
+- Styles for the home view.
 
 **info.scss**
-Styles for the info view
+- Styles for the info view
 
 **list.scss**
-Styles used for the lists that are displayed in the encyclopedia, collectible, music and villager views.
+- Styles used for the lists that are displayed in the encyclopedia, collectible, music and villager views.
 
 **listItem.scss**
-Styles used for each item in the lists that are displayed in the encyclopedia, collectible, music and villager views.
+- Styles used for each item in the lists that are displayed in the encyclopedia, collectible, music and villager views.
 
 **loading.scss**
-Styles for the loading animation when waiting for data.
+- Styles for the loading animation when waiting for data.
 
 **menuBar.scss**
-Styles for the menu bar at the top of the page.
+- Styles for the menu bar at the top of the page.
 
 **months.scss**
-Styles used for the month display in the details view for fish, insects and sea creatures. Used to show which months you can catch each creature.
+- Styles used for the month display in the details view for fish, insects and sea creatures. Used to show which months you can catch each creature.
 
 **musicBar.scss**
-Used for the music player at the top of the music bar view.
+- Used for the music player at the top of the music bar view.
 
 **styles.scss**
-Used to collect all of the other .scss files together into one file. This file is changed to a .css file by running the sass script in package.json. Whenever npm start is called, the sass script gets called.
+- Used to collect all of the other .scss files together into one file. This file is changed to a .css file by running the sass script in package.json. Whenever npm start is called, the sass script gets called.
  
 ### Views
 All our views within the Model-View-Presenter pattern are stored within this folder, including the encyclopedia, info, collectible, music and villagers view, which all correspond to the sections of the page you can access through the home page, the homeView, which corresponds to the home page itself, as well as several other views, such as the music bar, navigation and menu bar views.
 
 **collectibleView.js**
-Renders the view of the collectibles page.
+- Renders the view of the collectibles page.
 
 **detailsView.js**
-Renders the detailsView, utilizing the components from components folder depending on which category the details item is in.
+- Renders the detailsView, utilizing the components from components folder depending on which category the details item is in.
 
 **encyclopediaView.js**
-Renders the view of the encyclopedia page.
+- Renders the view of the encyclopedia page.
 
 **homeView.js**
-Renders the view of the home page.
+- Renders the view of the home page.
 
 **infoView.js**
-Renders the view of the info page.
+- Renders the view of the info page.
 
 **menuBarView.js**
-Renders the view of the top bar, used on each page.
+- Renders the view of the top bar, used on each page.
 
 **musicBarView.js**
-Renders the play/stop buttons at the top of the music page.
+- Renders the play/stop buttons at the top of the music page.
 
 **musicView.js**
-Renders the view of the music page.
+- Renders the view of the music page.
 
 **navigation.js**
-Will be discarded in the future.
+- Will be discarded in the future.
 
 **promiseNoData.js**
-Renders a loading screen before the data from the fetch call is loaded into the view.
+- Renders a loading screen before the data from the fetch call is loaded into the view.
 
 **searchFormView.js**
-Not used. Will be removed in the future
+- Not used. Will be removed in the future
 
 **villagersView.js**
-Renders the view of the villagers page.
+- Renders the view of the villagers page.
 
 
 ### App.js
