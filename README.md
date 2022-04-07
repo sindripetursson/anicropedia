@@ -83,48 +83,62 @@ Contains the font that is used in the app.
 This folder contains all of the presenters used in the app:
 
 **collectiblePresenter.js**
+
 This presenter manages the CollectibleView. It keeps a hold of which of the two collectible tabs are active and makes a promise that displays either the fossils or the art. To get the relevant collectables it makes a fetch call and passes it down to the view.
 
 **detailsPresenter.js**
+
 This presenter manages the DetailsView. It fetches the details of whatever element was clicked. It also has a connection to the UserModel and if the user presses the “Add/remove from collection” button, it will update the model.
 
 **encyclopediaPresenter.js**
+
 This presenter manages the EncyclopediaView. It keeps a hold of which of the three encyclopedia tabs are active and makes a promise that fetches either the fish, insects or sea creatures and passes it down to the view.
 
 **musicPresenter.js**
+
 This presenter manages the MusicView. It has different functions to play/pause/stop the music from playing. It also makes a fetch call to the API to get all of the music tracks in the game and passes it down to the view.
 
 **searchPresenter.js**
+
 This presenter is currently not used, since we haven’t implemented the search functionality.
 
 **show.js**
+
 This is old code that is no longer used and will be removed. We have changed from using hashes to using react routes.
 
 **villagersPresenter.js**
+
 This presenter manages the VillagersView. It makes a fetch call to the API to get all villagers and sends them to the view.
  
 ### Source
 The source files are contained within this folder, holding all the fetch calls we need, and the api configuration.
 
 **apiConfig.js**
+
 Holds the base URL for fetch calls.
 
 **collectibleSource.js**
+
 Holds the fetch call for requesting the collectibles from the API.
 
 **detailsSource.js**
+
 Holds the fetch call for requesting specific details for any selected item within a selected category.
 
 **encyclopediaSource.js**
+
 Holds the fetch call for requesting the encyclopedia from the API.
 
 **fishSource.js**
+
 Will be removed in the future, as we are using a different approach for fetching now.
 
 **musicSource.js**
+
 Holds the fetch call for requesting the music from the API.
 
 **villagersSource.js**
+
 Holds the fetch call for requesting the villagers from the API.
  
 ### Styles
