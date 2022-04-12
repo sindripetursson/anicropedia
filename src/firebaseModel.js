@@ -6,22 +6,23 @@ import UserModel from "./UserModel.js";
 firebase.initializeApp(firebaseConfig);  
 
 //  REF is the “root” Firebase path.
-const REF="userModel";
+const REF="encyclopedia";
 
-function updateFirebaseFromModel(model) {
+
+function updateFirebaseFromModel(model, uid) {
     function firebaseObserverACB(payload) {
         if(payload && payload.addFish) {
-            firebase.database().ref(REF+"/fishes/"+payload.addFish.id).set(payload.addFish.id);
+            firebase.database().ref(REF + "/" + uid + "/fishes/"+payload.addFish.id).set(payload.addFish.id);
         }
         if(payload && payload.removeFish) {
-            firebase.database().ref(REF+"/fishes/"+payload.removeFish.id).set(null);
+            firebase.database().ref(REF+ "/" + uid + "/fishes/"+payload.removeFish.id).set(null);
         }
     }
     model.addObserver(firebaseObserverACB);
 }
 
-function updateModelFromFirebase(model) {
-    firebase.database().ref(REF+"/fishes").on("child_added", 
+function updateModelFromFirebase(model, uid) {
+    firebase.database().ref(REF + "/" + uid + "/fishes").on("child_added", 
         function fishAddedInFirebaseACB(firebaseData){ 
             function hasSameIdCB(fish){
                 return +firebaseData.key === fish.id;
@@ -33,7 +34,7 @@ function updateModelFromFirebase(model) {
             }
         }
     );
-    firebase.database().ref(REF+"/fishes").on("child_removed", 
+    firebase.database().ref(REF + "/" + uid + "/fishes").on("child_removed", 
         function fishRemovedInFirebaseACB(firebaseData){ 
             model.removeItem({id: +firebaseData.key}, 'fish');
         }

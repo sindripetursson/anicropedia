@@ -3,25 +3,58 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+//import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { BrowserRouter } from "react-router-dom";
+//import firebase from "firebase/compat/app";
+//import firebaseConfig from "./firebaseConfig.js";
 
-const UserModel = require("./UserModel.js").default;
-const userModel= new UserModel();
+//firebase.initializeApp(firebaseConfig);  
+
+// const UserModel = require("./UserModel.js").default;
+// const userModel= new UserModel();
 const DetailsModel = require("./DetailsModel.js").default;
 const detailsModel= new DetailsModel();
-let firebaseModel = require("./firebaseModel.js");
+//let firebaseModel = require("./firebaseModel.js");
 
 
-const {updateFirebaseFromModel, updateModelFromFirebase}=firebaseModel;
+//const {updateFirebaseFromModel, updateModelFromFirebase}=firebaseModel;
 function ReactRoot() {
   //const [userModel, setUserModel] = React.useState(new UserModel());
+  //const [user, setUser] = React.useState(null);
 
-  React.useEffect(function onStartACB() {
-    updateFirebaseFromModel(userModel);
-    if(updateModelFromFirebase) {
-      updateModelFromFirebase(userModel);
-    }
-  }, []);
-  return <App userModel={userModel} detailsModel={detailsModel}/>;
+  // function setUserACB(userUid) {
+  //   setUser(userUid);
+  // }
+
+  //const navigate = useNavigate();
+
+  // React.useEffect(function onStartACB() {
+
+  //   const auth = getAuth();
+  //   onAuthStateChanged(auth, (authUser) => {
+  //     console.log('Auth state changed!');
+  //       if (authUser) {
+  //           const uid = authUser.uid;
+  //           setUserACB(uid);
+  //           console.log("Index, User logged in with uid: ", uid);
+  //           console.log('Index uid: ', user);
+  //           updateFirebaseFromModel(userModel, uid);
+  //           if(updateModelFromFirebase) {
+  //             updateModelFromFirebase(userModel, uid);
+  //           }
+  //           console.log('Navigating to /');
+  //           //window.location = '/';
+  //       } else {
+  //         console.log('User not logged in, navigating to singup');
+  //         //window.location = '/signup';
+  //       }
+  //   });
+  // }, [user]);
+  return (
+    <BrowserRouter>
+      <App /*user={user} userModel={userModel} */ detailsModel={detailsModel}/>
+    </BrowserRouter>
+  );
 }
 
 ReactDOM.render(
