@@ -62,7 +62,7 @@ function Encyclopedia(props) {
                 >
                   <div className="list__nav__container">
                     <img className="list__nav__icon" src="../../images/fishIcon.svg"/>
-                    <div className={ window.innerWidth >= 520 ? "list__nav__text" : "hidden"}>Fish</div>
+                    <div className={ window.innerWidth >= 820 ? "list__nav__text" : "hidden"}>Fish</div>
                   </div>
               </div>
               <div 
@@ -74,7 +74,7 @@ function Encyclopedia(props) {
                 }>
                   <div className="list__nav__container">
                     <img className="list__nav__icon" src="../../images/bugsIcon.svg"/>
-                    <div className={ window.innerWidth >= 520 ? "list__nav__text" : "hidden"}>Insects</div>
+                    <div className={ window.innerWidth >= 820 ? "list__nav__text" : "hidden"}>Insects</div>
                   </div>
               </div>
               <div
@@ -86,7 +86,7 @@ function Encyclopedia(props) {
                 }>
                   <div className="list__nav__container">
                     <img className="list__nav__icon" src="../../images/seaIcon.svg"/>
-                    <div className={ window.innerWidth >= 520 ? "list__nav__text" : "hidden"}>Sea Creatures</div>
+                    <div className={ window.innerWidth >= 820 ? "list__nav__text" : "hidden"}>Sea Creatures</div>
                   </div>
               </div>
             </div>

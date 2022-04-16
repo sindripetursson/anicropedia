@@ -62,7 +62,7 @@ function Collectible(props) {
                   >
                     <div className="list__nav__container">
                       <img className="list__nav__icon" src="../../images/fossilsIcon.svg"/>
-                      <div className={ window.innerWidth >= 520 ? "list__nav__text" : "hidden"}>Fossils</div>
+                      <div className={ window.innerWidth >= 820 ? "list__nav__text" : "hidden"}>Fossils</div>
                     </div>
                 </div>
                 <div 
@@ -74,7 +74,7 @@ function Collectible(props) {
                   }>
                     <div className="list__nav__container">
                       <img className="list__nav__icon" src="../../images/artIcon.svg"/>
-                      <div className={ window.innerWidth >= 520 ? "list__nav__text" : "hidden"} >Art</div>
+                      <div className={ window.innerWidth >= 820 ? "list__nav__text" : "hidden"} >Art</div>
                     </div>
                 </div>
               </div>
