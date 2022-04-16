@@ -79,7 +79,7 @@ function Collectible(props) {
                 </div>
               </div>
             </div>   
-            <CollectibleView onItemClicked={getDetails} data={data} />
+            <CollectibleView onItemClicked={getDetails} data={data} userModel={props.userModel} category={category}/>
           </div>}
       </div>
     );

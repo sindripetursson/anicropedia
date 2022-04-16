@@ -26,10 +26,10 @@ function App(props) {
       <MenuBarView/>
         <Routes>
           <Route path="/" exact element={<HomeView setDetailsOn={setDetailsOn}/>}/>
-          <Route path="/encyclopedia" element={<Encyclopedia detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
-          <Route path="/villagers" element={ <Villagers detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/encyclopedia" element={<Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/villagers" element={ <Villagers userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
           <Route path="/music" element={ <Music detailsModel={props.detailsModel}/>}/>
-          <Route path="/collectibles" element={ <Collectible detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/collectibles" element={ <Collectible userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
           <Route path="/info" element={ <InfoView setDetailsOn={setDetailsOn}/>}/>
         </Routes>
       </BrowserRouter>

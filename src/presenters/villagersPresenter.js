@@ -46,6 +46,6 @@ function Villagers(props) {
       React.useEffect(promiseChangedACB, [promise]);
 
     return <div>
-    {promiseNoData({promise, data, error}) || <VillagersView onItemClicked={getDetails} data={data} />}
+    {promiseNoData({promise, data, error}) || <VillagersView onItemClicked={getDetails} data={data} userModel={props.userModel}/>}
     </div>
 }

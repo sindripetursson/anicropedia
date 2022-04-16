@@ -1,3 +1,5 @@
+import { isItemInCollection } from "../utils";
+
 function VillagersView(props){
 
     function renderData(data){
@@ -12,6 +14,7 @@ function VillagersView(props){
                         <div className="listItem__text__villagers">
                             {singleResult.name["name-EUen"]}
                         </div>
+                        <img className={isItemInCollection(singleResult, 'villagers', true, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
                     </div>
                 </div>
             );

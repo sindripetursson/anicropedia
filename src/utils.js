@@ -7,4 +7,13 @@
     return arr.join(" ");
   }
 
-  export {capitalizeFirstLetter}
+  function isItemInCollection(itemToCheck, category, hasId, userModel) {
+    function itemInCollectionCB(item) {
+        if(hasId) return item.id === itemToCheck.id;
+        else return item.name === itemToCheck.name
+      }
+    return (userModel.getCategoryArray(category).filter(itemInCollectionCB)).length > 0; 
+}
+
+
+  export {capitalizeFirstLetter, isItemInCollection}

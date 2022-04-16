@@ -9,6 +9,7 @@
     */
 
     &__container {
+        
         max-width: $max-width;
         margin: 0 auto;
         &__encyclopedia{
@@ -20,6 +21,7 @@
             border-radius: 0px 50px 50px 50px;
             // filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
             // z-index: 0;
+            
         }
     }
 
@@ -33,7 +35,7 @@
         }
         &__nav{
             @include row();
-            flex-wrap: wrap;
+            // flex-wrap: wrap;
             z-index: 10000;
         }
     }
@@ -82,7 +84,7 @@
         }
 
         &__button{
-            @include columns(12);
+            @include columns(2);
             background: #F7F4E4;
             display: flex;
 
@@ -100,15 +102,6 @@
                 background: white;;
                 transition: 1s;
                 // transform: scale(1.05);
-            }
-            
-            @media (max-width: 520px){
-                border-radius: 0px 0px 0 0;
-            }
-
-            @media (min-width: 520px) {
-                @include columns(3);
-                // padding-left: 40px;
             }
     
             @media (min-width: $max-width) {
@@ -167,4 +160,26 @@
 
 .inactive{
     background: #E3E1D3;
+}
+
+.checkmark{
+    position: absolute;
+    transform: translate(100%, -250%);
+    opacity: 1;
+
+    &__details{
+        // position: absolute;
+        transform: translate(50%, 25%);
+    }
+
+    &__image{
+        display: flex;
+        color: #887C66;
+        font-family: $font-main;
+        font-size: 10pt;
+        font-weight: 400;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000000;
+    }
 }
