@@ -3,39 +3,72 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom";
 
-const UserModel = require("./UserModel.js").default;
-const userModel= new UserModel();
+import firebase from "firebase/compat/app";
+import firebaseConfig from "./firebaseConfig.js";
+
+import { ReactSession } from 'react-client-session';
+import promiseNoData from './views/promiseNoData';
+
+firebase.initializeApp(firebaseConfig);  
+let firebaseModel = require("./firebaseModel.js");
+const {updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise}=firebaseModel;
+
 const DetailsModel = require("./DetailsModel.js").default;
 const detailsModel= new DetailsModel();
-let firebaseModel = require("./firebaseModel.js");
 
+const UserModel = require("./UserModel.js").default;
 
-const {updateFirebaseFromModel, updateModelFromFirebase}=firebaseModel;
+const bigPromise = firebaseModelPromise(ReactSession.get("uid"));
+
 function ReactRoot() {
-  //const [userModel, setUserModel] = React.useState(new UserModel());
+  const [userModel, setUserModel] = React.useState();
+  const [error, setError] = React.useState();
+  //const {bigPromise, } = React.useState();
 
+  ReactSession.setStoreType("localStorage");
+
+  
   React.useEffect(function onStartACB() {
-    updateFirebaseFromModel(userModel);
-    if(updateModelFromFirebase) {
-      updateModelFromFirebase(userModel);
+    function setUserModelACB(userModele) {
+      setUserModel(userModele);
+    }
+
+    const uid = ReactSession.get("uid");
+
+    if(uid) {
+      //const bigPromise = firebaseModelPromise(uid);
+      
+      function saveModelACB(model) {
+        setUserModelACB(model);
+        updateFirebaseFromModel(model, uid); 
+        if(updateModelFromFirebase) // maybe it was not defined yet
+            updateModelFromFirebase(model, uid);
+      }
+  
+      function errorModelACB(error) {
+          setError(error);
+          console.error(error);
+      }
+  
+      bigPromise.then(saveModelACB).catch(errorModelACB);
     }
   }, []);
-  return <App userModel={userModel} detailsModel={detailsModel}/>;
+
+
+  return (
+    (ReactSession.get("uid") && promiseNoData({promise: bigPromise, data: userModel, error: error})) ||
+    <BrowserRouter>
+      <App detailsModel={detailsModel} userModel={userModel}/>
+    </BrowserRouter>
+  );
 }
 
 ReactDOM.render(
   <ReactRoot/>,
   document.getElementById('root')
 );
-
-
-//ReactDOM.render(
-//  <React.StrictMode>
-//    <App detailsModel={detailsModel} />
-//  </React.StrictMode>,
-//  document.getElementById('root')
-//);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -14,7 +14,11 @@ class UserModel {
 
     addItem(itemToAdd, category) {
         function hasSameIdCB(item){
-            return itemToAdd.id === item.id;
+            if (category === 'fossils') {
+                return itemToAdd['file-name'] === item['file-name'];
+            } else {
+                return itemToAdd.id === item.id;
+            }
         }
         let currentArray = this.getCategoryArray(category);
         const newItemArray = currentArray.filter(hasSameIdCB); 
@@ -42,6 +46,10 @@ class UserModel {
                     this.notifyObservers({addFossil: itemToAdd});
                     break;
                 case 'art':
+                    this.art= [...this.art, itemToAdd];
+                    this.notifyObservers({addArt: itemToAdd});
+                    break;
+                case 'music':
                     this.music= [...this.music, itemToAdd];
                     this.notifyObservers({addMusic: itemToAdd});
                     break;
@@ -65,6 +73,8 @@ class UserModel {
                 return this.fossils;
             case 'art':
                 return this.art;
+            case 'music':
+                return this.music;
             default:
                 console.error(category, ' is not a category');
         }
@@ -75,8 +85,12 @@ class UserModel {
     // because firebase calls this method at the moment and adds it back into the model
     // when it should be being removed.
     removeItem(itemToRemove, category){
-        function hasSameIdCB(fish){
-            return itemToRemove.id !== fish.id;
+        function hasSameIdCB(item){
+            if (category === 'fossils') {
+                return itemToRemove['file-name'] !== item['file-name'];
+            } else {
+                return itemToRemove.id !== item.id;
+            }
         }
         let currentArray = this.getCategoryArray(category);
         const newArray = currentArray.filter(hasSameIdCB); 
@@ -104,7 +118,7 @@ class UserModel {
                     break;
                 case 'fossils':
                     this.fossils = newArray;
-                    this.notifyObservers({removeVillager: itemToRemove});
+                    this.notifyObservers({removeFossils: itemToRemove});
                     break;
                 case 'art':
                     this.art = newArray;
@@ -113,144 +127,6 @@ class UserModel {
                 default:
                     break;
             }
-        }
-    }
-
-    addInsect(insectToAdd) {
-        function hasSameIdCB(insect){
-            return insectToAdd.id === insect.id;
-        }
-        const newInsectsArray = this.insects.filter(hasSameIdCB); 
-    
-        if (newInsectsArray.length === 0) {
-            this.insects= [...this.insects, insectToAdd];
-            this.notifyObservers({addInsect: insectToAdd});
-        }
-    }
-    
-    removeInsect(insectToRemove){
-        function hasSameIdCB(insect){
-            return insectToRemove.id !== insect.id;
-        }
-        const newInsectsArray = this.insects.filter(hasSameIdCB); 
-        if(newInsectsArray.length !== this.insects.length) {
-            this.insects = newInsectsArray;
-            this.notifyObservers({removeInsect: insectToRemove});
-        }
-    }
-
-    addSeaCreature(seaCreatureToAdd) {
-        function hasSameIdCB(seaCreature){
-            return seaCreatureToAdd.id === seaCreature.id;
-        }
-        const newSeaCreaturesArray = this.seaCreatures.filter(hasSameIdCB); 
-    
-        if (newSeaCreaturesArray.length === 0) {
-            this.seaCreatures= [...this.seaCreatures, seaCreatureToAdd];
-            this.notifyObservers({addSeaCreature: seaCreatureToAdd});
-        }
-    }
-    
-    removeSeaCreature(seaCreatureToRemove){
-        function hasSameIdCB(seaCreature){
-            return seaCreatureToRemove.id !== seaCreature.id;
-        }
-        const newSeaCreaturesArray = this.seaCreatures.filter(hasSameIdCB); 
-        if(newSeaCreaturesArray.length !== this.seaCreatures.length) {
-            this.seaCreatures = newSeaCreaturesArray;
-            this.notifyObservers({removeSeaCreature: seaCreatureToRemove});
-        }
-    }
-
-    addVillager(villagerToAdd) {
-        function hasSameIdCB(villager){
-            return villagerToAdd.id === villager.id;
-        }
-        const newVillagersArray = this.villagers.filter(hasSameIdCB); 
-    
-        if (newVillagersArray.length === 0) {
-            this.villagers= [...this.villagers, villagerToAdd];
-            this.notifyObservers({addVillager: villagerToAdd});
-        }
-    }
-    
-    removeVillager(villagerToRemove){
-        function hasSameIdCB(villager){
-            return villagerToRemove.id !== villager.id;
-        }
-        const newVillagersArray = this.villagers.filter(hasSameIdCB); 
-        if(newVillagersArray.length !== this.villagers.length) {
-            this.villagers = newVillagersArray;
-            this.notifyObservers({removeVillager: villagerToRemove});
-        }
-    }
-
-    addMusic(musicToAdd) {
-        function hasSameIdCB(music){
-            return musicToAdd.id === music.id;
-        }
-        const newMusicsArray = this.music.filter(hasSameIdCB); 
-    
-        if (newMusicsArray.length === 0) {
-            this.music= [...this.music, musicToAdd];
-            this.notifyObservers({addMusic: musicToAdd});
-        }
-    }
-    
-    removeMusic(musicToRemove){
-        function hasSameIdCB(music){
-            return musicToRemove.id !== music.id;
-        }
-        const newMusicsArray = this.music.filter(hasSameIdCB); 
-        if(newMusicsArray.length !== this.music.length) {
-            this.music = newMusicsArray;
-            this.notifyObservers({removeMusic: musicToRemove});
-        }
-    }
-
-    addFossil(fossilToAdd) {
-        function hasSameIdCB(fossil){
-            return fossilToAdd.id === fossil.id;
-        }
-        const newFossilsArray = this.fossils.filter(hasSameIdCB); 
-    
-        if (newFossilsArray.length === 0) {
-            this.fossils= [...this.fossils, fossilToAdd];
-            this.notifyObservers({addFossil: fossilToAdd});
-        }
-    }
-    
-    removeFossil(fossilToRemove){
-        function hasSameIdCB(fossil){
-            return fossilToRemove.id !== fossil.id;
-        }
-        const newFossilsArray = this.fossils.filter(hasSameIdCB); 
-        if(newFossilsArray.length !== this.fossils.length) {
-            this.fossils = newFossilsArray;
-            this.notifyObservers({removeFossil: fossilToRemove});
-        }
-    }
-
-    addArt(artToAdd) {
-        function hasSameIdCB(art){
-            return artToAdd.id === art.id;
-        }
-        const newArtsArray = this.art.filter(hasSameIdCB); 
-    
-        if (newArtsArray.length === 0) {
-            this.art= [...this.art, artToAdd];
-            this.notifyObservers({addArt: artToAdd});
-        }
-    }
-    
-    removeArt(artToRemove){
-        function hasSameIdCB(art){
-            return artToRemove.id !== art.id;
-        }
-        const newArtsArray = this.art.filter(hasSameIdCB); 
-        if(newArtsArray.length !== this.art.length) {
-            this.art = newArtsArray;
-            this.notifyObservers({removeArt: artToRemove});
         }
     }
 

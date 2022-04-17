@@ -13,7 +13,7 @@ function MenuBarView(props) {
                 <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
             </div>
             <div className='menuBar__sides'>
-                <Link className='menuBar__link' to="/"> 
+                <Link className='menuBar__link' to="/signout"> 
                     <img src='../../images/user.svg' alt="user" className="menuBar__icon" />
                 </Link> 
             </div>
