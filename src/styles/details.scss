@@ -2,20 +2,12 @@
 
 
 .details {
-    /*display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: fit-content;
-    flex-wrap: wrap;
-    */
     position:fixed;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     z-index: 1000;
-    // vertical-align: middle;
-    // align-items: center;
 
     &__container {
         width: 60%;
@@ -35,12 +27,26 @@
         overflow: scroll;
         overflow-y: auto;
         overflow-x: auto;
+        
+        @media (max-width: 1000px){
+           width: 80%;
+        }
+        @media (max-width: 500px) {
+            width: 98%;
+            padding: 0;
+        }
     }
 
     &__row {
         @include row();
         flex-wrap: wrap;
         margin-top: 5%;
+
+        @media (max-width: 1000px) {
+            justify-content: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     }
 
     &__col {
@@ -117,6 +123,7 @@
 
 .hidden{
     display: none;
+    opacity: 0;
 }
 
 .close{
@@ -139,10 +146,29 @@ button{
     display: inline-block;
     cursor: pointer;
     border-radius: 25px;
+
+    @media (max-width: 1000px) {
+        margin-top: 10px;
+    }
 }
 
 button:hover{
     background-color: white;
+    color: #8B7A66;
+}
+
+.button{
+    &__positive{
+        background-color: #61D16C;
+        color: white;
+        border: white 2px solid;
+    }
+
+    &__negative{
+        background-color: #FF5757;;
+        color: white;
+        border: white 2px solid;
+    }
 }
 
 .image{
@@ -170,24 +196,24 @@ button:hover{
     }
 }
 
-        /* width */
-        ::-webkit-scrollbar {
-            width: 10px;
-          }
-          
-          /* Track */
-          ::-webkit-scrollbar-track {
-            background: #DED9C0; 
-            border-radius: 10px;
-          }
-          
-          /* Handle */
-          ::-webkit-scrollbar-thumb {
-            background: #8B7A66; 
-            border-radius: 10px;
-          }
-          
-          /* Handle on hover */
-          ::-webkit-scrollbar-thumb:hover {
-            background: #835B26; 
-          }
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: #DED9C0; 
+    border-radius: 10px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: #8B7A66; 
+    border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: #835B26; 
+    }

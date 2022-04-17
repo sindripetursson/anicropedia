@@ -7,11 +7,16 @@ function Villagers(props){
         <div className="details__col">
           <img className="frame" alt="frame" src='../../images/Frame.svg' />
           <img className="image__villagers" alt="" src={props.singleResult.image_uri} />
+          <div style={{transform: "translate(0, 25px)"}} className={props.isInCollection ? "checkmark__image" : "hidden"} >
+            <img src="../../images/inCollection.svg"/> 
+            <span style={{paddingTop: "10px"}}>In your villagers!</span>
+          </div>
         </div>
       <div className="details__col__splitter">
         <div className="details__row">
           <div className="details__title">
             {capitalizeFirstLetter(props.singleResult.name["name-EUen"])}
+            <img className={props.isInCollection ? "checkmark__details" : "hidden"} src="../../images/inCollection.svg"/> 
           </div>
         </div>
       
@@ -75,7 +80,7 @@ function Villagers(props){
             </a>
           </div>
           <div className="details__col">
-            <button onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my village':'Add to my village'}</button>
+            <button className={props.isInCollection ? "button__negative" : "button__positive"} onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my villagers':'Add to my villagers'}</button>
           </div>
         </div>
       </div>

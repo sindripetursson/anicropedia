@@ -1,4 +1,5 @@
 import { capitalizeFirstLetter } from "../utils";
+import { isItemInCollection } from "../utils";
 
 function EncyclopediaView(props){
     function renderData(data){
@@ -6,6 +7,8 @@ function EncyclopediaView(props){
             function itemClicked(){
                 props.onItemClicked(singleResult);
             }
+
+
             return (
                 <div className="list__col__encyclopedia" key={"encyclopedia_"+singleResult.id} onClick={() => itemClicked()}>
                     <div className="listItem__encyclopedia" >
@@ -13,6 +16,7 @@ function EncyclopediaView(props){
                         <div className="listItem__text__encyclopedia">
                             {capitalizeFirstLetter(singleResult.name["name-EUen"])}
                         </div>
+                        <img className={isItemInCollection(singleResult, props.currentSpecies, true, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
                     </div>
                 </div>
             );

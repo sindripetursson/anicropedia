@@ -62,7 +62,7 @@ function Collectible(props) {
                   >
                     <div className="list__nav__container">
                       <img className="list__nav__icon" src="../../images/fossilsIcon.svg"/>
-                      <div className="list__nav__text">Fossils</div>
+                      <div className={ window.innerWidth >= 820 ? "list__nav__text" : "hidden"}>Fossils</div>
                     </div>
                 </div>
                 <div 
@@ -74,12 +74,12 @@ function Collectible(props) {
                   }>
                     <div className="list__nav__container">
                       <img className="list__nav__icon" src="../../images/artIcon.svg"/>
-                      <div className="list__nav__text">Art</div>
+                      <div className={ window.innerWidth >= 820 ? "list__nav__text" : "hidden"} >Art</div>
                     </div>
                 </div>
               </div>
             </div>   
-            <CollectibleView onItemClicked={getDetails} data={data} />
+            <CollectibleView onItemClicked={getDetails} data={data} userModel={props.userModel} category={category}/>
           </div>}
       </div>
     );

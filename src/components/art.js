@@ -6,11 +6,16 @@ function Art(props){
     <div className="details__row">
         <div className="details__col">
           <img className="image" alt="" src={props.singleResult.image_uri} />
+          <div className={props.isInCollection ? "checkmark__image" : "hidden"} >
+            <img src="../../images/inCollection.svg"/> 
+            <span style={{paddingTop: "10px"}}>In your collection!</span>
+        </div>
         </div>
       <div className="details__col__splitter">
         <div className="details__row">
           <div className="details__title">
             {capitalizeFirstLetter(props.singleResult.name["name-EUen"])}
+            <img className={props.isInCollection ? "checkmark__details" : "hidden"} src="../../images/inCollection.svg"/> 
           </div>
         </div>
 
@@ -58,7 +63,7 @@ function Art(props){
             </a>
           </div>
           <div className="details__col">
-            <button onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
+            <button className={props.isInCollection ? "button__negative" : "button__positive"} onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
           </div>
         </div>
       </div>

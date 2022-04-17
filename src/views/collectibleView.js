@@ -1,4 +1,5 @@
 import { capitalizeFirstLetter } from "../utils";
+import {isItemInCollection} from "../utils";
 
 function CollectibleView(props){
 
@@ -16,6 +17,7 @@ function CollectibleView(props){
                         <div className="listItem__text__encyclopedia">
                             {capitalizeFirstLetter(singleResult.name["name-EUen"])}
                         </div>
+                        <img className={isItemInCollection(singleResult, props.category, false, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
                     </div>
                 </div>
             );
