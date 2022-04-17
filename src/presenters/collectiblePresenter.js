@@ -12,7 +12,11 @@ function Collectible(props) {
     const [category, setCurrentCategory] = React.useState('fossils');
 
     function getDetails(clickedItem){
-      props.detailsModel.setCurrentItem(category, clickedItem['file-name']);
+      if (category === 'fossils') {
+        props.detailsModel.setCurrentItem(category, clickedItem['file-name']);
+      } else {
+        props.detailsModel.setCurrentItem(category, clickedItem.id);
+      }
       props.setDetailsOn(true);
     }
 
