@@ -13,7 +13,11 @@ function Search(props) {
 
     function isItemInCurrentCollection() {
         function itemInCollectionCB(item) {
-			return item.id === props.detailsModel.currentId;
+            if (props.detailsModel.currentCategory === 'fossils') {
+                return item['file-name'] === props.detailsModel.currentId;
+            } else {
+                return item.id === props.detailsModel.currentId;
+            }
       	}
 		return (props.userModel.getCategoryArray(props.detailsModel.currentCategory).filter(itemInCollectionCB)).length > 0; 
     }

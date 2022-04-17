@@ -630,18 +630,6 @@ button:hover {
   src: url(../fonts/finkHeavy.ttf);
 }
 .menuBar {
-<<<<<<< HEAD
-  height: 110px;
-  display: flex;
-  align-items: center;
-  border-bottom-color: black;
-  border-bottom-style: solid;
-  flex-direction: column;
-}
-.menuBar__upper {
-  height: 50px;
-  background-color: white;
-=======
   height: 150px;
   display: flex;
   align-items: center;
@@ -653,7 +641,6 @@ button:hover {
 }
 .menuBar__upper {
   height: 50px;
->>>>>>> 1d1d18f4ea209ec063e094c4bc828b4e16b8f214
   display: flex;
   width: 100%;
 }

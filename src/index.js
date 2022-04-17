@@ -3,56 +3,64 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-//import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { BrowserRouter } from "react-router-dom";
-//import firebase from "firebase/compat/app";
-//import firebaseConfig from "./firebaseConfig.js";
 
-//firebase.initializeApp(firebaseConfig);  
+import firebase from "firebase/compat/app";
+import firebaseConfig from "./firebaseConfig.js";
 
-// const UserModel = require("./UserModel.js").default;
-// const userModel= new UserModel();
+import { ReactSession } from 'react-client-session';
+import promiseNoData from './views/promiseNoData';
+
+firebase.initializeApp(firebaseConfig);  
+let firebaseModel = require("./firebaseModel.js");
+const {updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise}=firebaseModel;
+
 const DetailsModel = require("./DetailsModel.js").default;
 const detailsModel= new DetailsModel();
-//let firebaseModel = require("./firebaseModel.js");
 
+const UserModel = require("./UserModel.js").default;
 
-//const {updateFirebaseFromModel, updateModelFromFirebase}=firebaseModel;
+const bigPromise = firebaseModelPromise(ReactSession.get("uid"));
+
 function ReactRoot() {
-  //const [userModel, setUserModel] = React.useState(new UserModel());
-  //const [user, setUser] = React.useState(null);
+  const [userModel, setUserModel] = React.useState();
+  const [error, setError] = React.useState();
+  //const {bigPromise, } = React.useState();
 
-  // function setUserACB(userUid) {
-  //   setUser(userUid);
-  // }
+  ReactSession.setStoreType("localStorage");
 
-  //const navigate = useNavigate();
+  
+  React.useEffect(function onStartACB() {
+    function setUserModelACB(userModele) {
+      setUserModel(userModele);
+    }
 
-  // React.useEffect(function onStartACB() {
+    const uid = ReactSession.get("uid");
 
-  //   const auth = getAuth();
-  //   onAuthStateChanged(auth, (authUser) => {
-  //     console.log('Auth state changed!');
-  //       if (authUser) {
-  //           const uid = authUser.uid;
-  //           setUserACB(uid);
-  //           console.log("Index, User logged in with uid: ", uid);
-  //           console.log('Index uid: ', user);
-  //           updateFirebaseFromModel(userModel, uid);
-  //           if(updateModelFromFirebase) {
-  //             updateModelFromFirebase(userModel, uid);
-  //           }
-  //           console.log('Navigating to /');
-  //           //window.location = '/';
-  //       } else {
-  //         console.log('User not logged in, navigating to singup');
-  //         //window.location = '/signup';
-  //       }
-  //   });
-  // }, [user]);
+    if(uid) {
+      //const bigPromise = firebaseModelPromise(uid);
+      
+      function saveModelACB(model) {
+        setUserModelACB(model);
+        updateFirebaseFromModel(model, uid); 
+        if(updateModelFromFirebase) // maybe it was not defined yet
+            updateModelFromFirebase(model, uid);
+      }
+  
+      function errorModelACB(error) {
+          setError(error);
+          console.error(error);
+      }
+  
+      bigPromise.then(saveModelACB).catch(errorModelACB);
+    }
+  }, []);
+
+
   return (
+    (ReactSession.get("uid") && promiseNoData({promise: bigPromise, data: userModel, error: error})) ||
     <BrowserRouter>
-      <App /*user={user} userModel={userModel} */ detailsModel={detailsModel}/>
+      <App detailsModel={detailsModel} userModel={userModel}/>
     </BrowserRouter>
   );
 }
@@ -61,14 +69,6 @@ ReactDOM.render(
   <ReactRoot/>,
   document.getElementById('root')
 );
-
-
-//ReactDOM.render(
-//  <React.StrictMode>
-//    <App detailsModel={detailsModel} />
-//  </React.StrictMode>,
-//  document.getElementById('root')
-//);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

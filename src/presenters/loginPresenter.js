@@ -1,8 +1,8 @@
 import React from "react";
-import SignupView from "../views/signupView";
+import LoginView from "../views/loginView";
 import firebase from "firebase/compat/app";
 import firebaseConfig from "../firebaseConfig.js";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
 import { ReactSession } from "react-client-session";
 
 
@@ -15,14 +15,11 @@ firebase.initializeApp(firebaseConfig);
 const auth = getAuth();
 
 export default
-function Signup(props) {
-    const [name, setName] = React.useState('');
+function Login(props) {
+    if (ReactSession.get("uid")) window.location = '/';
+    
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
-
-    function onNameChange(newName) {
-        setName(newName.target.value);
-    } 
 
     function onEmailChange(newEmail) {
         setEmail(newEmail.target.value);
@@ -32,9 +29,9 @@ function Signup(props) {
         setPassword(newPassword.target.value);
     }
 
-    function signupACB(e) {
+    function loginACB(e) {
         e.preventDefault();
-        createUserWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword (auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const uid = userCredential.user.uid;
@@ -56,7 +53,7 @@ function Signup(props) {
 
     return (
         <div>
-            <SignupView name={name} onNameChange={onNameChange} email={email} onEmailChange={onEmailChange} password={password} onPasswordChange={onPasswordChange} onSignup={signupACB}/>
+            <LoginView email={email} onEmailChange={onEmailChange} password={password} onPasswordChange={onPasswordChange} onLogin={loginACB}/>
         </div>
     )
 }

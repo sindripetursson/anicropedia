@@ -98,10 +98,10 @@ function InfoView(props){
                 </div>
                 <div className="grids grids__img__contact-ct">
                     <div className="image-name">
-                    Káris Steinn Aðalsteinson
+                        Kári Steinn Aðalsteinsson
                     </div>
                     <div className="image-mail">
-                    ksad@kth.se
+                        ksad@kth.se
                     </div>
                 </div>
                 <div className="grids grids__img__contact-d">
@@ -109,10 +109,10 @@ function InfoView(props){
                 </div>
                 <div className="grids grids__img__contact-dt">
                     <div className="image-name">
-                    Sindri Peturson
+                        Sindri Peturson
                     </div>
                     <div className="image-mail">
-                    sindrip@kth.se
+                        sindrip@kth.se
                     </div>
                 </div>
             </div>

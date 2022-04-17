@@ -13,7 +13,6 @@ function Encyclopedia(props) {
     const [currentSpecies, setCurrentSpecies] = React.useState('fish');
 
     function getDetails(clickedItem){
-      console.log(clickedItem);
       props.detailsModel.setCurrentItem(currentSpecies, clickedItem.id);
       props.setDetailsOn(true);
     }

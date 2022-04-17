@@ -11,7 +11,6 @@ function Villagers(props) {
     const [error, setError]= React.useState(null);
 
     function getDetails(clickedItem){
-      console.log(clickedItem);
       props.detailsModel.setCurrentItem('villagers', clickedItem.id);
       props.setDetailsOn(true);
     }
