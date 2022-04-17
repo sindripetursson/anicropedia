@@ -47,10 +47,10 @@ function App(props) {
       <MenuBarView setDetailsOn={setDetailsOn}/>
         <Routes>
           <Route path="/" exact element={<ProtectedRoute> <HomeView setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
-          <Route path="/encyclopedia" element={<ProtectedRoute> <Encyclopedia detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
-          <Route path="/villagers" element={ <ProtectedRoute><Villagers detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
-          <Route path="/music" element={ <ProtectedRoute><Music detailsModel={props.detailsModel}/> </ProtectedRoute>}/>
-          <Route path="/collectibles" element={ <ProtectedRoute><Collectible detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
+          <Route path="/encyclopedia" element={<ProtectedRoute> <Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
+          <Route path="/villagers" element={ <ProtectedRoute><Villagers userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
+          <Route path="/music" element={ <ProtectedRoute><Music userModel={props.userModel} detailsModel={props.detailsModel}/> </ProtectedRoute>}/>
+          <Route path="/collectibles" element={ <ProtectedRoute><Collectible userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
           <Route path="/info" element={ <ProtectedRoute><InfoView setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
           <Route path="/signup" element={ <Signup/>}/>
           <Route path="/login" element={ <Login/> }/>
