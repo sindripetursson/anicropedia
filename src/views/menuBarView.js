@@ -8,9 +8,12 @@ function MenuBarView(props) {
     <div className='menuBar'>    
         <div className='menuBar__upper'>
             <div className='menuBar__sides'> 
+                {location.pathname === "/" || location.pathname === "/login" ? 
+                    <></> : 
                  <Link className='menuBar__link' to="/"> 
                     <img src='../../images/back.svg' alt="back" className="menuBar__backUpper" /> 
                 </Link> 
+                }
             </div>
             <Link className='menuBar__center' to="/">
                 <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
@@ -24,7 +27,7 @@ function MenuBarView(props) {
 
         <div className='menuBar__lower'>
             <div className='menuBar__sides'> 
-                {location.pathname === "/" ? 
+                {location.pathname === "/" || location.pathname === "/login" ? 
                     <></> : 
                     <Link className='menuBar__link' to="/"> 
                         <img src='../../images/back.svg' alt="back" className="menuBar__backLower" /> 
