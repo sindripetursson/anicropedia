@@ -33,8 +33,7 @@ function MenuBarView(props) {
             <div className='menuBar__center'>
                 {location.pathname === "/" ? 
                     <h1 className='menuBar__title'> Anicropedia </h1> 
-                : location.pathname === "/myisland" 
-                || location.pathname === "/encyclopedia" 
+                : location.pathname === "/encyclopedia" 
                 || location.pathname === "/villagers" 
                 || location.pathname === "/music" 
                 || location.pathname === "/collectibles" 
@@ -43,6 +42,10 @@ function MenuBarView(props) {
                 || location.pathname === "/signout"
                 ?
                     <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1> 
+                :
+                    location.pathname === "/island"
+                ?
+                    <h1 className='menuBar__title'> {"My " + location.pathname.substring(1)} </h1> 
                 :
                     <h1 className='menuBar__title'> </h1> 
                 }

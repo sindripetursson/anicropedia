@@ -716,9 +716,7 @@ button:hover {
 }
 .menuBar__title {
   width: 100%;
-}
-.menuBar__title:first-letter {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .menuBar__image {
   height: 50px;

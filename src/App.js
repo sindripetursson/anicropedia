@@ -8,6 +8,7 @@ import InfoView from './views/infoView';
 import SignoutView from './views/signoutView';
 import Page404 from './views/page404';
 import Encyclopedia from './presenters/encyclopediaPresenter';
+import Island from './presenters/islandPresenter';
 import Villagers from './presenters/villagersPresenter';
 import Collectible from './presenters/collectiblePresenter';
 import Signup from './presenters/signupPresenter';
@@ -42,6 +43,7 @@ function App(props) {
       <MenuBarView setDetailsOn={setDetailsOn}/>
         <Routes>
           <Route path="/" exact element={<ProtectedRoute> <HomeView setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
+          <Route path="/island" element={<ProtectedRoute> <Island userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
           <Route path="/encyclopedia" element={<ProtectedRoute> <Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
           <Route path="/villagers" element={ <ProtectedRoute><Villagers userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
           <Route path="/music" element={ <ProtectedRoute><Music userModel={props.userModel} detailsModel={props.detailsModel}/> </ProtectedRoute>}/>
