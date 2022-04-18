@@ -32,20 +32,41 @@ function MenuBarView(props) {
             </div>
             <div className='menuBar__center'>
                 {location.pathname === "/" ? 
-                    <h1 className='menuBar__title'> Anicropedia </h1> : 
-                    <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1>
+                    <h1 className='menuBar__title'> Anicropedia </h1> 
+                : location.pathname === "/myisland" 
+                || location.pathname === "/encyclopedia" 
+                || location.pathname === "/villagers" 
+                || location.pathname === "/music" 
+                || location.pathname === "/collectibles" 
+                || location.pathname === "/info" 
+                || location.pathname === "/login" 
+                || location.pathname === "/signout"
+                ?
+                    <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1> 
+                :
+                    <h1 className='menuBar__title'> </h1> 
                 }
             </div>
             <div className='menuBar__sides'>
-                {location.pathname === "/" || location.pathname === "/info" ? 
-                    <></> : 
+                { location.pathname === "/encyclopedia" 
+                || location.pathname === "/villagers"
+                || location.pathname === "/music" 
+                || location.pathname === "/collectibles" 
+                ? 
                     <input className='menuBar__search' placeholder="Search item" />
+                :
+                    <></> 
                 }
             </div>
             <div className='menuBar__sides'>
-                {location.pathname === "/" || location.pathname === "/info" ? 
-                    <></> : 
+                {  location.pathname === "/encyclopedia" 
+                || location.pathname === "/villagers"
+                || location.pathname === "/music" 
+                || location.pathname === "/collectibles" 
+                ? 
                     <button className='menuBar__filter'> Filter </button>
+                :
+                    <></> 
                 }
             </div>
         </div>
