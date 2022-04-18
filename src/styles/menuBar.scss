@@ -48,6 +48,26 @@
         cursor: pointer;
     }
 
+    &__backUpper {
+        @media (min-width: 1001px){
+            display: none;
+        }
+        font-size: 40px;
+        margin-right: -50%;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    &__backLower {
+        @media (max-width: 1000px){
+            display: none;
+        }
+        font-size: 40px;
+        margin-right: 10px;
+        height: 40px;
+        cursor: pointer;
+    }
+
     &__list {
         display: flex;
         justify-content: center;
@@ -69,6 +89,9 @@
     }
 
     &__search {
+        @media (max-width: 1000px){
+            display: none;
+        }
         background-color: #F5F7E1;
         border: #DED9C0 2px solid;
         color: #8B7A66;
@@ -81,6 +104,9 @@
     }
 
     &__filter {
+        @media (max-width: 1000px){
+            display: none;
+        }
         width: 100px;
     }
 }

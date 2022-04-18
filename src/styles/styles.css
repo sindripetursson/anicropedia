@@ -708,6 +708,28 @@ button:hover {
   height: 40px;
   cursor: pointer;
 }
+.menuBar__backUpper {
+  font-size: 40px;
+  margin-right: -50%;
+  height: 40px;
+  cursor: pointer;
+}
+@media (min-width: 1001px) {
+  .menuBar__backUpper {
+    display: none;
+  }
+}
+.menuBar__backLower {
+  font-size: 40px;
+  margin-right: 10px;
+  height: 40px;
+  cursor: pointer;
+}
+@media (max-width: 1000px) {
+  .menuBar__backLower {
+    display: none;
+  }
+}
 .menuBar__list {
   display: flex;
   justify-content: center;
@@ -735,8 +757,18 @@ button:hover {
   width: 200px;
   padding: 10px;
 }
+@media (max-width: 1000px) {
+  .menuBar__search {
+    display: none;
+  }
+}
 .menuBar__filter {
   width: 100px;
+}
+@media (max-width: 1000px) {
+  .menuBar__filter {
+    display: none;
+  }
 }
 
 @font-face {
