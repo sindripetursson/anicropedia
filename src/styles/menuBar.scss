@@ -10,6 +10,10 @@
     font-family: 'FinkHeavy';
     font-size: 16pt;
 
+    &__hidden {
+        display: none;
+    }
+
     &__upper {
         height: 50px;
         display: flex;

@@ -676,6 +676,9 @@ button:hover {
   font-family: "FinkHeavy";
   font-size: 16pt;
 }
+.menuBar__hidden {
+  display: none;
+}
 .menuBar__upper {
   height: 50px;
   display: flex;
