@@ -56,10 +56,16 @@ function MenuBarView(props) {
     <div className='menuBar'>    
         <div className='menuBar__upper'>
             <div className='menuBar__sides'> 
+                {location.pathname === "/" || location.pathname === "/login" ? 
+                    <></> : 
+                 <Link className='menuBar__link' to="/"> 
+                    <img src='../../images/back.svg' alt="back" className="menuBar__backUpper" /> 
+                </Link> 
+                }
             </div>
-            <div className='menuBar__center'>
+            <Link className='menuBar__center' to="/">
                 <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
-            </div>
+            </Link>
             <div className='menuBar__sides'>
                 <Link className='menuBar__link' to="/signout"> 
                     <img src='../../images/user.svg' alt="user" className="menuBar__icon" />
@@ -69,25 +75,44 @@ function MenuBarView(props) {
 
         <div className='menuBar__lower'>
             <div className='menuBar__sides'> 
-                {location.pathname === "/" ? 
+                {location.pathname === "/" || location.pathname === "/login" ? 
                     <></> : 
                     <Link className='menuBar__link' to="/"> 
-                    <img src='../../images/back.svg' alt="back" className="menuBar__icon" /> 
-                </Link> 
+                        <img src='../../images/back.svg' alt="back" className="menuBar__backLower" /> 
+                    </Link> 
                 }
             </div>
             <div className='menuBar__sides'> 
             </div>
             <div className='menuBar__center'>
                 {location.pathname === "/" ? 
-                    <h1 className='menuBar__title'> Anicropedia </h1> : 
-                    <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1>
+                    <h1 className='menuBar__title'> Anicropedia </h1> 
+                : location.pathname === "/encyclopedia" 
+                || location.pathname === "/villagers" 
+                || location.pathname === "/music" 
+                || location.pathname === "/collectibles" 
+                || location.pathname === "/info" 
+                || location.pathname === "/login" 
+                || location.pathname === "/signout"
+                ?
+                    <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1> 
+                :
+                    location.pathname === "/island"
+                ?
+                    <h1 className='menuBar__title'> {"My " + location.pathname.substring(1)} </h1> 
+                :
+                    <h1 className='menuBar__title'> </h1> 
                 }
             </div>
             <div className='menuBar__sides'>
-                {location.pathname === "/" || location.pathname === "/info" ? 
-                    <></> : 
+                { location.pathname === "/encyclopedia" 
+                || location.pathname === "/villagers"
+                || location.pathname === "/music" 
+                || location.pathname === "/collectibles" 
+                ? 
                     <input className='menuBar__search' placeholder="Search item" />
+                :
+                    <></> 
                 }
             </div>
             {/* City search START*/}
@@ -124,9 +149,14 @@ function MenuBarView(props) {
             </div>
             {/* City display END */}
             <div className='menuBar__sides'>
-                {location.pathname === "/" || location.pathname === "/info" ? 
-                    <></> : 
+                {  location.pathname === "/encyclopedia" 
+                || location.pathname === "/villagers"
+                || location.pathname === "/music" 
+                || location.pathname === "/collectibles" 
+                ? 
                     <button className='menuBar__filter'> Filter </button>
+                :
+                    <></> 
                 }
             </div>
         </div>
