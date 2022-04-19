@@ -12,6 +12,7 @@ import Collectible from './presenters/collectiblePresenter';
 import Signup from './presenters/signupPresenter';
 import Login from './presenters/loginPresenter';
 import React from 'react';
+import MenuBar from './presenters/menuBarPresenter';
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 import { ReactSession } from 'react-client-session';
@@ -44,7 +45,7 @@ function App(props) {
       <div className={detailsOn ? "details" : "hidden"}>
         <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
       </div>
-      <MenuBarView setDetailsOn={setDetailsOn}/>
+        <MenuBar setDetailsOn={setDetailsOn} userModel={props.userModel}/>
         <Routes>
           <Route path="/" exact element={<ProtectedRoute> <HomeView setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
           <Route path="/encyclopedia" element={<ProtectedRoute> <Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
