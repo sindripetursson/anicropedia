@@ -6,8 +6,12 @@
     cursor: pointer;
     
     &__image {
-        border-style:solid;
-        border-color: tomato;
+        border-style: solid;
+
+        &__home{
+            width: 200px;
+            border-radius: 20px;
+        }
 
         &__music{
             display:grid;
@@ -23,6 +27,16 @@
 
     &__text {
         width: 90%;
+
+        &__home{
+            width: 100%;
+            padding-left: 5%;
+            padding-right: 5%;
+            font-family: 'Rubik';
+            font-style: normal;
+            color: #835B26;
+            font-weight: bold;
+        }
 
         &__villagers{
             width: 100%;
@@ -58,6 +72,28 @@
             font-style: normal;
             color: #835B26;
             font-weight: bold;
+        }
+    }
+
+    &__home {
+        text-decoration: none;
+        padding: 2px;
+        cursor: pointer;
+        margin: 10px;
+        width: 250px;
+        height: 250px;
+        background: #F7F4E4;
+        border-radius: 50px;
+        filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+        transition: 1s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            background: #DED9C0;;
+            transition: 1s;
+            transform: scale(1.05);
         }
     }
 

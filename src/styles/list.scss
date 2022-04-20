@@ -9,7 +9,6 @@
     */
 
     &__container {
-        
         max-width: $max-width;
         margin: 0 auto;
         &__encyclopedia{
@@ -21,7 +20,6 @@
             border-radius: 0px 50px 50px 50px;
             // filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
             // z-index: 0;
-            
         }
     }
 
@@ -37,6 +35,10 @@
             @include row();
             // flex-wrap: wrap;
             z-index: 10000;
+        }
+        &__home{
+            @include row();
+            flex-wrap: wrap;
         }
     }
 
@@ -80,6 +82,30 @@
     
             @media (min-width: $max-width) {
                 @include columns(2);
+            }
+        }
+
+        &__home{
+            @include columns(12);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+
+            @media (min-width: 400px) {
+                @include columns(12);
+            }
+
+            @media (min-width: 600px) {
+                @include columns(6);
+                justify-content: center;
+            }
+    
+            @media (min-width: 800px) {
+                @include columns(4);
+            }
+    
+            @media (min-width: $max-width) {
+                @include columns(4);
             }
         }
 

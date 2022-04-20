@@ -7,7 +7,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @font-face {
   font-family: "FinkHeavy";
   src: url(../fonts/finkHeavy.ttf);
@@ -52,7 +51,10 @@ body {
 }
 .listItem__image {
   border-style: solid;
-  border-color: tomato;
+}
+.listItem__image__home {
+  width: 200px;
+  border-radius: 20px;
 }
 .listItem__image__music {
   display: grid;
@@ -65,6 +67,15 @@ body {
 }
 .listItem__text {
   width: 90%;
+}
+.listItem__text__home {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family: "Rubik";
+  font-style: normal;
+  color: #835B26;
+  font-weight: bold;
 }
 .listItem__text__villagers {
   width: 100%;
@@ -96,6 +107,27 @@ body {
   font-style: normal;
   color: #835B26;
   font-weight: bold;
+}
+.listItem__home {
+  text-decoration: none;
+  padding: 2px;
+  cursor: pointer;
+  margin: 10px;
+  width: 250px;
+  height: 250px;
+  background: #F7F4E4;
+  border-radius: 50px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
+  transition: 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.listItem__home:hover {
+  background: #DED9C0;
+  transition: 1s;
+  transform: scale(1.05);
 }
 .listItem__villagers {
   padding: 2px;
@@ -233,6 +265,12 @@ body {
   margin-left: -10px;
   z-index: 10000;
 }
+.list__row__home {
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
+  flex-wrap: wrap;
+}
 .list__col {
   width: 50%;
   padding-right: 10px;
@@ -294,6 +332,43 @@ body {
 @media (min-width: 1200px) {
   .list__col__encyclopedia {
     width: 16.6666666667%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+.list__col__home {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 400px) {
+  .list__col__home {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+@media (min-width: 600px) {
+  .list__col__home {
+    width: 50%;
+    padding-right: 10px;
+    padding-left: 10px;
+    justify-content: center;
+  }
+}
+@media (min-width: 800px) {
+  .list__col__home {
+    width: 33.3333333333%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .list__col__home {
+    width: 33.3333333333%;
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -774,36 +849,6 @@ button:hover {
   }
 }
 
-@font-face {
-  font-family: "FinkHeavy";
-  src: url(../fonts/finkHeavy.ttf);
-}
-.home {
-  cursor: pointer;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-.home__image {
-  width: 200px;
-}
-.home__row {
-  display: flex;
-  margin-right: -10px;
-  margin-left: -10px;
-  flex-wrap: wrap;
-}
-.home__box {
-  width: 33.3333333333%;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding: 80px;
-  cursor: pointer;
-}
-.home__link {
-  color: inherit;
-  text-decoration: none;
-}
 @font-face {
   font-family: "FinkHeavy";
   src: url(../fonts/finkHeavy.ttf);
