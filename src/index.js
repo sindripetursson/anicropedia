@@ -18,6 +18,9 @@ const {updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise}=f
 const DetailsModel = require("./DetailsModel.js").default;
 const detailsModel= new DetailsModel();
 
+const WeatherModel = require("./WeatherModel.js").default;
+const weatherModel= new WeatherModel();
+
 const UserModel = require("./UserModel.js").default;
 
 const bigPromise = firebaseModelPromise(ReactSession.get("uid"));
@@ -60,7 +63,7 @@ function ReactRoot() {
   return (
     (ReactSession.get("uid") && promiseNoData({promise: bigPromise, data: userModel, error: error})) ||
     <BrowserRouter>
-      <App detailsModel={detailsModel} userModel={userModel}/>
+      <App detailsModel={detailsModel} userModel={userModel} weatherModel={weatherModel}/>
     </BrowserRouter>
   );
 }
