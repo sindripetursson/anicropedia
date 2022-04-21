@@ -1,7 +1,7 @@
 class UserModel {
     constructor(fishArray = [], insectArray = [], 
                 seaCreatureArray = [], villagerArray = [], 
-                musicArray = [], fossilArray = [], artArray = [], userCityArray = []) {
+                musicArray = [], fossilArray = [], artArray = []) {
         this.observers = [];
         this.fishes = fishArray;
         this.insects = insectArray;
@@ -10,26 +10,6 @@ class UserModel {
         this.music = musicArray;
         this.fossils = fossilArray;
         this.art = artArray;
-        this.userCity = userCityArray;
-    }
-
-
-    setUserCity(chosenCity) {
-
-        const cityArray = chosenCity.split(",");
-
-        this.userCity[0] = cityArray[0];
-        this.userCity[1] = cityArray[1];
-        this.userCity[2] = cityArray[2];
-
-    }
-
-    getUserCity() {
-        if(this.userCity[2] != null) {
-            return this.userCity[2];
-        }
-        return "No City selected";
-
     }
 
     addItem(itemToAdd, category) {

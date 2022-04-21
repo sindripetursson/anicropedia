@@ -7,12 +7,11 @@ function MenuBarView(props) {
     const [hideCitySelect, sethideCitySelect] = React.useState(true);
     const [hideCitySearch, sethideCitySearch] = React.useState(false);
 
-
     const fire=(event)=> {
         if (event.keyCode === 13) {
             sethideCitySearch(true);
             sethideCitySelect(false);
-            props.onSearchNow("user clicked");
+            props.onSearchNow();
         }
     }
 
@@ -51,6 +50,10 @@ function MenuBarView(props) {
         sethideCitySelect(true);
         props.onSetChosenCity(evt.target.value);
     }
+
+    // function triggerGetWeatherData() {
+    //     props.onWeatherData()
+    // }
 
     return (
     <div className='menuBar'>    
@@ -148,6 +151,7 @@ function MenuBarView(props) {
                 }
             </div>
             {/* City display END */}
+            {/* {triggerGetWeatherData()} */}
             <div className='menuBar__sides'>
                 {  location.pathname === "/encyclopedia" 
                 || location.pathname === "/villagers"

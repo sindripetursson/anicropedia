@@ -16,6 +16,7 @@ import Login from './presenters/loginPresenter';
 import React from 'react';
 import MenuBar from './presenters/menuBarPresenter';
 import { Routes, Route, Navigate} from "react-router-dom";
+import Timer from './views/timer';
 
 
 import { ReactSession } from 'react-client-session';
@@ -37,12 +38,13 @@ function App(props) {
     return children;
   };
 
+
  return (
     <div className="App">
       <div className={detailsOn ? "details" : "hidden"}>
         <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
       </div>
-        <MenuBar setDetailsOn={setDetailsOn} userModel={props.userModel}/>
+        <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel}/>
         <Routes>
           <Route path="/" exact element={<ProtectedRoute> <HomeView setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
           <Route path="/island" element={<ProtectedRoute> <Island userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
