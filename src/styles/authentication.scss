@@ -1,11 +1,36 @@
 @import 'config';
 
 .authentication {
-    &__form {
+    margin: auto;
+    margin-bottom: 50px;
+    
+    &__headline{
+        margin-bottom: 20px;
+        font-size: 1.5em;
+    }
 
+    &__label{
+        font-weight: 500;
+        text-align: left;
+        margin-left: 10%;
+        font-size: 0.9em;
+    }
+
+    &__form {
+        min-width: 300px;
+        width: 50%;
+        max-width: 400px;
+        margin: 0 auto;
+        background: #F7F4E4;
+        color: #835B26 ;
+        padding: 50px;
+        filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+        border-radius: 20px;
     }
 
     &__input {
+        font-family: $font-main;
+        
         background-color: #FFFFFF;
         border: #DED9C0 2px solid;
         color: #887C66;
@@ -13,8 +38,9 @@
         border-radius: 25px;
         display: inline-block;
         cursor: pointer;
-        width: 200px;
+        width: 90%;
         padding: 10px;
+        margin-bottom: 10px;
         &--error {
             background-color: #e0cdb7;
             border: #dba59e 2px solid;
@@ -23,9 +49,47 @@
 
     &__citySelection {
         
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        background-image:
+            linear-gradient(45deg, transparent 50%, #a6977d 50%),
+            linear-gradient(135deg, #a6977d 50%, transparent 50%),
+            linear-gradient(to right, #DED9C0 , #DED9C0 );
+        background-position:
+            calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px),
+            calc(100% - 3em) 0.5em;
+        background-size:
+            5px 5px,
+            5px 5px,
+            1px 1.5em;
+        background-repeat: no-repeat;
+
+        border: #DED9C0 2px solid;
+        color: #887C66;
+        font-size: 0.75em;
+        border-radius: 25px;
+        display: inline-block;
+        cursor: pointer;
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 10px;
     }
 
     &__submit {
-
+        margin-top: 30px;
+    }
+    
+    &__image{
+        min-width: 300px;
+        // width: 80%;
+        height: 25vh;
+        max-width: 800px;
+        margin-bottom: 50px;
+        margin-top: 50px;
     }
 }

@@ -1,5 +1,6 @@
-function MusicView(props){
+import { isItemInCollection } from "../utils";
 
+function MusicView(props){
         function renderData(data){
 
             var imageArr = [];
@@ -49,13 +50,15 @@ function MusicView(props){
                 };
 
                 return (
-                    <div className="list__col" key={"music_"+singleResult.id}>
+                    <div className="list__col__music" key={"music_"+singleResult.id}>
                         <div className="listItem__music" >
                             <img className="listItem__image__music" alt="" src={singleResult.image_uri}/>
                             <div className="listItem__text__music">
                                     {singleResult.name["name-EUen"]}
                             </div>
+                            <img className={isItemInCollection(singleResult, 'music', true, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
                             <img className="listItem__music play_button-is-hover listItem__play_button-transparent" onClick={play} src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt=""/>
+                            <button style={{marginBottom:"20px", width: "80%"}} onClick={() => props.onCollectionChange(data)}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
                         </div>
                     </div>
                 );

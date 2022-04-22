@@ -103,6 +103,7 @@ function promiseChangedACB(){
                 onPlayPause={playPause} 
                 onPlayPressed={playTrack}        
                 onPausePressed={pauseTrack}  
+                userModel={props.userModel}
               />
               </div>}
             </div>)

@@ -1,9 +1,12 @@
 function LoginView(props) {
     return(
         <div className="authentication">
+            
+            <img className="authentication__image" src="../../images/anicropediaLogo.svg"/>
             <form className="authentication__form">
+                <h2 className="authentication__headline">Log in to your account</h2>
                 <label className="authentication__email">
-                    <p>Email</p>
+                    <p className="authentication__label">Email</p>
                     <input className="authentication__input"
                            type="email" 
                            onChange={props.onEmailChange}
@@ -13,7 +16,7 @@ function LoginView(props) {
                     />
                 </label>
                 <label className="authentication__password">
-                    <p>Password</p>
+                    <p className="authentication__label">Password</p>
                     <input className="authentication__input"
                            type="password" 
                            onChange={props.onPasswordChange}

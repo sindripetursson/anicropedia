@@ -162,12 +162,17 @@ button:hover{
         background-color: #61D16C;
         color: white;
         border: white 2px solid;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 10px;
     }
 
     &__negative{
         background-color: #FF5757;;
         color: white;
         border: white 2px solid;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 

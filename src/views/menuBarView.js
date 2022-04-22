@@ -134,7 +134,7 @@ function MenuBarView(props) {
                     {location.pathname === "/" || location.pathname === "/info" ? 
                         <></> : 
                         <div>
-                            <select onChange={chooseParameterACB}>
+                            <select className="authentication__citySelection" onChange={chooseParameterACB}>
                                 <option value="" >Choose:</option>
                                 {props.data ?  renderCities(props.data) : <></>}
                             </select>

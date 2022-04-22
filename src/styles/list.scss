@@ -85,6 +85,22 @@
             }
         }
 
+        &__music{
+            @include columns(12);
+
+            @media (min-width: 600px) {
+                @include columns(6);
+            }
+
+            @media (min-width: 800px) {
+                @include columns(4);
+            }
+
+            @media (min-width: $max-width) {
+                @include columns(3);
+            }
+        }
+
         &__home{
             @include columns(12);
             cursor: pointer;

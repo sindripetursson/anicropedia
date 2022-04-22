@@ -1,9 +1,11 @@
 function SignupView(props) {
     return(
         <div className="authentication">
+            <img className="authentication__image" src="../../images/anicropediaLogo.svg"/>
             <form className="authentication__form">
+                <h2 className="authentication__headline">Sign up to Anicropedia</h2>
                 <label className="authentication__name">
-                    <p>Name:</p>
+                    <p className="authentication__label">Name</p>
                     <input className="authentication__input"
                            type="text"
                            onChange={props.onNameChange}
@@ -13,7 +15,7 @@ function SignupView(props) {
                     />
                 </label>
                 <label className="authentication__email">
-                    <p>Email:</p>
+                    <p className="authentication__label">Email</p>
                     <input className="authentication__input"
                            type="email" 
                            onChange={props.onEmailChange}
@@ -23,7 +25,7 @@ function SignupView(props) {
                     />
                 </label>
                 <label className="authentication__password">
-                    <p>Password:</p>
+                    <p className="authentication__label">Password</p>
                     <input className="authentication__input"
                            type="password" 
                            onChange={props.onPasswordChange}
@@ -33,7 +35,7 @@ function SignupView(props) {
                     />
                 </label>
                 <label className="authentication__password">
-                    <p>Confirm password:</p>
+                    <p className="authentication__label">Confirm password</p>
                     <input className="authentication__input"
                            type="password" 
                            onChange={props.onRepeatPasswordChange}
@@ -43,7 +45,7 @@ function SignupView(props) {
                     />
                 </label>
                 <label className="authentication__city">
-                    <p>City:</p>
+                    <p className="authentication__label">City</p>
                     <select className="authentication__citySelection"
                            type="password" 
                            onChange={props.onCityChange}
