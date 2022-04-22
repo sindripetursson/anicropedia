@@ -152,6 +152,10 @@
 
         &__text{
             margin-left: 10px;
+
+            @media (max-width: 820px) {
+                display: none;
+            }
         }
 
         &__container{
