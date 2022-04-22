@@ -4,6 +4,7 @@ import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import EncyclopediaView from "../views/encyclopediaView";
 import { hover } from "@testing-library/user-event/dist/hover";
+import { sessionCheck } from "../utils";
 
 export default 
 function Encyclopedia(props) {
@@ -47,7 +48,7 @@ function Encyclopedia(props) {
     
       React.useEffect(promiseChangedACB, [promise]);
 
-    return <div className="dropshadow">
+    return sessionCheck() || <div className="dropshadow">
     {promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
           <div>
             <div className="list__nav">

@@ -3,6 +3,7 @@ import { getVillagers } from "../source/villagersSource";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import VillagersView from "../views/villagersView";
+import { sessionCheck } from "../utils";
 
 export default 
 function Villagers(props) {
@@ -44,7 +45,7 @@ function Villagers(props) {
     
       React.useEffect(promiseChangedACB, [promise]);
 
-    return <div>
+    return sessionCheck() || (<div>
     {promiseNoData({promise, data, error}) || <VillagersView onItemClicked={getDetails} data={data} userModel={props.userModel}/>}
-    </div>
+    </div>)
 }

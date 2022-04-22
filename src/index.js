@@ -28,7 +28,6 @@ const bigPromise = firebaseModelPromise(ReactSession.get("uid"));
 function ReactRoot() {
   const [userModel, setUserModel] = React.useState();
   const [error, setError] = React.useState();
-  //const {bigPromise, } = React.useState();
 
   ReactSession.setStoreType("localStorage");
 
@@ -41,7 +40,6 @@ function ReactRoot() {
     const uid = ReactSession.get("uid");
 
     if(uid) {
-      //const bigPromise = firebaseModelPromise(uid);
       
       function saveModelACB(model) {
         setUserModelACB(model);

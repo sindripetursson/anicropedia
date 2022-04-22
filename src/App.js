@@ -29,15 +29,6 @@ function App(props) {
 
   ReactSession.setStoreType("localStorage");
 
-  const ProtectedRoute = ({ children }) => {
-    const user = ReactSession.get("uid");
-    if (!user) {
-      return <Navigate to="/login" replace />;
-    }
-  
-    return children;
-  };
-
 
  return (
     <div className="App">
@@ -46,13 +37,13 @@ function App(props) {
       </div>
         <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel}/>
         <Routes>
-          <Route path="/" exact element={<ProtectedRoute> <HomeView setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
-          <Route path="/island" element={<ProtectedRoute> <Island userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
-          <Route path="/encyclopedia" element={<ProtectedRoute> <Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
-          <Route path="/villagers" element={ <ProtectedRoute><Villagers userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
-          <Route path="/music" element={ <ProtectedRoute><Music userModel={props.userModel} detailsModel={props.detailsModel}/> </ProtectedRoute>}/>
-          <Route path="/collectibles" element={ <ProtectedRoute><Collectible userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
-          <Route path="/info" element={ <ProtectedRoute><InfoView setDetailsOn={setDetailsOn}/> </ProtectedRoute>}/>
+          <Route path="/" exact element={ <HomeView setDetailsOn={setDetailsOn}/> }/>
+          <Route path="/island" element={<Island userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/encyclopedia" element={<Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
+          <Route path="/villagers" element={ <Villagers userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>
+          <Route path="/music" element={ <Music userModel={props.userModel} detailsModel={props.detailsModel}/> }/>
+          <Route path="/collectibles" element={ <Collectible userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>
+          <Route path="/info" element={ <InfoView setDetailsOn={setDetailsOn}/> }/>
           <Route path="/signup" element={ <Signup/>}/>
           <Route path="/login" element={ <Login/> }/>
           <Route path="/signout" element={<SignoutView/>}/>

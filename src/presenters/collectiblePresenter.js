@@ -3,6 +3,7 @@ import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import CollectibleView from "../views/collectibleView";
+import { sessionCheck } from "../utils";
 
 export default 
 function Collectible(props) {
@@ -51,7 +52,7 @@ function Collectible(props) {
     
       React.useEffect(promiseChangedACB, [promise]);
 
-    return ( 
+    return sessionCheck() || ( 
       <div className="dropshadow">
         {promiseNoData({promise, data, error}) ||     // same as {promise:promise, data:data, error:error}
           <div>

@@ -4,6 +4,8 @@ import promiseNoData from "../views/promiseNoData.js";
 import { getMusic } from "../source/musicSource.js";
 import resolvePromise from "../resolvePromise";
 import MusicBarView from "../views/musicBarView.js";
+import { sessionCheck } from "../utils";
+
 
 export default 
 function Music(props) {
@@ -87,7 +89,7 @@ function promiseChangedACB(){
 
   React.useEffect(promiseChangedACB, [promise]);
 
-        return <div>
+        return sessionCheck() || (<div>
 
         {promiseNoData({promise, data, error}) ||   
             <div>
@@ -103,5 +105,5 @@ function promiseChangedACB(){
                 onPausePressed={pauseTrack}  
               />
               </div>}
-            </div>
+            </div>)
 } 

@@ -3,6 +3,7 @@ import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 // import { getFishDetails } from "../fishSource.js";
 import { getDetails } from "../source/detailsSource.js";
+import { sessionCheckDetails } from "../utils.js";
 
 export default 
 function Search(props) {
@@ -72,12 +73,13 @@ function promiseChangedACB(){
 
     return changedAgainACB;  // promiseChangedACB will be called for the new value!
   }
+  
 
   React.useEffect(promiseChangedACB, [promise]);
-        return <div>
+        return  sessionCheckDetails() || (<div>
         
         {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
               <DetailsView onCloseClicked={closeClicked} data={data} onCollectionChange={changeCollectionACB} isInCollection={isInCollection}/>}
-              </div>
+              </div>)
               
 } 
