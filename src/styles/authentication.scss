@@ -1,0 +1,31 @@
+@import 'config';
+
+.authentication {
+    &__form {
+
+    }
+
+    &__input {
+        background-color: #FFFFFF;
+        border: #DED9C0 2px solid;
+        color: #887C66;
+        font-size: 0.75em;
+        border-radius: 25px;
+        display: inline-block;
+        cursor: pointer;
+        width: 200px;
+        padding: 10px;
+        &--error {
+            background-color: #e0cdb7;
+            border: #dba59e 2px solid;
+        }
+    }
+
+    &__citySelection {
+        
+    }
+
+    &__submit {
+
+    }
+}

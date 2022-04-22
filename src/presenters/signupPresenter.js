@@ -19,6 +19,8 @@ function Signup(props) {
     const [name, setName] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [repeatPassword, setRepeatPassword] = React.useState('');
+    const [city, setCity] = React.useState('');
 
     function onNameChange(newName) {
         setName(newName.target.value);
@@ -32,31 +34,64 @@ function Signup(props) {
         setPassword(newPassword.target.value);
     }
 
+    function onRepeatPasswordChange(newPassword) {
+        setRepeatPassword(newPassword.target.value);
+    }
+
+    function onCityChange(newCity) {
+        setCity(newCity.target.value);
+    }
+
     function signupACB(e) {
         e.preventDefault();
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const uid = userCredential.user.uid;
-                const name = userCredential.user.displayName;
-                ReactSession.set("uid", uid);
-                ReactSession.set("name", name);
-                updateFirebaseFromModel(userModel, uid);
-                if(updateModelFromFirebase) {
-                    updateModelFromFirebase(userModel, uid);
-                }
-                window.location = '/';
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log('Code: ', errorCode, ' message: ', errorMessage);
-            });
+        if (password === repeatPassword) {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const uid = userCredential.user.uid;
+                    const name = userCredential.user.displayName;
+                    ReactSession.set("uid", uid);
+                    ReactSession.set("name", name);
+                    updateFirebaseFromModel(userModel, uid);
+                    if(updateModelFromFirebase) {
+                        updateModelFromFirebase(userModel, uid);
+                    }
+                    document.getElementById('signupPassword').classList.remove('authentication__input--error');
+                    document.getElementById('signupEmail').classList.remove('authentication__input--error');
+                    document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
+                    document.querySelector('.authentication__errorMessage').innerHTML = '';
+                    window.location = '/';
+                })
+                .catch((error) => {
+                    document.getElementById('signupPassword').classList.remove('authentication__input--error');
+                    document.getElementById('signupEmail').classList.remove('authentication__input--error');
+                    document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    const errorText = document.querySelector('.authentication__errorMessage');
+    
+                    if (errorCode === 'auth/weak-password') {
+                        document.getElementById('signupPassword').classList.add('authentication__input--error');
+                        errorText.innerHTML = 'The password has to be 6 characters long.';
+                    } else if (errorCode === 'auth/email-already-in-use') {
+                        document.getElementById('signupEmail').classList.add('authentication__input--error');
+                        errorText.innerHTML = 'This email address is already in use.';
+                    } else if (errorCode === 'auth/invalid-email') {
+                        document.getElementById('signupEmail').classList.add('authentication__input--error');
+                        errorText.innerHTML = 'Invalid email address.';
+                    } else {
+                        errorText.innerHTML = errorMessage;
+                    }
+                });
+        } else {
+            document.querySelector('.authentication__errorMessage').innerHTML = 'The passwords do not match.';
+            document.getElementById('signupRepeatPassword').classList.add('authentication__input--error');
+        }
     }
 
     return (
         <div>
-            <SignupView name={name} onNameChange={onNameChange} email={email} onEmailChange={onEmailChange} password={password} onPasswordChange={onPasswordChange} onSignup={signupACB}/>
+            <SignupView name={name} onNameChange={onNameChange} email={email} onEmailChange={onEmailChange} password={password} onPasswordChange={onPasswordChange} repeatPassword={repeatPassword} onRepeatPasswordChange={onRepeatPasswordChange} onSignup={signupACB} onCityChange={onCityChange}/>
         </div>
     )
 }

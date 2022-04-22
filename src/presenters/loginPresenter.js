@@ -42,12 +42,33 @@ function Login(props) {
                 if(updateModelFromFirebase) {
                     updateModelFromFirebase(userModel, uid);
                 }
+                document.getElementById('loginPassword').classList.remove('authentication__input--error');
+                document.getElementById('loginEmail').classList.remove('authentication__input--error');
+                document.querySelector('.authentication__errorMessage').innerHTML = '';
                 window.location = '/';
             })
             .catch((error) => {
+                document.getElementById('loginPassword').classList.remove('authentication__input--error');
+                document.getElementById('loginEmail').classList.remove('authentication__input--error');
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log('Code: ', errorCode, ' message: ', errorMessage);
+                const errorText = document.querySelector('.authentication__errorMessage');
+
+                if (errorCode === 'auth/wrong-password') {
+                    document.getElementById('loginPassword').classList.add('authentication__input--error');
+                    errorText.innerHTML = 'The password is incorrect.';
+                } else if (errorCode === 'auth/invalid-email') {
+                    document.getElementById('loginEmail').classList.add('authentication__input--error');
+                    errorText.innerHTML = 'Invalid email address.';
+                } else if (errorCode === 'auth/user-disabled') {
+                    document.getElementById('loginEmail').classList.add('authentication__input--error');
+                    errorText.innerHTML = 'This email address has been disabled.';
+                } else if (errorCode === 'auth/user-not-found') {
+                    document.getElementById('loginEmail').classList.add('authentication__input--error');
+                    errorText.innerHTML = 'No user matches this email.';
+                } else {
+                    errorText.innerHTML = errorMessage;
+                }
             });
     }
 

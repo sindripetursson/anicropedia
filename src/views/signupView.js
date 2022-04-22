@@ -1,35 +1,64 @@
 function SignupView(props) {
     return(
-        <div>
-            <form>
-                <label>
+        <div className="authentication">
+            <form className="authentication__form">
+                <label className="authentication__name">
                     <p>Name:</p>
-                    <input type="text"
+                    <input className="authentication__input"
+                           type="text"
                            onChange={props.onNameChange}
                            value={props.name}
-                           id="name"
+                           id="signupName"
                            placeholder="Enter your name..."
                     />
                 </label>
-                <label>
-                    <p>Email</p>
-                    <input type="email" 
+                <label className="authentication__email">
+                    <p>Email:</p>
+                    <input className="authentication__input"
+                           type="email" 
                            onChange={props.onEmailChange}
                            value={props.email}
-                           id="email"
+                           id="signupEmail"
                            placeholder="Enter your email..."
                     />
                 </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" 
+                <label className="authentication__password">
+                    <p>Password:</p>
+                    <input className="authentication__input"
+                           type="password" 
                            onChange={props.onPasswordChange}
                            value={props.password}
-                           id="password"
+                           id="signupPassword"
                            placeholder="Enter your password..."
                     />
                 </label>
-                <div>
+                <label className="authentication__password">
+                    <p>Confirm password:</p>
+                    <input className="authentication__input"
+                           type="password" 
+                           onChange={props.onRepeatPasswordChange}
+                           value={props.repeatPassword}
+                           id="signupRepeatPassword"
+                           placeholder="Repeat your password..."
+                    />
+                </label>
+                <label className="authentication__city">
+                    <p>City:</p>
+                    <select className="authentication__citySelection"
+                           type="password" 
+                           onChange={props.onCityChange}
+                           id="signupCity">
+                        <option>Stockholm, Sweden</option>
+                        <option>Reykjavík, Iceland</option>
+                        <option>Tokyo, Japan</option>
+                        <option>London, England</option>
+                        <option>New York, United States</option>
+                    </select>
+                </label>
+                <div className="authentication__error">
+                    <p className="authentication__errorMessage"></p>
+                </div>
+                <div className="authentication__submit">
                     <button type="submit" onClick={props.onSignup}>Submit</button>
                 </div>
             </form>
