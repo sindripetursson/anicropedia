@@ -2,7 +2,6 @@ import './App.css';
 import "./css/style.css";
 import "./css/topbar.css";
 import "./styles/styles.css";
-import MenuBarView from './views/menuBarView';
 import HomeView from './views/homeView';
 import InfoView from './views/infoView';
 import SignoutView from './views/signoutView';
@@ -16,7 +15,6 @@ import Login from './presenters/loginPresenter';
 import React from 'react';
 import MenuBar from './presenters/menuBarPresenter';
 import { Routes, Route, Navigate} from "react-router-dom";
-import Timer from './views/timer';
 
 
 import { ReactSession } from 'react-client-session';

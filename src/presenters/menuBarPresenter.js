@@ -1,24 +1,18 @@
 import MenuBarView from "../views/menuBarView.js";
 import React from "react";
 import { getGeo } from "../source/geoSource.js";
-import { getWeather } from "../source/weatherSource.js";
-import { getBackgroundMusic } from "../source/musicSource.js";
 import Timer from "../views/timer.js";
+
+// global hour and audio
+let currentHour; 
+var audio = new Audio();
 
 export default 
 function MenuBar(props) {
-    // geo
+    // // geo
     const [geoPromise, setGeoPromise]= React.useState();
     const [geoData, setGeoData]= React.useState(null);
-    const [geoError, setGeoError]= React.useState(null);
-    // weather
-    const [weatherPromise, setWeatherPromise]= React.useState();
-    const [weatherData, setWeatherData]= React.useState(null);
-    const [weatherError, setWeatherError]= React.useState(null);
-    // background music
-    const [bgmPromise, setBGMPromise]= React.useState(getBackgroundMusic());
-    const [bgmData, setBGMData]= React.useState(null);
-    const [bgmError, setBGMError]= React.useState(null);
+    const [, setGeoError]= React.useState(null);
     // city
     const [chosenCity, setChosenCity]= React.useState(props.weatherModel.getUserCity());
     var typedCity;
@@ -45,80 +39,29 @@ function MenuBar(props) {
         }
         return changedAgainACB; 
     }
-
-    // promise to data for weather data
-    function weatherPromiseChangedACB(){ 
-        setWeatherData(null); 
-        setWeatherError(null); 
-
-        let cancelled = false;
-        function changedAgainACB() { 
-              cancelled = true; 
-        };  // also called at teardown!
-        if(weatherPromise) {
-            weatherPromise
-              .then(function saveDataACB(dt) {  
-                if(!cancelled) setWeatherData(dt);
-              })
-              .catch(function saveErrACB(err) { 
-                if(!cancelled) setWeatherError(err);
-              });
-        }
-        return changedAgainACB; 
-    }
-
-    // promise to data for background music
-    function bgmPromiseChangedACB(){ 
-        setBGMData(null); 
-        setBGMError(null); 
-
-        let cancelled = false;
-        function changedAgainACB() { 
-              cancelled = true; 
-        };  // also called at teardown!
-        if(bgmPromise) {
-            bgmPromise
-              .then(function saveDataACB(dt) {  
-                if(!cancelled) setBGMData(dt);
-              })
-              .catch(function saveErrACB(err) { 
-                if(!cancelled) setBGMError(err);
-              });
-        }
-        return changedAgainACB; 
-    }
     
     // catch input element
-    function saveTypedCity(typedCityName) {
+    function saveTypedCityACB(typedCityName) {
         typedCity = typedCityName;
     };
     
     // get the promise for the input
     function searchNowACB() {
         setGeoPromise(getGeo(typedCity));
+        props.weatherModel.setBackgroundMusicPromise();
     };
 
     // catch the select element
-    function setChosenCityACB(chosenCity) {        
+    function setChosenCityACB(chosenCity) {     
+        // save the city in the model, so that the city persists for the next weather search   
         props.weatherModel.setUserCity(chosenCity);
         setChosenCity(props.weatherModel.getUserCity());
-        props.weatherModel.setCityWeather();
+        
+        updateData();
     };
 
-    // // get the weather data for the user's city
-    // // e.g., promise for the specific lat and lon values
-    // function initWeatherData() {
-    //     // var lat = props.userModel.getCityLat();
-    //     // var lon = props.userModel.getCityLon();
-    //     // console.log(getWeather(lat,lon));
-    //     // setWeatherPromise(getWeather(lat,lon));
-        
-    // }
 
-    // global audio
-    var audio = new Audio();
-    let currentHour; 
-    // final filter
+    // final song filter function
     function filterWeatherDataOnAudio() {
             var checkToday = new Date();
             var checkHour = checkToday.getHours();
@@ -126,29 +69,30 @@ function MenuBar(props) {
             // console.log(checkHour + ', ' + currentHour);
             
             if(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour)) {
-            var today = new Date();
-            currentHour = today.getHours();
 
-            var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
-            const relevantMusic = []
-            var weatherIndex;
+                var today = new Date();
+                currentHour = today.getHours();
 
-            console.log("-----------------------------");
-            console.log('Weather in you City: ' + props.weatherModel.getCityWeather().weather[0].main);
+                var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
+                const relevantMusic = []
+                var weatherIndex;
 
-            matchCityWeatherOnACWeather();
+                console.log("-----------------------------");
+                console.log('Weather in your city: ' + props.weatherModel.getCityWeather().weather[0].main);
 
-            console.log('Weather mapped to AC weather: ' + weatherIndex)
+                matchCityWeatherOnACWeather();
 
-            filterAllSongsFittingCurrentHour(relevantMusic);
+                console.log('Weather mapped to AC weather: ' + weatherIndex)
 
-            filterSongFittingCurrentWeather(relevantMusic);
+                filterAllSongsFittingCurrentHour(relevantMusic);
 
-            audio.loop = true;
-            audio.play();
+                filterSongFittingCurrentWeather(relevantMusic);
 
-            console.log("Information: Song is playing!");
-            console.log("-----------------------------");
+                audio.loop = true;
+                audio.play();
+
+                console.log("Information: Song is playing!");
+                console.log("-----------------------------");
         }
 
         
@@ -173,7 +117,7 @@ function MenuBar(props) {
             Object.values(props.weatherModel.getBackgroundMusicData()).map(renderSingleData);
 
             function renderSingleData(singleResult) {
-                if (singleResult.hour == currentHour) {
+                if (singleResult.hour === currentHour) {
                     relevantMusic.push(singleResult);
                 };
             }
@@ -183,7 +127,7 @@ function MenuBar(props) {
             Object.values(relevantMusic).map(renderFinalSong);
 
             function renderFinalSong(finalSong) {
-                if (finalSong.weather == weatherIndex) {
+                if (finalSong.weather === weatherIndex) {
                     audio.src = finalSong.music_uri;
                     console.log('Following song was chosen: ' + finalSong['file-name'])
                     console.log('Song URI: ' + finalSong.music_uri);
@@ -193,34 +137,35 @@ function MenuBar(props) {
     }
 
     function updateData() {
-        filterWeatherDataOnAudio()
+        
+        if(props.weatherModel.getUserCity()) {
+
+            props.weatherModel.setCityWeatherPromise();
+            
+            setTimeout(filterWeatherDataOnAudio, 1000);
+
+            // console.log('Update');
+        }   
     }
 
-    function toggleTimerCreated() {
-        setTimerCreated(true);
-    }
-
-    React.useEffect(bgmPromiseChangedACB, [bgmPromise]);
     React.useEffect(geoPromiseChangedACB, [geoPromise]);
-    React.useEffect(weatherPromiseChangedACB, [weatherPromise]);
 
     return <div> 
 
             <MenuBarView 
-                onUserInput={saveTypedCity} 
+                onUserInput={saveTypedCityACB} 
                 onSearchNow={searchNowACB} 
                 data={geoData} 
                 onSetChosenCity={setChosenCityACB} 
                 chosenCity={chosenCity} 
-                // onWeatherData={filterWeatherDataOnAudio}
             /> 
 
             {timerCreated ||
-            <Timer 
-            onUpdateData={updateData}
-            onTimerCreated={setTimerCreated}
-            // timer={timerCreated}
-            />
+                <Timer 
+                onUpdateData={updateData}
+                onTimerCreated={setTimerCreated}
+                />
             }
+
         </div> 
 }
