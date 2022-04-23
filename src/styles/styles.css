@@ -174,23 +174,14 @@ body {
   color: #835B26;
   font-weight: bold;
 }
-.listItem__play_button-transparent {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-}
-.listItem__play_button-is-clicked-to-play {
+.listItem__play_button {
   opacity: 1;
   width: 40px;
   height: 40px;
   background: #DED9C0;
 }
-.listItem__play_button-is-not-playing-anymore {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  background: #DED9C0;
+.listItemplaybuttonContainer {
+  width: 100%;
 }
 
 @font-face {

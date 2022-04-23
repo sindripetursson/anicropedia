@@ -27,7 +27,6 @@ function App(props) {
 
   ReactSession.setStoreType("localStorage");
 
-
  return (
     <div className="App">
       <div className={detailsOn ? "details" : "hidden"}>

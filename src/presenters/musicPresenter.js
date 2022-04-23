@@ -83,8 +83,8 @@ function promiseChangedACB(){
   function stopTrack() {
     audio.pause();
     audio.currentTime = 0;
-    var image = document.getElementById("togglePlayPause." + audioArr[audioArr.length - 1]);
-    image.className = "listItem__music play_button-is-hover listItem__play_button-is-not-playing-anymore";
+    // var image = document.getElementById("togglePlayPause." + audioArr[audioArr.length - 1]);
+    // image.className = "listItem__music play_button-is-hover listItem__play_button-is-not-playing-anymore";
   }
 
   React.useEffect(promiseChangedACB, [promise]);
