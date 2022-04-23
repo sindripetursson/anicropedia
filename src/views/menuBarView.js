@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link, useLocation } from "react-router-dom";
+import Sidedrawer from '../components/sideDrawer';
 
 export default 
 function MenuBarView(props) {
     const location = useLocation();
     const [hideCitySelect, sethideCitySelect] = React.useState(true);
     const [hideCitySearch, sethideCitySearch] = React.useState(false);
+
+    const [sideDrawerOpen, setsideDrawerOpen] = React.useState(false);
 
     const fire=(event)=> {
         if (event.keyCode === 13) {
@@ -55,115 +58,125 @@ function MenuBarView(props) {
     //     props.onWeatherData()
     // }
 
+    function drawerToggleClickHandler() {
+        setsideDrawerOpen(!sideDrawerOpen)
+    };
+    
     return (
-    <div className='menuBar'>    
-        <div className='menuBar__upper'>
-            <div className='menuBar__sides'> 
-                {location.pathname === "/" || location.pathname === "/login" ? 
-                    <></> : 
-                 <Link className='menuBar__link' to="/"> 
-                    <img src='../../images/back.svg' alt="back" className="menuBar__backUpper" /> 
-                </Link> 
-                }
-            </div>
-            <Link className='menuBar__center' to="/">
-                <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
-            </Link>
-            <div className='menuBar__sides'>
-                <Link className='menuBar__link' to="/signout"> 
-                    <img src='../../images/user.svg' alt="user" className="menuBar__icon" />
-                </Link> 
-            </div>
-        </div>
-
-        <div className='menuBar__lower'>
-            <div className='menuBar__sides'> 
-                {location.pathname === "/" || location.pathname === "/login" ? 
-                    <></> : 
-                    <Link className='menuBar__link' to="/"> 
-                        <img src='../../images/back.svg' alt="back" className="menuBar__backLower" /> 
-                    </Link> 
-                }
-            </div>
-            <div className='menuBar__sides'> 
-            </div>
-            <div className='menuBar__center'>
-                {location.pathname === "/" ? 
-                    <h1 className='menuBar__title'> Anicropedia </h1> 
-                : location.pathname === "/encyclopedia" 
-                || location.pathname === "/villagers" 
-                || location.pathname === "/music" 
-                || location.pathname === "/collectibles" 
-                || location.pathname === "/info" 
-                || location.pathname === "/login" 
-                || location.pathname === "/signout"
-                ?
-                    <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1> 
-                :
-                    location.pathname === "/island"
-                ?
-                    <h1 className='menuBar__title'> {"My " + location.pathname.substring(1)} </h1> 
-                :
-                    <h1 className='menuBar__title'> </h1> 
-                }
-            </div>
-            <div className='menuBar__sides'>
-                { location.pathname === "/encyclopedia" 
-                || location.pathname === "/villagers"
-                || location.pathname === "/music" 
-                || location.pathname === "/collectibles" 
-                ? 
-                    <input className='menuBar__search' placeholder="Search item" />
-                :
-                    <></> 
-                }
-            </div>
-            {/* City search START*/}
-            {hideCitySearch ? <></> :
-                <div className='menuBar__sides'>
-                    {location.pathname === "/" || location.pathname === "/info" ? 
+    <div>  
+        <div className='menuBar__drawer'>
+            <Sidedrawer show={sideDrawerOpen}/>
+        </div>        
+        <div className='menuBar'>        
+            <div className='menuBar__upper'>
+                <div className='menuBar__sides'> 
+                    {location.pathname === "/" || location.pathname === "/login" ? 
                         <></> : 
-                        <input className='menuBar__search' onKeyDown={(e) => fire(e) } onInput={sendCityACB} placeholder="City" />
+                    <Link className='menuBar__link' to="/"> 
+                        <img src='../../images/back.svg' alt="back" className="menuBar__backUpper" /> 
+                    </Link> 
                     }
                 </div>
-            }
-            {/* City search END */}
-            {/* City options START*/}
-            {hideCitySelect ? <></> :  
+                <Link className='menuBar__center' to="/">
+                    <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
+                </Link>
+                <div className='menuBar__sidesWithSettings'>
+                    <img src='../../images/seaIcon.svg' onClick={drawerToggleClickHandler} alt="user" className="menuBar__icon" />
+                    <Link className='menuBar__link' to="/signout"> 
+                        <img src='../../images/user.svg' alt="user" className="menuBar__icon" />
+                    </Link> 
+                </div>
+            </div>
+
+            <div className='menuBar__lower'>
+                <div className='menuBar__sides'> 
+                    {location.pathname === "/" || location.pathname === "/login" ? 
+                        <></> : 
+                        <Link className='menuBar__link' to="/"> 
+                            <img src='../../images/back.svg' alt="back" className="menuBar__backLower" /> 
+                        </Link> 
+                    }
+                </div>
+                <div className='menuBar__sides'> 
+                </div>
+                <div className='menuBar__center'>
+                    {location.pathname === "/" ? 
+                        <h1 className='menuBar__title'> Anicropedia </h1> 
+                    : location.pathname === "/encyclopedia" 
+                    || location.pathname === "/villagers" 
+                    || location.pathname === "/music" 
+                    || location.pathname === "/collectibles" 
+                    || location.pathname === "/info" 
+                    || location.pathname === "/login" 
+                    || location.pathname === "/signout"
+                    ?
+                        <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1> 
+                    :
+                        location.pathname === "/island"
+                    ?
+                        <h1 className='menuBar__title'> {"My " + location.pathname.substring(1)} </h1> 
+                    :
+                        <h1 className='menuBar__title'> </h1> 
+                    }
+                </div>
+                <div className='menuBar__sides'>
+                    { location.pathname === "/encyclopedia" 
+                    || location.pathname === "/villagers"
+                    || location.pathname === "/music" 
+                    || location.pathname === "/collectibles" 
+                    ? 
+                        <input className='menuBar__search' placeholder="Search item" />
+                    :
+                        <></> 
+                    }
+                </div>
+                {/* City search START*/}
+                {hideCitySearch ? <></> :
+                    <div className='menuBar__sides'>
+                        {location.pathname === "/" || location.pathname === "/info" ? 
+                            <></> : 
+                            <input className='menuBar__search' onKeyDown={(e) => fire(e) } onInput={sendCityACB} placeholder="City" />
+                        }
+                    </div>
+                }
+                {/* City search END */}
+                {/* City options START*/}
+                {hideCitySelect ? <></> :  
+                    <div className='menuBar__sides'>
+                        {location.pathname === "/" || location.pathname === "/info" ? 
+                            <></> : 
+                            <div>
+                                <select className="authentication__citySelection" onChange={chooseParameterACB}>
+                                    <option value="" >Choose:</option>
+                                    {props.data ?  renderCities(props.data) : <></>}
+                                </select>
+                            </div>
+                    }
+                </div>
+                }
+                {/* City options END */}
+                {/* City display START*/}
                 <div className='menuBar__sides'>
                     {location.pathname === "/" || location.pathname === "/info" ? 
                         <></> : 
-                        <div>
-                            <select className="authentication__citySelection" onChange={chooseParameterACB}>
-                                <option value="" >Choose:</option>
-                                {props.data ?  renderCities(props.data) : <></>}
-                            </select>
-                        </div>
-                }
-            </div>
-            }
-            {/* City options END */}
-            {/* City display START*/}
-            <div className='menuBar__sides'>
-                {location.pathname === "/" || location.pathname === "/info" ? 
-                    <></> : 
-                    <p>{props.chosenCity}</p>
-                }
-            </div>
-            {/* City display END */}
-            {/* {triggerGetWeatherData()} */}
-            <div className='menuBar__sides'>
-                {  location.pathname === "/encyclopedia" 
-                || location.pathname === "/villagers"
-                || location.pathname === "/music" 
-                || location.pathname === "/collectibles" 
-                ? 
-                    <button className='menuBar__filter'> Filter </button>
-                :
-                    <></> 
-                }
+                        <p>{props.chosenCity}</p>
+                    }
+                </div>
+                {/* City display END */}
+                {/* {triggerGetWeatherData()} */}
+                <div className='menuBar__sides'>
+                    {  location.pathname === "/encyclopedia" 
+                    || location.pathname === "/villagers"
+                    || location.pathname === "/music" 
+                    || location.pathname === "/collectibles" 
+                    ? 
+                        <button className='menuBar__filter'> Filter </button>
+                    :
+                        <></> 
+                    }
+                </div>
             </div>
         </div>
-    </div>
+    </div> 
     )
 }
