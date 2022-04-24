@@ -21,7 +21,7 @@ function MusicView(props){
                     } else 
                     // TOGGLE PLAY/PAUSE
                     if(image === imageArr[imageArr.length - 1]) {
-                        if(image.alt == "play") {
+                        if(image.alt === "play") {
                             image.src = "../../images/pause-button.png";
                             image.alt = "pause";
                             props.onPlayPressed();
@@ -47,6 +47,8 @@ function MusicView(props){
                     }
                 };
 
+                const inCollection = isItemInCollection(singleResult, 'music', true, props.userModel);
+
                 return (
                     <div className="list__col__music" key={"music_"+singleResult.id}>
                         <div className="listItem__music" >
@@ -54,11 +56,15 @@ function MusicView(props){
                             <div className="listItem__text__music">
                                     {singleResult.name["name-EUen"]}
                             </div>
-                            <img className={isItemInCollection(singleResult, 'music', true, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
+                            <img id={'checkmark_' + singleResult.id} className={inCollection ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
                             <div className="listItem__playbuttonContainer">
                             <img className="listItem__music play_button-is-hover listItem__play_button" onClick={play} src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt="play"/>
                             </div>
-                            <button style={{marginBottom:"20px", width: "80%"}} onClick={() => props.onCollectionChange(data)}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
+                            <button style={{marginBottom:"20px", width: "80%"}} onClick={(e) => {
+                                props.onCollectionChange(singleResult, isItemInCollection(singleResult, 'music', true, props.userModel));
+                                isItemInCollection(singleResult, 'music', true, props.userModel)?e.target.innerHTML = 'Remove from my collection':e.target.innerHTML = 'Add to my collection';
+                                document.getElementById('checkmark_' + singleResult.id).classList= isItemInCollection(singleResult, 'music', true, props.userModel)? "checkmark" : "hidden";
+                            }}>{isItemInCollection(singleResult, 'music', true, props.userModel)?'Remove from my collection':'Add to my collection'}</button>
                         </div>
                     </div>
                 );

@@ -20,6 +20,14 @@ function Music(props) {
         }
     }
 
+    function changeCollectionACB(musicTrack, inCollection) {
+      if(inCollection) {
+        props.userModel.removeItem(musicTrack, 'music');
+      } else {
+        props.userModel.addItem(musicTrack, 'music');
+      }
+    }
+
 React.useEffect(wasCreatedACB, []);
 
 function promiseChangedACB(){ 
@@ -104,6 +112,7 @@ function promiseChangedACB(){
                 onPlayPressed={playTrack}        
                 onPausePressed={pauseTrack}  
                 userModel={props.userModel}
+                onCollectionChange={changeCollectionACB}
               />
               </div>}
             </div>)
