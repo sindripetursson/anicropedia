@@ -60,10 +60,8 @@ function MusicView(props){
                             <div className="listItem__playbuttonContainer">
                             <img className="listItem__music play_button-is-hover listItem__play_button" onClick={play} src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt="play"/>
                             </div>
-                            <button style={{marginBottom:"20px", width: "80%"}} onClick={(e) => {
+                            <button id={'button_' + singleResult.id} style={{marginBottom:"20px", width: "80%"}} onClick={(e) => {
                                 props.onCollectionChange(singleResult, isItemInCollection(singleResult, 'music', true, props.userModel));
-                                isItemInCollection(singleResult, 'music', true, props.userModel)?e.target.innerHTML = 'Remove from my collection':e.target.innerHTML = 'Add to my collection';
-                                document.getElementById('checkmark_' + singleResult.id).classList= isItemInCollection(singleResult, 'music', true, props.userModel)? "checkmark" : "hidden";
                             }}>{isItemInCollection(singleResult, 'music', true, props.userModel)?'Remove from my collection':'Add to my collection'}</button>
                         </div>
                     </div>

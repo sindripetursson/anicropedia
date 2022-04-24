@@ -21,20 +21,21 @@ const detailsModel= new DetailsModel();
 const WeatherModel = require("./WeatherModel.js").default;
 const weatherModel= new WeatherModel();
 
-const UserModel = require("./UserModel.js").default;
 
-const bigPromise = firebaseModelPromise(ReactSession.get("uid"));
+let bigPromise;
 
 function ReactRoot() {
   const [userModel, setUserModel] = React.useState();
   const [error, setError] = React.useState();
 
   ReactSession.setStoreType("localStorage");
+  bigPromise = firebaseModelPromise(ReactSession.get("uid"));
+
 
   
   React.useEffect(function onStartACB() {
-    function setUserModelACB(userModele) {
-      setUserModel(userModele);
+    function setUserModelACB(model) {
+      setUserModel(model);
     }
 
     const uid = ReactSession.get("uid");

@@ -177,6 +177,25 @@ function updateModelFromFirebase(model, uid) {
             model.removeItem({id: +firebaseData.key}, 'art');
         }
     );
+
+    // Music
+    firebase.database().ref(REF + "/" + uid + "/music").on("child_added", 
+        function musicAddedInFirebaseACB(firebaseData){ 
+            function hasSameIdCB(music){
+                return +firebaseData.key === music.id;
+            }
+            const newMusicArray = model.music.filter(hasSameIdCB); 
+    
+            if (newMusicArray.length === 0) {
+                getDetails('songs', +firebaseData.key).then(function addMusicCB(music) {model.addItem(music, 'music')});
+            }
+        }
+    );
+    firebase.database().ref(REF + "/" + uid + "/music").on("child_removed", 
+        function musicRemovedInFirebaseACB(firebaseData){ 
+            model.removeItem({id: +firebaseData.key}, 'music');
+        }
+    );
 }
 
 function makeFishPromiseCB(fishId) {
@@ -204,7 +223,7 @@ function makeArtPromiseCB(artId) {
 }
 
 function makeMusicPromiseCB(musicId) {
-    return getDetails('music', musicId);
+    return getDetails('songs', musicId);
 }
 
 function makeBigPromiseACB(firebaseData){
@@ -216,7 +235,6 @@ function makeBigPromiseACB(firebaseData){
         return new UserModel(items[0], items[1], items[2], items[3], items[4], items[5], items[6]);
     }
 
-
     const userItemArray = [
         Object.keys(firebaseData.val().fishes?firebaseData.val().fishes:[]).map(makeFishPromiseCB),
         Object.keys(firebaseData.val().insects?firebaseData.val().insects:[]).map(makeInsectPromiseCB),
@@ -226,7 +244,7 @@ function makeBigPromiseACB(firebaseData){
         Object.keys(firebaseData.val().fossils?firebaseData.val().fossils:[]).map(makeFossilPromiseCB),
         Object.keys(firebaseData.val().art?firebaseData.val().art:[]).map(makeArtPromiseCB)
     ];
-    
+
     return Promise.all(userItemArray.map(
         function(promiseArray) {
             return Promise.all(promiseArray);

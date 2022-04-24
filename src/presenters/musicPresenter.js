@@ -26,6 +26,8 @@ function Music(props) {
       } else {
         props.userModel.addItem(musicTrack, 'music');
       }
+      document.getElementById('checkmark_' + musicTrack.id).classList= !inCollection? 'checkmark' : 'hidden';
+      document.getElementById('button_' + musicTrack.id).innerHTML = !inCollection? 'Remove from my collection' : 'Add to my collection';
     }
 
 React.useEffect(wasCreatedACB, []);
