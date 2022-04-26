@@ -6,6 +6,11 @@ import resolvePromise from "../resolvePromise";
 import MusicBarView from "../views/musicBarView.js";
 import { sessionCheck } from "../utils";
 
+var audio = new Audio();
+var btTopPlayPause;
+var audioArr = [];
+var singleResultGlobal;
+var btVinylPlayPause;
 
 export default 
 function Music(props) {
@@ -32,6 +37,34 @@ function Music(props) {
 
 React.useEffect(wasCreatedACB, []);
 
+
+// check the focus (case: music is played, user leaves view and returns)
+const focusDiv = React.useRef();
+React.useEffect(() => {
+ if(focusDiv.current) focusDiv.current.focus(); 
+
+ checkForPlaying();
+ 
+}, [focusDiv]);
+
+function checkForPlaying() {
+  
+  // check if music is still playing since user leavt the view 
+  if(!audio.paused) {
+  
+    // 300 ms timeout, the views need some time to load
+    // set the buttons according to the still playing music, eg 'show pause'
+    setTimeout(() => {
+      var btTopPlayPause = document.getElementById("togglePlayPause");
+      btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
+
+      var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+      btVinylPlayPause.src = "../../images/pause-button.png";
+    }, 300);
+   
+  }
+}
+
 function promiseChangedACB(){ 
     setData(null); 
     setError(null); 
@@ -53,48 +86,99 @@ function promiseChangedACB(){
     return changedAgainACB;
   }
 
-  var audioArr = [];
-  var audio = new Audio();
-  function playPause(singleResult) {
-    const result = audioArr.find(id => id === singleResult.id);
-    if(result === undefined) {
-      audioArr.pop();
-      audioArr.push(singleResult.id)
-        if(!audio.paused) {
-          audio.pause();
-        }
-      audio = new Audio(singleResult.music_uri)
-    }
-  }
   
-  function playTrack() {
-    if(audio.src !== "") {
-    if(audio.paused) {
-      audio.play(); 
-      var btPlayPause = document.getElementById("togglePlayPause");
-      btPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
-    }
-      else {
+
+  // Below vinyl image buttons
+  function playPause(singleResult) {
+    // find the id equal to the singleResult.id
+    const result = audioArr.find(id => id === singleResult.id);
+     
+      // check if the id from the 'clicked song' is aleady in the array 
+      // (that means is already playing or selected)
+      if(result === undefined) {
+
+        // make sure to set the play button to "show play" when another track is played
+        if(singleResultGlobal) {
+          btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+          btVinylPlayPause.src = "../../images/play-button.png";
+        }
+
+        // needed to set the vinyl buttons and get the id in each function
+        singleResultGlobal = singleResult;
+
+        // make sure that the playing song is stoped, since it will be replaced
         audio.pause();
-        var btPlayPause = document.getElementById("togglePlayPause");
-        btPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+        
+        // clear the array with the old song, since there should always only be one song in the array
+        audioArr.pop();
+
+        // add the new song
+        audioArr.push(singleResult.id)
+
+        // set the audio object
+        audio = new Audio(singleResult.music_uri)
+        audio.loop = true;
       }
+  }
+
+  
+  // Top play/pause toggle
+  function playTrack() {
+
+    if(audio.src.includes('acnhapi')) {
+
+      // if audio is paused: toggle to play
+      if(audio.paused) {
+
+        audio.play();
+
+        btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+        btVinylPlayPause.src = "../../images/pause-button.png";
+        
+        btTopPlayPause = document.getElementById("togglePlayPause");
+        btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
+
+        // if audio is not paused: toggle to pause
+      } else {
+        audio.pause();
+
+        btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+        btVinylPlayPause.src = "../../images/play-button.png";
+
+        btTopPlayPause = document.getElementById("togglePlayPause");
+        btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+      }
+
+     // if the src is empty, make sure the top play/pause is set to "show play"
+    } else {
+        // audio.pause();
+
+        btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+        btVinylPlayPause.src = "../../images/play-button.png";
+
+        btTopPlayPause = document.getElementById("togglePlayPause");
+        btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
     }
   }
 
-  function pauseTrack() {
-    if(audio.src !== "") { 
-    audio.pause();
-    var btPlayPause = document.getElementById("togglePlayPause");
-    btPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
-    }
-  }
-
+  
+  // Top button
   function stopTrack() {
+    // stop the track
     audio.pause();
-    audio.currentTime = 0;
-    // var image = document.getElementById("togglePlayPause." + audioArr[audioArr.length - 1]);
-    // image.className = "listItem__music play_button-is-hover listItem__play_button-is-not-playing-anymore";
+
+    // then delete the source
+    audio.src = "";
+
+
+    audioArr.pop();
+    // make sure the top play/pause button is set to "show play"
+
+    btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+    btVinylPlayPause.src = "../../images/play-button.png";
+
+    btTopPlayPause = document.getElementById("togglePlayPause");
+    btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
   }
 
   React.useEffect(promiseChangedACB, [promise]);
@@ -104,7 +188,7 @@ function promiseChangedACB(){
         {promiseNoData({promise, data, error}) ||   
             <div>
               <MusicBarView 
-                onPausePressed={pauseTrack}
+                // onPausePressed={pauseTrack}
                 onPlayPressed={playTrack} 
                 onStopPressed={stopTrack}
               />
@@ -112,10 +196,13 @@ function promiseChangedACB(){
                 data={data}
                 onPlayPause={playPause} 
                 onPlayPressed={playTrack}        
-                onPausePressed={pauseTrack}  
+                onPausePressed={playTrack}  
                 userModel={props.userModel}
                 onCollectionChange={changeCollectionACB}
               />
+              
+              <div ref={focusDiv}></div>
+
               </div>}
             </div>)
 } 
