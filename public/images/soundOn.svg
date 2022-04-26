@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 25</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-25" transform="translate(1.000000, 1.000000)">
+            <circle id="Oval" stroke="#8B7A66" stroke-width="2" fill="#FEF8E4" cx="25" cy="25" r="25"></circle>
+            <g id="Group-24" transform="translate(10.000000, 11.000000)">
+                <path d="M19.1992409,25.922093 L19.1992409,2.06444549 C19.1992409,1.51216074 18.7515257,1.06444549 18.1992409,1.06444549 C17.9742649,1.06444549 17.7558615,1.14030863 17.5793292,1.27977391 L9.17828167,7.91682796 L9.17828167,7.91682796 L4.9546927,7.95510141 C2.21105888,7.97996376 -3.36012032e-16,10.2111497 0,12.9548961 L0,15 C1.01445702e-15,17.7614237 2.23857625,20 5,20 L9.17828167,20 L9.17828167,20 L17.5753436,26.7035993 C18.0069576,27.0481683 18.6361782,26.9776044 18.9807472,26.5459904 C19.122198,26.3688063 19.1992409,26.1488143 19.1992409,25.922093 Z" id="Path-27" fill="#8B7B63"></path>
+                <path d="M22,5 C26.6666667,7.02131372 29,10.0213137 29,14 C29,17.9786863 26.6666667,20.9786863 22,23" id="Path-28" stroke="#8B7B63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M22,9 C24,10.5607478 25,12.2274145 25,14 C25,15.7725855 24,17.4392522 22,19" id="Path-28-Copy" stroke="#8B7B63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

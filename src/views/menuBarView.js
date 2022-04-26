@@ -63,11 +63,11 @@ function MenuBarView(props) {
         var image = document.getElementById('muteId');
 
         // if src matches the actual one and is clicked, then change it
-        if (image.src.match("images/volume.png")) {
-            image.src = "images/volume-mute.png";
+        if (image.src.match("images/soundOn.svg")) {
+            image.src = "images/soundOff.svg";
         }
         else {
-            image.src = "images/volume.png";
+            image.src = "images/soundOn.svg";
         }
     }
 
@@ -78,7 +78,7 @@ function MenuBarView(props) {
     return (
     <div>  
         <div className='menuBar__drawer'>
-            <Sidedrawer show={sideDrawerOpen}/>
+            <Sidedrawer drawerToggleClickHandler={drawerToggleClickHandler} show={sideDrawerOpen}/>
         </div>        
         <div className='menuBar'>        
             <div className='menuBar__upper'>
@@ -96,7 +96,7 @@ function MenuBarView(props) {
                 <div className='menuBar__sidesWithSettings'>
                     <img src='../../images/menu.svg' onClick={drawerToggleClickHandler} alt="user" className="menuBar__icon" />
                     <Link className='menuBar__link' to="/signout"> 
-                        <img src='../../images/user.svg' alt="user" className="menuBar__icon" />
+                        <img src='../../images/signOut.svg' alt="user" className="menuBar__icon" />
                     </Link> 
                 </div>
             </div>
@@ -173,7 +173,7 @@ function MenuBarView(props) {
                         {location.pathname === "/" || location.pathname === "/info" ? 
                             <></> : 
                             <div>
-                                <img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/>
+                                <img className='menuBar__mute' src={"../../images/soundOn.svg"} id="muteId" onClick={muteMusic} value="ChangeMute"/>
                             </div>
                     }
                     </div>

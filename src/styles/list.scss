@@ -128,7 +128,7 @@
             @include columns(2);
             background: #F7F4E4;
             display: flex;
-
+            cursor: pointer;
             padding: 10px;
             // padding-left: 40px;
             margin-left: 10px;
@@ -159,7 +159,7 @@
         margin: 0 auto;
         z-index: 1;
         border-radius: 50px;
-        cursor: pointer;
+        
 
         &__icon{
             height: 35px;

@@ -12,6 +12,7 @@ import Villagers from './presenters/villagersPresenter';
 import Collectible from './presenters/collectiblePresenter';
 import Signup from './presenters/signupPresenter';
 import Login from './presenters/loginPresenter';
+import Settings from './presenters/settingsPresenter';
 import React from 'react';
 import MenuBar from './presenters/menuBarPresenter';
 import { Routes, Route } from "react-router-dom";
@@ -36,6 +37,7 @@ function App(props) {
           <Route path="/music" element={ <Music userModel={props.userModel} detailsModel={props.detailsModel}/> }/>
           <Route path="/collectibles" element={ <Collectible userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>
           <Route path="/info" element={ <InfoView setDetailsOn={setDetailsOn}/> }/>
+          <Route path="/settings" element={ <Settings userModel={props.userModel}/> }/>
           <Route path="/signup" element={ <Signup/>}/>
           <Route path="/login" element={ <Login/> }/>
           <Route path="/signout" element={<SignoutView/>}/>
