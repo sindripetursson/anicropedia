@@ -139,8 +139,6 @@ function MenuBarView(props) {
                     || location.pathname === "/collectibles" 
                     ? 
                         <input className='menuBar__search' placeholder="Search item" />
-                        && <img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/>
-                        && <p>{props.chosenCity}</p>
                     :
                         <></> 
                     }
@@ -167,20 +165,40 @@ function MenuBarView(props) {
                                 </select>
                             </div>
                     }
-                </div>
+                    </div>
                 }
-            </div>
-            {/* City options END*/}
+                {/* City options END*/}
+                {/* Mute Start*/}
+                <div className='menuBar__sides'>
+                        {location.pathname === "/" || location.pathname === "/info" ? 
+                            <></> : 
+                            <div>
+                                <img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/>
+                            </div>
+                    }
+                    </div>
+                {/* Mute END*/}
+                <div className='menuBar__sides'>
+                        {location.pathname === "/" || location.pathname === "/info" ? 
+                            <></> : 
+                            <div>
+                                <p>{props.chosenCity}</p>
+                            </div>
+                    }
+                </div>
+
+
             <div className='menuBar__sides'>
                 {  location.pathname === "/encyclopedia" 
                 || location.pathname === "/villagers"
                 || location.pathname === "/music" 
                 || location.pathname === "/collectibles" 
                 ? 
-                    <button className='menuBar__filter'> Filter </button>
+                <button className='menuBar__filter'> Filter </button>
                 :
-                    <></> 
-                }
+                <></> 
+            }
+            </div>
             </div>
         </div>
     </div> 
