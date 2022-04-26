@@ -103,7 +103,6 @@
 
         &__home{
             @include columns(12);
-            cursor: pointer;
             display: flex;
             justify-content: center;
 
