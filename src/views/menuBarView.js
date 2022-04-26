@@ -167,35 +167,9 @@ function MenuBarView(props) {
                     }
                 </div>
                 }
-
             </div>
+            {/* City options END*/}
             <div><img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/></div>
-            {/* City search START*/}
-            {hideCitySearch ? <></> :
-                {/* City options END */}
-                {/* City display START*/}
-                <div className='menuBar__sides'>
-                    {location.pathname === "/" || location.pathname === "/info" ? 
-                        <></> : 
-                        <p>{props.chosenCity}</p>
-                    }
-                </div>
-                {/* City display END */}
-                {/* {triggerGetWeatherData()} */}
-                <div className='menuBar__sides'>
-
-                    {location.pathname === "/" || location.pathname === "/info" ? 
-                        <></> : 
-                        <div>
-                            <select className="authentication__citySelection" onChange={chooseParameterACB}>
-                                <option value="" >Choose:</option>
-                                {props.data ?  renderCities(props.data) : <></>}
-                            </select>
-                        </div>
-                }
-            </div>
-            }
-            {/* City options END */}
             {/* City display START*/}
             <div className='menuBar__sides'>
                 {location.pathname === "/" || location.pathname === "/info" ? 
