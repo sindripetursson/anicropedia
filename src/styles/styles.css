@@ -831,6 +831,11 @@ button:hover {
 .menuBar__logo {
   height: 40px;
 }
+.menuBar__mute {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
 .menuBar__search {
   background-color: #F5F7E1;
   border: #DED9C0 2px solid;

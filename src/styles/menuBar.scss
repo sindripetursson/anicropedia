@@ -92,6 +92,12 @@
         height: 40px;
     }
 
+    &__mute {
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+    }
+
     &__search {
         @media (max-width: 1000px){
             display: none;

@@ -51,9 +51,22 @@ function MenuBarView(props) {
         props.onSetChosenCity(evt.target.value);
     }
 
-    // function triggerGetWeatherData() {
-    //     props.onWeatherData()
-    // }
+    function muteMusic() {
+        
+        // Send mute request to presenter
+        props.onMuteAudio();
+
+        // set the image to alter the src
+        var image = document.getElementById('muteId');
+
+        // if src matches the actual one and is clicked, then change it
+        if (image.src.match("images/volume.png")) {
+            image.src = "images/volume-mute.png";
+        }
+        else {
+            image.src = "images/volume.png";
+        }
+    }
 
     return (
     <div className='menuBar'>    
@@ -118,6 +131,7 @@ function MenuBarView(props) {
                     <></> 
                 }
             </div>
+            <div><img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/></div>
             {/* City search START*/}
             {hideCitySearch ? <></> :
                 <div className='menuBar__sides'>
@@ -151,7 +165,6 @@ function MenuBarView(props) {
                 }
             </div>
             {/* City display END */}
-            {/* {triggerGetWeatherData()} */}
             <div className='menuBar__sides'>
                 {  location.pathname === "/encyclopedia" 
                 || location.pathname === "/villagers"

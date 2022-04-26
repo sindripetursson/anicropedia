@@ -5,6 +5,7 @@ import Timer from "../views/timer.js";
 
 // global hour and audio
 let currentHour; 
+let currentMinute; 
 var audio = new Audio();
 
 export default 
@@ -65,20 +66,27 @@ function MenuBar(props) {
     function filterWeatherDataOnAudio() {
             var checkToday = new Date();
             var checkHour = checkToday.getHours();
+            //
+            var checkMinute = checkToday.getMinutes();
 
-            // console.log(checkHour + ', ' + currentHour);
+            // console.log("Compare checkHour vs currentHour: " + checkHour + ', ' + currentHour);
+
+            // console.log('weather: ' + props.weatherModel.getCityWeather());
             
+            // console.log(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour));
             if(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour)) {
 
                 var today = new Date();
                 currentHour = today.getHours();
+                //
+                currentMinute = today.getMinutes();
 
                 var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
                 const relevantMusic = []
                 var weatherIndex;
 
                 console.log("-----------------------------");
-                console.log('Weather in your city: ' + props.weatherModel.getCityWeather().weather[0].main);
+                console.log('Weather in ' + props.weatherModel.getUserCity() + ': ' + props.weatherModel.getCityWeather().weather[0].main);
 
                 matchCityWeatherOnACWeather();
 
@@ -138,14 +146,22 @@ function MenuBar(props) {
 
     function updateData() {
         
-        if(props.weatherModel.getUserCity()) {
+        // console.log('city? ' + props.weatherModel.getUserCity())
+
+        if(props.weatherModel.getUserCity() !== "No City selected") {
 
             props.weatherModel.setCityWeatherPromise();
             
-            setTimeout(filterWeatherDataOnAudio, 1000);
-
-            // console.log('Update');
+            setTimeout(filterWeatherDataOnAudio, 2000);
         }   
+    }
+
+    function muteAudioACB() {
+        if(audio.volume > 0) {
+            audio.volume = 0;
+        } else {
+            audio.volume = 1;
+        }
     }
 
     React.useEffect(geoPromiseChangedACB, [geoPromise]);
@@ -158,6 +174,7 @@ function MenuBar(props) {
                 data={geoData} 
                 onSetChosenCity={setChosenCityACB} 
                 chosenCity={chosenCity} 
+                onMuteAudio={muteAudioACB}
             /> 
 
             {timerCreated ||
