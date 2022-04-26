@@ -833,6 +833,11 @@ button:hover {
   width: 20px;
   cursor: pointer;
 }
+@media (max-width: 1000px) {
+  .menuBar__mute {
+    display: none;
+  }
+}
 .menuBar__search {
   background-color: #F5F7E1;
   border: #DED9C0 2px solid;
