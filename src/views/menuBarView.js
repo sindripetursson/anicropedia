@@ -54,9 +54,22 @@ function MenuBarView(props) {
         props.onSetChosenCity(evt.target.value);
     }
 
-    // function triggerGetWeatherData() {
-    //     props.onWeatherData()
-    // }
+    function muteMusic() {
+        
+        // Send mute request to presenter
+        props.onMuteAudio();
+
+        // set the image to alter the src
+        var image = document.getElementById('muteId');
+
+        // if src matches the actual one and is clicked, then change it
+        if (image.src.match("images/volume.png")) {
+            image.src = "images/volume-mute.png";
+        }
+        else {
+            image.src = "images/volume.png";
+        }
+    }
 
     function drawerToggleClickHandler() {
         setsideDrawerOpen(!sideDrawerOpen)
@@ -154,6 +167,11 @@ function MenuBarView(props) {
                     }
                 </div>
                 }
+
+            </div>
+            <div><img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/></div>
+            {/* City search START*/}
+            {hideCitySearch ? <></> :
                 {/* City options END */}
                 {/* City display START*/}
                 <div className='menuBar__sides'>
@@ -165,16 +183,37 @@ function MenuBarView(props) {
                 {/* City display END */}
                 {/* {triggerGetWeatherData()} */}
                 <div className='menuBar__sides'>
-                    {  location.pathname === "/encyclopedia" 
-                    || location.pathname === "/villagers"
-                    || location.pathname === "/music" 
-                    || location.pathname === "/collectibles" 
-                    ? 
-                        <button className='menuBar__filter'> Filter </button>
-                    :
-                        <></> 
-                    }
-                </div>
+
+                    {location.pathname === "/" || location.pathname === "/info" ? 
+                        <></> : 
+                        <div>
+                            <select className="authentication__citySelection" onChange={chooseParameterACB}>
+                                <option value="" >Choose:</option>
+                                {props.data ?  renderCities(props.data) : <></>}
+                            </select>
+                        </div>
+                }
+            </div>
+            }
+            {/* City options END */}
+            {/* City display START*/}
+            <div className='menuBar__sides'>
+                {location.pathname === "/" || location.pathname === "/info" ? 
+                    <></> : 
+                    <p>{props.chosenCity}</p>
+                }
+            </div>
+            {/* City display END */}
+            <div className='menuBar__sides'>
+                {  location.pathname === "/encyclopedia" 
+                || location.pathname === "/villagers"
+                || location.pathname === "/music" 
+                || location.pathname === "/collectibles" 
+                ? 
+                    <button className='menuBar__filter'> Filter </button>
+                :
+                    <></> 
+                }
             </div>
         </div>
     </div> 
