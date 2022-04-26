@@ -95,9 +95,7 @@ function MenuBarView(props) {
                 </Link>
                 <div className='menuBar__sidesWithSettings'>
                     <img src='../../images/menu.svg' onClick={drawerToggleClickHandler} alt="user" className="menuBar__icon" />
-                    <Link className='menuBar__link' to="/signout"> 
-                        <img src='../../images/signOut.svg' alt="user" className="menuBar__icon" />
-                    </Link> 
+
                 </div>
             </div>
 
