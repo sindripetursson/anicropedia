@@ -14,19 +14,13 @@ import Signup from './presenters/signupPresenter';
 import Login from './presenters/loginPresenter';
 import React from 'react';
 import MenuBar from './presenters/menuBarPresenter';
-import { Routes, Route, Navigate} from "react-router-dom";
-
-
-import { ReactSession } from 'react-client-session';
+import { Routes, Route } from "react-router-dom";
 
 const Details = require("./presenters/detailsPresenter.js").default;
 const Music = require("./presenters/musicPresenter.js").default;
 
 function App(props) {
   const [detailsOn, setDetailsOn] = React.useState(false);
-
-  ReactSession.setStoreType("localStorage");
-
 
  return (
     <div className="App">

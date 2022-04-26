@@ -20,6 +20,16 @@ function Music(props) {
         }
     }
 
+    function changeCollectionACB(musicTrack, inCollection) {
+      if(inCollection) {
+        props.userModel.removeItem(musicTrack, 'music');
+      } else {
+        props.userModel.addItem(musicTrack, 'music');
+      }
+      document.getElementById('checkmark_' + musicTrack.id).classList= !inCollection? 'checkmark' : 'hidden';
+      document.getElementById('button_' + musicTrack.id).innerHTML = !inCollection? 'Remove from my collection' : 'Add to my collection';
+    }
+
 React.useEffect(wasCreatedACB, []);
 
 function promiseChangedACB(){ 
@@ -83,8 +93,8 @@ function promiseChangedACB(){
   function stopTrack() {
     audio.pause();
     audio.currentTime = 0;
-    var image = document.getElementById("togglePlayPause." + audioArr[audioArr.length - 1]);
-    image.className = "listItem__music play_button-is-hover listItem__play_button-is-not-playing-anymore";
+    // var image = document.getElementById("togglePlayPause." + audioArr[audioArr.length - 1]);
+    // image.className = "listItem__music play_button-is-hover listItem__play_button-is-not-playing-anymore";
   }
 
   React.useEffect(promiseChangedACB, [promise]);
@@ -104,6 +114,7 @@ function promiseChangedACB(){
                 onPlayPressed={playTrack}        
                 onPausePressed={pauseTrack}  
                 userModel={props.userModel}
+                onCollectionChange={changeCollectionACB}
               />
               </div>}
             </div>)

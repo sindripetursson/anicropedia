@@ -11,7 +11,7 @@ function Search(props) {
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);
 	const [isInCollection, setIsInCollection] = React.useState(false);
-
+    
     function isItemInCurrentCollection() {
         function itemInCollectionCB(item) {
             if (props.detailsModel.currentCategory === 'fossils') {

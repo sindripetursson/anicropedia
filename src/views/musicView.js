@@ -4,7 +4,6 @@ function MusicView(props){
         function renderData(data){
 
             var imageArr = [];
-            var count = 0;
 
             function renderSingleData(singleResult){
  
@@ -18,18 +17,17 @@ function MusicView(props){
                         imageArr.push(image);
                         props.onPlayPressed();
                         image.src = "../../images/pause-button.png";
-                        image.className = "listItem__music listItem__play_button-is-clicked-to-play";
+                        image.alt = "pause";
                     } else 
                     // TOGGLE PLAY/PAUSE
                     if(image === imageArr[imageArr.length - 1]) {
-                        count++;
-                        if(count % 2 === 0) {
+                        if(image.alt === "play") {
                             image.src = "../../images/pause-button.png";
-                            image.className = "listItem__music listItem__play_button-is-clicked-to-play";
+                            image.alt = "pause";
                             props.onPlayPressed();
                         } else {
                             image.src = "../../images/play-button.png";
-                            image.className = "listItem__music play_button-is-hover listItem__play_button-is-not-playing-anymore";
+                            image.alt = "play";
                             props.onPausePressed();
                         }
                     } else 
@@ -38,16 +36,18 @@ function MusicView(props){
                         props.onPlayPressed();
                         
                         for(let i = 0; i < imageArr.length; i++) {
-                            imageArr[i].className = "listItem__music play_button-is-hover listItem__play_button-is-not-playing-anymore";
                             imageArr[i].src = "../../images/play-button.png";
+                            imageArr[i].alt = "play"
                         }
                         
                         imageArr.pop();
                         imageArr.push(image);
                         image.src = "../../images/pause-button.png";
-                        image.className = "listItem__music listItem__play_button-is-clicked-to-play";
+                        image.alt = "pause";
                     }
                 };
+
+                const inCollection = isItemInCollection(singleResult, 'music', true, props.userModel);
 
                 return (
                     <div className="list__col__music" key={"music_"+singleResult.id}>
@@ -56,9 +56,13 @@ function MusicView(props){
                             <div className="listItem__text__music">
                                     {singleResult.name["name-EUen"]}
                             </div>
-                            <img className={isItemInCollection(singleResult, 'music', true, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
-                            <img className="listItem__music play_button-is-hover listItem__play_button-transparent" onClick={play} src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt=""/>
-                            <button style={{marginBottom:"20px", width: "80%"}} onClick={() => props.onCollectionChange(data)}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
+                            <img id={'checkmark_' + singleResult.id} className={inCollection ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
+                            <div className="listItem__playbuttonContainer">
+                            <img className="listItem__music play_button-is-hover listItem__play_button" onClick={play} src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt="play"/>
+                            </div>
+                            <button id={'button_' + singleResult.id} style={{marginBottom:"20px", width: "80%"}} onClick={(e) => {
+                                props.onCollectionChange(singleResult, isItemInCollection(singleResult, 'music', true, props.userModel));
+                            }}>{isItemInCollection(singleResult, 'music', true, props.userModel)?'Remove from my collection':'Add to my collection'}</button>
                         </div>
                     </div>
                 );

@@ -153,23 +153,27 @@
         font-weight: bold;
     }
 
-    &__play_button-transparent {
+    &__play_button {
         opacity: 1;
         width: 40px;
         height: 40px;
-        background: transparent;
+        background: #DED9C0;
     }
 
-    &__play_button-is-clicked-to-play {
-        opacity: 1;
-        width: 40px;
-        height: 40px;
-        background: #DED9C0;
+    &playbuttonContainer{
+        width: 100%;
     }
-    &__play_button-is-not-playing-anymore {
-        opacity: 1;
-        width: 40px;
-        height: 40px;
-        background: #DED9C0;
-    }
+
+    // &__play_button-is-clicked-to-play {
+    //     opacity: 1;
+    //     width: 40px;
+    //     height: 40px;
+    //     background: #DED9C0;
+    // }
+    // &__play_button-is-not-playing-anymore {
+    //     opacity: 1;
+    //     width: 40px;
+    //     height: 40px;
+    //     background: #DED9C0;
+    // }
 }
