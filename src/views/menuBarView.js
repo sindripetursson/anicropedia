@@ -139,6 +139,8 @@ function MenuBarView(props) {
                     || location.pathname === "/collectibles" 
                     ? 
                         <input className='menuBar__search' placeholder="Search item" />
+                        && <img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/>
+                        && <p>{props.chosenCity}</p>
                     :
                         <></> 
                     }
@@ -169,15 +171,6 @@ function MenuBarView(props) {
                 }
             </div>
             {/* City options END*/}
-            <div><img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/></div>
-            {/* City display START*/}
-            <div className='menuBar__sides'>
-                {location.pathname === "/" || location.pathname === "/info" ? 
-                    <></> : 
-                    <p>{props.chosenCity}</p>
-                }
-            </div>
-            {/* City display END */}
             <div className='menuBar__sides'>
                 {  location.pathname === "/encyclopedia" 
                 || location.pathname === "/villagers"
