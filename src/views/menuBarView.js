@@ -23,19 +23,6 @@ function MenuBarView(props) {
         props.onUserInput(evt.target.value)
     }
 
-    function checkSrc() {
-
-        // if no mute button is clicked and no vinyl music is playing
-       if(document.getElementById("bgmMuteOff") && document.getElementById("vinyl").paused) {
-           return "../../images/soundOn.svg";
-       } 
-       
-       // if bgm is muted show mute on (sound is off)
-       if(document.getElementById("bgmMute")) {
-           return "../../images/soundOff.svg";
-       }
-    }
-
     function renderCities(data) {
         
         function renderSingleData(singleResult) {
@@ -67,6 +54,23 @@ function MenuBarView(props) {
         props.onSetChosenCity(evt.target.value);
     }
 
+    function muteMusic() {
+        
+        // Send mute request to presenter
+        props.onMuteAudio();
+
+        // set the image to alter the src
+        var image = document.getElementById('muteId');
+
+        // if src matches the actual one and is clicked, then change it
+        if (image.src.match("images/volume.png")) {
+            image.src = "images/volume-mute.png";
+        }
+        else {
+            image.src = "images/volume.png";
+        }
+    }
+
     function drawerToggleClickHandler() {
         setsideDrawerOpen(!sideDrawerOpen)
     };
@@ -74,7 +78,7 @@ function MenuBarView(props) {
     return (
     <div>  
         <div className='menuBar__drawer'>
-            <Sidedrawer drawerToggleClickHandler={drawerToggleClickHandler} show={sideDrawerOpen}/>
+            <Sidedrawer show={sideDrawerOpen}/>
         </div>        
         <div className='menuBar'>        
             <div className='menuBar__upper'>
@@ -91,7 +95,9 @@ function MenuBarView(props) {
                 </Link>
                 <div className='menuBar__sidesWithSettings'>
                     <img src='../../images/menu.svg' onClick={drawerToggleClickHandler} alt="user" className="menuBar__icon" />
-
+                    <Link className='menuBar__link' to="/signout"> 
+                        <img src='../../images/user.svg' alt="user" className="menuBar__icon" />
+                    </Link> 
                 </div>
             </div>
 
@@ -159,40 +165,51 @@ function MenuBarView(props) {
                                 </select>
                             </div>
                     }
-                    </div>
-                }
-                {/* City options END*/}
-                {/* Mute Start*/}
-                <div className='menuBar__sides'>
-                        {location.pathname === "/" || location.pathname === "/info" ? 
-                            <></> : 
-                            <div>
-                                <img className='menuBar__mute' src={checkSrc()} id="imgMuteId" onClick={() => props.onMuteAudio()} value="ChangeMute"/>
-                            </div>
-                    }
-                    </div>
-                {/* Mute END*/}
-                <div className='menuBar__sides'>
-                        {location.pathname === "/" || location.pathname === "/info" ? 
-                            <></> : 
-                            <div>
-                                <p>{props.chosenCity}</p>
-                            </div>
-                    }
                 </div>
+                }
 
+            </div>
+            <div><img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/></div>
+            {/* City search START*/}
+            {hideCitySearch ? <></> :
+                <div className='menuBar__sides'>
+                    {location.pathname === "/" || location.pathname === "/info" ? 
+                        <></> : 
+                        <p>{props.chosenCity}</p>
+                    }
+                </div>}
+                <div className='menuBar__sides'>
 
+                    {location.pathname === "/" || location.pathname === "/info" ? 
+                        <></> : 
+                        <div>
+                            <select className="authentication__citySelection" onChange={chooseParameterACB}>
+                                <option value="" >Choose:</option>
+                                {props.data ?  renderCities(props.data) : <></>}
+                            </select>
+                        </div>
+                }
+            </div>
+            }
+            {/* City options END */}
+            {/* City display START*/}
+            <div className='menuBar__sides'>
+                {location.pathname === "/" || location.pathname === "/info" ? 
+                    <></> : 
+                    <p>{props.chosenCity}</p>
+                }
+            </div>
+            {/* City display END */}
             <div className='menuBar__sides'>
                 {  location.pathname === "/encyclopedia" 
                 || location.pathname === "/villagers"
                 || location.pathname === "/music" 
                 || location.pathname === "/collectibles" 
                 ? 
-                <button className='menuBar__filter'> Filter </button>
+                    <button className='menuBar__filter'> Filter </button>
                 :
-                <></> 
-            }
-            </div>
+                    <></> 
+                }
             </div>
         </div>
     </div> 

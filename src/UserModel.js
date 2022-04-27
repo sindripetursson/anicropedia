@@ -1,7 +1,8 @@
 class UserModel {
     constructor(fishArray = [], insectArray = [], 
                 seaCreatureArray = [], villagerArray = [], 
-                musicArray = [], fossilArray = [], artArray = []) {
+                musicArray = [], fossilArray = [], artArray = [],
+                city, userName) {
         this.observers = [];
         this.fishes = fishArray;
         this.insects = insectArray;
@@ -10,6 +11,28 @@ class UserModel {
         this.music = musicArray;
         this.fossils = fossilArray;
         this.art = artArray;
+        this.setCity(city);
+        this.setUserName(userName);
+    }
+
+    setCity(newCity) {
+        if (this.city !== newCity) {
+            if (typeof newCity === 'string' || newCity instanceof String) {
+                this.city = newCity;
+            } else {
+                throw new Error('City is not a string.');
+            }
+        }
+    }
+
+    setUserName(newUserName) {
+        if (this.userName !== newUserName) {
+            if (typeof newUserName === 'string' || newUserName instanceof String) {
+                this.userName = newUserName;
+            } else {
+                throw new Error('Username is not a string.');
+            }
+        }
     }
 
     addItem(itemToAdd, category) {
