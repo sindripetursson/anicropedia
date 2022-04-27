@@ -86,13 +86,17 @@ function promiseChangedACB(){
     return changedAgainACB;
   }
 
-  
 
   // Below vinyl image buttons
   function playPause(singleResult) {
     // find the id equal to the singleResult.id
     const result = audioArr.find(id => id === singleResult.id);
-     
+
+    // shut down bgm
+    if(document.getElementById("bgmMuteOff")) {
+    document.getElementById("bgmMuteOff").volume = 0;
+    }
+    
       // check if the id from the 'clicked song' is aleady in the array 
       // (that means is already playing or selected)
       if(result === undefined) {
@@ -130,6 +134,12 @@ function promiseChangedACB(){
       // if audio is paused: toggle to play
       if(audio.paused) {
 
+        // shut down bgm
+        if(document.getElementById("bgmMuteOff")) {
+        document.getElementById("bgmMuteOff").volume = 0;
+        }
+
+
         audio.play();
 
         btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
@@ -142,6 +152,11 @@ function promiseChangedACB(){
       } else {
         audio.pause();
 
+        // rise up bgm
+        if(document.getElementById("bgmMuteOff")) {
+          document.getElementById("bgmMuteOff").volume = 1;
+          }
+
         btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
         btVinylPlayPause.src = "../../images/play-button.png";
 
@@ -151,7 +166,6 @@ function promiseChangedACB(){
 
      // if the src is empty, make sure the top play/pause is set to "show play"
     } else {
-        // audio.pause();
 
         btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
         btVinylPlayPause.src = "../../images/play-button.png";
@@ -170,6 +184,10 @@ function promiseChangedACB(){
     // then delete the source
     audio.src = "";
 
+    // rise up bgm
+    if(document.getElementById("bgmMuteOff")) {
+      document.getElementById("bgmMuteOff").volume = 1;
+      }
 
     audioArr.pop();
     // make sure the top play/pause button is set to "show play"
@@ -188,7 +206,6 @@ function promiseChangedACB(){
         {promiseNoData({promise, data, error}) ||   
             <div>
               <MusicBarView 
-                // onPausePressed={pauseTrack}
                 onPlayPressed={playTrack} 
                 onStopPressed={stopTrack}
               />
