@@ -131,6 +131,17 @@
         width: 100px;
     }
 
+    &__backdrop {
+        width: 500vw;
+        height: 500vw;
+    }
+    
+    &__drawerDisplayer {
+        position: fixed;
+        right: 0;
+        z-index: 1;
+    }
+
     &__drawer {
         position: fixed;
         right: 0;

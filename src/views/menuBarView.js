@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from "react-router-dom";
 import Sidedrawer from '../components/sideDrawer';
+import Backdrop from '../components/backdrop';
 
 export default 
 function MenuBarView(props) {
@@ -9,6 +10,7 @@ function MenuBarView(props) {
     const [hideCitySearch, sethideCitySearch] = React.useState(false);
 
     const [sideDrawerOpen, setsideDrawerOpen] = React.useState(false);
+    const [backdropOpen, setbackdropOpen] = React.useState(false);
 
     const fire=(event)=> {
         if (event.keyCode === 13) {
@@ -69,10 +71,17 @@ function MenuBarView(props) {
 
     function drawerToggleClickHandler() {
         setsideDrawerOpen(!sideDrawerOpen)
+        setbackdropOpen(!backdropOpen)
     };
     
     return (
-    <div>  
+    <div>
+        {backdropOpen ? 
+        <div className='menuBar__drawerDisplayer' onClick={drawerToggleClickHandler} >
+            <Backdrop/>
+        </div> :
+        <></>
+        }  
         <div className='menuBar__drawer'>
             <Sidedrawer drawerToggleClickHandler={drawerToggleClickHandler} show={sideDrawerOpen}/>
         </div>        
