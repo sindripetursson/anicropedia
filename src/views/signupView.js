@@ -1,3 +1,5 @@
+import CitySearch from "../presenters/liveCitySearchPresenter";
+
 function SignupView(props) {
     return(
         <div className="authentication">
@@ -57,6 +59,8 @@ function SignupView(props) {
                         <option>New York, United States</option>
                     </select>
                 </label>
+                <CitySearch/>
+                <div></div>
                 <div className="authentication__error">
                     <p className="authentication__errorMessage"></p>
                 </div>
