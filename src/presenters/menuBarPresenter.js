@@ -187,8 +187,6 @@ function MenuBar(props) {
 
     return <div> 
 
-            {/* <div ref={focusDiv}></div> */}
-
             <MenuBarView 
                 onUserInput={saveTypedCityACB} 
                 onSearchNow={searchNowACB} 
