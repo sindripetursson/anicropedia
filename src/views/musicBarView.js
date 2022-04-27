@@ -8,6 +8,9 @@ function MusicBarView(props) {
       <div className="stop-track" onClick={() => props.onStopPressed()}>
         <i className="fa fa-stop-circle fa-5x"></i>
       </div>
+      <div className="progress_bar" id="progress_bar">
+        <div className="progressed" id="progressed"></div>
+      </div>
     </div>
   </div>
   );

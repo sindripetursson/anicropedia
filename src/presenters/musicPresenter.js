@@ -153,12 +153,23 @@ function promiseChangedACB(){
           btMuteMenuBarPres.src = "images/soundOff.svg";
         }
 
-
-
         audio.play();
 
-        btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-        btVinylPlayPause.src = "../../images/pause-button.png";
+        var progressed = document.getElementById("progressed");
+        // var progress_bar = document.getElementById("progress_bar");  
+
+        audio.ontimeupdate = function() {
+          progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
+        }
+
+        // user could be able to choose song position on the music bar
+        // progress_bar.onclick = function(e) {
+        //   audio.currentTime = ((e.offsetX/progress_bar.offsetWidth) * audio.duration);
+        // }
+        if(singleResultGlobal) {
+          btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+          btVinylPlayPause.src = "../../images/pause-button.png";
+        }
         
         btTopPlayPause = document.getElementById("togglePlayPause");
         btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
@@ -179,9 +190,10 @@ function promiseChangedACB(){
           btMuteMenuBarPres.src = "images/soundOn.svg";
         }
 
-
-        btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-        btVinylPlayPause.src = "../../images/play-button.png";
+        if(singleResultGlobal) {
+          btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+          btVinylPlayPause.src = "../../images/play-button.png";
+        }
 
         btTopPlayPause = document.getElementById("togglePlayPause");
         btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
@@ -190,8 +202,10 @@ function promiseChangedACB(){
      // if the src is empty, make sure the top play/pause is set to "show play"
     } else {
 
+      if(singleResultGlobal) {
         btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
         btVinylPlayPause.src = "../../images/play-button.png";
+      }
 
         btTopPlayPause = document.getElementById("togglePlayPause");
         btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
@@ -203,6 +217,9 @@ function promiseChangedACB(){
   function stopTrack() {
     // stop the track
     audio.pause();
+
+    var progressed = document.getElementById("progressed");
+    progressed.style.width = "0%";
 
     // then delete the source
     audio.src = "";
@@ -219,8 +236,10 @@ function promiseChangedACB(){
     audioArr.pop();
     // make sure the top play/pause button is set to "show play"
 
-    btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-    btVinylPlayPause.src = "../../images/play-button.png";
+    if(singleResultGlobal) {
+      btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+      btVinylPlayPause.src = "../../images/play-button.png";
+    }
 
     btTopPlayPause = document.getElementById("togglePlayPause");
     btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
