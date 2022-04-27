@@ -6,7 +6,10 @@ import Timer from "../views/timer.js";
 // global hour and audio
 let currentHour; 
 let currentMinute; 
-var audio = new Audio();
+
+var audio = document.createElement('audio');
+audio.id = "bgmMuteOff"
+document.body.appendChild(audio);
 
 export default 
 function MenuBar(props) {
@@ -159,8 +162,10 @@ function MenuBar(props) {
     function muteAudioACB() {
         if(audio.volume > 0) {
             audio.volume = 0;
+            audio.id = "bgmMute"
         } else {
             audio.volume = 1;
+            audio.id = "bgmMuteOff"
         }
     }
 
