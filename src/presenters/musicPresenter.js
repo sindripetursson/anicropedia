@@ -6,7 +6,10 @@ import resolvePromise from "../resolvePromise";
 import MusicBarView from "../views/musicBarView.js";
 import { sessionCheck } from "../utils";
 
-var audio = new Audio();
+var audio = document.createElement('audio');
+audio.id = "vinyl"
+document.body.appendChild(audio);
+
 var btTopPlayPause;
 var audioArr = [];
 var singleResultGlobal;
@@ -92,10 +95,16 @@ function promiseChangedACB(){
     // find the id equal to the singleResult.id
     const result = audioArr.find(id => id === singleResult.id);
 
-    // shut down bgm
+    // if no mute was pressed by user, lower bgm volume
+    // and show that the sound is off on the mute bt
     if(document.getElementById("bgmMuteOff")) {
     document.getElementById("bgmMuteOff").volume = 0;
+      
+    // vinyl is played, so show mute on bgm mute bt
+      var btMuteMenuBarPres = document.getElementById("imgMuteId");
+      btMuteMenuBarPres.src = "images/soundOff.svg";
     }
+    
     
       // check if the id from the 'clicked song' is aleady in the array 
       // (that means is already playing or selected)
@@ -120,7 +129,7 @@ function promiseChangedACB(){
         audioArr.push(singleResult.id)
 
         // set the audio object
-        audio = new Audio(singleResult.music_uri)
+        audio.src = singleResult.music_uri;
         audio.loop = true;
       }
   }
@@ -134,10 +143,16 @@ function promiseChangedACB(){
       // if audio is paused: toggle to play
       if(audio.paused) {
 
-        // shut down bgm
+        // if no mute is pressed by user, then lower volume of bgm
+        // and show mute is on (sound is off)
         if(document.getElementById("bgmMuteOff")) {
         document.getElementById("bgmMuteOff").volume = 0;
+          
+        // vinyl is played, so show mute on bgm mute bt
+          var btMuteMenuBarPres = document.getElementById("imgMuteId");
+          btMuteMenuBarPres.src = "images/soundOff.svg";
         }
+
 
 
         audio.play();
@@ -148,14 +163,22 @@ function promiseChangedACB(){
         btTopPlayPause = document.getElementById("togglePlayPause");
         btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
 
+        
+
         // if audio is not paused: toggle to pause
       } else {
         audio.pause();
 
-        // rise up bgm
+        // if no mute was pressed, then rise volume of bgm
+        // and display sound on mute bt
         if(document.getElementById("bgmMuteOff")) {
           document.getElementById("bgmMuteOff").volume = 1;
-          }
+          
+          // vinyl is paused, so show no mute on bgm mute bt
+          var btMuteMenuBarPres = document.getElementById("imgMuteId");
+          btMuteMenuBarPres.src = "images/soundOn.svg";
+        }
+
 
         btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
         btVinylPlayPause.src = "../../images/play-button.png";

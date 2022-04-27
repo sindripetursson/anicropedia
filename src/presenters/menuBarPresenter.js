@@ -5,7 +5,7 @@ import Timer from "../views/timer.js";
 
 // global hour and audio
 let currentHour; 
-let currentMinute; 
+// let currentMinute; 
 
 var audio = document.createElement('audio');
 audio.id = "bgmMuteOff"
@@ -69,8 +69,8 @@ function MenuBar(props) {
     function filterWeatherDataOnAudio() {
             var checkToday = new Date();
             var checkHour = checkToday.getHours();
-            //
-            var checkMinute = checkToday.getMinutes();
+
+            // var checkMinute = checkToday.getMinutes();
 
             // console.log("Compare checkHour vs currentHour: " + checkHour + ', ' + currentHour);
 
@@ -81,8 +81,8 @@ function MenuBar(props) {
 
                 var today = new Date();
                 currentHour = today.getHours();
-                //
-                currentMinute = today.getMinutes();
+                
+                // currentMinute = today.getMinutes();
 
                 var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
                 const relevantMusic = []
@@ -162,16 +162,32 @@ function MenuBar(props) {
     function muteAudioACB() {
         if(audio.volume > 0) {
             audio.volume = 0;
+            // id to use audio in musicPresenter
             audio.id = "bgmMute"
+
+            // set mute to mute (sound is off)
+            var muteBt = document.getElementById("imgMuteId");
+            muteBt.src = "images/soundOff.svg";
         } else {
-            audio.volume = 1;
-            audio.id = "bgmMuteOff"
+            
+            // play the BGM only when no vinyl is played
+            if(document.getElementById("vinyl").paused) {    
+                audio.volume = 1;
+                // id to use audio in musicPresenter
+                audio.id = "bgmMuteOff"
+    
+                // set mute button to on (sound in on)
+                var muteBt = document.getElementById("imgMuteId");
+                muteBt.src = "images/soundOn.svg";
+            }
         }
     }
 
     React.useEffect(geoPromiseChangedACB, [geoPromise]);
 
     return <div> 
+
+            {/* <div ref={focusDiv}></div> */}
 
             <MenuBarView 
                 onUserInput={saveTypedCityACB} 

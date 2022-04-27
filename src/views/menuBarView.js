@@ -23,6 +23,19 @@ function MenuBarView(props) {
         props.onUserInput(evt.target.value)
     }
 
+    function checkSrc() {
+
+        // if no mute button is clicked and no vinyl music is playing
+       if(document.getElementById("bgmMuteOff") && document.getElementById("vinyl").paused) {
+           return "../../images/soundOn.svg";
+       } 
+       
+       // if bgm is muted show mute on (sound is off)
+       if(document.getElementById("bgmMute")) {
+           return "../../images/soundOff.svg";
+       }
+    }
+
     function renderCities(data) {
         
         function renderSingleData(singleResult) {
@@ -52,23 +65,6 @@ function MenuBarView(props) {
     function chooseParameterACB(evt) {
         sethideCitySelect(true);
         props.onSetChosenCity(evt.target.value);
-    }
-
-    function muteMusic() {
-        
-        // Send mute request to presenter
-        props.onMuteAudio();
-
-        // set the image to alter the src
-        var image = document.getElementById('muteId');
-
-        // if src matches the actual one and is clicked, then change it
-        if (image.src.match("images/soundOn.svg")) {
-            image.src = "images/soundOff.svg";
-        }
-        else {
-            image.src = "images/soundOn.svg";
-        }
     }
 
     function drawerToggleClickHandler() {
@@ -171,7 +167,7 @@ function MenuBarView(props) {
                         {location.pathname === "/" || location.pathname === "/info" ? 
                             <></> : 
                             <div>
-                                <img className='menuBar__mute' src={"../../images/soundOn.svg"} id="muteId" onClick={muteMusic} value="ChangeMute"/>
+                                <img className='menuBar__mute' src={checkSrc()} id="imgMuteId" onClick={() => props.onMuteAudio()} value="ChangeMute"/>
                             </div>
                     }
                     </div>
