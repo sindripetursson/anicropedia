@@ -210,6 +210,10 @@ function promiseChangedACB(){
     // rise up bgm
     if(document.getElementById("bgmMuteOff")) {
       document.getElementById("bgmMuteOff").volume = 1;
+
+      // vinyl is paused, so show no mute on bgm mute bt
+      var btMuteMenuBarPres = document.getElementById("imgMuteId");
+      btMuteMenuBarPres.src = "images/soundOn.svg";
       }
 
     audioArr.pop();
