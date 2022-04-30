@@ -20,7 +20,8 @@ function Signup(props) {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [repeatPassword, setRepeatPassword] = React.useState('');
-    const [city, setCity] = React.useState('');
+    const [cityAddress, setCityAddress] = React.useState('');
+    const [cityCoordinates, setCityCoordinates] = React.useState({lat: null, lng: null});
 
     function onNameChange(newName) {
         setName(newName.target.value);
@@ -38,51 +39,61 @@ function Signup(props) {
         setRepeatPassword(newPassword.target.value);
     }
 
-    function onCityChange(newCity) {
-        setCity(newCity.target.value);
+    function onCityChange(cityAddress, latlng) {
+        setCityAddress(cityAddress);
+        setCityCoordinates(latlng);
+        console.log('In onCityChange with : ', cityAddress, ' and coords: ', latlng);
     }
 
     function signupACB(e) {
         e.preventDefault();
         if (password === repeatPassword) {
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Signed in 
-                    const uid = userCredential.user.uid;
-                    const name = userCredential.user.displayName;
-                    ReactSession.set("uid", uid);
-                    ReactSession.set("name", name);
-                    updateFirebaseFromModel(userModel, uid);
-                    if(updateModelFromFirebase) {
-                        updateModelFromFirebase(userModel, uid);
-                    }
-                    document.getElementById('signupPassword').classList.remove('authentication__input--error');
-                    document.getElementById('signupEmail').classList.remove('authentication__input--error');
-                    document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
-                    document.querySelector('.authentication__errorMessage').innerHTML = '';
-                    window.location = '/';
-                })
-                .catch((error) => {
-                    document.getElementById('signupPassword').classList.remove('authentication__input--error');
-                    document.getElementById('signupEmail').classList.remove('authentication__input--error');
-                    document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    const errorText = document.querySelector('.authentication__errorMessage');
-    
-                    if (errorCode === 'auth/weak-password') {
-                        document.getElementById('signupPassword').classList.add('authentication__input--error');
-                        errorText.innerHTML = 'The password has to be 6 characters long.';
-                    } else if (errorCode === 'auth/email-already-in-use') {
-                        document.getElementById('signupEmail').classList.add('authentication__input--error');
-                        errorText.innerHTML = 'This email address is already in use.';
-                    } else if (errorCode === 'auth/invalid-email') {
-                        document.getElementById('signupEmail').classList.add('authentication__input--error');
-                        errorText.innerHTML = 'Invalid email address.';
-                    } else {
-                        errorText.innerHTML = errorMessage;
-                    }
-                });
+            if (cityCoordinates.lat !== null && cityCoordinates.lng !== null ) {
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Signed in 
+                        const uid = userCredential.user.uid;
+                        ReactSession.set("uid", uid);
+                        ReactSession.set("name", name);
+                        updateFirebaseFromModel(userModel, uid);
+                        if(updateModelFromFirebase) {
+                            updateModelFromFirebase(userModel, uid);
+                        }
+                        userModel.setCityAddress(cityAddress);
+                        userModel.setCityCoordinates(cityCoordinates);
+                        userModel.setUserName(name);
+                        document.getElementById('signupPassword').classList.remove('authentication__input--error');
+                        document.getElementById('signupEmail').classList.remove('authentication__input--error');
+                        document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
+                        document.getElementById('citySearchInput').classList.add('citySearch__input--error');
+                        document.querySelector('.authentication__errorMessage').innerHTML = '';
+                        window.location = '/';
+                    })
+                    .catch((error) => {
+                        document.getElementById('signupPassword').classList.remove('authentication__input--error');
+                        document.getElementById('signupEmail').classList.remove('authentication__input--error');
+                        document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        const errorText = document.querySelector('.authentication__errorMessage');
+        
+                        if (errorCode === 'auth/weak-password') {
+                            document.getElementById('signupPassword').classList.add('authentication__input--error');
+                            errorText.innerHTML = 'The password has to be 6 characters long.';
+                        } else if (errorCode === 'auth/email-already-in-use') {
+                            document.getElementById('signupEmail').classList.add('authentication__input--error');
+                            errorText.innerHTML = 'This email address is already in use.';
+                        } else if (errorCode === 'auth/invalid-email') {
+                            document.getElementById('signupEmail').classList.add('authentication__input--error');
+                            errorText.innerHTML = 'Invalid email address.';
+                        } else {
+                            errorText.innerHTML = errorMessage;
+                        }
+                    });
+            } else {
+                document.querySelector('.authentication__errorMessage').innerHTML = 'Please select a valid location.';
+                document.getElementById('citySearchInput').classList.add('citySearch__input--error');
+            }
         } else {
             document.querySelector('.authentication__errorMessage').innerHTML = 'The passwords do not match.';
             document.getElementById('signupRepeatPassword').classList.add('authentication__input--error');

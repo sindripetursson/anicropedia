@@ -8,7 +8,7 @@ let currentHour;
 // let currentMinute; 
 
 var audio = document.createElement('audio');
-audio.id = "bgmMuteOff"
+audio.id = "bgmMuteOff";
 document.body.appendChild(audio);
 
 export default 

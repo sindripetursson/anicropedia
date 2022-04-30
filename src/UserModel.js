@@ -2,7 +2,7 @@ class UserModel {
     constructor(fishArray = [], insectArray = [], 
                 seaCreatureArray = [], villagerArray = [], 
                 musicArray = [], fossilArray = [], artArray = [],
-                city, userName) {
+                cityAddress = '', cityCoordinates = {lat: null, lng: null}, userName) {
         this.observers = [];
         this.fishes = fishArray;
         this.insects = insectArray;
@@ -11,17 +11,30 @@ class UserModel {
         this.music = musicArray;
         this.fossils = fossilArray;
         this.art = artArray;
-        this.setCity(city);
+        this.setCityAddress(cityAddress);
+        this.setCityCoordinates(cityCoordinates);
         this.setUserName(userName);
     }
 
-    setCity(newCity) {
-        if (this.city !== newCity) {
-            if (typeof newCity === 'string' || newCity instanceof String) {
-                this.city = newCity;
+    setCityAddress(newCityAddress) {
+        if (this.cityAddress !== newCityAddress) {
+            if (typeof newCityAddress === 'string' || newCityAddress instanceof String) {
+                this.cityAddress = newCityAddress;
+                this.notifyObservers({updateCityAddress: newCityAddress});
             } else {
-                throw new Error('City is not a string.');
+                throw new Error('City address is not a string.');
             }
+        }
+    }
+
+    setCityCoordinates(coords) {
+        console.log(coords);
+        if (!this.cityCoordinates ||
+            (this.cityCoordinates.lat !== coords.lat || this.cityCoordinates.lng !== coords.lng)) {
+            this.cityCoordinates = coords;
+            this.notifyObservers({updateCityLat: coords.lat});
+            this.notifyObservers({updateCityLng: coords.lng});
+
         }
     }
 
@@ -29,6 +42,7 @@ class UserModel {
         if (this.userName !== newUserName) {
             if (typeof newUserName === 'string' || newUserName instanceof String) {
                 this.userName = newUserName;
+                this.notifyObservers({updateUserName: newUserName});
             } else {
                 throw new Error('Username is not a string.');
             }

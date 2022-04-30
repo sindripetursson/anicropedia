@@ -59,7 +59,7 @@ function SignupView(props) {
                         <option>New York, United States</option>
                     </select>
                 </label>
-                <CitySearch/>
+                <CitySearch onCityChange={props.onCityChange}/>
                 <div></div>
                 <div className="authentication__error">
                     <p className="authentication__errorMessage"></p>
