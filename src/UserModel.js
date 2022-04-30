@@ -16,6 +16,18 @@ class UserModel {
         this.setUserName(userName);
     }
 
+    getCityAddress() {
+        return this.cityAddress;
+    }
+
+    getCityCoordinates() {
+        return this.cityCoordinates;
+    }
+
+    getUserName() {
+        return this.userName;
+    }
+
     setCityAddress(newCityAddress) {
         if (this.cityAddress !== newCityAddress) {
             if (typeof newCityAddress === 'string' || newCityAddress instanceof String) {
