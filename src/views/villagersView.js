@@ -14,7 +14,7 @@ function VillagersView(props){
                         <div className="listItem__text__villagers">
                             {singleResult.name["name-EUen"]}
                         </div>
-                        <img className={isItemInCollection(singleResult, 'villagers', true, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
+                        <img className={isItemInCollection(singleResult, 'villagers', true, props.userModel) ? "checkmark" : "hidden"} alt="villager" src="../../images/inCollection.svg"/>
                     </div>
                 </div>
             );
@@ -24,7 +24,7 @@ function VillagersView(props){
 
     return(
         <div className="list">
-            <div className="list__container">
+            <div className={props.islandView ? "list__container__encyclopedia--island" : "list__container"}>
                 <div className="list__row">
                     {renderData(props.data)}
                 </div>

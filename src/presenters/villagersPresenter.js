@@ -12,8 +12,8 @@ function Villagers(props) {
     const [error, setError]= React.useState(null);
 
     function getDetails(clickedItem){
-      props.detailsModel.setCurrentItem('villagers', clickedItem.id);
-      props.setDetailsOn(true);
+        props.detailsModel.setCurrentItem('villagers', clickedItem.id);
+        props.setDetailsOn(true);
     }
 
     function wasCreatedACB(){
@@ -29,23 +29,27 @@ function Villagers(props) {
     
         let cancelled = false;
         function changedAgainACB() { 
-          cancelled = true; 
+            cancelled = true; 
         };
         if(promise) {
-          promise
-          .then(function saveDataACB(dt) {  
-            if(!cancelled) setData(dt);
-          })
-          .catch(function saveErrACB(err) { 
-            if(!cancelled) setError(err);
-          });
+            promise
+            .then(function saveDataACB(dt) {  
+                if(!cancelled) setData(dt);
+            })
+            .catch(function saveErrACB(err) { 
+                if(!cancelled) setError(err);
+            });
         }
         return changedAgainACB; 
-      }
+    }
     
-      React.useEffect(promiseChangedACB, [promise]);
+    React.useEffect(promiseChangedACB, [promise]);
 
     return sessionCheck() || (<div>
-    {promiseNoData({promise, data, error}) || <VillagersView onItemClicked={getDetails} data={data} userModel={props.userModel}/>}
+    {props.islandView ?   
+        <VillagersView onItemClicked={getDetails} data={props.userModel.villagers} userModel={props.userModel} islandView/> 
+    :
+    promiseNoData({promise, data, error}) || 
+        <VillagersView onItemClicked={getDetails} data={data} userModel={props.userModel}/>}
     </div>)
 }
