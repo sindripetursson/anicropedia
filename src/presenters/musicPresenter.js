@@ -234,7 +234,8 @@ function Music(props) {
 
     React.useEffect(promiseChangedACB, [promise]);
 
-    return sessionCheck() || (<div>
+    return sessionCheck() || 
+    (<div>
     {props.islandView ? 
         <MusicView 
         data={props.userModel.music}
@@ -248,19 +249,19 @@ function Music(props) {
     :
     promiseNoData({promise, data, error}) ||   
         <div>
-        <MusicBarView 
-            onPlayPressed={playTrack} 
-            onStopPressed={stopTrack}
-        />
-        <MusicView 
-            data={data}
-            onPlayPause={playPause} 
-            onPlayPressed={playTrack}        
-            onPausePressed={playTrack}  
-            userModel={props.userModel}
-            onCollectionChange={changeCollectionACB}
-        />
-        <div ref={focusDiv}></div>
+            <MusicBarView 
+                onPlayPressed={playTrack} 
+                onStopPressed={stopTrack}
+            />
+            <MusicView 
+                data={data}
+                onPlayPause={playPause} 
+                onPlayPressed={playTrack}        
+                onPausePressed={playTrack}  
+                userModel={props.userModel}
+                onCollectionChange={changeCollectionACB}
+            />
+            <div ref={focusDiv}></div>
         </div>}
     </div>) 
 } 

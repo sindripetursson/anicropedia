@@ -1,8 +1,7 @@
 function LoginView(props) {
     return(
-        <div className="authentication">
-            
-            <img className="authentication__image" src="../../images/anicropediaLogo.svg"/>
+        <div className="authentication">  
+            <img className="authentication__image" alt="anicropediaLogo" src="../../images/anicropediaLogo.svg"/>
             <form className="authentication__form">
                 <h2 className="authentication__headline">Log in to your account</h2>
                 <label className="authentication__email">

@@ -32,7 +32,6 @@ function EncyclopediaView(props){
             </div>
         </div>
     );
-
 }
 
 export default EncyclopediaView;

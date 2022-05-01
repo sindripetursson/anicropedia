@@ -45,7 +45,6 @@ class UserModel {
             this.cityCoordinates = coords;
             this.notifyObservers({updateCityLat: coords.lat});
             this.notifyObservers({updateCityLng: coords.lng});
-
         }
     }
 

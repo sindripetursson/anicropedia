@@ -3,7 +3,7 @@ import CitySearch from "../presenters/liveCitySearchPresenter";
 function SignupView(props) {
     return(
         <div className="authentication">
-            <img className="authentication__image" src="../../images/anicropediaLogo.svg"/>
+            <img className="authentication__image" alt="anicropediaLogo" src="../../images/anicropediaLogo.svg"/>
             <form className="authentication__form">
                 <h2 className="authentication__headline">Sign up to Anicropedia</h2>
                 <label className="authentication__name">

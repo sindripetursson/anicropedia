@@ -25,46 +25,45 @@ const weatherModel= new WeatherModel();
 let bigPromise;
 
 function ReactRoot() {
-  const [userModel, setUserModel] = React.useState();
-  const [error, setError] = React.useState();
+    const [userModel, setUserModel] = React.useState();
+    const [error, setError] = React.useState();
 
-  ReactSession.setStoreType("localStorage");
-  bigPromise = firebaseModelPromise(ReactSession.get("uid"));
-
-
-  
-  React.useEffect(function onStartACB() {
-    function setUserModelACB(model) {
-      setUserModel(model);
-    }
-
-    const uid = ReactSession.get("uid");
-
-    if(uid) {
-      
-      function saveModelACB(model) {
-        setUserModelACB(model);
-        updateFirebaseFromModel(model, uid); 
-        if(updateModelFromFirebase) // maybe it was not defined yet
-            updateModelFromFirebase(model, uid);
-      }
-  
-      function errorModelACB(error) {
-          setError(error);
-          console.error(error);
-      }
-  
-      bigPromise.then(saveModelACB).catch(errorModelACB);
-    }
-  }, []);
+    ReactSession.setStoreType("localStorage");
+    bigPromise = firebaseModelPromise(ReactSession.get("uid"));
 
 
-  return (
-    (ReactSession.get("uid") && promiseNoData({promise: bigPromise, data: userModel, error: error})) ||
-    <BrowserRouter>
-      <App detailsModel={detailsModel} userModel={userModel} weatherModel={weatherModel}/>
-    </BrowserRouter>
-  );
+    
+    React.useEffect(function onStartACB() {
+        function setUserModelACB(model) {
+            setUserModel(model);
+        }
+
+        const uid = ReactSession.get("uid");
+
+        if(uid) {
+            function saveModelACB(model) {
+                setUserModelACB(model);
+                updateFirebaseFromModel(model, uid); 
+                if(updateModelFromFirebase) // maybe it was not defined yet
+                    updateModelFromFirebase(model, uid);
+            }
+        
+            function errorModelACB(error) {
+                setError(error);
+                console.error(error);
+            }
+        
+            bigPromise.then(saveModelACB).catch(errorModelACB);
+        }
+    }, []);
+
+
+    return (
+        (ReactSession.get("uid") && promiseNoData({promise: bigPromise, data: userModel, error: error})) ||
+        <BrowserRouter>
+            <App detailsModel={detailsModel} userModel={userModel} weatherModel={weatherModel}/>
+        </BrowserRouter>
+    );
 }
 
 ReactDOM.render(

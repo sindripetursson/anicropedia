@@ -69,43 +69,43 @@ function MenuBar(props) {
 
     // final song filter function
     function filterWeatherDataOnAudio() {
-            var checkToday = new Date();
-            var checkHour = checkToday.getHours();
+        var checkToday = new Date();
+        var checkHour = checkToday.getHours();
 
-            // var checkMinute = checkToday.getMinutes();
+        // var checkMinute = checkToday.getMinutes();
 
-            // console.log("Compare checkHour vs currentHour: " + checkHour + ', ' + currentHour);
+        // console.log("Compare checkHour vs currentHour: " + checkHour + ', ' + currentHour);
 
-            // console.log('weather: ' + props.weatherModel.getCityWeather());
+        // console.log('weather: ' + props.weatherModel.getCityWeather());
+        
+        // console.log(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour));
+        if(props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null && (checkHour !== currentHour)) {
+
+            var today = new Date();
+            currentHour = today.getHours();
             
-            // console.log(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour));
-            if(props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null && (checkHour !== currentHour)) {
+            // currentMinute = today.getMinutes();
 
-                var today = new Date();
-                currentHour = today.getHours();
-                
-                // currentMinute = today.getMinutes();
+            var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
+            const relevantMusic = []
+            var weatherIndex;
 
-                var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
-                const relevantMusic = []
-                var weatherIndex;
+            console.log("-----------------------------");
+            console.log('Weather in ' + props.userModel.getCityAddress() + ': ' + props.weatherModel.getCityWeather().weather[0].main);
 
-                console.log("-----------------------------");
-                console.log('Weather in ' + props.userModel.getCityAddress() + ': ' + props.weatherModel.getCityWeather().weather[0].main);
+            matchCityWeatherOnACWeather();
 
-                matchCityWeatherOnACWeather();
+            console.log('Weather mapped to AC weather: ' + weatherIndex)
 
-                console.log('Weather mapped to AC weather: ' + weatherIndex)
+            filterAllSongsFittingCurrentHour(relevantMusic);
 
-                filterAllSongsFittingCurrentHour(relevantMusic);
+            filterSongFittingCurrentWeather(relevantMusic);
 
-                filterSongFittingCurrentWeather(relevantMusic);
+            audio.loop = true;
+            //audio.play();
 
-                audio.loop = true;
-                //audio.play();
-
-                console.log("Information: Song is playing!");
-                console.log("-----------------------------");
+            console.log("Information: Song is playing!");
+            console.log("-----------------------------");
         }
 
         
@@ -189,11 +189,9 @@ function MenuBar(props) {
         }
     }
     updateData();
-
     React.useEffect(geoPromiseChangedACB, [geoPromise]);
 
     return <div> 
-
             <MenuBarView 
                 onUserInput={saveTypedCityACB} 
                 onSearchNow={searchNowACB} 
@@ -209,6 +207,5 @@ function MenuBar(props) {
                 onTimerCreated={setTimerCreated}
                 />
             }
-
         </div> 
 }

@@ -16,11 +16,11 @@ function MusicView(props){
                 <div className="listItem__music" >
                     <img className="listItem__image__music" alt="" src={singleResult.image_uri}/>
                     <div className="listItem__text__music">
-                    {singleResult.name["name-EUen"]}
+                        {singleResult.name["name-EUen"]}
                     </div>
                     <img id={'checkmark_' + singleResult.id} className={inCollection ? "checkmark" : "hidden"} src="../../images/inCollection.svg" alt=""/>
                     <div className="listItem__playbuttonContainer">
-                    <img className="listItem__music play_button-is-hover listItem__play_button"  src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt="play"/>
+                        <img className="listItem__music play_button-is-hover listItem__play_button"  src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt="play"/>
                     </div>
                     <button id={'button_' + singleResult.id} style={{marginBottom:"20px", width: "80%"}} onClick={(e) => {
                         props.onCollectionChange(singleResult, isItemInCollection(singleResult, 'music', true, props.userModel));

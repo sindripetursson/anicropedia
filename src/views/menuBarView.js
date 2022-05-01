@@ -12,7 +12,7 @@ function MenuBarView(props) {
     const [sideDrawerOpen, setsideDrawerOpen] = React.useState(false);
     const [backdropOpen, setbackdropOpen] = React.useState(false);
 
-    const fire=(event)=> {
+    const fire = (event) => {
         if (event.keyCode === 13) {
             sethideCitySearch(true);
             sethideCitySelect(false);
@@ -26,9 +26,7 @@ function MenuBarView(props) {
     }
 
     function renderCities(data) {
-        
         function renderSingleData(singleResult) {
-
             return (
                 <option value={
                     singleResult.lat + ',' + 
@@ -45,7 +43,6 @@ function MenuBarView(props) {
                         )}
                 </option>
             );
-
         }
         return Object.values(data).map(renderSingleData);
     }
@@ -57,7 +54,6 @@ function MenuBarView(props) {
     }
 
     function muteMusic() {
-        
         // Send mute request to presenter
         props.onMuteAudio();
 
@@ -103,7 +99,7 @@ function MenuBarView(props) {
                     <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
                 </Link>
                 <div className='menuBar__sidesWithSettings'>
-                    <img className='menuBar__icon' src={"../../images/soundOff.svg"} id="muteId" onClick={muteMusic} value="ChangeMute"/>
+                    <img className='menuBar__icon' src={"../../images/soundOff.svg"} id="muteId" alt="mute" onClick={muteMusic} value="ChangeMute"/>
                     <img src='../../images/menu.svg' onClick={drawerToggleClickHandler} alt="user" className="menuBar__icon" />
                 </div>
             </div>

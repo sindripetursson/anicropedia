@@ -56,8 +56,8 @@ const sideDrawer = props => {
                 </Link>  
             </li>
         </ul>
-        <ul className="menuBar__sideDrawerListBottom">
 
+        <ul className="menuBar__sideDrawerListBottom">
             <li className="menuBar__sideDrawerItem">
                 <Link className="menuBar__sideDrawerLink" to="/settings">
                 <div className="menuBar__flexContainerWithIcon">
@@ -78,7 +78,6 @@ const sideDrawer = props => {
         </ul>
     </nav>
     );
-
 };
 
 export default sideDrawer;
