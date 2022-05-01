@@ -61,6 +61,12 @@
                 background-color: aqua
             }  
         }  
+        &__music {
+            &--island {
+                flex-wrap: wrap;
+                @include row();
+            }  
+        } 
         &__nav{
             @include row();
             // flex-wrap: wrap;

@@ -14,7 +14,7 @@ function MusicView(props){
         return (
             <div onClick={play} className="list__col__music" key={"music_"+singleResult.id}>
                 <div className="listItem__music" >
-                    <img className="listItem__image__music" alt="" src={singleResult.image_uri}/>
+                    <img className={props.islandView ? "listItem__image__music--island" : "listItem__image__music"} alt="music" src={singleResult.image_uri}/>
                     <div className="listItem__text__music">
                         {singleResult.name["name-EUen"]}
                     </div>
@@ -39,7 +39,7 @@ function MusicView(props){
     return(
         <div className="list">
             <div className={props.islandView ? "list__container__other--island" : "list__container"}>
-                <div className="list__row">
+                <div className={props.islandView ? "list__row__music--island" : "list__row"}>
                     {renderData(props.data)}
                 </div>
             </div>

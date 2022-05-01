@@ -63,6 +63,14 @@ body {
   margin-top: 20px;
   border-radius: 20px;
 }
+.listItem__image__music--island {
+  width: 50%;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.listItem__image__villagers--island {
+  max-width: 50%;
+}
 .listItem__image__encyclopedia--island {
   max-width: 50%;
 }
@@ -265,6 +273,12 @@ body {
   margin-right: -10px;
   margin-left: -10px;
   background-color: aqua;
+}
+.list__row__music--island {
+  flex-wrap: wrap;
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 .list__row__nav {
   display: flex;
