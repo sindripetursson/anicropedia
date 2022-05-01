@@ -18,7 +18,10 @@ function MusicView(props){
                     <div className="listItem__text__music">
                         {singleResult.name["name-EUen"]}
                     </div>
+                    {props.islandView ?
+                    <></> :
                     <img id={'checkmark_' + singleResult.id} className={inCollection ? "checkmark" : "hidden"} src="../../images/inCollection.svg" alt=""/>
+                    }
                     <div className="listItem__playbuttonContainer">
                         <img className="listItem__music play_button-is-hover listItem__play_button"  src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt="play"/>
                     </div>

@@ -235,10 +235,10 @@ body {
   overflow-x: hidden;
 }
 .list__container__other--island {
-  background-color: aliceblue;
   max-width: 100%;
   max-height: 40vh;
-  overflow-x: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .list__row {
   display: flex;
@@ -258,6 +258,13 @@ body {
   display: flex;
   margin-right: -10px;
   margin-left: -10px;
+}
+.list__row__other--island {
+  flex-wrap: wrap;
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
+  background-color: aqua;
 }
 .list__row__nav {
   display: flex;
@@ -343,6 +350,17 @@ body {
   padding-left: 10px;
 }
 .list__col__encyclopedia--island:hover {
+  background: #DED9C0;
+  transition: 1s;
+  transform: scale(1.05);
+}
+.list__col__other--island {
+  border: #835B26 2px solid;
+  width: 33.3333333333%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.list__col__other--island:hover {
   background: #DED9C0;
   transition: 1s;
   transform: scale(1.05);
