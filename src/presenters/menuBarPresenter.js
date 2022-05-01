@@ -11,6 +11,7 @@ let currentHour;
 var audio = document.createElement('audio');
 audio.id = "bgmMuteOff";
 document.body.appendChild(audio);
+let backgroundAudioPlaying = false;
 
 export default 
 function MenuBar(props) {
@@ -101,7 +102,7 @@ function MenuBar(props) {
                 filterSongFittingCurrentWeather(relevantMusic);
 
                 audio.loop = true;
-                audio.play();
+                //audio.play();
 
                 console.log("Information: Song is playing!");
                 console.log("-----------------------------");
@@ -149,38 +150,42 @@ function MenuBar(props) {
     }
 
     function updateData() {
-        
-        // console.log('city? ' + props.weatherModel.getUserCity())
-
         if(ReactSession.get('uid') !== null && props.userModel) {
-            console.log('Usermodel: ', props.userModel);
-            props.weatherModel.setCityWeatherPromise(props.userModel.getCityCoordinates()).then(filterWeatherDataOnAudio);
+            props.weatherModel.setBackgroundMusicPromise();
+            props.weatherModel.setCityWeatherPromise(props.userModel.getCityCoordinates());
             
-            //setTimeout(filterWeatherDataOnAudio, 2000);
+            setTimeout(filterWeatherDataOnAudio, 2000);
         }   
     }
 
     function muteAudioACB() {
-        if(audio.volume > 0) {
-            audio.volume = 0;
-            // id to use audio in musicPresenter
-            audio.id = "bgmMute"
-
-            // set mute to mute (sound is off)
-            var muteBt = document.getElementById("imgMuteId");
-            muteBt.src = "images/soundOff.svg";
-        } else {
-            
-            // play the BGM only when no vinyl is played
-            if(document.getElementById("vinyl").paused) {    
-                audio.volume = 1;
+        if (backgroundAudioPlaying) {
+            if(audio.volume > 0) {
+                audio.volume = 0;
                 // id to use audio in musicPresenter
-                audio.id = "bgmMuteOff"
+                audio.id = "bgmMute"
     
-                // set mute button to on (sound in on)
-                var muteBt = document.getElementById("imgMuteId");
-                muteBt.src = "images/soundOn.svg";
+                // set mute to mute (sound is off)
+                let muteBt = document.getElementById("muteId");
+                muteBt.src = "../../images/soundOff.svg";
+            } else {
+                
+                // play the BGM only when no vinyl is played
+                if(document.getElementById("vinyl").paused) {    
+                    audio.volume = 1;
+                    // id to use audio in musicPresenter
+                    audio.id = "bgmMuteOff"
+        
+                    // set mute button to on (sound in on)
+                    let muteBt = document.getElementById("muteId");
+                    muteBt.src = "../../images/soundOn.svg";
+                }
             }
+        } else {
+            backgroundAudioPlaying = true;
+            audio.play();
+            let muteBt = document.getElementById("muteId");
+            muteBt.src = "../../images/soundOn.svg";
         }
     }
     updateData();

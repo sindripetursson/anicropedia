@@ -60,15 +60,15 @@ function MenuBarView(props) {
         props.onMuteAudio();
 
         // set the image to alter the src
-        var image = document.getElementById('muteId');
+        //var image = document.getElementById('muteId');
 
         // if src matches the actual one and is clicked, then change it
-        if (image.src.match("images/volume.png")) {
-            image.src = "images/volume-mute.png";
+        /*if (image.src.match("images/soundOn.svg")) {
+            image.src = "images/soundOff.svg";
         }
         else {
-            image.src = "images/volume.png";
-        }
+            image.src = "images/soundOn.svg";
+        } */
     }
 
     function drawerToggleClickHandler() {
@@ -169,7 +169,7 @@ function MenuBarView(props) {
                 }
 
             </div>
-            <div><img className='menuBar__mute' src={"../../images/volume.png"} id="muteId" onClick={muteMusic} value="ChangeMute"/></div>
+            <div><img className='menuBar__mute' src={"../../images/soundOff.svg"} id="muteId" onClick={muteMusic} value="ChangeMute"/></div>
             {/* City search START*/}
             {hideCitySearch ? <></> :
                 <div className='menuBar__sides'>

@@ -101,7 +101,7 @@ function promiseChangedACB(){
     document.getElementById("bgmMuteOff").volume = 0;
       
     // vinyl is played, so show mute on bgm mute bt
-      var btMuteMenuBarPres = document.getElementById("imgMuteId");
+      var btMuteMenuBarPres = document.getElementById("muteId");
       btMuteMenuBarPres.src = "images/soundOff.svg";
     }
     
@@ -146,12 +146,11 @@ function promiseChangedACB(){
         // if no mute is pressed by user, then lower volume of bgm
         // and show mute is on (sound is off)
         if(document.getElementById("bgmMuteOff")) {
-        document.getElementById("bgmMuteOff").volume = 0;
-          
-        // vinyl is played, so show mute on bgm mute bt
-          var btMuteMenuBarPres = document.getElementById("imgMuteId");
-          btMuteMenuBarPres.src = "images/soundOff.svg";
+          document.getElementById("bgmMuteOff").volume = 0;
         }
+        // vinyl is played, so show mute on bgm mute bt
+        let btMuteMenuBarPres = document.getElementById("muteId");
+        btMuteMenuBarPres.src = "images/soundOff.svg";
 
 
 
@@ -175,7 +174,7 @@ function promiseChangedACB(){
           document.getElementById("bgmMuteOff").volume = 1;
           
           // vinyl is paused, so show no mute on bgm mute bt
-          var btMuteMenuBarPres = document.getElementById("imgMuteId");
+          let btMuteMenuBarPres = document.getElementById("muteId");
           btMuteMenuBarPres.src = "images/soundOn.svg";
         }
 
@@ -212,7 +211,7 @@ function promiseChangedACB(){
       document.getElementById("bgmMuteOff").volume = 1;
 
       // vinyl is paused, so show no mute on bgm mute bt
-      var btMuteMenuBarPres = document.getElementById("imgMuteId");
+      var btMuteMenuBarPres = document.getElementById("muteId");
       btMuteMenuBarPres.src = "images/soundOn.svg";
       }
 

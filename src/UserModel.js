@@ -40,7 +40,6 @@ class UserModel {
     }
 
     setCityCoordinates(coords) {
-        console.log(coords);
         if (!this.cityCoordinates ||
             (this.cityCoordinates.lat !== coords.lat || this.cityCoordinates.lng !== coords.lng)) {
             this.cityCoordinates = coords;
