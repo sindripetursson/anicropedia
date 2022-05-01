@@ -64,7 +64,7 @@ function Collectible(props) {
                     >
                     <div className="list__nav__container">
                         <img className="list__nav__icon" alt="fossil" src="../../images/fossilsIcon.svg"/>
-                        <div className={"list__nav__text"}>Fossils</div>
+                        <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}>Fossils</div>
                     </div>
                 </div>
                 <div 
@@ -76,7 +76,7 @@ function Collectible(props) {
                     }>
                     <div className="list__nav__container">
                         <img className="list__nav__icon" alt="art" src="../../images/artIcon.svg"/>
-                        <div className={"list__nav__text"} >Art</div>
+                        <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"} >Art</div>
                     </div>
                 </div>
                 </div>

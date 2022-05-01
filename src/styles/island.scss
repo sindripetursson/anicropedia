@@ -5,11 +5,19 @@
         max-width: $max-width;
         margin: 0 auto;
         background-color: orange;
+        display: flex;
     } 
 
     &__col {
+        width: 50%;
         display: flex;
     } 
+
+    &__row {
+        width: 50%;
+        display: row; 
+        flex-direction: row;
+    }
 
     &__encyclopedia {
         background-color: aqua;

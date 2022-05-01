@@ -24,7 +24,7 @@ function VillagersView(props){
 
     return(
         <div className="list">
-            <div className={props.islandView ? "list__container__encyclopedia--island" : "list__container"}>
+            <div className={props.islandView ? "list__container__other--island" : "list__container"}>
                 <div className="list__row">
                     {renderData(props.data)}
                 </div>

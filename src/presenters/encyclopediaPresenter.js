@@ -60,7 +60,7 @@ function Encyclopedia(props) {
                 >
                 <div className="list__nav__container">
                 <img className="list__nav__icon" alt="Fish" src="../../images/fishIcon.svg"/>
-                <div className={ "list__nav__text"}>Fish</div>
+                <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Fish </div>
                 </div>
             </div>
             <div 
@@ -72,7 +72,7 @@ function Encyclopedia(props) {
                 }>
                 <div className="list__nav__container">
                     <img className="list__nav__icon" alt="Insects" src="../../images/bugsIcon.svg"/>
-                    <div className={"list__nav__text"}>Insects</div>
+                    <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Insects </div>
                 </div>
             </div>
             <div
@@ -84,7 +84,7 @@ function Encyclopedia(props) {
                 }>
                 <div className="list__nav__container">
                 <img className="list__nav__icon" alt="SeaCreatures" src="../../images/seaIcon.svg"/>
-                <div className={"list__nav__text"}>Sea Creatures</div>
+                <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Sea Creatures </div>
                 </div>
             </div>
             </div>

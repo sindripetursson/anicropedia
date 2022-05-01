@@ -211,7 +211,11 @@ body {
 }
 .list__container__encyclopedia--island {
   background-color: aliceblue;
-  max-width: 400px;
+  max-width: 50%;
+}
+.list__container__other--island {
+  background-color: aliceblue;
+  max-width: 100%;
 }
 .list__row {
   display: flex;
@@ -409,6 +413,9 @@ body {
   .list__nav__text {
     display: none;
   }
+}
+.list__nav__text--island {
+  display: none;
 }
 .list__nav__container {
   display: flex;
@@ -1110,9 +1117,16 @@ button:hover {
   max-width: 1200px;
   margin: 0 auto;
   background-color: orange;
+  display: flex;
 }
 .island__col {
+  width: 50%;
   display: flex;
+}
+.island__row {
+  width: 50%;
+  display: row;
+  flex-direction: row;
 }
 .island__encyclopedia {
   background-color: aqua;
