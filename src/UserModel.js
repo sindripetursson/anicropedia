@@ -1,7 +1,8 @@
 class UserModel {
     constructor(fishArray = [], insectArray = [], 
                 seaCreatureArray = [], villagerArray = [], 
-                musicArray = [], fossilArray = [], artArray = []) {
+                musicArray = [], fossilArray = [], artArray = [],
+                cityAddress = '', cityCoordinates = {lat: null, lng: null}, userName) {
         this.observers = [];
         this.fishes = fishArray;
         this.insects = insectArray;
@@ -10,6 +11,53 @@ class UserModel {
         this.music = musicArray;
         this.fossils = fossilArray;
         this.art = artArray;
+        this.setCityAddress(cityAddress);
+        this.setCityCoordinates(cityCoordinates);
+        this.setUserName(userName);
+    }
+
+    getCityAddress() {
+        return this.cityAddress;
+    }
+
+    getCityCoordinates() {
+        return this.cityCoordinates;
+    }
+
+    getUserName() {
+        return this.userName;
+    }
+
+    setCityAddress(newCityAddress) {
+        if (this.cityAddress !== newCityAddress) {
+            if (typeof newCityAddress === 'string' || newCityAddress instanceof String) {
+                this.cityAddress = newCityAddress;
+                this.notifyObservers({updateCityAddress: newCityAddress});
+            } else {
+                throw new Error('City address is not a string.');
+            }
+        }
+    }
+
+    setCityCoordinates(coords) {
+        if (!this.cityCoordinates ||
+            (this.cityCoordinates.lat !== coords.lat || this.cityCoordinates.lng !== coords.lng)) {
+            this.cityCoordinates = coords;
+            this.notifyObservers({updateCityLat: coords.lat});
+            this.notifyObservers({updateCityLng: coords.lng});
+
+        }
+    }
+
+    setUserName(newUserName) {
+        if (this.userName !== newUserName) {
+            if (typeof newUserName === 'string' || newUserName instanceof String) {
+                this.userName = newUserName;
+                this.notifyObservers({updateUserName: newUserName});
+            } else {
+                throw new Error('Username is not a string.');
+            }
+        }
     }
 
     addItem(itemToAdd, category) {

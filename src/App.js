@@ -22,13 +22,12 @@ const Music = require("./presenters/musicPresenter.js").default;
 
 function App(props) {
   const [detailsOn, setDetailsOn] = React.useState(false);
-
  return (
     <div className="App">
       <div className={detailsOn ? "details" : "hidden"}>
         <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
       </div>
-        <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel}/>
+        <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel} userModel={props.userModel}/>
         <Routes>
           <Route path="/" exact element={ <HomeView setDetailsOn={setDetailsOn}/> }/>
           <Route path="/island" element={<Island userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>

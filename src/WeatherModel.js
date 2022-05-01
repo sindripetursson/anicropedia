@@ -4,13 +4,12 @@ import { getBackgroundMusic } from "./source/musicSource";
 import { getGeo } from "./source/geoSource";
 
 class WeatherModel {
-    constructor(userCityArray = []) {
-        this.userCity = userCityArray;
+    constructor() {
         this.currentWeatherPromiseState = {};
         this.currentBackgroundMusicPromiseState = {};
         this.currentGeoPromiseState = [];
     }
-
+/*
     setUserCity(chosenCity) {
 
         const cityArray = chosenCity.split(",");
@@ -41,13 +40,13 @@ class WeatherModel {
         } else
         return "No City selected";
     }
-
+*/
     setBackgroundMusicPromise() {
         resolvePromise(getBackgroundMusic(), this.currentBackgroundMusicPromiseState)
     }
 
-    setCityWeatherPromise() {
-        resolvePromise(getWeather(this.getCityLat(),this.getCityLon()), this.currentWeatherPromiseState)
+    setCityWeatherPromise(coords) {
+        resolvePromise(getWeather(coords.lat,coords.lng), this.currentWeatherPromiseState)
     }
 
     setGeoPromise(typedCity) {

@@ -59,6 +59,18 @@ function updateFirebaseFromModel(model, uid) {
         if(payload && payload.removeArt) {
             firebase.database().ref(REF+ "/" + uid + "/art/"+payload.removeArt.id).set(null);
         }
+        if(payload && payload.updateCityAddress) {
+            firebase.database().ref(REF + "/" + uid + "/address").set(payload.updateCityAddress);
+        }
+        if(payload && payload.updateCityLat) {
+            firebase.database().ref(REF + "/" + uid + "/latitude").set(payload.updateCityLat);
+        }
+        if(payload && payload.updateCityLng) {
+            firebase.database().ref(REF + "/" + uid + "/longitude").set(payload.updateCityLng);
+        }
+        if(payload && payload.updateUserName) {
+            firebase.database().ref(REF + "/" + uid + "/name").set(payload.updateUserName);
+        }
     }
     model.addObserver(firebaseObserverACB);
 }
@@ -232,7 +244,8 @@ function makeBigPromiseACB(firebaseData){
     }
 
     function createModelACB(items) {
-        return new UserModel(items[0], items[1], items[2], items[3], items[4], items[5], items[6]);
+        return new UserModel(items[0], items[1], items[2], items[3], items[4], items[5], items[6], 
+                             firebaseData.val().address, {'lat': firebaseData.val().latitude, 'lng': firebaseData.val().longitude});
     }
 
     const userItemArray = [
