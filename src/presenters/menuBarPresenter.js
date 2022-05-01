@@ -2,14 +2,16 @@ import MenuBarView from "../views/menuBarView.js";
 import React from "react";
 import { getGeo } from "../source/geoSource.js";
 import Timer from "../views/timer.js";
+import { ReactSession } from "react-client-session";
 
 // global hour and audio
 let currentHour; 
 // let currentMinute; 
 
 var audio = document.createElement('audio');
-audio.id = "bgmMuteOff"
+audio.id = "bgmMuteOff";
 document.body.appendChild(audio);
+let backgroundAudioPlaying = false;
 
 export default 
 function MenuBar(props) {
@@ -18,7 +20,7 @@ function MenuBar(props) {
     const [geoData, setGeoData]= React.useState(null);
     const [, setGeoError]= React.useState(null);
     // city
-    const [chosenCity, setChosenCity]= React.useState(props.weatherModel.getUserCity());
+    const [chosenCity, setChosenCity]= React.useState(''); //props.weatherModel.getUserCity());
     var typedCity;
     // timer
     const [timerCreated, setTimerCreated ]= React.useState(false);
@@ -77,7 +79,7 @@ function MenuBar(props) {
             // console.log('weather: ' + props.weatherModel.getCityWeather());
             
             // console.log(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour));
-            if(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour)) {
+            if(props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null && (checkHour !== currentHour)) {
 
                 var today = new Date();
                 currentHour = today.getHours();
@@ -89,7 +91,7 @@ function MenuBar(props) {
                 var weatherIndex;
 
                 console.log("-----------------------------");
-                console.log('Weather in ' + props.weatherModel.getUserCity() + ': ' + props.weatherModel.getCityWeather().weather[0].main);
+                console.log('Weather in ' + props.userModel.getCityAddress() + ': ' + props.weatherModel.getCityWeather().weather[0].main);
 
                 matchCityWeatherOnACWeather();
 
@@ -100,7 +102,7 @@ function MenuBar(props) {
                 filterSongFittingCurrentWeather(relevantMusic);
 
                 audio.loop = true;
-                audio.play();
+                //audio.play();
 
                 console.log("Information: Song is playing!");
                 console.log("-----------------------------");
@@ -148,40 +150,45 @@ function MenuBar(props) {
     }
 
     function updateData() {
-        
-        // console.log('city? ' + props.weatherModel.getUserCity())
-
-        if(props.weatherModel.getUserCity() !== "No City selected") {
-
-            props.weatherModel.setCityWeatherPromise();
+        if(ReactSession.get('uid') !== null && props.userModel) {
+            props.weatherModel.setBackgroundMusicPromise();
+            props.weatherModel.setCityWeatherPromise(props.userModel.getCityCoordinates());
             
             setTimeout(filterWeatherDataOnAudio, 2000);
         }   
     }
 
     function muteAudioACB() {
-        if(audio.volume > 0) {
-            audio.volume = 0;
-            // id to use audio in musicPresenter
-            audio.id = "bgmMute"
-
-            // set mute to mute (sound is off)
-            var muteBt = document.getElementById("imgMuteId");
-            muteBt.src = "images/soundOff.svg";
-        } else {
-            
-            // play the BGM only when no vinyl is played
-            if(document.getElementById("vinyl").paused) {    
-                audio.volume = 1;
+        if (backgroundAudioPlaying) {
+            if(audio.volume > 0) {
+                audio.volume = 0;
                 // id to use audio in musicPresenter
-                audio.id = "bgmMuteOff"
+                audio.id = "bgmMute"
     
-                // set mute button to on (sound in on)
-                var muteBt = document.getElementById("imgMuteId");
-                muteBt.src = "images/soundOn.svg";
+                // set mute to mute (sound is off)
+                let muteBt = document.getElementById("muteId");
+                muteBt.src = "../../images/soundOff.svg";
+            } else {
+                
+                // play the BGM only when no vinyl is played
+                if(document.getElementById("vinyl").paused) {    
+                    audio.volume = 1;
+                    // id to use audio in musicPresenter
+                    audio.id = "bgmMuteOff"
+        
+                    // set mute button to on (sound in on)
+                    let muteBt = document.getElementById("muteId");
+                    muteBt.src = "../../images/soundOn.svg";
+                }
             }
+        } else {
+            backgroundAudioPlaying = true;
+            audio.play();
+            let muteBt = document.getElementById("muteId");
+            muteBt.src = "../../images/soundOn.svg";
         }
     }
+    updateData();
 
     React.useEffect(geoPromiseChangedACB, [geoPromise]);
 

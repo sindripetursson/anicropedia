@@ -8,6 +8,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @font-face {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
@@ -1244,6 +1245,38 @@ button:hover {
   max-width: 800px;
   margin-bottom: 50px;
   margin-top: 50px;
+}
+
+@font-face {
+  font-family: "FinkHeavy";
+  src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
+}
+.citySearch__container {
+  border-bottom: honeydew;
+  border-left: honeydew;
+  border-right: honeydew;
+  border-top: 1px solid #e6e6e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 1000;
+  border-radius: 0 0 2px 2px;
+}
+.citySearch__input {
+  font-family: "Rubik", sans-serif;
+  background-color: #FFFFFF;
+  border: #DED9C0 2px solid;
+  color: #887C66;
+  font-size: 0.75em;
+  border-radius: 25px;
+  display: inline-block;
+  cursor: pointer;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.citySearch__input--error {
+  background-color: #e0cdb7;
+  border: #dba59e 2px solid;
 }
 
 /*# sourceMappingURL=styles.css.map */
