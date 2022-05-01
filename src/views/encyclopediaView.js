@@ -1,6 +1,5 @@
 import { capitalizeFirstLetter } from "../utils";
 import { isItemInCollection } from "../utils";
-import IslandView from "./islandView";
 
 function EncyclopediaView(props){
     function renderData(data){
