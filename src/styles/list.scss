@@ -20,6 +20,10 @@
             border-radius: 0px 50px 50px 50px;
             // filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
             // z-index: 0;
+            &--island {
+                background-color: aliceblue;
+                max-width: $max-width/3;
+            }    
         }
     }
 

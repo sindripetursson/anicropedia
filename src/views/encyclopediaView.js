@@ -1,5 +1,6 @@
 import { capitalizeFirstLetter } from "../utils";
 import { isItemInCollection } from "../utils";
+import IslandView from "./islandView";
 
 function EncyclopediaView(props){
     function renderData(data){
@@ -8,15 +9,14 @@ function EncyclopediaView(props){
                 props.onItemClicked(singleResult);
             }
 
-
             return (
-                <div className="list__col__encyclopedia" key={"encyclopedia_"+singleResult.id} onClick={() => itemClicked()}>
+                <div className={props.islandView ? "list__col__encyclopedia--island" : "list__col__encyclopedia"} key={"encyclopedia_"+singleResult.id} onClick={() => itemClicked()}>
                     <div className="listItem__encyclopedia" >
                         <img className="listItem__image__encyclopedia" alt="" src={singleResult.icon_uri}/>
                         <div className="listItem__text__encyclopedia">
                             {capitalizeFirstLetter(singleResult.name["name-EUen"])}
                         </div>
-                        <img className={isItemInCollection(singleResult, props.currentSpecies, true, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
+                        <img className={isItemInCollection(singleResult, props.currentSpecies, true, props.userModel) ? "checkmark" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/>
                     </div>
                 </div>
             );
@@ -26,7 +26,7 @@ function EncyclopediaView(props){
 
     return(
         <div className="list">
-            <div className="list__container__encyclopedia">
+            <div className={props.islandView ? "list__container__encyclopedia--island" : "list__container__encyclopedia"}>
                 <div className="list__row__encyclopedia">
                     {renderData(props.data)}
                 </div>

@@ -1,8 +1,8 @@
+import React from "react";
+
 function IslandView(props){
     return(
-        <div className="list">
-            <h1>IslandView</h1>
-        </div>
+        <></>
     );
 
 }

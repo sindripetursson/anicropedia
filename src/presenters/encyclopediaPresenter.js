@@ -3,7 +3,6 @@ import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import EncyclopediaView from "../views/encyclopediaView";
-import { hover } from "@testing-library/user-event/dist/hover";
 import { sessionCheck } from "../utils";
 
 export default 
@@ -14,6 +13,7 @@ function Encyclopedia(props) {
     const [currentSpecies, setCurrentSpecies] = React.useState('fish');
 
     function getDetails(clickedItem){
+      console.log(clickedItem)
       props.detailsModel.setCurrentItem(currentSpecies, clickedItem.id);
       props.setDetailsOn(true);
     }
@@ -47,11 +47,9 @@ function Encyclopedia(props) {
       }
     
       React.useEffect(promiseChangedACB, [promise]);
-
+      console.log(props.islandView)
     return sessionCheck() || <div className="dropshadow">
-    {promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
-          <div>
-            <div className="list__nav">
+                  <div className="list__nav">
             <div className="list__row__nav">
               <div 
                 className={currentSpecies === 'fish' ? "list__col__button" : "list__col__button inactive" }
@@ -61,7 +59,7 @@ function Encyclopedia(props) {
                 }}
                 >
                   <div className="list__nav__container">
-                    <img className="list__nav__icon" src="../../images/fishIcon.svg"/>
+                    <img className="list__nav__icon" alt="Fish" src="../../images/fishIcon.svg"/>
                     <div className={ "list__nav__text"}>Fish</div>
                   </div>
               </div>
@@ -73,7 +71,7 @@ function Encyclopedia(props) {
                 }
                 }>
                   <div className="list__nav__container">
-                    <img className="list__nav__icon" src="../../images/bugsIcon.svg"/>
+                    <img className="list__nav__icon" alt="Insects" src="../../images/bugsIcon.svg"/>
                     <div className={"list__nav__text"}>Insects</div>
                   </div>
               </div>
@@ -85,12 +83,15 @@ function Encyclopedia(props) {
                 }
                 }>
                   <div className="list__nav__container">
-                    <img className="list__nav__icon" src="../../images/seaIcon.svg"/>
+                    <img className="list__nav__icon" alt="SeaCreatures" src="../../images/seaIcon.svg"/>
                     <div className={"list__nav__text"}>Sea Creatures</div>
                   </div>
               </div>
             </div>
-          </div>  
+          </div> 
+    {props.islandView ? <EncyclopediaView onItemClicked={getDetails} data={props.userModel.getCategoryArray(currentSpecies)} userModel={props.userModel} currentSpecies={currentSpecies} islandView/> :
+    promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
+        <div> 
           <EncyclopediaView onItemClicked={getDetails} data={data} userModel={props.userModel} currentSpecies={currentSpecies}/>
         </div>}
     </div>

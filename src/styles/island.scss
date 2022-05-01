@@ -1,0 +1,30 @@
+@import "config";
+
+.island {
+    &__container {
+        max-width: $max-width;
+        margin: 0 auto;
+        background-color: orange;
+    } 
+
+    &__col {
+        display: flex;
+    } 
+
+    &__encyclopedia {
+        background-color: aqua;
+    }
+
+    &__collectibles {
+        width: 30%;
+        background-color: red;
+    }
+
+    &__birthday {
+        background-color: purple;
+    }
+    
+    &__villagers {
+        background-color: green;
+    }
+}

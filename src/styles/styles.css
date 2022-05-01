@@ -8,6 +8,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 @font-face {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
@@ -207,6 +208,10 @@ body {
   padding: 50px;
   background: #F7F4E4;
   border-radius: 0px 50px 50px 50px;
+}
+.list__container__encyclopedia--island {
+  background-color: aliceblue;
+  max-width: 400px;
 }
 .list__row {
   display: flex;
@@ -1095,6 +1100,32 @@ button:hover {
 .grids__img__contact-dt {
   grid-column: 2;
   grid-row: 4;
+}
+
+@font-face {
+  font-family: "FinkHeavy";
+  src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
+}
+.island__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: orange;
+}
+.island__col {
+  display: flex;
+}
+.island__encyclopedia {
+  background-color: aqua;
+}
+.island__collectibles {
+  width: 30%;
+  background-color: red;
+}
+.island__birthday {
+  background-color: purple;
+}
+.island__villagers {
+  background-color: green;
 }
 
 .player {
