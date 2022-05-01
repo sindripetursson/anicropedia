@@ -63,6 +63,9 @@ body {
   margin-top: 20px;
   border-radius: 20px;
 }
+.listItem__image__encyclopedia--island {
+  max-width: 50%;
+}
 .listItem__text {
   width: 90%;
 }
@@ -95,6 +98,17 @@ body {
   font-weight: bold;
 }
 .listItem__text__encyclopedia {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  font-family: "Rubik";
+  font-style: normal;
+  color: #835B26;
+  font-weight: bold;
+}
+.listItem__text__encyclopedia--island {
+  font-size: 10px;
   width: 100%;
   padding-left: 5%;
   padding-right: 5%;
@@ -210,12 +224,21 @@ body {
   border-radius: 0px 50px 50px 50px;
 }
 .list__container__encyclopedia--island {
-  background-color: aliceblue;
-  max-width: 50%;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #F7F4E4;
+  border-radius: 0px 50px 50px 50px;
+  height: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .list__container__other--island {
   background-color: aliceblue;
   max-width: 100%;
+  max-height: 40vh;
+  overflow-x: scroll;
 }
 .list__row {
   display: flex;
@@ -229,6 +252,12 @@ body {
   margin-left: -10px;
   flex-wrap: wrap;
   border: #835B26 2px solid;
+}
+.list__row__encyclopedia--island {
+  flex-wrap: wrap;
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 .list__row__nav {
   display: flex;
@@ -306,6 +335,17 @@ body {
     padding-right: 10px;
     padding-left: 10px;
   }
+}
+.list__col__encyclopedia--island {
+  border: #835B26 2px solid;
+  width: 33.3333333333%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.list__col__encyclopedia--island:hover {
+  background: #DED9C0;
+  transition: 1s;
+  transform: scale(1.05);
 }
 .list__col__music {
   width: 100%;
@@ -1129,15 +1169,19 @@ button:hover {
   flex-direction: row;
 }
 .island__encyclopedia {
+  padding: 10px;
   background-color: aqua;
 }
 .island__collectibles {
+  padding: 10px;
   background-color: red;
 }
 .island__music {
+  padding: 10px;
   background-color: purple;
 }
 .island__villagers {
+  padding: 10px;
   background-color: green;
 }
 
