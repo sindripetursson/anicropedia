@@ -38,6 +38,11 @@ function MusicView(props){
     console.log("island music ", props.islandView)
     return(
         <div className="list">
+            {props.islandView ?
+            <div className="list__islandHeader">My music</div>
+            :
+            <></>  
+            }
             <div className={props.islandView ? "list__container__other--island" : "list__container"}>
                 <div className={props.islandView ? "list__row__music--island" : "list__row"}>
                     {renderData(props.data)}

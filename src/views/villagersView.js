@@ -27,6 +27,11 @@ function VillagersView(props){
 
     return(
         <div className="list">
+            {props.islandView ?
+            <div className="list__islandHeader">My villagers</div>
+            :
+            <></>  
+            }
             <div className={props.islandView ? "list__container__other--island" : "list__container"}>
                 <div className={props.islandView ? "list__row__other--island" : "list__row"}>
                     {renderData(props.data)}

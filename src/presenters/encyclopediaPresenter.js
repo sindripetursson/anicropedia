@@ -50,6 +50,11 @@ function Encyclopedia(props) {
     return sessionCheck() || 
     <div className="dropshadow">
         <div className="list__nav">
+            {props.islandView ?
+            <div className="list__islandHeader">My encyclopedia</div>
+            :
+            <></>  
+            }
             <div className="list__row__nav">
             <div 
                 className={currentSpecies === 'fish' ? "list__col__button" : "list__col__button inactive" }

@@ -54,6 +54,11 @@ function Collectible(props) {
     return sessionCheck() || ( 
         <div className="dropshadow">
             <div className="list__nav">
+                {props.islandView ?
+                <div className="list__islandHeader">My collectibles</div>
+                :
+                <></>  
+                }
                 <div className="list__row__nav">
                 <div 
                     className={category === 'fossils' ? "list__col__button" : "list__col__button inactive" }
