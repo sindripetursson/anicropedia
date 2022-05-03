@@ -1,13 +1,6 @@
 @import "config";
 
 .list {
-    /*display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: fit-content;
-    flex-wrap: wrap;
-    */
-
     &__islandHeader{
         font-family: 'FinkHeavy';
         color: #835B26;
@@ -72,12 +65,10 @@
         &__music {
             &--island {
                 flex-wrap: wrap;
-                @include row();
             }  
         } 
         &__nav{
             @include row();
-            // flex-wrap: wrap;
             z-index: 10000;
         }
         &__home{
@@ -162,6 +153,9 @@
 
             @media (min-width: $max-width) {
                 @include columns(3);
+            }
+            &--island {
+                width: 100%;
             }
         }
 

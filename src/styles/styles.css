@@ -64,8 +64,10 @@ body {
   border-radius: 20px;
 }
 .listItem__image__music--island {
-  width: 50%;
-  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 20px;
   border-radius: 20px;
 }
 .listItem__image__villagers--island {
@@ -100,6 +102,16 @@ body {
   padding-right: 5%;
   width: 100%;
   margin-top: 10px;
+  font-family: "Rubik";
+  font-style: normal;
+  color: #835B26;
+  font-weight: bold;
+}
+.listItem__text__music--island {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Rubik";
   font-style: normal;
   color: #835B26;
@@ -183,19 +195,27 @@ body {
   opacity: 1;
   background: transparent;
 }
-.listItem__image_music {
-  margin-top: 10px;
-  border-radius: 20px;
-  margin: auto 0;
+.listItem__music--island {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  border-radius: 50px;
+  margin: 10px 10px;
+  background: #F7F4E4;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
+  transition: 1s;
 }
-.listItem__text_music {
-  padding-left: 5%;
-  padding-right: 5%;
-  width: 100%;
-  font-family: "Rubik";
-  font-style: normal;
-  color: #835B26;
-  font-weight: bold;
+.listItem__music--island:hover {
+  background: #DED9C0;
+  transition: 1s;
+  transform: scale(1.05);
+}
+.listItem__music--island:hover .play_button-is-hover {
+  opacity: 1;
+  background: transparent;
+}
+.listItem__buttonContainer--island {
+  width: 80%;
 }
 .listItem__play_button {
   opacity: 1;
@@ -210,14 +230,6 @@ body {
 @font-face {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
-}
-.list {
-  /*display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: fit-content;
-  flex-wrap: wrap;
-  */
 }
 .list__islandHeader {
   font-family: "FinkHeavy";
@@ -283,9 +295,6 @@ body {
 }
 .list__row__music--island {
   flex-wrap: wrap;
-  display: flex;
-  margin-right: -10px;
-  margin-left: -10px;
 }
 .list__row__nav {
   display: flex;
@@ -411,6 +420,9 @@ body {
     padding-right: 10px;
     padding-left: 10px;
   }
+}
+.list__col__music--island {
+  width: 100%;
 }
 .list__col__home {
   width: 100%;
@@ -1256,8 +1268,7 @@ button:hover {
   width: 800px;
   background-color: #F7F4E4;
   margin-left: 20px;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-radius: 25px;
 }
 @media (max-width: 1100px) {
   .progress_bar {
@@ -1274,8 +1285,7 @@ button:hover {
   height: 30px;
   background-color: #88C9A1;
   width: 0%;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-radius: 25px;
 }
 @media (max-width: 1100px) {
   .progressed {
