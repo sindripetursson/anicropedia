@@ -63,6 +63,17 @@ body {
   margin-top: 20px;
   border-radius: 20px;
 }
+.listItem__image__music--island {
+  width: 50%;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.listItem__image__villagers--island {
+  max-width: 50%;
+}
+.listItem__image__encyclopedia--island {
+  max-width: 50%;
+}
 .listItem__text {
   width: 90%;
 }
@@ -95,6 +106,17 @@ body {
   font-weight: bold;
 }
 .listItem__text__encyclopedia {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  font-family: "Rubik";
+  font-style: normal;
+  color: #835B26;
+  font-weight: bold;
+}
+.listItem__text__encyclopedia--island {
+  font-size: 10px;
   width: 100%;
   padding-left: 5%;
   padding-right: 5%;
@@ -197,6 +219,13 @@ body {
   flex-wrap: wrap;
   */
 }
+.list__islandHeader {
+  font-family: "FinkHeavy";
+  color: #835B26;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 24px;
+}
 .list__container {
   max-width: 1200px;
   margin: 0 auto;
@@ -208,6 +237,23 @@ body {
   padding: 50px;
   background: #F7F4E4;
   border-radius: 0px 50px 50px 50px;
+}
+.list__container__encyclopedia--island {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #F7F4E4;
+  border-radius: 0px 50px 50px 50px;
+  height: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.list__container__other--island {
+  max-width: 100%;
+  max-height: 40vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .list__row {
   display: flex;
@@ -221,6 +267,25 @@ body {
   margin-left: -10px;
   flex-wrap: wrap;
   border: #835B26 2px solid;
+}
+.list__row__encyclopedia--island {
+  flex-wrap: wrap;
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+.list__row__other--island {
+  flex-wrap: wrap;
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
+  background-color: aqua;
+}
+.list__row__music--island {
+  flex-wrap: wrap;
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 .list__row__nav {
   display: flex;
@@ -298,6 +363,28 @@ body {
     padding-right: 10px;
     padding-left: 10px;
   }
+}
+.list__col__encyclopedia--island {
+  border: #835B26 2px solid;
+  width: 33.3333333333%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.list__col__encyclopedia--island:hover {
+  background: #DED9C0;
+  transition: 1s;
+  transform: scale(1.05);
+}
+.list__col__other--island {
+  border: #835B26 2px solid;
+  width: 33.3333333333%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.list__col__other--island:hover {
+  background: #DED9C0;
+  transition: 1s;
+  transform: scale(1.05);
 }
 .list__col__music {
   width: 100%;
@@ -405,6 +492,9 @@ body {
   .list__nav__text {
     display: none;
   }
+}
+.list__nav__text--island {
+  display: none;
 }
 .list__nav__container {
   display: flex;
@@ -1098,6 +1188,42 @@ button:hover {
   grid-row: 4;
 }
 
+@font-face {
+  font-family: "FinkHeavy";
+  src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
+}
+.island__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: orange;
+  display: flex;
+}
+.island__col {
+  width: 50%;
+  display: flex;
+}
+.island__row {
+  width: 50%;
+  display: row;
+  flex-direction: row;
+}
+.island__encyclopedia {
+  padding: 10px;
+  background-color: aqua;
+}
+.island__collectibles {
+  padding: 10px;
+  background-color: red;
+}
+.island__music {
+  padding: 10px;
+  background-color: purple;
+}
+.island__villagers {
+  padding: 10px;
+  background-color: green;
+}
+
 .player {
   height: 15vh;
   display: flex;
@@ -1245,38 +1371,6 @@ button:hover {
   max-width: 800px;
   margin-bottom: 50px;
   margin-top: 50px;
-}
-
-@font-face {
-  font-family: "FinkHeavy";
-  src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
-}
-.citySearch__container {
-  border-bottom: honeydew;
-  border-left: honeydew;
-  border-right: honeydew;
-  border-top: 1px solid #e6e6e6;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  z-index: 1000;
-  border-radius: 0 0 2px 2px;
-}
-.citySearch__input {
-  font-family: "Rubik", sans-serif;
-  background-color: #FFFFFF;
-  border: #DED9C0 2px solid;
-  color: #887C66;
-  font-size: 0.75em;
-  border-radius: 25px;
-  display: inline-block;
-  cursor: pointer;
-  width: 90%;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-.citySearch__input--error {
-  background-color: #e0cdb7;
-  border: #dba59e 2px solid;
 }
 
 /*# sourceMappingURL=styles.css.map */

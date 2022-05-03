@@ -8,61 +8,58 @@ import Bugs from '../components/bugs';
 export default
 function DetailsView(props) {
     function renderResults(singleResult) {
-      // console.log(singleResult.availability["month-northern"]);
-
-      if(singleResult.id === undefined)  return (
-        <Fossils 
-          singleResult={singleResult} 
-          onCloseClicked={props.onCloseClicked}
-          onCollectionChange={props.onCollectionChange}
-          isInCollection={props.isInCollection}/>
-    );
-    else if(singleResult['buy-price'])  return (
-      <Art 
-        singleResult={singleResult} 
-        onCloseClicked={props.onCloseClicked}
-        onCollectionChange={props.onCollectionChange}
-        isInCollection={props.isInCollection}
-      />
-  );
-  else if(singleResult.personality)  return (
-    <Villagers 
-      singleResult={singleResult} 
-      onCloseClicked={props.onCloseClicked}
-      onCollectionChange={props.onCollectionChange}
-      isInCollection={props.isInCollection}
-      />
-  );
-  else if(singleResult.speed) return (
-    <Sea 
-      singleResult={singleResult} 
-      onCloseClicked={props.onCloseClicked}
-      onCollectionChange={props.onCollectionChange}
-      isInCollection={props.isInCollection}
-    />
-  );
-  else if(singleResult.shadow) return (
-    <Fish 
-      singleResult={singleResult} 
-      onCloseClicked={props.onCloseClicked}
-      onCollectionChange={props.onCollectionChange}
-      isInCollection={props.isInCollection}
-    />
-    );
-    else return (
-      <Bugs 
-        singleResult={singleResult} 
-        onCloseClicked={props.onCloseClicked}
-        onCollectionChange={props.onCollectionChange}
-        isInCollection={props.isInCollection}
-      />
-    );
+        if(singleResult.id === undefined)  return (
+            <Fossils 
+            singleResult={singleResult} 
+            onCloseClicked={props.onCloseClicked}
+            onCollectionChange={props.onCollectionChange}
+            isInCollection={props.isInCollection}/>
+        );
+        else if(singleResult['buy-price'])  return (
+            <Art 
+                singleResult={singleResult} 
+                onCloseClicked={props.onCloseClicked}
+                onCollectionChange={props.onCollectionChange}
+                isInCollection={props.isInCollection}
+            />
+        );
+        else if(singleResult.personality)  return (
+            <Villagers 
+            singleResult={singleResult} 
+            onCloseClicked={props.onCloseClicked}
+            onCollectionChange={props.onCollectionChange}
+            isInCollection={props.isInCollection}
+            />
+        );
+        else if(singleResult.speed) return (
+            <Sea 
+            singleResult={singleResult} 
+            onCloseClicked={props.onCloseClicked}
+            onCollectionChange={props.onCollectionChange}
+            isInCollection={props.isInCollection}
+            />
+        );
+        else if(singleResult.shadow) return (
+            <Fish 
+            singleResult={singleResult} 
+            onCloseClicked={props.onCloseClicked}
+            onCollectionChange={props.onCollectionChange}
+            isInCollection={props.isInCollection}
+            />
+        );
+        else return (
+            <Bugs 
+                singleResult={singleResult} 
+                onCloseClicked={props.onCloseClicked}
+                onCollectionChange={props.onCollectionChange}
+                isInCollection={props.isInCollection}
+            />
+        );
     }
 
-
     return ( 
-    <div>
-        {renderResults(props.data)}
-    </div>
+        <div>
+            {renderResults(props.data)}
+        </div>
     )
 }

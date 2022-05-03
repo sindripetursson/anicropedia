@@ -2,9 +2,9 @@ $max-width: 1200px;
 $gutter: 20px;
 
 @font-face {
-  font-family: "FinkHeavy";
-  src: url('../fonts/finkHeavy.otf'),
-       url('../fonts/finkHeavy.ttf') format('truetype');
+    font-family: "FinkHeavy";
+    src: url('../fonts/finkHeavy.otf'),
+        url('../fonts/finkHeavy.ttf') format('truetype');
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
@@ -14,27 +14,26 @@ $font-header: "FinkHeavy";
 $transition: 300ms ease-in-out;
 
 @mixin row() {
-  display: flex;
-  margin-right: -($gutter *0.5);
-  margin-left: -($gutter *0.5);
+    display: flex;
+    margin-right: -($gutter *0.5);
+    margin-left: -($gutter *0.5);
 }
 
 @mixin row-grid() {
-  display: grid;
+    display: grid;
 }
 
 @mixin columns($col: 1) {
-  width: (calc($col / 12) * 100) *1%;
-  padding-right: $gutter *0.5;
-  padding-left: $gutter *0.5;
+    width: (calc($col / 12) * 100) *1%;
+    padding-right: $gutter *0.5;
+    padding-left: $gutter *0.5;
 }
 
 @mixin columns-grid($col: 1) {
-  display: grid;
-  width: (calc($col / 5) * 100) *1%;
+    display: grid;
+    width: (calc($col / 5) * 100) *1%;
 }
 
 @mixin offset-left($cols: 0) {
-  margin-left: (calc($cols / 12) * 100) * 1%;
+    margin-left: (calc($cols / 12) * 100) * 1%;
 }
-

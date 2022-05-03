@@ -8,13 +8,16 @@ function VillagersView(props){
                 props.onItemClicked(singleResult);
             }
             return (
-                <div className="list__col" key={"villagers_"+singleResult.id} onClick={() => itemClicked()}>
+                <div className={props.islandView ? "list__col__other--island" : "list__col"} key={"villagers_"+singleResult.id} onClick={() => itemClicked()}>
                     <div className="listItem__villagers" >
-                        <img className="listItem__image__villagers" alt="" src={singleResult.icon_uri}/>
+                        <img className={props.islandView ? "listItem__image__villagers--island" : "listItem__image__villagers"} alt="villager" src={singleResult.icon_uri}/>
                         <div className="listItem__text__villagers">
                             {singleResult.name["name-EUen"]}
                         </div>
-                        <img className={isItemInCollection(singleResult, 'villagers', true, props.userModel) ? "checkmark" : "hidden"} src="../../images/inCollection.svg"/>
+                        {props.islandView ?
+                        <></> :
+                        <img className={isItemInCollection(singleResult, 'villagers', true, props.userModel) ? "checkmark" : "hidden"} alt="villager" src="../../images/inCollection.svg"/>
+                        }
                     </div>
                 </div>
             );
@@ -24,8 +27,13 @@ function VillagersView(props){
 
     return(
         <div className="list">
-            <div className="list__container">
-                <div className="list__row">
+            {props.islandView ?
+            <div className="list__islandHeader">My villagers</div>
+            :
+            <></>  
+            }
+            <div className={props.islandView ? "list__container__other--island" : "list__container"}>
+                <div className={props.islandView ? "list__row__other--island" : "list__row"}>
                     {renderData(props.data)}
                 </div>
             </div>

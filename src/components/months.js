@@ -53,5 +53,4 @@ function Months({monthArray}){
     );
 }
 
-
 export default Months;

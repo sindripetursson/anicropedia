@@ -3,7 +3,6 @@ import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import EncyclopediaView from "../views/encyclopediaView";
-import { hover } from "@testing-library/user-event/dist/hover";
 import { sessionCheck } from "../utils";
 
 export default 
@@ -14,8 +13,9 @@ function Encyclopedia(props) {
     const [currentSpecies, setCurrentSpecies] = React.useState('fish');
 
     function getDetails(clickedItem){
-      props.detailsModel.setCurrentItem(currentSpecies, clickedItem.id);
-      props.setDetailsOn(true);
+        console.log(clickedItem)
+        props.detailsModel.setCurrentItem(currentSpecies, clickedItem.id);
+        props.setDetailsOn(true);
     }
 
     function wasCreatedACB(){
@@ -24,74 +24,80 @@ function Encyclopedia(props) {
         }
     }
     React.useEffect(wasCreatedACB, []); 
-    
+        
     function promiseChangedACB(){ 
         setData(null); 
         setError(null); 
     
         let cancelled = false;
         function changedAgainACB() { 
-          cancelled = true; 
+        cancelled = true; 
         };  // also called at teardown!
         if(promise) {
-          promise
-          .then(function saveDataACB(dt) {  
+        promise
+        .then(function saveDataACB(dt) {  
             if(!cancelled) setData(dt);
-          })
-          .catch(function saveErrACB(err) { 
+        })
+        .catch(function saveErrACB(err) { 
             if(!cancelled) setError(err);
-          });
+        });
         }
-
         return changedAgainACB;  // promiseChangedACB will be called for the new value!
-      }
-    
-      React.useEffect(promiseChangedACB, [promise]);
+    }
+    React.useEffect(promiseChangedACB, [promise]);
+    console.log(props.islandView)
 
-    return sessionCheck() || <div className="dropshadow">
-    {promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
-          <div>
-            <div className="list__nav">
+    return sessionCheck() || 
+    <div className="dropshadow">
+        <div className="list__nav">
+            {props.islandView ?
+            <div className="list__islandHeader">My encyclopedia</div>
+            :
+            <></>  
+            }
             <div className="list__row__nav">
-              <div 
+            <div 
                 className={currentSpecies === 'fish' ? "list__col__button" : "list__col__button inactive" }
                 onClick={() => {
-                  setPromise(getSpecies('fish'));
-                  setCurrentSpecies('fish');
+                setPromise(getSpecies('fish'));
+                setCurrentSpecies('fish');
                 }}
                 >
-                  <div className="list__nav__container">
-                    <img className="list__nav__icon" src="../../images/fishIcon.svg"/>
-                    <div className={ "list__nav__text"}>Fish</div>
-                  </div>
-              </div>
-              <div 
+                <div className="list__nav__container">
+                <img className="list__nav__icon" alt="Fish" src="../../images/fishIcon.svg"/>
+                <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Fish </div>
+                </div>
+            </div>
+            <div 
                 className={currentSpecies === 'bugs' ? "list__col__button" : "list__col__button inactive" }
                 onClick={() => {
-                  setPromise(getSpecies('bugs'));
-                  setCurrentSpecies('bugs');
+                setPromise(getSpecies('bugs'));
+                setCurrentSpecies('bugs');
                 }
                 }>
-                  <div className="list__nav__container">
-                    <img className="list__nav__icon" src="../../images/bugsIcon.svg"/>
-                    <div className={"list__nav__text"}>Insects</div>
-                  </div>
-              </div>
-              <div
+                <div className="list__nav__container">
+                    <img className="list__nav__icon" alt="Insects" src="../../images/bugsIcon.svg"/>
+                    <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Insects </div>
+                </div>
+            </div>
+            <div
                 className={currentSpecies === 'sea' ? "list__col__button" : "list__col__button inactive" }
                 onClick={() => {
-                  setPromise(getSpecies('sea'));
-                  setCurrentSpecies('sea');
+                setPromise(getSpecies('sea'));
+                setCurrentSpecies('sea');
                 }
                 }>
-                  <div className="list__nav__container">
-                    <img className="list__nav__icon" src="../../images/seaIcon.svg"/>
-                    <div className={"list__nav__text"}>Sea Creatures</div>
-                  </div>
-              </div>
+                <div className="list__nav__container">
+                <img className="list__nav__icon" alt="SeaCreatures" src="../../images/seaIcon.svg"/>
+                <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Sea Creatures </div>
+                </div>
             </div>
-          </div>  
-          <EncyclopediaView onItemClicked={getDetails} data={data} userModel={props.userModel} currentSpecies={currentSpecies}/>
+            </div>
+        </div> 
+        {props.islandView ? <EncyclopediaView onItemClicked={getDetails} data={props.userModel.getCategoryArray(currentSpecies)} userModel={props.userModel} currentSpecies={currentSpecies} islandView/> :
+        promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
+        <div> 
+            <EncyclopediaView onItemClicked={getDetails} data={data} userModel={props.userModel} currentSpecies={currentSpecies}/>
         </div>}
     </div>
 }

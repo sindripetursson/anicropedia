@@ -3,29 +3,29 @@
 * {
     padding: 0;
     margin: 0;
-  }
-  
-  *,
-  *::before,
-  *::after {
+}
+
+*,
+*::before,
+*::after {
     box-sizing: inherit;
-  }
-  
-  html { /* stylelint-disable-line */
+}
+
+html { /* stylelint-disable-line */
     box-sizing: border-box;
     overflow-x: hidden;
     font-family: $font-main;
     font-weight: 300;
     font-size: 16px;
-  }
-  
-  img { /* stylelint-disable-line */
-    max-width: 100%;
-  }
+}
 
-  body{
+img { /* stylelint-disable-line */
+    max-width: 100%;
+}
+
+body{
     background: url(../../public/images/bg_cream.png) center;
-  }
+}
 
   
   // TODO import
@@ -36,7 +36,7 @@
   @import "menuBar";
   @import "loading";
   @import "info";
+  @import "island";
   @import "musicBar";
   @import "page404";
   @import "authentication";
-  @import "citySearch";

@@ -1,0 +1,41 @@
+@import "config";
+
+.island {
+    &__container {
+        max-width: $max-width;
+        margin: 0 auto;
+        background-color: orange;
+        display: flex;
+    } 
+
+    &__col {
+        width: 50%;
+        display: flex;
+    } 
+
+    &__row {
+        width: 50%;
+        display: row; 
+        flex-direction: row;
+    }
+
+    &__encyclopedia {
+        padding: 10px;
+        background-color: aqua;
+    }
+
+    &__collectibles {
+        padding: 10px;
+        background-color: red;
+    }
+
+    &__music {
+        padding: 10px;
+        background-color: purple;
+    }
+    
+    &__villagers {
+        padding: 10px;
+        background-color: green;
+    }
+}

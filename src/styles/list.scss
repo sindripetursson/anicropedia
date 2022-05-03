@@ -8,6 +8,14 @@
     flex-wrap: wrap;
     */
 
+    &__islandHeader{
+        font-family: 'FinkHeavy';
+        color: #835B26;
+        text-align: left;
+        padding-left: 10px;
+        font-size: 24px;
+    }
+
     &__container {
         max-width: $max-width;
         margin: 0 auto;
@@ -20,6 +28,25 @@
             border-radius: 0px 50px 50px 50px;
             // filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
             // z-index: 0;
+            &--island {
+                position: relative;
+                max-width: $max-width;
+                margin: 0 auto;
+                padding: 10px;
+                background: #F7F4E4;
+                border-radius: 0px 50px 50px 50px;
+                height: 70vh;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }    
+        }
+        &__other{
+            &--island {
+                max-width: 100%;
+                max-height: 40vh;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }  
         }
     }
 
@@ -30,7 +57,24 @@
             @include row();
             flex-wrap: wrap;
             border: #835B26 2px solid;
+            &--island {
+                flex-wrap: wrap;
+                @include row();
+            }  
         }
+        &__other {
+            &--island {
+                flex-wrap: wrap;
+                @include row();
+                background-color: aqua
+            }  
+        }  
+        &__music {
+            &--island {
+                flex-wrap: wrap;
+                @include row();
+            }  
+        } 
         &__nav{
             @include row();
             // flex-wrap: wrap;
@@ -45,7 +89,6 @@
     &__col {
         @include columns(6);
 
-        
         @media (min-width: 500px) {
             @include columns(4);
         }
@@ -58,7 +101,6 @@
             @include columns(2);
         }
         
-
         &__encyclopedia{
             @include columns(12);
             border: #835B26 2px solid;
@@ -83,6 +125,28 @@
             @media (min-width: $max-width) {
                 @include columns(2);
             }
+
+            &--island {
+                border: #835B26 2px solid;
+                @include columns(4);
+                &:hover {
+                    background: #DED9C0;;
+                    transition: 1s;
+                    transform: scale(1.05);
+                }
+            }  
+        }
+
+        &__other{
+            &--island {
+                border: #835B26 2px solid;
+                @include columns(4);
+                &:hover {
+                    background: #DED9C0;;
+                    transition: 1s;
+                    transform: scale(1.05);
+                }
+            } 
         }
 
         &__music{
@@ -169,6 +233,10 @@
             margin-left: 10px;
 
             @media (max-width: 820px) {
+                display: none;
+            }
+
+            &--island {
                 display: none;
             }
         }

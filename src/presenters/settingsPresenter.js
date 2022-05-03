@@ -4,12 +4,13 @@ import SettingsView from "../views/settingsView";
 
 export default 
 function Settings(props) {
-    return sessionCheck() || (<div>
-      {
+    return sessionCheck() || 
+    (<div>
+        {
         <div>
-          <h1>Settings</h1>
-          <SettingsView />
+            <h1>Settings</h1>
+            <SettingsView />
         </div>
-      }
+        }
     </div>)
 }

@@ -18,6 +18,5 @@ export default function resolvePromise(promiseToResolve, promiseState, notifyACB
         if(notifyACB) notifyACB();
     }
 
-    promiseToResolve.then(saveDataACB).catch(saveErrorACB);
-        
+    promiseToResolve.then(saveDataACB).catch(saveErrorACB);    
 }

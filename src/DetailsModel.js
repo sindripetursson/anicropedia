@@ -9,12 +9,6 @@ class DetailsModel{
         this.currentDetailsPromiseState = {};
         // this.searchParams = {};
     }
-    //test
-    //test2
-    
-    // setSearchQuery(q){
-    //     this.searchParams.query = q;
-    // }
 
     setCurrentItem(category,id){
         const model = this;

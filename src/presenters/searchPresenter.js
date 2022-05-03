@@ -5,20 +5,20 @@ export default
 function Details(props) {
     const [fishId, setFishId] = React.useState(1);
 
-          function searchNowACB() {
-            props.detailsModel.setCurrentItem('fish',fishId);
-            window.location.hash = "#details";
-          }
-        
-          function setSearchTextACB(newFishId) {
-                let normalizedFishId = newFishId.toLowerCase().replace(" ","_");
-                setFishId(normalizedFishId)  
-          }
+    function searchNowACB() {
+        props.detailsModel.setCurrentItem('fish',fishId);
+        window.location.hash = "#details";
+    }
+    
+    function setSearchTextACB(newFishId) {
+        let normalizedFishId = newFishId.toLowerCase().replace(" ","_");
+        setFishId(normalizedFishId);  
+    }
 
-        return <div >
-                    <SearchFormView 
-                        onSearchNow={searchNowACB}
-                        onSetSearchText={setSearchTextACB}
-                    />
-               </div>       
+    return <div >
+        <SearchFormView 
+            onSearchNow={searchNowACB}
+            onSetSearchText={setSearchTextACB}
+        />
+    </div>       
 } 

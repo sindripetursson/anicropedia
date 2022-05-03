@@ -17,6 +17,22 @@
             width: 75%;
             margin-top: 20px;
             border-radius: 20px;
+            &--island{
+                width: 50%;
+                margin-top: 20px;
+                border-radius: 20px;            }
+        }
+
+        &__villagers{
+            &--island{
+                max-width: 50%;
+            }
+        }
+        
+        &__encyclopedia{
+            &--island{
+                max-width: 50%;
+            }
         }
     }
 
@@ -59,11 +75,21 @@
             padding-left: 5%;
             padding-right: 5%;
             padding-bottom: 5%;
-            // padding-bottom: ;
             font-family: 'Rubik';
             font-style: normal;
             color: #835B26;
             font-weight: bold;
+            &--island {
+                font-size: 10px;
+                width: 100%;
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-bottom: 5%;
+                font-family: 'Rubik';
+                font-style: normal;
+                color: #835B26;
+                font-weight: bold;
+            } 
         }
     }
 

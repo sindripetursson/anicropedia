@@ -32,44 +32,44 @@ function Login(props) {
     function loginACB(e) {
         e.preventDefault();
         signInWithEmailAndPassword (auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const uid = userCredential.user.uid;
-                const name = userCredential.user.displayName;
-                ReactSession.set("uid", uid);
-                ReactSession.set("name", name);
-                updateFirebaseFromModel(userModel, uid);
-                if(updateModelFromFirebase) {
-                    updateModelFromFirebase(userModel, uid);
-                }
-                document.getElementById('loginPassword').classList.remove('authentication__input--error');
-                document.getElementById('loginEmail').classList.remove('authentication__input--error');
-                document.querySelector('.authentication__errorMessage').innerHTML = '';
-                window.location = '/';
-            })
-            .catch((error) => {
-                document.getElementById('loginPassword').classList.remove('authentication__input--error');
-                document.getElementById('loginEmail').classList.remove('authentication__input--error');
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const errorText = document.querySelector('.authentication__errorMessage');
+        .then((userCredential) => {
+            // Signed in 
+            const uid = userCredential.user.uid;
+            const name = userCredential.user.displayName;
+            ReactSession.set("uid", uid);
+            ReactSession.set("name", name);
+            updateFirebaseFromModel(userModel, uid);
+            if(updateModelFromFirebase) {
+                updateModelFromFirebase(userModel, uid);
+            }
+            document.getElementById('loginPassword').classList.remove('authentication__input--error');
+            document.getElementById('loginEmail').classList.remove('authentication__input--error');
+            document.querySelector('.authentication__errorMessage').innerHTML = '';
+            window.location = '/';
+        })
+        .catch((error) => {
+            document.getElementById('loginPassword').classList.remove('authentication__input--error');
+            document.getElementById('loginEmail').classList.remove('authentication__input--error');
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const errorText = document.querySelector('.authentication__errorMessage');
 
-                if (errorCode === 'auth/wrong-password') {
-                    document.getElementById('loginPassword').classList.add('authentication__input--error');
-                    errorText.innerHTML = 'The password is incorrect.';
-                } else if (errorCode === 'auth/invalid-email') {
-                    document.getElementById('loginEmail').classList.add('authentication__input--error');
-                    errorText.innerHTML = 'Invalid email address.';
-                } else if (errorCode === 'auth/user-disabled') {
-                    document.getElementById('loginEmail').classList.add('authentication__input--error');
-                    errorText.innerHTML = 'This email address has been disabled.';
-                } else if (errorCode === 'auth/user-not-found') {
-                    document.getElementById('loginEmail').classList.add('authentication__input--error');
-                    errorText.innerHTML = 'No user matches this email.';
-                } else {
-                    errorText.innerHTML = errorMessage;
-                }
-            });
+            if (errorCode === 'auth/wrong-password') {
+                document.getElementById('loginPassword').classList.add('authentication__input--error');
+                errorText.innerHTML = 'The password is incorrect.';
+            } else if (errorCode === 'auth/invalid-email') {
+                document.getElementById('loginEmail').classList.add('authentication__input--error');
+                errorText.innerHTML = 'Invalid email address.';
+            } else if (errorCode === 'auth/user-disabled') {
+                document.getElementById('loginEmail').classList.add('authentication__input--error');
+                errorText.innerHTML = 'This email address has been disabled.';
+            } else if (errorCode === 'auth/user-not-found') {
+                document.getElementById('loginEmail').classList.add('authentication__input--error');
+                errorText.innerHTML = 'No user matches this email.';
+            } else {
+                errorText.innerHTML = errorMessage;
+            }
+        });
     }
 
     return (

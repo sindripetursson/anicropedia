@@ -13,5 +13,6 @@ export default function promiseNoData(promiseState) {
     if(!promiseState.data && promiseState.error) {
         return <div className="debug" >{promiseState.error}</div>
     }
-        return false;
+    
+    return false;
 }
