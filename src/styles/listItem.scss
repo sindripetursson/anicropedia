@@ -27,13 +27,13 @@
 
         &__villagers{
             &--island{
-                max-width: 60px;
+                width: 60px;
             }
         }
         
         &__encyclopedia{
             &--island{
-                max-width: 60px;
+                width: 60px;
             }
         }
     }
@@ -155,7 +155,7 @@
             // overflow: visible;
             transition: 1s;
             &:hover {
-                background: #DED9C0;;
+                background: #DED9C0;
                 transition: 1s;
                 transform: scale(1.05);
             }
@@ -187,15 +187,15 @@
             align-items: center;
             display: flex;
             cursor: pointer;
-            border-radius: 50px;
-            margin: 10px 10px;
+            border-radius: 30px;
+            margin: 3px 5px;
             background: #F7F4E4;
             filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
             transition: 1s;
             &:hover {
                 background: #DED9C0;
                 transition: 1s;
-                transform: scale(1.05);
+                transform: scale(1.01);
                 .play_button-is-hover {
                     opacity: 1;
                     background: transparent;

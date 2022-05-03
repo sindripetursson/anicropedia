@@ -10,7 +10,6 @@ function CollectibleView(props){
             function itemClicked(){
                 props.onItemClicked(singleResult);
             }
-            console.log("collectable island " + props.islandView)
             return (
                 <div className={props.islandView ? "list__col__encyclopedia--island" : "list__col__encyclopedia"} key={"collectible_" + singleResult['file-name']} onClick={() => itemClicked()}>
                     <div className="listItem__encyclopedia" >

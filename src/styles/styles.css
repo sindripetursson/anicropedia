@@ -70,10 +70,10 @@ body {
   border-radius: 20px;
 }
 .listItem__image__villagers--island {
-  max-width: 60px;
+  width: 60px;
 }
 .listItem__image__encyclopedia--island {
-  max-width: 60px;
+  width: 60px;
 }
 .listItem__text {
   width: 90%;
@@ -214,8 +214,8 @@ body {
   align-items: center;
   display: flex;
   cursor: pointer;
-  border-radius: 50px;
-  margin: 10px 10px;
+  border-radius: 30px;
+  margin: 3px 5px;
   background: #F7F4E4;
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
   transition: 1s;
@@ -223,7 +223,7 @@ body {
 .listItem__music--island:hover {
   background: #DED9C0;
   transition: 1s;
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 .listItem__music--island:hover .play_button-is-hover {
   opacity: 1;
@@ -250,8 +250,16 @@ body {
   font-family: "FinkHeavy";
   color: #835B26;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 5px;
   font-size: 24px;
+}
+.list__islandHeaderShadow {
+  font-family: "FinkHeavy";
+  color: #835B26;
+  text-align: left;
+  padding-left: 5px;
+  font-size: 24px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
 }
 .list__container {
   max-width: 1200px;
@@ -269,16 +277,16 @@ body {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 20px;
   background: #F7F4E4;
-  border-radius: 0px 50px 50px 50px;
+  border-radius: 0px 30px 30px 30px;
   height: 70vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 .list__container__other--island {
   max-width: 100%;
-  max-height: 40vh;
+  max-height: 36vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -302,11 +310,11 @@ body {
   margin-left: -10px;
 }
 .list__row__other--island {
+  padding: 10px;
   flex-wrap: wrap;
   display: flex;
   margin-right: -10px;
   margin-left: -10px;
-  background-color: aqua;
 }
 .list__row__music--island {
   flex-wrap: wrap;
@@ -400,15 +408,9 @@ body {
   transform: scale(1.05);
 }
 .list__col__other--island {
-  border: #835B26 2px solid;
   width: 33.3%;
   justify-content: center;
   display: flex;
-}
-.list__col__other--island:hover {
-  background: #DED9C0;
-  transition: 1s;
-  transform: scale(1.05);
 }
 .list__col__music {
   width: 100%;
@@ -503,6 +505,13 @@ body {
 }
 .list__nav {
   padding-top: 20px;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+  border-radius: 50px;
+}
+.list__nav--island {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
@@ -1222,33 +1231,46 @@ button:hover {
 .island__container {
   max-width: 1200px;
   margin: 0 auto;
-  background-color: orange;
-  display: flex;
+}
+@media (min-width: 800px) {
+  .island__container {
+    display: flex;
+  }
 }
 .island__col {
   width: 60%;
   display: flex;
 }
+@media (max-width: 800px) {
+  .island__col {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .island__col {
+    flex-direction: column;
+  }
+}
 .island__row {
   width: 40%;
-  display: row;
   flex-direction: row;
 }
+@media (max-width: 800px) {
+  .island__row {
+    width: 100%;
+  }
+}
 .island__encyclopedia {
-  padding: 10px;
-  background-color: aqua;
+  padding: 5px;
 }
 .island__collectibles {
-  padding: 10px;
-  background-color: red;
+  padding: 5px;
 }
 .island__music {
-  padding: 10px;
-  background-color: purple;
+  padding: 5px;
 }
 .island__villagers {
-  padding: 10px;
-  background-color: green;
+  padding: 5px;
 }
 
 .player {

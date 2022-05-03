@@ -53,7 +53,7 @@ function Collectible(props) {
 
     return sessionCheck() || ( 
         <div className="dropshadow">
-            <div className="list__nav">
+            <div className={props.islandView ? "list__nav--island" : "list__nav"}>
                 {props.islandView ?
                 <div className="list__islandHeader">My collectibles</div>
                 :

@@ -28,7 +28,7 @@ function VillagersView(props){
     return(
         <div className="list">
             {props.islandView ?
-            <div className="list__islandHeader">My villagers</div>
+            <div className="list__islandHeaderShadow">My villagers</div>
             :
             <></>  
             }

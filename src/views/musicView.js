@@ -41,7 +41,7 @@ function MusicView(props){
     return(
         <div className="list">
             {props.islandView ?
-            <div className="list__islandHeader">My music</div>
+            <div className="list__islandHeaderShadow">My music</div>
             :
             <></>  
             }
