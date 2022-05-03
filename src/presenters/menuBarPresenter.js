@@ -6,6 +6,7 @@ import { ReactSession } from "react-client-session";
 
 // global hour and audio
 let currentHour; 
+let cityHour;
 // let currentMinute; 
 
 var audio = document.createElement('audio');
@@ -87,6 +88,7 @@ function MenuBar(props) {
                 // currentMinute = today.getMinutes();
 
                 var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
+                cityHour = today.getUTCHours() + (props.weatherModel.getCityWeather().timezone / 60 / 60);
                 const relevantMusic = []
                 var weatherIndex;
 
@@ -130,7 +132,7 @@ function MenuBar(props) {
             Object.values(props.weatherModel.getBackgroundMusicData()).map(renderSingleData);
 
             function renderSingleData(singleResult) {
-                if (singleResult.hour === currentHour) {
+                if (singleResult.hour === cityHour) {
                     relevantMusic.push(singleResult);
                 };
             }
