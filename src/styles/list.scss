@@ -131,7 +131,9 @@
         &__other{
             &--island {
                 border: #835B26 2px solid;
-                @include columns(4);
+                width: 33.3%;
+                justify-content: center;
+                display: flex;
                 &:hover {
                     background: #DED9C0;;
                     transition: 1s;

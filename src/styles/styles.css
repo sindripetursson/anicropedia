@@ -64,17 +64,16 @@ body {
   border-radius: 20px;
 }
 .listItem__image__music--island {
-  width: 100px;
-  height: 100px;
+  max-width: 80px;
   margin: 10px;
   margin-left: 20px;
   border-radius: 20px;
 }
 .listItem__image__villagers--island {
-  max-width: 50%;
+  max-width: 60px;
 }
 .listItem__image__encyclopedia--island {
-  max-width: 50%;
+  max-width: 60px;
 }
 .listItem__text {
   width: 90%;
@@ -171,6 +170,22 @@ body {
   transition: 1s;
 }
 .listItem__villagers:hover {
+  background: #DED9C0;
+  transition: 1s;
+  transform: scale(1.05);
+}
+.listItem__villagers--island {
+  padding: 2px;
+  cursor: pointer;
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+  background: #F7F4E4;
+  border-radius: 30px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
+  transition: 1s;
+}
+.listItem__villagers--island:hover {
   background: #DED9C0;
   transition: 1s;
   transform: scale(1.05);
@@ -386,9 +401,9 @@ body {
 }
 .list__col__other--island {
   border: #835B26 2px solid;
-  width: 33.3333333333%;
-  padding-right: 10px;
-  padding-left: 10px;
+  width: 33.3%;
+  justify-content: center;
+  display: flex;
 }
 .list__col__other--island:hover {
   background: #DED9C0;
@@ -1211,11 +1226,11 @@ button:hover {
   display: flex;
 }
 .island__col {
-  width: 50%;
+  width: 60%;
   display: flex;
 }
 .island__row {
-  width: 50%;
+  width: 40%;
   display: row;
   flex-direction: row;
 }
