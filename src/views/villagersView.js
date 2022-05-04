@@ -9,7 +9,7 @@ function VillagersView(props){
             }
             return (
                 <div className={props.islandView ? "list__col__other--island" : "list__col"} key={"villagers_"+singleResult.id} onClick={() => itemClicked()}>
-                    <div className="listItem__villagers" >
+                    <div className={props.islandView ? "listItem__villagers--island" : "listItem__villagers"}>
                         <img className={props.islandView ? "listItem__image__villagers--island" : "listItem__image__villagers"} alt="villager" src={singleResult.icon_uri}/>
                         <div className="listItem__text__villagers">
                             {singleResult.name["name-EUen"]}
@@ -28,7 +28,7 @@ function VillagersView(props){
     return(
         <div className="list">
             {props.islandView ?
-            <div className="list__islandHeader">My villagers</div>
+            <div className="list__islandHeaderShadow">My villagers</div>
             :
             <></>  
             }

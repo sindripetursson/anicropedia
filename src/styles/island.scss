@@ -4,38 +4,43 @@
     &__container {
         max-width: $max-width;
         margin: 0 auto;
-        background-color: orange;
-        display: flex;
+        @media (min-width: 800px){
+            display: flex;
+        }
     } 
 
     &__col {
-        width: 50%;
+        width: 60%;
         display: flex;
+        @media (max-width: 800px){
+            width: 100%;
+        }
+        @media (max-width: 500px){
+            flex-direction: column;
+        }
     } 
 
     &__row {
-        width: 50%;
-        display: row; 
+        width: 40%;
         flex-direction: row;
+        @media (max-width: 800px){
+            width: 100%;
+        }
     }
 
     &__encyclopedia {
-        padding: 10px;
-        background-color: aqua;
+        padding: 5px;
     }
 
     &__collectibles {
-        padding: 10px;
-        background-color: red;
+        padding: 5px;
     }
 
     &__music {
-        padding: 10px;
-        background-color: purple;
+        padding: 5px;
     }
     
     &__villagers {
-        padding: 10px;
-        background-color: green;
+        padding: 5px;
     }
 }

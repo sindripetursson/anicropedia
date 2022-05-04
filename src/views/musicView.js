@@ -12,23 +12,25 @@ function MusicView(props){
         const inCollection = isItemInCollection(singleResult, 'music', true, props.userModel);
 
         return (
-            <div onClick={play} className="list__col__music" key={"music_"+singleResult.id}>
-                <div className="listItem__music" >
+            <div onClick={play} className={props.islandView ? "list__col__music--island" : "list__col__music"} key={"music_"+singleResult.id}>
+                <div className={props.islandView ? "listItem__music--island" : "listItem__music"}>
                     <img className={props.islandView ? "listItem__image__music--island" : "listItem__image__music"} alt="music" src={singleResult.image_uri}/>
-                    <div className="listItem__text__music">
+                    <div className={props.islandView ? "listItem__text__music--island" : "listItem__text__music"}>
                         {singleResult.name["name-EUen"]}
                     </div>
                     {props.islandView ?
                     <></> :
                     <img id={'checkmark_' + singleResult.id} className={inCollection ? "checkmark" : "hidden"} src="../../images/inCollection.svg" alt=""/>
                     }
-                    <div className="listItem__playbuttonContainer">
-                        <img className="listItem__music play_button-is-hover listItem__play_button"  src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt="play"/>
+                    <div className={props.islandView ? "listItem__buttonContainer--island" : "listItem__buttonContainer"}>
+                        <div className="listItem__playbuttonContainer">
+                            <img className="listItem__music play_button-is-hover listItem__play_button"  src="../../images/play-button.png" id={"togglePlayPause." + singleResult.id} alt="play"/>
+                        </div>
+                        <button id={'button_' + singleResult.id} style={{marginBottom:"20px", width: "80%"}} onClick={(e) => {
+                            props.onCollectionChange(singleResult, isItemInCollection(singleResult, 'music', true, props.userModel));
+                            e.stopPropagation();
+                        }}>{isItemInCollection(singleResult, 'music', true, props.userModel)?'Remove from my collection':'Add to my collection'}</button>
                     </div>
-                    <button id={'button_' + singleResult.id} style={{marginBottom:"20px", width: "80%"}} onClick={(e) => {
-                        props.onCollectionChange(singleResult, isItemInCollection(singleResult, 'music', true, props.userModel));
-                        e.stopPropagation();
-                    }}>{isItemInCollection(singleResult, 'music', true, props.userModel)?'Remove from my collection':'Add to my collection'}</button>
                 </div>
             </div>
         );
@@ -39,7 +41,7 @@ function MusicView(props){
     return(
         <div className="list">
             {props.islandView ?
-            <div className="list__islandHeader">My music</div>
+            <div className="list__islandHeaderShadow">My music</div>
             :
             <></>  
             }
