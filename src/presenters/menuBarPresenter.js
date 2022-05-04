@@ -7,6 +7,7 @@ import { ReactSession } from "react-client-session";
 // global hour and audio
 let currentHour; 
 let cityHour;
+let isHourChange = false;
 // let currentMinute; 
 
 var audio = document.createElement('audio');
@@ -105,6 +106,10 @@ function MenuBar(props) {
 
             audio.loop = true;
             //audio.play();
+            if (isHourChange) {
+                audio.play();
+                isHourChange = false;
+            }
 
             console.log("Information: Song is playing!");
             console.log("-----------------------------");
@@ -160,6 +165,11 @@ function MenuBar(props) {
         }   
     }
 
+    function onHourChangeACB() {
+        isHourChange = true;
+        updateData();
+    }
+
     function muteAudioACB() {
         if (backgroundAudioPlaying) {
             if(audio.volume > 0) {
@@ -206,7 +216,7 @@ function MenuBar(props) {
 
             {timerCreated ||
                 <Timer 
-                onUpdateData={updateData}
+                onUpdateData={onHourChangeACB}
                 onTimerCreated={setTimerCreated}
                 />
             }
