@@ -1093,20 +1093,16 @@ button:hover {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
-.info {
-  display: grid;
-  grid-template-columns: 5fr 5fr 8fr;
-  grid-template-areas: "about villagers api-devs" "island music img" "collectable art img" "collectable art img";
-  width: 900px;
-  height: 800px;
+.info__container {
+  max-width: 1200px;
+  margin: 0 auto;
   background-color: #F7F4E4;
   border-radius: 50px;
-  transform: translate(10%, 15%);
-  overflow: hidden;
-  bottom: 50%;
-  display: grid;
-  width: 80%;
-  display: grid;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 100px;
+  padding-top: 25px;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
 }
 .info__heading {
   text-align: left;
@@ -1123,6 +1119,121 @@ button:hover {
   font-weight: 400;
   color: #887C66;
 }
+.info__row {
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
+  flex-wrap: wrap;
+}
+.info__row--developers {
+  display: flex;
+  margin-right: -10px;
+  margin-left: -10px;
+  flex-wrap: wrap;
+}
+@media (min-width: 600px) {
+  .info__row--developers {
+    padding-bottom: 150px;
+  }
+}
+.info__col {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding: 12.5px;
+}
+@media (min-width: 600px) {
+  .info__col {
+    width: 50%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding: 12.5px;
+  }
+}
+@media (min-width: 1100px) {
+  .info__col {
+    width: 25%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding: 12.5px;
+  }
+}
+.info__col--smaller {
+  display: none;
+}
+@media (min-width: 600px) {
+  .info__col--smaller {
+    display: block;
+    width: 50%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding: 12.5px;
+  }
+}
+@media (min-width: 1100px) {
+  .info__col--smaller {
+    display: none;
+  }
+}
+.info__col--default {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding: 12.5px;
+  display: block;
+}
+@media (min-width: 600px) {
+  .info__col--default {
+    display: none;
+  }
+}
+@media (min-width: 1100px) {
+  .info__col--default {
+    width: 25%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding: 12.5px;
+    display: block;
+  }
+}
+.info__col--developers {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding: 12.5px;
+  position: relative;
+}
+@media (min-width: 600px) {
+  .info__col--developers {
+    width: 50%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding: 12.5px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+  }
+}
+@media (min-width: 1100px) {
+  .info__col--developers {
+    width: 25%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding: 12.5px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+  }
+}
+
+.infoItem {
+  padding: 2px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .info_image {
   width: 100px;
@@ -1131,7 +1242,7 @@ button:hover {
 }
 
 .image-name {
-  text-align: left;
+  text-align: center;
   font-family: "Rubik", sans-serif;
   font-weight: bold;
   color: #835B26;
@@ -1148,82 +1259,15 @@ button:hover {
   transform: translateY(120%);
 }
 
-@media (max-width: 1000px) {
-  .info {
-    grid-template-areas: "about about about" "villagers villagers villagers" "api-devs api-devs api-devs" "island island island" "music music music" "collectable collectable collectable" "art art art" "img img img";
-    overflow-y: scroll;
-  }
+a {
+  color: #835B26;
 }
+
 @media (max-width: 1000px) {
   .info::-webkit-scrollbar-track {
     margin-block: 3em;
   }
 }
-.grids {
-  margin: 8px;
-  margin-left: 15px;
-  margin-right: 15px;
-  line-height: 1.5;
-}
-.grids__about {
-  grid-area: about;
-}
-.grids__island {
-  grid-area: island;
-}
-.grids__collectable {
-  grid-area: collectable;
-}
-.grids__villagers {
-  grid-area: villagers;
-}
-.grids__music-info {
-  grid-area: music;
-}
-.grids__art {
-  grid-area: art;
-}
-.grids__api-devs {
-  grid-area: api-devs;
-}
-.grids__img {
-  grid-area: img;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.grids__img__contact-a {
-  grid-column: 1;
-  grid-row: 1;
-}
-.grids__img__contact-at {
-  grid-column: 2;
-  grid-row: 1;
-}
-.grids__img__contact-b {
-  grid-column: 1;
-  grid-row: 2;
-}
-.grids__img__contact-bt {
-  grid-column: 2;
-  grid-row: 2;
-}
-.grids__img__contact-c {
-  grid-column: 1;
-  grid-row: 3;
-}
-.grids__img__contact-ct {
-  grid-column: 2;
-  grid-row: 3;
-}
-.grids__img__contact-d {
-  grid-column: 1;
-  grid-row: 4;
-}
-.grids__img__contact-dt {
-  grid-column: 2;
-  grid-row: 4;
-}
-
 @font-face {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");

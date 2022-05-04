@@ -9,7 +9,7 @@ function Settings(props) {
         {
         <div>
             <h1>Settings</h1>
-            <SettingsView />
+            <SettingsView userModel={props.userModel}/>
         </div>
         }
     </div>)

@@ -22,6 +22,7 @@ const Music = require("./presenters/musicPresenter.js").default;
 
 function App(props) {
     const [detailsOn, setDetailsOn] = React.useState(false);
+    console.log(props.userModel.getUserName());
     return (
         <div className="App">
         <div className={detailsOn ? "details" : "hidden"}>
