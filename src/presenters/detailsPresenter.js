@@ -76,7 +76,7 @@ function promiseChangedACB(){
   
 
   React.useEffect(promiseChangedACB, [promise]);
-        return  sessionCheckDetails() || (<div>
+        return  sessionCheckDetails() || (<div onClick={(event) => event.stopPropagation()}>
         
         {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
               <DetailsView onCloseClicked={closeClicked} data={data} onCollectionChange={changeCollectionACB} isInCollection={isInCollection}/>}

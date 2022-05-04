@@ -117,7 +117,7 @@ function MenuBarView(props) {
                 </div>
                 <div className='menuBar__center'>
                     {location.pathname === "/" ? 
-                        <h1 className='menuBar__title'> Anicropedia </h1> 
+                        <h1 className='menuBar__title'> Welcome, {props.userModel.getUserName()}! </h1> 
                     : location.pathname === "/encyclopedia" 
                     || location.pathname === "/villagers" 
                     || location.pathname === "/music" 

@@ -201,6 +201,7 @@ function MenuBar(props) {
                 onSetChosenCity={setChosenCityACB} 
                 chosenCity={chosenCity} 
                 onMuteAudio={muteAudioACB}
+                userModel={props.userModel}
             /> 
 
             {timerCreated ||
