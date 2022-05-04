@@ -78,7 +78,7 @@ function InfoView(props){
                         API information
                     </div>
                     <div className="info__text">
-                        Anicropedia utilizes APIs from <a href="http://acnhapi.com"> ACNH API</a> and <a href="https://openweathermap.org/api"> OpenWeather API</a>. Some resources were acquired from third parties:
+                        Anicropedia utilizes APIs from <a href="http://acnhapi.com"> ACNH API</a>, <a href="https://openweathermap.org/api"> OpenWeather API</a> and <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google Places API</a>. Some resources were acquired from third parties:
                         <ul>
                             <li style={{marginTop: "10px"}}>The Animal Crossing Loader<a href="https://dribbble.com/shots/13905159-Animal-Crossing-New-Horizons-loader"> by Akhil Dakinedi</a></li>
                             <li style={{marginTop: "10px"}}>The background wallpaper <a href="https://ko-fi.com/post/Animal-Crossing-Leaf-Wallpapers-N4N51I7CL"> by Ashaife</a></li>
