@@ -79,7 +79,7 @@ function promiseChangedACB(){
         return  sessionCheckDetails() || (<div onClick={(event) => event.stopPropagation()}>
         
         {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
-              <DetailsView onCloseClicked={closeClicked} data={data} onCollectionChange={changeCollectionACB} isInCollection={isInCollection}/>}
+              <DetailsView onCloseClicked={closeClicked} data={data} onCollectionChange={changeCollectionACB} isInCollection={isInCollection} userModel={props.userModel}/>}
               </div>)
               
 } 

@@ -29,6 +29,7 @@ class UserModel {
     }
 
     getLongitude() {
+        console.log(this.cityCoordinates);
         return this.cityCoordinates.lng;
     }
 

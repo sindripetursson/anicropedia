@@ -45,7 +45,7 @@ function DetailsView(props) {
             onCloseClicked={props.onCloseClicked}
             onCollectionChange={props.onCollectionChange}
             isInCollection={props.isInCollection}
-            longitude={props.userModel.getLongitude()}
+            userModel={props.userModel}
             />
         );
         else return (

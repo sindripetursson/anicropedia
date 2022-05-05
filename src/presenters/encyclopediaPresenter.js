@@ -13,7 +13,6 @@ function Encyclopedia(props) {
     const [currentSpecies, setCurrentSpecies] = React.useState('fish');
 
     function getDetails(clickedItem){
-        console.log(clickedItem)
         props.detailsModel.setCurrentItem(currentSpecies, clickedItem.id);
         props.setDetailsOn(true);
     }
@@ -45,7 +44,6 @@ function Encyclopedia(props) {
         return changedAgainACB;  // promiseChangedACB will be called for the new value!
     }
     React.useEffect(promiseChangedACB, [promise]);
-    console.log(props.islandView)
 
     return sessionCheck() || 
     <div className="dropshadow">
