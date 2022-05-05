@@ -8,69 +8,66 @@ function InfoView(props){
                         About Anicropedia
                     </div> 
                     <div className="info__text">   
-                        Anicropedia is an application that helps you  identify all collectible items in Animal Crossing: New Horizons and select which items you have already. 
-                        Below you will find information about all of the different aspects of the website.
+                        Anicropedia is an application that is the perfect companion for your Animal Crossing: New Horizons game! It lets you identify all critters and collectibles, track which items you have already collected through My Island, view all of the different villagers of Animal Crossing, listen to K.K. Slider's songs and more! <br /> <br />
+                        Here is specific information about all of the different parts of the website.
                     </div>
                 </div>
                 <div className="info__col">
                     <div className="info__heading">
-                        Collectible Encyclopedia
+                        Encyclopedia
                     </div> 
                     <div className="info__text">  
                         Here all information can be found about the different collectibles in the game. These collectibles are split into Fish, Sea Creatures and Insects.
-                        By clicking on a specific creature you can see information about when and where they can be found, their selling price and rarity.
-                    </div>
-                </div>
-                <div className="info__col--smaller">
-                    <div className="info__heading">
-                        My Island
-                    </div> 
-                    <div className="info__text">  
-                        Here you will find information about all items that you have collected already. You will also see the villagers on your island and information about upcoming birthdays.
-                    </div>
-                </div>
-                <div className="info__col">
-                    <div className="info__heading">
-                        
-                    </div>
-                    <div className="info__text">
-                    Each creature can be added to your collection by clicking the creature and pressing the “Add to my collection” button at the bottom.
+                        By clicking on a specific creature you can see information about when and where they can be found, their selling price and rarity. <br /><br />
+                        Each creature can be added to your collection by clicking the creature and pressing the “Add to my collection” button at the bottom.
                         Filters can be applied to display only creatures available at a certain time of day or year.
                     </div>
                 </div>
-                <div className="info__col--default">
-                    <div className="info__heading">
-                        My Island
-                    </div> 
-                    <div className="info__text">  
-                        Here you will find information about all items that you have collected already. You will also see the villagers on your island and information about upcoming birthdays.
-                    </div>
-                </div>
-            </div>
-            <div className="info__row">
                 <div className="info__col">
                     <div className="info__heading">
                         Villagers
                     </div>
                     <div className="info__text">
-                        Here you can view all of the villagers that can be found in the game. By clicking a specific villagers you can see additional information such as their birthday, species, personality and catch-phrase.
+                        Here you can view all of the villagers that can be found in the game. By clicking a specific villagers you can see additional information such as their birthday, species, personality and catch-phrase. <br /> <br />
+                        You can add your villagers to My Island, so that you can always access all important information relevant to your Animal Crosssing game!
                     </div>
                 </div>
+                <div className="info__col">
+                    <div className="info__heading">
+                        Background Music
+                    </div> 
+                    <div className="info__text">  
+                        Anicropedia provides you with in-game hourly music, matched exactly to what is currently playing in your Animal Crossing game. You can listen to the hourly music by unmuting the speaker in the top right corner (next to the menu).
+                        This music is based on your location you have specified when signing up (or in the settings), and depends on the current time and weather. <br /><br />
+                        Now you can enjoy the amazing Animal Crossing tunes just like in the game even when browsing through Anicropedia.
+                    </div>
+                </div>
+            </div>
+            <div className="info__row">
+            <div className="info__col">
+                    <div className="info__heading">
+                        My Island
+                    </div> 
+                    <div className="info__text">  
+                        Here you will find information about all items that you have collected already. You will also see the villagers on your island and information about upcoming birthdays.
+                    </div>
+                </div>
+ 
                 <div className="info__col">
                     <div className="info__heading">
                         Music
                     </div>
                     <div className="info__text">
-                        Here you can view all of the music tracks created by K.K. Slider.
-                        By hovering over a song you can add it to your collection or play it.
+                        Here you can view and play all of the music tracks created by K.K. Slider.
+                        By pressing the play button, you can listen to the song, and decide if you want to add it to your collection.
                     </div>
                 </div>
                 <div className="info__col">
                     <div className="info__heading">
-                        Art Collection
+                        Collectibles
                     </div>
                     <div className="info__text">
-                        Here you can see all of the art that can be bought from Redd. You can add it to your collection by clicking on it and pressing the “Add to my collection button”.
+                        Here you can see all of the art and fossils that can be bought from Redd. You can add them to your collection by clicking on them and pressing the “Add to my collection button”.
                     </div>
                 </div>
                 <div className="info__col">

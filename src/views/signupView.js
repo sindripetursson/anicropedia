@@ -1,4 +1,5 @@
 import CitySearch from "../presenters/liveCitySearchPresenter";
+import { Link } from "react-router-dom";
 
 function SignupView(props) {
     return(
@@ -67,6 +68,9 @@ function SignupView(props) {
                 <div className="authentication__submit">
                     <button type="submit" onClick={props.onSignup}>Submit</button>
                 </div>
+                <Link className="authentication__bottomLink" to="/login">
+                    <p style={{marginTop: "30px"}}> Already have an account? Log in here! </p>
+                </Link>  
             </form>
         </div>
     );

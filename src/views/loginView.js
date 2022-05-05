@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function LoginView(props) {
     return(
         <div className="authentication">  
@@ -30,6 +32,9 @@ function LoginView(props) {
                 <div className="authentication__submit">
                     <button type="submit" onClick={props.onLogin}>Submit</button>
                 </div>
+                <Link className="authentication__bottomLink" to="/signup">
+                    <p style={{marginTop: "30px"}}> No account yet? Sign up here! </p>
+                </Link>  
             </form>
         </div>
     );
