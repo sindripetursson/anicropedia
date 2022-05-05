@@ -49,7 +49,7 @@ function InfoView(props){
                         My Island
                     </div> 
                     <div className="info__text">  
-                        Here you will find information about all items that you have collected already. You will also see the villagers on your island and information about upcoming birthdays.
+                        Here you will find information about all items that you have collected already. You will also see the villagers on your island.
                     </div>
                 </div>
  
@@ -67,7 +67,7 @@ function InfoView(props){
                         Collectibles
                     </div>
                     <div className="info__text">
-                        Here you can see all of the art and fossils that can be bought from Redd. You can add them to your collection by clicking on them and pressing the “Add to my collection button”.
+                        Here you can see all of the art and fossils that can be found in the game. You can add them to your collection by clicking on them and pressing the “Add to my collection button”.
                     </div>
                 </div>
                 <div className="info__col">
