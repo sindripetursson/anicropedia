@@ -10,7 +10,7 @@
     z-index: 1000;
 
     &__container {
-        width: 60%;
+        width: 70%;
         max-width: $max-width;
         max-height: 80vh;
         margin: 0 auto;
@@ -173,6 +173,7 @@ button:hover{
         border: white 2px solid;
         padding-left: 10px;
         padding-right: 10px;
+        margin-bottom: 10px;
     }
 }
 

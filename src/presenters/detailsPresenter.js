@@ -6,7 +6,7 @@ import { getDetails } from "../source/detailsSource.js";
 import { sessionCheckDetails } from "../utils.js";
 
 export default 
-function Search(props) {
+function Details(props) {
     const [promise, setPromise]= React.useState(function initializePromiseACB() {return getDetails('villagers',1)});
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);

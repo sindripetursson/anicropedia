@@ -288,11 +288,14 @@
     opacity: 1;
 
     &__details{
-        // position: absolute;
+        position: absolute;
         transform: translate(50%, 25%);
     }
 
     &__image{
+        // position: absolute;
+        // left: calc(10px + 25%);
+        // transform: translate(-50%, 0);
         display: flex;
         color: #887C66;
         font-family: $font-main;

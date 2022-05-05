@@ -580,6 +580,7 @@ body {
   opacity: 1;
 }
 .checkmark__details {
+  position: absolute;
   transform: translate(50%, 25%);
 }
 .checkmark__image {
@@ -606,7 +607,7 @@ body {
   z-index: 1000;
 }
 .details__container {
-  width: 60%;
+  width: 70%;
   max-width: 1200px;
   max-height: 80vh;
   margin: 0 auto;
@@ -776,6 +777,7 @@ button:hover {
   border: white 2px solid;
   padding-left: 10px;
   padding-right: 10px;
+  margin-bottom: 10px;
 }
 
 .image__villagers {

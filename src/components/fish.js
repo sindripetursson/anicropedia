@@ -52,7 +52,7 @@ function Fish(props){
                             Months active
                         </div>
                         <div className="details__content">
-                            <Months monthArray={props.userModel.cityCoordinates.lat>=0?props.singleResult.availability["month-array-northern"]:props.singleResult.availability["month-array-southern"]}/>
+                            <Months monthArray={props.longitude>=0?props.singleResult.availability["month-array-northern"]:props.singleResult.availability["month-array-southern"]}/>
                         </div>
                     </div>
                 </div>
