@@ -137,7 +137,7 @@ function InfoView(props){
             </div>
             <div className="info__col">
                 <div className="infoItem">
-                    <img className="info_image" src="../../images/benjamin-esdor.png" alt="" />
+                    <img className="info_image" src="../../images/sindri-petursson.png" alt="" />
                     <div className="image-name">
                         Sindri Peturson
                     </div>
