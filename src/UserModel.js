@@ -28,6 +28,10 @@ class UserModel {
         return this.userName;
     }
 
+    getLongitude() {
+        return this.cityCoordinates.lng;
+    }
+
     setCityAddress(newCityAddress) {
         if (this.cityAddress !== newCityAddress) {
             if (typeof newCityAddress === 'string' || newCityAddress instanceof String) {

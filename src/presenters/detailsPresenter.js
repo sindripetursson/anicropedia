@@ -7,7 +7,7 @@ import { sessionCheckDetails } from "../utils.js";
 
 export default 
 function Search(props) {
-    const [promise, setPromise]= React.useState(function initializePromiseACB() {return getDetails('fish',1)});
+    const [promise, setPromise]= React.useState(function initializePromiseACB() {return getDetails('villagers',1)});
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);
 	const [isInCollection, setIsInCollection] = React.useState(false);
