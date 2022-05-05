@@ -27,9 +27,9 @@ function CitySearch(props) {
             >
                 {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
                     <div>
-                        <input className='citySearch__input' id='citySearchInput' {...getInputProps({placeholder: "Enter your location..."})}/>
+                        <input className='authentication__input' id='citySearchInput' {...getInputProps({placeholder: "Enter your location..."})}/>
 
-                        <div className='citySearch__container' id='citySearchContainer'>
+                        <div className='authentication__container' id='citySearchContainer'>
                             {loading ? <div>...loading</div> : null}
                             {suggestions.map((suggestion) => {
                                 const style = {
