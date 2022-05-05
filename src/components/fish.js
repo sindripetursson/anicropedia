@@ -7,9 +7,11 @@ function Fish(props){
         <div className="details__row">
             <div className="details__col">
                 <img className="image" alt="" src={props.singleResult.image_uri} />
-                <div className={props.isInCollection ? "checkmark__image" : "hidden"} >
-                    <img alt="checkmark" src="../../images/inCollection.svg"/> 
-                    <span style={{paddingTop: "10px"}}>In your collection!</span>
+                <div className="checkmark__placeholder">
+                    <div className={props.isInCollection ? "checkmark__image" : "hidden"} >
+                        <img alt="checkmark" src="../../images/inCollection.svg"/> 
+                        <span style={{paddingTop: "10px"}}>In your collection!</span>
+                    </div>
                 </div>
             </div>
             <div className="details__col__splitter">

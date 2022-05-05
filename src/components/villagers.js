@@ -7,9 +7,11 @@ function Villagers(props){
             <div className="details__col">
                 <img className="frame" alt="frame" src='../../images/Frame.svg' />
                 <img className="image__villagers" alt="" src={props.singleResult.image_uri} />
-                <div style={{transform: "translate(0, 25px)"}} className={props.isInCollection ? "checkmark__image" : "hidden"} >
-                    <img alt="checkmark" src="../../images/inCollection.svg"/> 
-                    <span style={{paddingTop: "10px"}}>In your villagers!</span>
+                <div className="checkmark__placeholder">
+                    <div style={{transform: "translate(0, 25px)"}}  className={props.isInCollection ? "checkmark__image" : "hidden"} >
+                        <img alt="checkmark" src="../../images/inCollection.svg"/> 
+                        <span style={{paddingTop: "10px"}}>In your villagers!</span>
+                    </div>
                 </div>
             </div>
             <div className="details__col__splitter">

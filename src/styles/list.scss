@@ -305,4 +305,9 @@
         flex-direction: column;
         z-index: 1000000;
     }
+
+    &__placeholder{
+        height: 50px;
+        width: 100%;
+    }
 }

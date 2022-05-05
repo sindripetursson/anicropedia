@@ -593,6 +593,10 @@ body {
   flex-direction: column;
   z-index: 1000000;
 }
+.checkmark__placeholder {
+  height: 50px;
+  width: 100%;
+}
 
 @font-face {
   font-family: "FinkHeavy";
@@ -769,7 +773,6 @@ button:hover {
   border: white 2px solid;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 10px;
 }
 .button__negative {
   background-color: #FF5757;
@@ -777,7 +780,6 @@ button:hover {
   border: white 2px solid;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 10px;
 }
 
 .image__villagers {
