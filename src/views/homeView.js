@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { sessionCheck } from "../utils";
 
 export default 
 function HomeView(props) {
-    return sessionCheck() || (
+    return (
         <div className="list">
             <div className="list__container">
                 <div className='list__row__home'>
