@@ -89,7 +89,8 @@ function MenuBar(props) {
             // currentMinute = today.getMinutes();
 
                 var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
-                cityHour = today.getUTCHours() + (props.weatherModel.getCityWeather().timezone / 60 / 60);
+                cityHour = (today.getUTCHours() + (props.weatherModel.getCityWeather().timezone / 60 / 60)) % 24;
+                if (cityHour < 0) cityHour += 24; //Corrects hour if it goes into minus
                 const relevantMusic = []
                 var weatherIndex;
 
