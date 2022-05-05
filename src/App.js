@@ -3,7 +3,7 @@ import "./css/style.css";
 import "./css/topbar.css";
 import "./styles/styles.css";
 import Home from './presenters/homePresenter';
-import InfoView from './views/infoView';
+import Info from './presenters/infoPresenter';
 import Logout from './components/logout';
 import Page404 from './views/page404';
 import Encyclopedia from './presenters/encyclopediaPresenter';
@@ -36,7 +36,7 @@ function App(props) {
                 <Route path="/villagers" element={ <Villagers userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>
                 <Route path="/music" element={ <Music userModel={props.userModel} detailsModel={props.detailsModel}/> }/>
                 <Route path="/collectibles" element={ <Collectible userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>
-                <Route path="/info" element={ <InfoView setDetailsOn={setDetailsOn}/> }/>
+                <Route path="/info" element={ <Info setDetailsOn={setDetailsOn}/> }/>
                 <Route path="/settings" element={ <Settings userModel={props.userModel}/> }/>
                 <Route path="/signup" element={ <Signup/>}/>
                 <Route path="/login" element={ <Login/> }/>
