@@ -7,8 +7,7 @@ function Settings(props) {
     return sessionCheck() || 
     (<div>
         {
-        <div>
-            <h1>Settings</h1>
+        <div >
             <SettingsView userModel={props.userModel}/>
         </div>
         }

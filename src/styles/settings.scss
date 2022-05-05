@@ -1,0 +1,78 @@
+@import 'config';
+
+.settings {
+    margin: auto;
+    // margin-bottom: 50px;
+    
+    
+    &__headline{
+        margin-bottom: 20px;
+        font-size: 1.5em;
+    }
+
+    &__label{
+        font-weight: 500;
+        text-align: left;
+        margin-left: 10%;
+        font-size: 0.9em;
+    }
+
+    &__text{
+        text-align: left;
+        margin: 10px;
+        margin-left: 10%;
+        font-size: 1.1em;
+    }
+
+    &__container {
+        min-width: 300px;
+        width: 50%;
+        max-width: 400px;
+        margin: 0 auto;
+        border-radius: 50px;
+        background: #F7F4E4;
+        color: #835B26 ;
+        padding: 50px;
+        filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+
+    }
+
+    &__input {
+        font-family: $font-main;
+        
+        background-color: #FFFFFF;
+        border: #DED9C0 2px solid;
+        color: #887C66;
+        font-size: 0.75em;
+        border-radius: 25px;
+        display: inline-block;
+        cursor: pointer;
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 10px;
+        &--error {
+            background-color: #e0cdb7;
+            border: #dba59e 2px solid;
+        }
+    }
+
+    &__submit {
+        margin-top: 30px;
+    }
+    
+    &__image{
+        min-width: 300px;
+        // width: 80%;
+        height: 25vh;
+        max-width: 800px;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+
+    &__button{
+        margin: 0;
+        margin-bottom: 20px;
+        width: 80%;
+    }
+
+}
