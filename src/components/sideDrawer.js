@@ -68,9 +68,9 @@ const sideDrawer = props => {
             </li>
 
             <li className="menuBar__sideDrawerItem">
-                <Link className="menuBar__sideDrawerLink" to="/signout">
+                <Link className="menuBar__sideDrawerLink" to="/logout">
                     <div className="menuBar__flexContainerWithIcon">
-                        <img src='../../images/signOut.svg' alt="logout" className="menuBar__sideDrawerIcon"/>
+                        <img src='../../images/logOut.svg' alt="logout" className="menuBar__sideDrawerIcon"/>
                         <h3 className="menuBar__sideDrawerTextWithIcon"> Log out </h3>
                     </div>
                 </Link>  

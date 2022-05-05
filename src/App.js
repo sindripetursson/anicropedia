@@ -4,7 +4,7 @@ import "./css/topbar.css";
 import "./styles/styles.css";
 import HomeView from './views/homeView';
 import InfoView from './views/infoView';
-import SignoutView from './views/signoutView';
+import Logout from './components/logout';
 import Page404 from './views/page404';
 import Encyclopedia from './presenters/encyclopediaPresenter';
 import Island from './presenters/islandPresenter';
@@ -40,7 +40,7 @@ function App(props) {
                 <Route path="/settings" element={ <Settings userModel={props.userModel}/> }/>
                 <Route path="/signup" element={ <Signup/>}/>
                 <Route path="/login" element={ <Login/> }/>
-                <Route path="/signout" element={<SignoutView/>}/>
+                <Route path="/logout" element={<Logout/>}/>
                 <Route path="*" element={<Page404/>} />
             </Routes>
         </div>
