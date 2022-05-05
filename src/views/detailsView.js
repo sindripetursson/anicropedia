@@ -37,6 +37,7 @@ function DetailsView(props) {
             onCloseClicked={props.onCloseClicked}
             onCollectionChange={props.onCollectionChange}
             isInCollection={props.isInCollection}
+            userModel={props.userModel}
             />
         );
         else if(singleResult.shadow) return (
@@ -54,6 +55,7 @@ function DetailsView(props) {
                 onCloseClicked={props.onCloseClicked}
                 onCollectionChange={props.onCollectionChange}
                 isInCollection={props.isInCollection}
+                userModel={props.userModel}
             />
         );
     }

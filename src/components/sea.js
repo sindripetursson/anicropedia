@@ -48,7 +48,7 @@ function Sea(props){
                             Months active
                         </div>
                         <div className="details__content">
-                            <Months monthArray={props.singleResult.availability["month-array-northern"]}/>
+                            <Months monthArray={props.userModel.cityCoordinates.lat>=0?props.singleResult.availability["month-array-northern"]:props.singleResult.availability["month-array-southern"]}/>
                         </div>
                     </div>
                 </div>
