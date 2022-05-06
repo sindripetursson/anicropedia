@@ -32,7 +32,11 @@ function CollectibleView(props){
         <div className="list">
             <div className={props.islandView ? "list__container__encyclopedia--island" : "list__container__encyclopedia"}>
                 <div className={props.islandView ? "list__row__encyclopedia--island" : "list__row__encyclopedia"}>
-                    {renderData(props.data)}
+                {props.islandView && props.data.length === 0 ?
+                    <div className="island__message">Add {props.category} to your island!</div>
+                :
+                    renderData(props.data)
+                }
                 </div>
             </div>
         </div>

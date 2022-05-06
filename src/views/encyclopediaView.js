@@ -29,7 +29,15 @@ function EncyclopediaView(props){
         <div className="list">
             <div className={props.islandView ? "list__container__encyclopedia--island" : "list__container__encyclopedia"}>
                 <div className={props.islandView ? "list__row__encyclopedia--island" : "list__row__encyclopedia"}>
-                    {renderData(props.data)}
+                {props.islandView && props.data.length === 0 && props.currentSpecies === 'fish' ?
+                    <div className="island__message">Add fish to your island!</div>
+                : props.islandView && props.data.length === 0 && props.currentSpecies === 'bugs' ?
+                    <div className="island__message">Add insects to your island!</div>
+                :  props.islandView && props.data.length === 0 && props.currentSpecies === 'sea' ?
+                    <div className="island__message">Add sea creatures to your island!</div>
+                :
+                    renderData(props.data)
+                }
                 </div>
             </div>
         </div>

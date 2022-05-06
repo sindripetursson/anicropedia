@@ -1,8 +1,8 @@
 import { isItemInCollection } from "../utils";
 
 function VillagersView(props){
-
     function renderData(data){
+        console.log(data.length)
         function renderSingleData(singleResult){
             function itemClicked(){
                 props.onItemClicked(singleResult);
@@ -28,13 +28,17 @@ function VillagersView(props){
     return(
         <div className="list">
             {props.islandView ?
-            <div className="list__islandHeaderShadow">My villagers</div>
+            <div className="island__headerShadow">My villagers</div>
             :
             <></>  
             }
             <div className={props.islandView ? "list__container__other--island" : "list__container"}>
                 <div className={props.islandView ? "list__row__other--island" : "list__row"}>
-                    {renderData(props.data)}
+                    {props.islandView && props.data.length === 0 ?
+                        <div className="island__message">Add villagers to your island!</div>
+                    :
+                        renderData(props.data)
+                    }
                 </div>
             </div>
         </div>
