@@ -33,7 +33,6 @@
             // z-index: 0;
             &--island {
                 position: relative;
-                max-width: $max-width;
                 margin: 0 auto;
                 padding: 20px;
                 background: #F7F4E4;
@@ -41,14 +40,19 @@
                 height: 70vh;
                 overflow-y: scroll;
                 overflow-x: hidden;
+                max-width: 60vh;
             }    
         }
         &__other{
             &--island {
                 max-width: 100%;
                 max-height: 36vh;
+                padding: 10px;
+                background: #F7F4E4;
+                border-radius: 30px;
                 overflow-y: scroll;
                 overflow-x: hidden;
+
             }  
         }
     }
@@ -67,7 +71,7 @@
         }
         &__other {
             &--island {
-                padding: 10px;
+                padding: 0px 10px;
                 flex-wrap: wrap;
                 @include row();
             }  
@@ -129,7 +133,7 @@
 
             &--island {
                 border: #835B26 2px solid;
-                @include columns(4);
+                @include columns(6);
                 &:hover {
                     background: #DED9C0;;
                     transition: 1s;
