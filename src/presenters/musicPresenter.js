@@ -55,8 +55,10 @@ function Music(props) {
             // set the buttons according to the still playing music, eg 'show pause'
             setTimeout(() => {
                 var btTopPlayPause = document.getElementById("togglePlayPause");
-                btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
-
+                // No progressbar on islandview
+                if(!props.islandView) {
+                    btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
+                }
                 var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
                 btVinylPlayPause.src = "../../images/pause-button.png";
             }, 300);
@@ -128,57 +130,109 @@ function Music(props) {
   
     // Top play/pause toggle
     function playTrack() {
+        if(audio.src.includes('acnhapi')){
+            // if audio is paused: toggle to play
+            if(audio.paused) {
+                // if no mute is pressed by user, then lower volume of bgm
+                // and show mute is on (sound is off)
+                if(document.getElementById("bgmMuteOff")) {
+                    document.getElementById("bgmMuteOff").volume = 0;
+                }
 
-    if(audio.src.includes('acnhapi')) {
+                // vinyl is played, so show mute on bgm mute bt
+                let btMuteMenuBarPres = document.getElementById("muteId");
+                btMuteMenuBarPres.src = "images/soundOff.svg";
 
-        // if audio is paused: toggle to play
-        if(audio.paused) {
+                audio.play();
 
-        // if no mute is pressed by user, then lower volume of bgm
-        // and show mute is on (sound is off)
-        if(document.getElementById("bgmMuteOff")) {
-            document.getElementById("bgmMuteOff").volume = 0;
-        }
 
-        // vinyl is played, so show mute on bgm mute bt
-        let btMuteMenuBarPres = document.getElementById("muteId");
-        btMuteMenuBarPres.src = "images/soundOff.svg";
+                var progressed = document.getElementById("progressed");
+                // var progress_bar = document.getElementById("progress_bar");  
 
-        audio.play();
+                // No progressbar on islandview
+                if(!props.islandView) {
+                    audio.ontimeupdate = function() {
+                        progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
+                    }
+                }
 
-        var progressed = document.getElementById("progressed");
-        // var progress_bar = document.getElementById("progress_bar");  
+                // user could be able to choose song position on the music bar
+                // progress_bar.onclick = function(e) {
+                //   audio.currentTime = ((e.offsetX/progress_bar.offsetWidth) * audio.duration);
+                // }
 
-        audio.ontimeupdate = function() {
-            progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
-        }
+                if(singleResultGlobal) {
+                    btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+                    btVinylPlayPause.src = "../../images/pause-button.png";
+                }
+                btTopPlayPause = document.getElementById("togglePlayPause");
+                // No progressbar on islandview
+                if(!props.islandView) {
+                    btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
+                }
+            // if audio is not paused: toggle to pause
+            } else {
+                audio.pause();
 
-        // user could be able to choose song position on the music bar
-        // progress_bar.onclick = function(e) {
-        //   audio.currentTime = ((e.offsetX/progress_bar.offsetWidth) * audio.duration);
-        // }
+                // if no mute was pressed, then rise volume of bgm
+                // and display sound on mute bt
+                if(document.getElementById("bgmMuteOff")) {
+                    document.getElementById("bgmMuteOff").volume = 1;
+                    
+                    // vinyl is paused, so show no mute on bgm mute bt
+                    let btMuteMenuBarPres = document.getElementById("muteId");
+                    btMuteMenuBarPres.src = "images/soundOn.svg";
+                }
 
-        if(singleResultGlobal) {
-            btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-            btVinylPlayPause.src = "../../images/pause-button.png";
-        }
-        
-        btTopPlayPause = document.getElementById("togglePlayPause");
-        btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
+                if(singleResultGlobal) {
+                    btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+                    btVinylPlayPause.src = "../../images/play-button.png";
+                }
 
-        // if audio is not paused: toggle to pause
+                btTopPlayPause = document.getElementById("togglePlayPause");
+                // No progressbar on islandview
+                if(!props.islandView) {
+                    btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+                }
+            }
+        // if the src is empty, make sure the top play/pause is set to "show play"
         } else {
+            if(singleResultGlobal) {
+                btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+                btVinylPlayPause.src = "../../images/play-button.png";
+            }
+            btTopPlayPause = document.getElementById("togglePlayPause");
+            // No progressbar on islandview
+            if(!props.islandView) {
+                btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+            }
+        }
+    }
+
+    // Top button
+    function stopTrack() {
+        // stop the track
         audio.pause();
 
-        // if no mute was pressed, then rise volume of bgm
-        // and display sound on mute bt
+        // No progressbar on islandview
+        if(!props.islandView) {
+            var progressed = document.getElementById("progressed");
+            progressed.style.width = "0%";
+        }
+        // then delete the source
+        audio.src = "";
+
+        // rise up bgm
         if(document.getElementById("bgmMuteOff")) {
             document.getElementById("bgmMuteOff").volume = 1;
-            
+
             // vinyl is paused, so show no mute on bgm mute bt
-            let btMuteMenuBarPres = document.getElementById("muteId");
+            var btMuteMenuBarPres = document.getElementById("muteId");
             btMuteMenuBarPres.src = "images/soundOn.svg";
         }
+
+        audioArr.pop();
+        // make sure the top play/pause button is set to "show play"
 
         if(singleResultGlobal) {
             btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
@@ -187,49 +241,6 @@ function Music(props) {
 
         btTopPlayPause = document.getElementById("togglePlayPause");
         btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
-        }
-
-        // if the src is empty, make sure the top play/pause is set to "show play"
-        } else {
-            if(singleResultGlobal) {
-            btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-            btVinylPlayPause.src = "../../images/play-button.png";
-            }
-            btTopPlayPause = document.getElementById("togglePlayPause");
-            btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
-        }
-    }
-
-    // Top button
-    function stopTrack() {
-    // stop the track
-    audio.pause();
-
-    var progressed = document.getElementById("progressed");
-    progressed.style.width = "0%";
-
-    // then delete the source
-    audio.src = "";
-
-    // rise up bgm
-    if(document.getElementById("bgmMuteOff")) {
-        document.getElementById("bgmMuteOff").volume = 1;
-
-        // vinyl is paused, so show no mute on bgm mute bt
-        var btMuteMenuBarPres = document.getElementById("muteId");
-        btMuteMenuBarPres.src = "images/soundOn.svg";
-    }
-
-    audioArr.pop();
-    // make sure the top play/pause button is set to "show play"
-
-    if(singleResultGlobal) {
-        btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-        btVinylPlayPause.src = "../../images/play-button.png";
-    }
-
-    btTopPlayPause = document.getElementById("togglePlayPause");
-    btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
     }
 
     React.useEffect(promiseChangedACB, [promise]);
