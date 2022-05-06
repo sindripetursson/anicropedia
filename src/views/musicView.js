@@ -37,7 +37,6 @@ function MusicView(props){
         }
         return Object.values(data).map(renderSingleData);
     }
-    console.log("island music ", props.islandView)
     return(
         <div className="list">
             {props.islandView ?

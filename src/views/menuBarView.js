@@ -113,8 +113,6 @@ function MenuBarView(props) {
                         </Link> 
                     }
                 </div>
-                <div className='menuBar__sides'> 
-                </div>
                 <div className='menuBar__center'>
                     {location.pathname === "/" ? 
                         <h1 className='menuBar__title'> Welcome, {props.userModel.getUserName()}! </h1> 
@@ -136,27 +134,11 @@ function MenuBarView(props) {
                     }
                 </div>
                 <div className='menuBar__sides'>
-                    { location.pathname === "/encyclopedia" 
-                    || location.pathname === "/villagers"
-                    || location.pathname === "/music" 
-                    || location.pathname === "/collectibles" 
-                    ? 
-                        <input className='menuBar__search' placeholder="Search item" />
-                    :
-                        <></> 
-                    }
                 </div>
             </div>
+
             <div className='menuBar__sides'>
-                {  location.pathname === "/encyclopedia" 
-                || location.pathname === "/villagers"
-                || location.pathname === "/music" 
-                || location.pathname === "/collectibles" 
-                ? 
-                    <button className='menuBar__filter'> Filter </button>
-                :
-                    <></> 
-                }
+                
             </div>
         </div>
     </div> 

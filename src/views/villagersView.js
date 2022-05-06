@@ -2,7 +2,6 @@ import { isItemInCollection } from "../utils";
 
 function VillagersView(props){
     function renderData(data){
-        console.log(data.length)
         function renderSingleData(singleResult){
             function itemClicked(){
                 props.onItemClicked(singleResult);
