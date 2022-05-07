@@ -28,7 +28,9 @@ function App(props) {
         <div className={detailsOn ? "details" : "hidden"} onClick={() => setDetailsOn(false)}>
             <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
         </div>
-            <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel} userModel={props.userModel}/>
+            <div className={window.location.pathname !== "/login" && window.location.pathname !== "/signup" ? "": "hidden"}>
+                <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel} userModel={props.userModel}/>
+            </div>
             <Routes>
                 <Route path="/" exact element={ <Home setDetailsOn={setDetailsOn}/> }/>
                 <Route path="/island" element={<Island userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
