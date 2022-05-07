@@ -1,7 +1,6 @@
 import DetailsView from "../views/detailsView.js";
 import React from "react";
 import promiseNoData from "../views/promiseNoData.js";
-// import { getFishDetails } from "../fishSource.js";
 import { getDetails } from "../source/detailsSource.js";
 import { sessionCheckDetails } from "../utils.js";
 

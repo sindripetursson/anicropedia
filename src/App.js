@@ -17,9 +17,7 @@ import React from 'react';
 import MenuBar from './presenters/menuBarPresenter';
 import { Routes, Route } from "react-router-dom";
 import Details from './presenters/detailsPresenter';
-
-// const Details = require("./presenters/detailsPresenter.js").default;
-const Music = require("./presenters/musicPresenter.js").default;
+import Music from './presenters/musicPresenter.js';
 
 function App(props) {
     const [detailsOn, setDetailsOn] = React.useState(false);
