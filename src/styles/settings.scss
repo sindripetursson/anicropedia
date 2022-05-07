@@ -37,6 +37,47 @@
 
     }
 
+    &__modalContainer{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    &__modal{
+        min-width: 350px;
+        width: 50%;
+        max-width: 450px;
+        margin: 0 auto;
+        border-radius: 50px;
+        background: #F7F4E4;
+        color: #835B26 ;
+        padding: 50px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+    }
+
+    &__modalText{
+        font-weight: 500;
+        font-size: 1em;
+    }
+
+    &__subtext{
+        color: #887C66;
+        font-size: 0.9em;
+    }
+
+    &__buttonsContainer{
+        display: flex;
+        flex-direction: row;
+    }
+
     &__input {
         font-family: $font-main;
         
@@ -49,7 +90,7 @@
         cursor: pointer;
         width: 90%;
         padding: 10px;
-        margin-bottom: 10px;
+        margin: 10px;
         &--error {
             background-color: #e0cdb7;
             border: #dba59e 2px solid;
@@ -73,6 +114,12 @@
         margin: 0;
         margin-bottom: 20px;
         width: 80%;
+    }
+
+    &__buttonModal{
+        margin: 10px;
+        margin-bottom: 20px;
+        // width: 100%;
     }
 
 }
