@@ -70,6 +70,7 @@ function MenuBarView(props) {
     }
 
     function drawerToggleClickHandler() {
+        console.log('click')
         setsideDrawerOpen(!sideDrawerOpen)
         setbackdropOpen(!backdropOpen)
     };
@@ -83,7 +84,7 @@ function MenuBarView(props) {
         <></>
         }  
         <div className='menuBar__drawer'>
-            <Sidedrawer show={sideDrawerOpen}/>
+            <Sidedrawer show={sideDrawerOpen} ToggleClickHandler={drawerToggleClickHandler}/>
         </div>        
         <div className='menuBar'>        
             <div className='menuBar__upper'>
