@@ -908,6 +908,11 @@ button:hover {
   font-family: "FinkHeavy";
   font-size: 16pt;
 }
+@media (max-width: 700px) {
+  .menuBar {
+    height: 100px;
+  }
+}
 .menuBar__hidden {
   display: none;
 }
@@ -929,12 +934,24 @@ button:hover {
   justify-content: center;
   padding-top: 10px;
 }
+@media (max-width: 700px) {
+  .menuBar__sides {
+    width: 30%;
+    align-items: flex-start;
+  }
+}
 .menuBar__sidesWithSettings {
   flex-direction: column;
   align-items: center;
   width: 15%;
   justify-content: center;
   padding-top: 10px;
+}
+@media (max-width: 700px) {
+  .menuBar__sidesWithSettings {
+    width: 30%;
+    align-items: flex-end;
+  }
 }
 .menuBar__center {
   flex: 6;
@@ -950,16 +967,11 @@ button:hover {
   height: 40px;
   cursor: pointer;
 }
-.menuBar__backUpper {
+.menuBar__back {
   font-size: 40px;
   margin-right: -50%;
   height: 40px;
   cursor: pointer;
-}
-@media (min-width: 1001px) {
-  .menuBar__backUpper {
-    display: none;
-  }
 }
 .menuBar__backLower {
   font-size: 40px;
@@ -979,8 +991,14 @@ button:hover {
   margin: 0;
 }
 .menuBar__title {
+  font-size: 40px;
   width: 100%;
   text-transform: capitalize;
+}
+@media (max-width: 700px) {
+  .menuBar__title {
+    font-size: 24px;
+  }
 }
 .menuBar__image {
   height: 50px;
@@ -1061,6 +1079,11 @@ button:hover {
   list-style: none;
   height: 30vh;
   background-color: #F5F7E1;
+}
+@media (max-width: 700px) {
+  .menuBar__sideDrawerListBottom {
+    padding-top: 30px;
+  }
 }
 .menuBar__sideDrawerItemTop {
   padding-top: 30px;
