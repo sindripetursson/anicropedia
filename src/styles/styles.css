@@ -258,6 +258,7 @@ body {
   padding: 50px;
   background: #F7F4E4;
   border-radius: 0px 50px 50px 50px;
+  min-height: 98vh;
 }
 .list__container__encyclopedia--island {
   position: relative;
