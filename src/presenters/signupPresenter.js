@@ -65,7 +65,7 @@ function Signup(props) {
                         document.getElementById('signupPassword').classList.remove('authentication__input--error');
                         document.getElementById('signupEmail').classList.remove('authentication__input--error');
                         document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
-                        document.getElementById('citySearchInput').classList.add('citySearch__input--error');
+                        document.getElementById('citySearchInput').classList.remove('citySearch__input--error');
                         document.querySelector('.authentication__errorMessage').innerHTML = '';
                         window.location = '/';
                     })
@@ -73,6 +73,7 @@ function Signup(props) {
                         document.getElementById('signupPassword').classList.remove('authentication__input--error');
                         document.getElementById('signupEmail').classList.remove('authentication__input--error');
                         document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
+                        document.getElementById('citySearchInput').classList.remove('citySearch__input--error');
                         const errorCode = error.code;
                         const errorMessage = error.message;
                         const errorText = document.querySelector('.authentication__errorMessage');
@@ -102,7 +103,16 @@ function Signup(props) {
 
     return (
         <div>
-            <SignupView name={name} onNameChange={onNameChange} email={email} onEmailChange={onEmailChange} password={password} onPasswordChange={onPasswordChange} repeatPassword={repeatPassword} onRepeatPasswordChange={onRepeatPasswordChange} onSignup={signupACB} onCityChange={onCityChange}/>
+            <SignupView name={name} 
+                        onNameChange={onNameChange} 
+                        email={email} 
+                        onEmailChange={onEmailChange} 
+                        password={password} 
+                        onPasswordChange={onPasswordChange} 
+                        repeatPassword={repeatPassword} 
+                        onRepeatPasswordChange={onRepeatPasswordChange} 
+                        onSignup={signupACB} 
+                        onCityChange={onCityChange}/>
         </div>
     )
 }
