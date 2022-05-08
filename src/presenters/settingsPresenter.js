@@ -1,6 +1,7 @@
 import React from "react";
 import { sessionCheck } from "../utils";
 import SettingsView from "../views/settingsView";
+import { EmailAuthProvider, getAuth, updatePassword, reauthenticateWithCredential } from "firebase/auth";
 
 export default 
 function Settings(props) {
@@ -12,7 +13,9 @@ function Settings(props) {
     const [name, setName] = React.useState('');
     const [newCityAddress, setNewCityAddress] = React.useState('');
     const [newCityCoordinates, setNewCityCoordinates] = React.useState({lat: null, lng: null});
-    
+    const [oldPassword, setOldPassword] = React.useState('');
+    const [newPassword, setNewPassword] = React.useState('');
+    const [repeatNewPassword, setRepeatNewPassword] = React.useState('');
 
     function onNameSubmitACB() {
         if (name !== '' && name.length < 70) {
@@ -49,6 +52,39 @@ function Settings(props) {
         }
     }
 
+    function onPasswordSubmitACB() {
+        document.getElementById('oldPassword').classList.remove('settings__input--error');
+        document.getElementById('newPassword').classList.remove('settings__input--error');
+        document.getElementById('newRepeatPassword').classList.remove('settings__input--error');
+        document.getElementById('settingsPasswordError').innerHTML = '';
+        
+        const auth = getAuth();
+        const user = auth.currentUser;
+        const credential = EmailAuthProvider.credential(user.email, oldPassword);
+        reauthenticateWithCredential(user, credential)
+            .then(() => {
+                if (newPassword === '') {
+                    document.getElementById('newPassword').classList.add('settings__input--error');
+                    document.getElementById('settingsPasswordError').innerHTML = 'The new password has to be 6 characters long.';
+                } else if (newPassword === repeatNewPassword) {
+                    updatePassword(user, newPassword).then(() => {
+                        setOldPassword('');
+                        setNewPassword('');
+                        setRepeatNewPassword('');
+                        setModalPasswordVisible(false);
+                    })
+                    .catch((e) => document.getElementById('settingsPasswordError').innerHTML = 'Error updating password, please try again later.');
+                } else {
+                    document.getElementById('newRepeatPassword').classList.add('settings__input--error');
+                    document.getElementById('settingsPasswordError').innerHTML = 'The passwords do not match.';
+                }
+            })
+            .catch((e) => {
+                document.getElementById('oldPassword').classList.add('settings__input--error');
+                document.getElementById('settingsPasswordError').innerHTML = 'Incorrect old password.';
+            });
+    }
+
     return sessionCheck() || 
     (<div>
         {
@@ -67,7 +103,14 @@ function Settings(props) {
                 onNameChange={(newName) => setName(newName.target.value)}
                 onNameSubmit={onNameSubmitACB}
                 onCityChange={onCityChange}
-                onCitySubmit={onCitySubmitACB}/>
+                onCitySubmit={onCitySubmitACB}
+                oldPassword={oldPassword}
+                onOldPasswordChange={(password) => setOldPassword(password.target.value)}
+                newPassword={newPassword}
+                onNewPasswordChange={(password) => setNewPassword(password.target.value)}
+                repeatNewPassword={repeatNewPassword}
+                onRepeatNewPasswordChange={(password) => setRepeatNewPassword(password.target.value)}
+                onPasswordSubmit={onPasswordSubmitACB}/>
         </div>
         }
     </div>)

@@ -42,7 +42,6 @@ function Signup(props) {
     function onCityChange(cityAddress, latlng) {
         setCityAddress(cityAddress);
         setCityCoordinates(latlng);
-        console.log('In onCityChange with : ', cityAddress, ' and coords: ', latlng);
     }
 
     function signupACB(e) {

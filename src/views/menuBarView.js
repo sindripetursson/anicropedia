@@ -2,6 +2,8 @@ import React from 'react'
 import { Link, useLocation } from "react-router-dom";
 import Sidedrawer from '../components/sideDrawer';
 import Backdrop from '../components/backdrop';
+import { ReactSession } from "react-client-session";
+
 
 export default 
 function MenuBarView(props) {
@@ -73,7 +75,6 @@ function MenuBarView(props) {
         setsideDrawerOpen(!sideDrawerOpen)
         setbackdropOpen(!backdropOpen)
     };
-    
     return (
     <div>
         {backdropOpen ? 
@@ -115,7 +116,7 @@ function MenuBarView(props) {
                 </div>
                 <div className='menuBar__center'>
                     {location.pathname === "/" ? 
-                        <h1 className='menuBar__title'> Welcome, {props.userModel.getUserName()}! </h1> 
+                        <h1 className='menuBar__title'> Welcome, {(ReactSession.get('uid') !== null && props.userModel)?props.userModel.getUserName():''}! </h1> 
                     : location.pathname === "/encyclopedia" 
                     || location.pathname === "/villagers" 
                     || location.pathname === "/music" 

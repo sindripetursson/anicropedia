@@ -7,7 +7,6 @@ import { ReactSession } from "react-client-session";
 
 
 const UserModel = require("../UserModel.js").default;
-const userModel= new UserModel();
 let firebaseModel = require("../firebaseModel.js");
 const {updateFirebaseFromModel, updateModelFromFirebase}=firebaseModel;
 
@@ -38,6 +37,7 @@ function Login(props) {
             const name = userCredential.user.displayName;
             ReactSession.set("uid", uid);
             ReactSession.set("name", name);
+            const userModel= new UserModel();
             updateFirebaseFromModel(userModel, uid);
             if(updateModelFromFirebase) {
                 updateModelFromFirebase(userModel, uid);

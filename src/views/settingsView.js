@@ -55,7 +55,16 @@ function SettingsView(props){
                         props.setModalPasswordVisible(!props.modalPasswordVisible)
                     }
                 >  
-                    <ModalPassword userModel={props.userModel} setModalPasswordVisible={props.setModalPasswordVisible} modalPasswordVisible={props.modalPasswordVisible} />
+                    <ModalPassword userModel={props.userModel} 
+                                   setModalPasswordVisible={props.setModalPasswordVisible} 
+                                   modalPasswordVisible={props.modalPasswordVisible} 
+                                   oldPassword={props.oldPassword}
+                                   onOldPasswordChange={props.onOldPasswordChange}
+                                   newPassword={props.newPassword}
+                                   onNewPasswordChange={props.onNewPasswordChange}
+                                   repeatNewPassword={props.repeatNewPassword}
+                                   onRepeatNewPasswordChange={props.onRepeatNewPasswordChange}
+                                   onPasswordSubmit={props.onPasswordSubmit}/>
                 </Modal>
             </div>
 
