@@ -9,6 +9,9 @@
     color: #835B26;
     font-family: 'FinkHeavy';
     font-size: 16pt;
+    @media (max-width: 700px){
+        height: 100px;
+    }
 
     &__hidden {
         display: none;
@@ -33,6 +36,10 @@
         display: flex;
         justify-content: center;
         padding-top: 10px;
+        @media (max-width: 700px){
+            width: 30%;
+            align-items: flex-start;
+        }
     }
 
     &__sidesWithSettings {
@@ -41,6 +48,10 @@
         width: 15%;
         justify-content: center;
         padding-top: 10px;
+        @media (max-width: 700px){
+            width: 30%;
+            align-items: flex-end;
+        }
     }
 
     &__center {
@@ -60,10 +71,7 @@
         cursor: pointer;
     }
 
-    &__backUpper {
-        @media (min-width: 1001px){
-            display: none;
-        }
+    &__back {
         font-size: 40px;
         margin-right: -50%;
         height: 40px;
@@ -88,8 +96,12 @@
     }
 
     &__title {
+        font-size: 40px;
         width: 100%;
-        text-transform: capitalize
+        text-transform: capitalize;
+        @media (max-width: 700px){
+            font-size: 24px;
+        }
     }
 
     &__image {
@@ -176,6 +188,9 @@
         list-style: none;
         height: 30vh;
         background-color: #F5F7E1;
+        @media (max-width: 700px){
+            padding-top: 30px;
+        }
     }
 
     &__sideDrawerItemTop {

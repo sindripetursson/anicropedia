@@ -1,18 +1,124 @@
 .player {
-    height: 15vh;
+    @media (max-width: 1100px) {
+        height: 50vh;
+    }
+    @media (max-width: 600px) {
+        height: 60vh;
+    }
+    height: 30vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    // background-image: url("../../public/images/black_example.jpg");'
+    margin-bottom: 30px;
 }
-            
-.buttons-music {
+
+.border {
+    @media (max-width: 1100px) {
+        flex-direction: column;
+        width: 500px;
+    }
+    @media (max-width: 600px) {
+        flex-direction: column;
+        width: 300px;
+    }
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    // padding-left: 15em;
+    // padding-right: 15em;
+    // padding-top: 5em;
+    // padding-bottom: 5em;
+    width: 1000px;
+    border-radius: 50px;
+    border-style: solid;
+    padding: 1em;
+    border-color: #F8EEBC;
+    background-color: #F7F4E4;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+
+
+&__flex-left {
+    // display: flex;
+    // background-color: #ee0b0b;
+    flex-direction: column;
+    flex: 50%;
+    justify-self: center;
+    
+    &__flex-left-top {
+        
+    }
+    
+    
+    &__flex-left-bottom {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+&__flex-right {
+    // background-color: dodgerblue;
+    flex: 50%;
+}
+
+}
+
+
+.buttons-music {
+    @media (max-width: 600px) {
+        padding: 0em;
+    }
+    display: flex;
+    padding: 1em;
+    // flex-direction: row;
+    justify-content: center;
+    // align-items: center;
     cursor: pointer;
 }
-        
+
+
+
+.artist-info {
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+    display: flex;
+    padding: 2px;
+    // border-style: solid;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    
+
+    &__image {
+        @media (max-width: 600px) {
+            margin-top: 10px;
+        }
+        // margin-top: 20px;
+        border-radius: 20px;
+        width: 200px;
+        height: 200px;
+        // border-style: solid;
+        margin-left: 10px;
+    }
+
+    &__song {
+        @media (max-width: 600px) {
+            margin-top: 10px;
+        }
+        padding-left: 5%;
+        padding-right: 5%;
+        // width: 100%;
+        // margin-top: 10px;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-size: xx-large;
+        color: #835B26;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+}
+            
 .playpause-track,
 .stop-track {
     padding: 10px;
@@ -27,15 +133,14 @@
 
 .progress_bar {
     @media (max-width: 1100px) {
-        width: 300px;
+        width: 550px;
     }
     @media (max-width: 600px) {
         display: none;
     }
     height: 30px;
-    width: 800px;
-    background-color: #F7F4E4;
-    margin-left: 20px;
+    width: 400px;
+    background-color: #F8EEBC;
     border-radius: 25px;
 }
 

@@ -29,13 +29,16 @@ function Music(props) {
     }
 
     function changeCollectionACB(musicTrack, inCollection) {
-    if(inCollection) {
-        props.userModel.removeItem(musicTrack, 'music');
-    } else {
-        props.userModel.addItem(musicTrack, 'music');
-    }
-    document.getElementById('checkmark_' + musicTrack.id).classList= !inCollection? 'checkmark' : 'hidden';
-    document.getElementById('button_' + musicTrack.id).innerHTML = !inCollection? 'Remove from my collection' : 'Add to my collection';
+        if(inCollection) {
+            props.userModel.removeItem(musicTrack, 'music');
+        } else {
+            props.userModel.addItem(musicTrack, 'music');
+        }
+        // No checkmark in islandview
+        if(!props.islandView) {
+            document.getElementById('checkmark_' + musicTrack.id).classList= !inCollection? 'checkmark' : 'hidden';
+            document.getElementById('button_' + musicTrack.id).innerHTML = !inCollection? 'Remove from my collection' : 'Add to my collection';
+        }
     }
 
     React.useEffect(wasCreatedACB, []);
@@ -55,12 +58,60 @@ function Music(props) {
             // set the buttons according to the still playing music, eg 'show pause'
             setTimeout(() => {
                 var btTopPlayPause = document.getElementById("togglePlayPause");
-                // No progressbar on islandview
+                // No progressbar in islandview
                 if(!props.islandView) {
                     btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
                 }
                 var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
                 btVinylPlayPause.src = "../../images/pause-button.png";
+
+                if(!props.islandView) {
+                // set vinyl img in musicBar
+                var musicBarImg = document.getElementById("musicBarImg");
+                musicBarImg.src = singleResultGlobal.image_uri;
+
+                
+                // set artist name in musicBar
+                var artistName = document.getElementById("songName");
+                artistName.textContent = singleResultGlobal.name["name-EUen"];
+
+                };
+
+                var progressed = document.getElementById("progressed"); 
+
+                // No progressbar on islandview
+                if(!props.islandView) {
+                    audio.ontimeupdate = function() {
+                        progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
+                    }
+                }
+            }, 300);
+        } else if(audio.paused && audioArr[0] !== undefined) {
+            // 300 ms timeout, the views need some time to load
+            // set the buttons according to the still playing music, eg 'show pause'
+            setTimeout(() => {
+                var btTopPlayPause = document.getElementById("togglePlayPause");
+                // No progressbar on islandview
+                if(!props.islandView) {
+                    btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+                }
+                var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+                btVinylPlayPause.src = "../../images/play-button.png";
+
+                // set vinyl img in musicBar
+                var musicBarImg = document.getElementById("musicBarImg");
+                musicBarImg.src = singleResultGlobal.image_uri;
+
+                // set artist name in musicBar
+                var artistName = document.getElementById("songName");
+                artistName.textContent = singleResultGlobal.name["name-EUen"];
+
+                var progressed = document.getElementById("progressed"); 
+
+                 // No progressbar on islandview
+                if(!props.islandView) {
+                    progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
+                }
             }, 300);
         }
     }
@@ -125,6 +176,16 @@ function Music(props) {
             // set the audio object
             audio.src = singleResult.music_uri;
             audio.loop = true;
+            if(!props.islandView) {
+                // set vinyl img in musicBar
+                var musicBarImg = document.getElementById("musicBarImg");
+                musicBarImg.src = singleResultGlobal.image_uri;
+
+                // set artist name in musicBar
+                var artistName = document.getElementById("songName");
+                artistName.textContent = singleResultGlobal.name["name-EUen"];
+            }
+            
         }
     }
   
@@ -149,7 +210,7 @@ function Music(props) {
                 var progressed = document.getElementById("progressed");
                 // var progress_bar = document.getElementById("progress_bar");  
 
-                // No progressbar on islandview
+                // No progressbar in islandview
                 if(!props.islandView) {
                     audio.ontimeupdate = function() {
                         progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
@@ -166,7 +227,7 @@ function Music(props) {
                     btVinylPlayPause.src = "../../images/pause-button.png";
                 }
                 btTopPlayPause = document.getElementById("togglePlayPause");
-                // No progressbar on islandview
+                // No progressbar in islandview
                 if(!props.islandView) {
                     btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
                 }
@@ -190,7 +251,7 @@ function Music(props) {
                 }
 
                 btTopPlayPause = document.getElementById("togglePlayPause");
-                // No progressbar on islandview
+                // No progressbar in islandview
                 if(!props.islandView) {
                     btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
                 }
@@ -202,7 +263,7 @@ function Music(props) {
                 btVinylPlayPause.src = "../../images/play-button.png";
             }
             btTopPlayPause = document.getElementById("togglePlayPause");
-            // No progressbar on islandview
+            // No progressbar in islandview
             if(!props.islandView) {
                 btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
             }
@@ -214,13 +275,23 @@ function Music(props) {
         // stop the track
         audio.pause();
 
-        // No progressbar on islandview
+        // No progressbar in islandview
         if(!props.islandView) {
             var progressed = document.getElementById("progressed");
             progressed.style.width = "0%";
         }
         // then delete the source
         audio.src = "";
+
+        if(!props.islandView) {
+            // set vinyl img in musicBar
+            var musicBarImg = document.getElementById("musicBarImg");
+            musicBarImg.src = "images/placeholder_frame.png";
+
+            // set artist name in musicBar
+            var artistName = document.getElementById("songName");
+            artistName.textContent = "Play your song";
+        }
 
         // rise up bgm
         if(document.getElementById("bgmMuteOff")) {
@@ -241,6 +312,8 @@ function Music(props) {
 
         btTopPlayPause = document.getElementById("togglePlayPause");
         btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+
+        singleResultGlobal = null;
     }
 
     React.useEffect(promiseChangedACB, [promise]);

@@ -258,6 +258,7 @@ body {
   padding: 50px;
   background: #F7F4E4;
   border-radius: 0px 50px 50px 50px;
+  min-height: 98vh;
 }
 .list__container__encyclopedia--island {
   position: relative;
@@ -908,6 +909,11 @@ button:hover {
   font-family: "FinkHeavy";
   font-size: 16pt;
 }
+@media (max-width: 700px) {
+  .menuBar {
+    height: 100px;
+  }
+}
 .menuBar__hidden {
   display: none;
 }
@@ -929,12 +935,24 @@ button:hover {
   justify-content: center;
   padding-top: 10px;
 }
+@media (max-width: 700px) {
+  .menuBar__sides {
+    width: 30%;
+    align-items: flex-start;
+  }
+}
 .menuBar__sidesWithSettings {
   flex-direction: column;
   align-items: center;
   width: 15%;
   justify-content: center;
   padding-top: 10px;
+}
+@media (max-width: 700px) {
+  .menuBar__sidesWithSettings {
+    width: 30%;
+    align-items: flex-end;
+  }
 }
 .menuBar__center {
   flex: 6;
@@ -950,16 +968,11 @@ button:hover {
   height: 40px;
   cursor: pointer;
 }
-.menuBar__backUpper {
+.menuBar__back {
   font-size: 40px;
   margin-right: -50%;
   height: 40px;
   cursor: pointer;
-}
-@media (min-width: 1001px) {
-  .menuBar__backUpper {
-    display: none;
-  }
 }
 .menuBar__backLower {
   font-size: 40px;
@@ -979,8 +992,14 @@ button:hover {
   margin: 0;
 }
 .menuBar__title {
+  font-size: 40px;
   width: 100%;
   text-transform: capitalize;
+}
+@media (max-width: 700px) {
+  .menuBar__title {
+    font-size: 24px;
+  }
 }
 .menuBar__image {
   height: 50px;
@@ -1061,6 +1080,11 @@ button:hover {
   list-style: none;
   height: 30vh;
   background-color: #F5F7E1;
+}
+@media (max-width: 700px) {
+  .menuBar__sideDrawerListBottom {
+    padding-top: 30px;
+  }
 }
 .menuBar__sideDrawerItemTop {
   padding-top: 30px;
@@ -1336,18 +1360,108 @@ a {
 }
 
 .player {
-  height: 15vh;
+  height: 30vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 30px;
+}
+@media (max-width: 1100px) {
+  .player {
+    height: 50vh;
+  }
+}
+@media (max-width: 600px) {
+  .player {
+    height: 60vh;
+  }
+}
+
+.border {
+  display: flex;
+  width: 1000px;
+  border-radius: 50px;
+  border-style: solid;
+  padding: 1em;
+  border-color: #F8EEBC;
+  background-color: #F7F4E4;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
+}
+@media (max-width: 1100px) {
+  .border {
+    flex-direction: column;
+    width: 500px;
+  }
+}
+@media (max-width: 600px) {
+  .border {
+    flex-direction: column;
+    width: 300px;
+  }
+}
+.border__flex-left {
+  flex-direction: column;
+  flex: 50%;
+  justify-self: center;
+}
+.border__flex-left__flex-left-bottom {
+  display: flex;
+  justify-content: center;
+}
+.border__flex-right {
+  flex: 50%;
 }
 
 .buttons-music {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  padding: 1em;
+  justify-content: center;
   cursor: pointer;
+}
+@media (max-width: 600px) {
+  .buttons-music {
+    padding: 0em;
+  }
+}
+
+.artist-info {
+  display: flex;
+  padding: 2px;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .artist-info {
+    flex-direction: column;
+  }
+}
+.artist-info__image {
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+}
+@media (max-width: 600px) {
+  .artist-info__image {
+    margin-top: 10px;
+  }
+}
+.artist-info__song {
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family: "Rubik";
+  font-style: normal;
+  font-size: xx-large;
+  color: #835B26;
+  font-weight: bold;
+  margin-left: 20px;
+}
+@media (max-width: 600px) {
+  .artist-info__song {
+    margin-top: 10px;
+  }
 }
 
 .playpause-track,
@@ -1364,14 +1478,13 @@ a {
 
 .progress_bar {
   height: 30px;
-  width: 800px;
-  background-color: #F7F4E4;
-  margin-left: 20px;
+  width: 400px;
+  background-color: #F8EEBC;
   border-radius: 25px;
 }
 @media (max-width: 1100px) {
   .progress_bar {
-    width: 300px;
+    width: 550px;
   }
 }
 @media (max-width: 600px) {

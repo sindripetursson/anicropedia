@@ -85,12 +85,16 @@ function Collectible(props) {
                     </div>
                 </div>
                 </div>
-            </div>  
-            {props.islandView ? <CollectibleView onItemClicked={getDetails} data={props.userModel.getCategoryArray(category)} userModel={props.userModel} category={category} islandView/> :
-            promiseNoData({promise, data, error}) || 
-            <div>
-                <CollectibleView onItemClicked={getDetails} data={data} userModel={props.userModel} category={category}/>
-            </div>}
+            </div>
+            <div className="list">
+                <div className={props.islandView ? "list__container__encyclopedia--island" : "list__container__encyclopedia"}>
+                    {props.islandView ? <CollectibleView onItemClicked={getDetails} data={props.userModel.getCategoryArray(category)} userModel={props.userModel} category={category} islandView/> :
+                    promiseNoData({promise, data, error}) || 
+                    <div>
+                        <CollectibleView onItemClicked={getDetails} data={data} userModel={props.userModel} category={category}/>
+                    </div>}
+                </div>
+            </div>
         </div>
     );
 }
