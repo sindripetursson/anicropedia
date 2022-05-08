@@ -37,7 +37,11 @@ function SettingsView(props){
                         props.setModalCityVisible(!props.modalCityVisible)
                     }
                 >  
-                    <ModalCity userModel={props.userModel} setModalCityVisible={props.setModalCityVisible} modalCityVisible={props.modalCityVisible} />
+                    <ModalCity userModel={props.userModel} 
+                               setModalCityVisible={props.setModalCityVisible} 
+                               modalCityVisible={props.modalCityVisible}
+                               onCityChange={props.onCityChange}
+                               onCitySubmit={props.onCitySubmit} />
                 </Modal>
             </div>
 

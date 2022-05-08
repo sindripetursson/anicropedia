@@ -12,12 +12,12 @@ function ModalCity(props){
             <p style={{marginTop: "30px"}} className="settings__label">New city</p>
             <CitySearch onCityChange={props.onCityChange}/>
         </label>
+        <div className="settings__error">
+            <p className="settings__errorMessage" id="settingsCityError"></p>
+        </div>
         <div style={{marginTop: "30px"}} className='settings__buttonsContainer'>
             <button className="settings__buttonModal" onClick={() => props.setModalCityVisible(!props.modalCityVisible)}>Cancel</button>
-            <button className="settings__buttonModal" onClick={() => console.log("clicked submit")}>Submit</button>
-        </div>
-        <div className="settings__error">
-            <p className="settings__errorMessage"></p>
+            <button className="settings__buttonModal" onClick={props.onCitySubmit}>Submit</button>
         </div>
         <div  onClick={() => props.setModalCityVisible(!props.modalCityVisible)} className="close">
             <CloseButton />

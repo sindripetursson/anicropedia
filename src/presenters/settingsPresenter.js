@@ -12,6 +12,7 @@ function Settings(props) {
     const [name, setName] = React.useState('');
     const [newCityAddress, setNewCityAddress] = React.useState('');
     const [newCityCoordinates, setNewCityCoordinates] = React.useState({lat: null, lng: null});
+    
 
     function onNameSubmitACB() {
         if (name !== '' && name.length < 70) {
@@ -32,7 +33,20 @@ function Settings(props) {
     function onCityChange(cityAddress, latlng) {
         setNewCityAddress(cityAddress);
         setNewCityCoordinates(latlng);
-        console.log('In onCityChange with : ', cityAddress, ' and coords: ', latlng);
+    }
+
+    function onCitySubmitACB() {
+        if (newCityAddress !== '') {
+            document.getElementById('citySearchInput').classList.remove('settings__input--error');
+            props.userModel.setCityAddress(newCityAddress);
+            props.userModel.setCityCoordinates(newCityCoordinates);
+            setModalCityVisible(false);
+            setNewCityAddress('');
+            setNewCityCoordinates({lat: null, lng: null});
+        } else {
+            document.getElementById('citySearchInput').classList.add('settings__input--error');
+            document.getElementById('settingsCityError').innerHTML = 'No location selected.';
+        }
     }
 
     return sessionCheck() || 
@@ -52,7 +66,8 @@ function Settings(props) {
                 name={name}
                 onNameChange={(newName) => setName(newName.target.value)}
                 onNameSubmit={onNameSubmitACB}
-                onCityChange={onCityChange}/>
+                onCityChange={onCityChange}
+                onCitySubmit={onCitySubmitACB}/>
         </div>
         }
     </div>)
