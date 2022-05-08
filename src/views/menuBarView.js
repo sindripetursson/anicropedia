@@ -70,6 +70,7 @@ function MenuBarView(props) {
     }
 
     function drawerToggleClickHandler() {
+        console.log('click')
         setsideDrawerOpen(!sideDrawerOpen)
         setbackdropOpen(!backdropOpen)
     };
@@ -83,7 +84,7 @@ function MenuBarView(props) {
         <></>
         }  
         <div className='menuBar__drawer'>
-            <Sidedrawer show={sideDrawerOpen}/>
+            <Sidedrawer show={sideDrawerOpen} ToggleClickHandler={drawerToggleClickHandler}/>
         </div>        
         <div className='menuBar'>        
             <div className='menuBar__upper'>
@@ -91,7 +92,7 @@ function MenuBarView(props) {
                     {location.pathname === "/" || location.pathname === "/login" ? 
                         <></> : 
                     <Link className='menuBar__link' to="/"> 
-                        <img src='../../images/back.svg' alt="back" className="menuBar__backUpper" /> 
+                        <img src='../../images/back.svg' alt="back" className="menuBar__back" /> 
                     </Link> 
                     }
                 </div>
@@ -105,14 +106,7 @@ function MenuBarView(props) {
             </div>
 
             <div className='menuBar__lower'>
-                <div className='menuBar__sides'> 
-                    {location.pathname === "/" || location.pathname === "/login" ? 
-                        <></> : 
-                        <Link className='menuBar__link' to="/"> 
-                            <img src='../../images/back.svg' alt="back" className="menuBar__backLower" /> 
-                        </Link> 
-                    }
-                </div>
+
                 <div className='menuBar__center'>
                     {location.pathname === "/" ? 
                         <h1 className='menuBar__title'> Welcome, {props.userModel.getUserName()}! </h1> 
@@ -133,12 +127,6 @@ function MenuBarView(props) {
                         <h1 className='menuBar__title'> </h1> 
                     }
                 </div>
-                <div className='menuBar__sides'>
-                </div>
-            </div>
-
-            <div className='menuBar__sides'>
-                
             </div>
         </div>
     </div> 

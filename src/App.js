@@ -5,7 +5,7 @@ import "./styles/styles.css";
 import Home from './presenters/homePresenter';
 import Info from './presenters/infoPresenter';
 import Logout from './components/logout';
-import Page404 from './views/page404';
+import Page404 from './presenters/page404Presenter';
 import Encyclopedia from './presenters/encyclopediaPresenter';
 import Island from './presenters/islandPresenter';
 import Villagers from './presenters/villagersPresenter';

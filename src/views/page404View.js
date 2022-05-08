@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Page404(props){
+function Page404View(props){
     return(
         <div className="page404">
             <img className="page404__image" src="../../images/404NotFound.png" alt="404" />
@@ -8,4 +8,4 @@ function Page404(props){
     );
 }
 
-export default Page404;
+export default Page404View;
