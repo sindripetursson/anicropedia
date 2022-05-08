@@ -18,7 +18,12 @@ function SettingsView(props){
                         props.setModalNameVisible(!props.modalNameVisible)
                     }
                 >  
-                    <ModalName userModel={props.userModel} setModalNameVisible={props.setModalNameVisible} modalNameVisible={props.modalNameVisible} />
+                    <ModalName userModel={props.userModel} 
+                               setModalNameVisible={props.setModalNameVisible}
+                               modalNameVisible={props.modalNameVisible} 
+                               name={props.name}
+                               onNameChange={props.onNameChange}
+                               onNameSubmit={props.onNameSubmit}/>
                 </Modal>
             </div>
 

@@ -8,9 +8,9 @@ function ModalPassword(props){
                 <p style={{marginTop: "30px"}} className="settings__label">Old password</p>
                 <input className="settings__input"
                         type="password" 
-                        onChange={props.onPasswordChange}
-                        value={props.password}
-                        id="signupPassword"
+                        onChange={props.onOldPasswordChange}
+                        value={props.oldPassword}
+                        id="oldPassword"
                         placeholder="Enter your old password..."
                 />
             </label>
@@ -20,7 +20,7 @@ function ModalPassword(props){
                         type="password" 
                         onChange={props.onPasswordChange}
                         value={props.password}
-                        id="signupPassword"
+                        id="newPassword"
                         placeholder="Enter your new password..."
                 />
             </label>
@@ -30,7 +30,7 @@ function ModalPassword(props){
                         type="password" 
                         onChange={props.onRepeatPasswordChange}
                         value={props.repeatPassword}
-                        id="signupRepeatPassword"
+                        id="newRepeatPassword"
                         placeholder="Repeat your new password..."
                 />
             </label>

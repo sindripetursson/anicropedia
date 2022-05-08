@@ -13,16 +13,16 @@ function ModalName(props){
                 type="text"
                 onChange={props.onNameChange}
                 value={props.name}
-                id="signupName"
+                id="settingsName"
                 placeholder="Enter new name..."
             />
         </label>
         <div className="settings__error">
-                    <p className="settings__errorMessage"></p>
-                </div>
+            <p className="settings__errorMessage" id="settingsNameError"></p>
+        </div>
         <div style={{marginTop: "30px"}} className='settings__buttonsContainer'>
             <button className="settings__buttonModal" onClick={() => props.setModalNameVisible(!props.modalNameVisible)}>Cancel</button>
-            <button className="settings__buttonModal" onClick={() => console.log("clicked submit")}>Submit</button>
+            <button className="settings__buttonModal" onClick={props.onNameSubmit}>Submit</button>
         </div>
         <div  onClick={() => props.setModalNameVisible(!props.modalNameVisible)} className="close">
             <CloseButton />
