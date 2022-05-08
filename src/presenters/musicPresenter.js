@@ -61,6 +61,54 @@ function Music(props) {
                 }
                 var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
                 btVinylPlayPause.src = "../../images/pause-button.png";
+
+                if(!props.islandView) {
+                // set vinyl img in musicBar
+                var musicBarImg = document.getElementById("musicBarImg");
+                musicBarImg.src = singleResultGlobal.image_uri;
+
+                
+                // set artist name in musicBar
+                var artistName = document.getElementById("songName");
+                artistName.textContent = singleResultGlobal.name["name-EUen"];
+
+                };
+
+                var progressed = document.getElementById("progressed"); 
+
+                // No progressbar on islandview
+                if(!props.islandView) {
+                    audio.ontimeupdate = function() {
+                        progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
+                    }
+                }
+            }, 300);
+        } else if(audio.paused && audioArr[0] !== undefined) {
+            // 300 ms timeout, the views need some time to load
+            // set the buttons according to the still playing music, eg 'show pause'
+            setTimeout(() => {
+                var btTopPlayPause = document.getElementById("togglePlayPause");
+                // No progressbar on islandview
+                if(!props.islandView) {
+                    btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+                }
+                var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+                btVinylPlayPause.src = "../../images/play-button.png";
+
+                // set vinyl img in musicBar
+                var musicBarImg = document.getElementById("musicBarImg");
+                musicBarImg.src = singleResultGlobal.image_uri;
+
+                // set artist name in musicBar
+                var artistName = document.getElementById("songName");
+                artistName.textContent = singleResultGlobal.name["name-EUen"];
+
+                var progressed = document.getElementById("progressed"); 
+
+                 // No progressbar on islandview
+                if(!props.islandView) {
+                    progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
+                }
             }, 300);
         }
     }
@@ -125,6 +173,16 @@ function Music(props) {
             // set the audio object
             audio.src = singleResult.music_uri;
             audio.loop = true;
+            if(!props.islandView) {
+                // set vinyl img in musicBar
+                var musicBarImg = document.getElementById("musicBarImg");
+                musicBarImg.src = singleResultGlobal.image_uri;
+
+                // set artist name in musicBar
+                var artistName = document.getElementById("songName");
+                artistName.textContent = singleResultGlobal.name["name-EUen"];
+            }
+            
         }
     }
   
@@ -222,6 +280,16 @@ function Music(props) {
         // then delete the source
         audio.src = "";
 
+        if(!props.islandView) {
+            // set vinyl img in musicBar
+            var musicBarImg = document.getElementById("musicBarImg");
+            musicBarImg.src = "images/placeholder_frame.png";
+
+            // set artist name in musicBar
+            var artistName = document.getElementById("songName");
+            artistName.textContent = "Play your song";
+        }
+
         // rise up bgm
         if(document.getElementById("bgmMuteOff")) {
             document.getElementById("bgmMuteOff").volume = 1;
@@ -241,6 +309,8 @@ function Music(props) {
 
         btTopPlayPause = document.getElementById("togglePlayPause");
         btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
+
+        singleResultGlobal = null;
     }
 
     React.useEffect(promiseChangedACB, [promise]);
