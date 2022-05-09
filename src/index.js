@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 
 import firebase from "firebase/compat/app";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import firebaseConfig from "./firebaseConfig.js";
 
 import { ReactSession } from 'react-client-session';
@@ -30,6 +31,14 @@ function ReactRoot() {
     const [error, setError] = React.useState();
 
     ReactSession.setStoreType("localStorage");
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            ReactSession.set("uid", null);
+            ReactSession.set("name", null);
+        }   
+    });
 
     bigPromise = ReactSession.get("uid")!==null?firebaseModelPromise(ReactSession.get("uid")):null;
     
