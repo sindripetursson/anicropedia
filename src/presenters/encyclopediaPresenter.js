@@ -4,6 +4,7 @@ import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import EncyclopediaView from "../views/encyclopediaView";
 import { sessionCheck } from "../utils";
+import { isItemInCollection } from "../utils";
 
 export default 
 function Encyclopedia(props) {
@@ -23,6 +24,8 @@ function Encyclopedia(props) {
         if(!promise){
             resolvePromise(getSpecies('fish'), setPromise);
         }
+        props.userModel.addObserver(encyclopediaObserverACB);
+        return function isTakenDownACB() {props.userModel.removeObserver(encyclopediaObserverACB);}
     }
     React.useEffect(wasCreatedACB, []); 
         
@@ -45,6 +48,29 @@ function Encyclopedia(props) {
         }
         return changedAgainACB;  // promiseChangedACB will be called for the new value!
     }
+
+    function encyclopediaObserverACB(payload) {
+        if (payload && payload.addFish) {
+            const checkmark = document.getElementById("checkmark_fish_" + payload.addFish.id);
+            if (checkmark) checkmark.classList = "checkmark";
+        } else if (payload && payload.removeFish) {
+            const checkmark = document.getElementById("checkmark_fish_" + payload.removeFish.id);
+            if (checkmark) checkmark.classList = "hidden";
+        } else if (payload && payload.addInsect) {
+            const checkmark = document.getElementById("checkmark_bugs_" + payload.addInsect.id);
+            if (checkmark) checkmark.classList = "checkmark";
+        } else if (payload && payload.removeInsect) {
+            const checkmark = document.getElementById("checkmark_bugs_" + payload.removeInsect.id);
+            if (checkmark) checkmark.classList = "hidden";
+        } else if (payload && payload.addSeaCreature) {
+            const checkmark = document.getElementById("checkmark_sea_" + payload.addSeaCreature.id);
+            if (checkmark) checkmark.classList = "checkmark";
+        } else if (payload && payload.removeSeaCreature) {
+            const checkmark = document.getElementById("checkmark_sea_" + payload.removeSeaCreature.id);
+            if (checkmark) checkmark.classList = "hidden";
+        }
+    }
+
     React.useEffect(promiseChangedACB, [promise]);
 
     return sessionCheck() || 
@@ -60,6 +86,7 @@ function Encyclopedia(props) {
                     onClick={() => {
                     setPromise(getSpecies('fish'));
                     setCurrentSpecies('fish');
+
                     }}
                     >
                     <div className="list__nav__container">

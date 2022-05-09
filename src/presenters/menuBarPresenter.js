@@ -8,7 +8,8 @@ import { ReactSession } from "react-client-session";
 let currentHour; 
 let cityHour;
 let isHourChange = false;
-// let currentMinute; 
+// let currentMinute;
+let isCityChange = false;
 
 var audio = document.createElement('audio');
 audio.id = "bgmMute";
@@ -82,8 +83,8 @@ function MenuBar(props) {
         // console.log('weather: ' + props.weatherModel.getCityWeather());
         
         // console.log(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour));
-        if(props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null  && (checkHour !== currentHour)) {
-
+        if(isCityChange || (props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null  && (checkHour !== currentHour))) {
+            isCityChange = false;
             var today = new Date();
             currentHour = today.getHours();
             
@@ -209,7 +210,23 @@ function MenuBar(props) {
             isBackgroundMusicPlaying = true;
         }
     }
-    updateData();
+
+    function cityChangeObserverACB(payload) {
+        if (payload && payload.updateCityLng) {
+            isCityChange = true;
+            updateData();
+        }
+    }
+
+    function wasCreatedACB() {
+        updateData();
+        props.userModel.addObserver(cityChangeObserverACB);
+        return function isTakenDownACB() {props.userModel.removeObserver(cityChangeObserverACB);}
+    }
+
+    React.useEffect(wasCreatedACB, []);
+
+    //updateData();
     React.useEffect(geoPromiseChangedACB, [geoPromise]);
 
     return <div> 

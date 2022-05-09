@@ -19,7 +19,7 @@ function EncyclopediaView(props){
                         </div>
                         {props.islandView ?
                         <></> :
-                        <img className={isItemInCollection(singleResult, props.currentSpecies, true, props.userModel) ? "checkmark" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/>
+                        <img id={"checkmark_"+props.currentSpecies + "_" + singleResult.id} className={isItemInCollection(singleResult, props.currentSpecies, true, props.userModel) ? "checkmark" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/>
                         }
                     </div>
                 </div>
