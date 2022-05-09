@@ -7,7 +7,9 @@ function Sea(props){
         <div className="details__row">
             <div className="details__col">
                 <div className="details__row">
-                    <img className="image" alt="" src={props.singleResult.image_uri} />
+                    <div className="details__placeholder">
+                        <img className="image" alt="" src={props.singleResult.image_uri} />
+                    </div>
                 </div>
                 <div className="details_row">
                     <div className="checkmark__placeholder">

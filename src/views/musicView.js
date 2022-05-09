@@ -14,7 +14,9 @@ function MusicView(props){
         return (
             <div onClick={play} className={props.islandView ? "list__col__music--island" : "list__col__music"} key={"music_"+singleResult.id}>
                 <div className={props.islandView ? "listItem__music--island" : "listItem__music"}>
-                    <img className={props.islandView ? "listItem__image__music--island" : "listItem__image__music"} alt="music" src={singleResult.image_uri}/>
+                    <div className={props.islandView ? "listItem__imagePlaceholderMusic--island" : "listItem__imagePlaceholderMusic"}>
+                        <img className={props.islandView ? "listItem__image__music--island" : "listItem__image__music"} alt="music" src={singleResult.image_uri}/>
+                    </div>
                     <div className={props.islandView ? "listItem__text__music--island" : "listItem__text__music"}>
                         {singleResult.name["name-EUen"]}
                     </div>

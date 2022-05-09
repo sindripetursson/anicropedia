@@ -5,8 +5,10 @@ function Villagers(props){
     return <div className="details__container">
         <div className="details__row">
             <div className="details__col">
-                <img className="frame" alt="frame" src='../../images/Frame.svg' />
-                <img className="image__villagers" alt="" src={props.singleResult.image_uri} />
+                <div className="details__placeholder">
+                    <img className="frame" alt="frame" src='../../images/Frame.svg' />
+                    <img className="image__villagers" alt="" src={props.singleResult.image_uri} />
+                </div>
                 <div className="checkmark__placeholder">
                     <div style={{transform: "translate(0, 25px)"}}  className={props.isInCollection ? "checkmark__image" : "hidden"} >
                         <img alt="checkmark" src="../../images/inCollection.svg"/> 

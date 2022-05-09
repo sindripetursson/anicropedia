@@ -19,9 +19,7 @@ function Encyclopedia(props) {
     }
 
     function wasCreatedACB(){
-        
-            props.setDetailsOn(false);
-        
+        props.setDetailsOn(false);
         if(!promise){
             resolvePromise(getSpecies('fish'), setPromise);
         }
