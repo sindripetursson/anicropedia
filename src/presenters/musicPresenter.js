@@ -210,11 +210,6 @@ function Music(props) {
                 btMuteMenuBarPres.src = "images/soundOff.svg";
 
                 audio.play();
-                if (props.isBackgroundMusicPlaying) {
-                    const backgroundAudio = document.getElementById('bgmMuteOff');
-                    backgroundAudio.pause();
-                    props.setIsBackgroundMusicPlaying(false);
-                }
 
 
                 var progressed = document.getElementById("progressed");
@@ -244,12 +239,6 @@ function Music(props) {
             // if audio is not paused: toggle to pause
             } else {
                 audio.pause();
-                if (props.isBackgroundMusicPlaying) {
-                    const backgroundAudio = document.getElementById('muteBtnOff');
-                    backgroundAudio.pause();
-                    props.setIsBackgroundMusicPlaying(false);
-                }
-                props.setIsBackgroundMusicPlaying(false);
 
                 // if no mute was pressed, then rise volume of bgm
                 // and display sound on mute bt
