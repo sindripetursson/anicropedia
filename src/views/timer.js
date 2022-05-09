@@ -22,14 +22,18 @@ function Timer(props) {
 
         // delay = 60000 - (date.getSeconds() * 1000);
 
-        delay = 3600000 - ((date.getMinutes() + (date.getSeconds() / 60)) * 60 * 1000);
+        //delay = 3600000 - ((date.getMinutes() + (date.getSeconds() / 60)) * 60 * 1000);
+        delay = 1000 * 30;
+        console.log('Timeout triggered');
         // console.log(delay);
         
-        if(hour !== checkHour) {
+        /*if(hour !== checkHour) {
             hour = checkHour;
             // console.log('changed: ' + date.getMinutes());
             props.onUpdateData();
-        }
+        } 
+        */
+       props.onUpdateData();
         setTimeout(timer, delay);
     }
 
