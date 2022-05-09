@@ -21,9 +21,23 @@ function Villagers(props) {
         if(!promise){
             resolvePromise(getVillagers('villagers'), setPromise);
         }
+        props.userModel.addObserver(villagerObserverACB);
+        return function isTakenDownACB() {props.userModel.removeObserver(villagerObserverACB);}
     }
     React.useEffect(wasCreatedACB, [promise]); 
     
+    function villagerObserverACB(payload) {
+        if (props.islandView) {
+            setData({...data});
+        } else if (payload && payload.addVillager) {
+            const checkmark = document.getElementById("checkmark_" + payload.addVillager.id);
+            if (checkmark) checkmark.classList = "checkmark";
+        } else if (payload && payload.removeVillager) {
+            const checkmark = document.getElementById("checkmark_" + payload.removeVillager.id);
+            if (checkmark) checkmark.classList = "hidden";
+        }
+    }
+
     function promiseChangedACB(){ 
         setData(null); 
         setError(null); 

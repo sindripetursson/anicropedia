@@ -17,7 +17,7 @@ function VillagersView(props){
                         </div>
                         {props.islandView ?
                         <></> :
-                        <img className={isItemInCollection(singleResult, 'villagers', true, props.userModel) ? "checkmark" : "hidden"} alt="villager" src="../../images/inCollection.svg"/>
+                        <img id={"checkmark_" + singleResult.id} className={isItemInCollection(singleResult, 'villagers', true, props.userModel) ? "checkmark" : "hidden"} alt="villager" src="../../images/inCollection.svg"/>
                         }
                     </div>
                 </div>
