@@ -13,7 +13,8 @@ let isHourChange = false;
 var audio = document.createElement('audio');
 audio.id = "bgmMuteOff";
 document.body.appendChild(audio);
-let backgroundAudioPlaying = false;
+let initialBackgroundAudioCheck = false;
+let isBackgroundMusicPlaying = false;
 
 export default 
 function MenuBar(props) {
@@ -108,7 +109,7 @@ function MenuBar(props) {
             audio.loop = true;
             //audio.play();
             if (isHourChange) {
-                audio.play();
+                if (isBackgroundMusicPlaying) audio.play();
                 isHourChange = false;
             }
 
@@ -172,30 +173,32 @@ function MenuBar(props) {
     }
 
     function muteAudioACB() {
-        if (backgroundAudioPlaying) {
-            if(audio.volume > 0) {
-                audio.volume = 0;
+        if (initialBackgroundAudioCheck) {
+            if(isBackgroundMusicPlaying) {
+                audio.pause();
                 // id to use audio in musicPresenter
                 audio.id = "bgmMute"
     
                 // set mute to mute (sound is off)
                 let muteBt = document.getElementById("muteId");
                 muteBt.src = "../../images/soundOff.svg";
+                isBackgroundMusicPlaying = false;
             } else {
                 
                 // play the BGM only when no vinyl is played
                 if(document.getElementById("vinyl").paused) {    
-                    audio.volume = 1;
+                    audio.play();
                     // id to use audio in musicPresenter
                     audio.id = "bgmMuteOff"
         
                     // set mute button to on (sound in on)
                     let muteBt = document.getElementById("muteId");
                     muteBt.src = "../../images/soundOn.svg";
+                    isBackgroundMusicPlaying = true;
                 }
             }
         } else {
-            backgroundAudioPlaying = true;
+            initialBackgroundAudioCheck = true;
             audio.play();
             let muteBt = document.getElementById("muteId");
             muteBt.src = "../../images/soundOn.svg";
