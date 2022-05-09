@@ -109,7 +109,7 @@ function MenuBar(props) {
             audio.loop = true;
             //audio.play();
             if (isHourChange) {
-                if (isBackgroundMusicPlaying) {//props.isBackgroundMusicPlaying === false) {
+                if (isBackgroundMusicPlaying) {
                     audio.play();   
                 }
                 isHourChange = false;
@@ -176,7 +176,7 @@ function MenuBar(props) {
 
     function muteAudioACB() {
         if (!initialBackgroundAudioCheck) {
-            if(isBackgroundMusicPlaying) {//props.isBackgroundMusicPlaying) {
+            if(isBackgroundMusicPlaying) {
                 audio.pause();
                 // id to use audio in musicPresenter
                 audio.id = "bgmMute";

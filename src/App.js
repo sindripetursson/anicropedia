@@ -23,21 +23,20 @@ import Music from './presenters/musicPresenter.js';
 function App(props) {
 
     const [detailsOn, setDetailsOn] = React.useState(false);
-    const [isBackgroundMusicPlaying, setIsBackgroundMusicPlaying] = React.useState(false);
     return (
         <div className="App">
         <div className={detailsOn ? "details" : "hidden"} onClick={() => setDetailsOn(false)}>
             <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
         </div>
             <div className={window.location.pathname !== "/login" && window.location.pathname !== "/signup" ? "": "hidden"}>
-                <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel} userModel={props.userModel} isBackgroundMusicPlaying={isBackgroundMusicPlaying} setIsBackgroundMusicPlaying={setIsBackgroundMusicPlaying}/>
+                <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel} userModel={props.userModel}/>
             </div>
             <Routes>
                 <Route path="/" exact element={ <Home setDetailsOn={setDetailsOn}/> }/>
                 <Route path="/island" element={<Island userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
                 <Route path="/encyclopedia" element={<Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
                 <Route path="/villagers" element={ <Villagers userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>
-                <Route path="/music" element={ <Music userModel={props.userModel} detailsModel={props.detailsModel} isBackgroundMusicPlaying={isBackgroundMusicPlaying} setIsBackgroundMusicPlaying={setIsBackgroundMusicPlaying}/> }/>
+                <Route path="/music" element={ <Music userModel={props.userModel} detailsModel={props.detailsModel}/> }/>
                 <Route path="/collectibles" element={ <Collectible userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>
                 <Route path="/info" element={ <Info setDetailsOn={setDetailsOn}/> }/>
                 <Route path="/settings" element={ <Settings userModel={props.userModel}/> }/>

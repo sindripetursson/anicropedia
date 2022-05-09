@@ -170,7 +170,6 @@ function Music(props) {
 
             // make sure that the playing song is stoped, since it will be replaced
             audio.pause();
-            props.setIsBackgroundMusicPlaying(false);
 
             // clear the array with the old song, since there should always only be one song in the array
             audioArr.pop();
@@ -279,7 +278,6 @@ function Music(props) {
     function stopTrack() {
         // stop the track
         audio.pause();
-        props.setIsBackgroundMusicPlaying(false);
 
         // No progressbar in islandview
         if(!props.islandView) {
