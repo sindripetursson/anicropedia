@@ -13,8 +13,8 @@ let isHourChange = false;
 var audio = document.createElement('audio');
 audio.id = "bgmMute";
 document.body.appendChild(audio);
-let initialBackgroundAudioCheck = false;
-//let isBackgroundMusicPlaying = false;
+let initialBackgroundAudioCheck = true;
+let isBackgroundMusicPlaying = false;
 
 export default 
 function MenuBar(props) {
@@ -82,18 +82,18 @@ function MenuBar(props) {
         // console.log('weather: ' + props.weatherModel.getCityWeather());
         
         // console.log(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour));
-        if(props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null && (checkHour !== currentHour)) {
+        if(props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null  && (checkHour !== currentHour)) {
 
             var today = new Date();
             currentHour = today.getHours();
             
             // currentMinute = today.getMinutes();
 
-                var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
-                cityHour = (today.getUTCHours() + (props.weatherModel.getCityWeather().timezone / 60 / 60)) % 24;
-                if (cityHour < 0) cityHour += 24; //Corrects hour if it goes into minus
-                const relevantMusic = []
-                var weatherIndex;
+            var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
+            cityHour = (today.getUTCHours() + (props.weatherModel.getCityWeather().timezone / 60 / 60)) % 24;
+            if (cityHour < 0) cityHour += 24; //Corrects hour if it goes into minus
+            const relevantMusic = []
+            var weatherIndex;
 
             console.log("-----------------------------");
             console.log('Weather in ' + props.userModel.getCityAddress() + ': ' + props.weatherModel.getCityWeather().weather[0].main);
@@ -109,9 +109,9 @@ function MenuBar(props) {
             audio.loop = true;
             //audio.play();
             if (isHourChange) {
-                console.log('Updating weather, hour change true, background audio; ', props.isBackgroundMusicPlaying);
-
-                if (props.isBackgroundMusicPlaying) audio.play();
+                if (isBackgroundMusicPlaying) {//props.isBackgroundMusicPlaying === false) {
+                    audio.play();   
+                }
                 isHourChange = false;
             }
 
@@ -170,16 +170,13 @@ function MenuBar(props) {
     }
 
     function onHourChangeACB() {
-        console.log('Hour change, background audio; ', props.isBackgroundMusicPlaying);
-
         isHourChange = true;
         updateData();
     }
 
     function muteAudioACB() {
-        console.log('Audio mute triggered, background audio; ', props.isBackgroundMusicPlaying);
-        if (initialBackgroundAudioCheck) {
-            if(props.isBackgroundMusicPlaying) {
+        if (!initialBackgroundAudioCheck) {
+            if(isBackgroundMusicPlaying) {//props.isBackgroundMusicPlaying) {
                 audio.pause();
                 // id to use audio in musicPresenter
                 audio.id = "bgmMute";
@@ -187,7 +184,7 @@ function MenuBar(props) {
                 // set mute to mute (sound is off)
                 let muteBt = document.getElementById("muteId");
                 muteBt.src = "../../images/soundOff.svg";
-                props.setIsBackgroundMusicPlaying(false);
+                isBackgroundMusicPlaying = false;
             } else {
                 
                 // play the BGM only when no vinyl is played
@@ -199,16 +196,17 @@ function MenuBar(props) {
                     // set mute button to on (sound in on)
                     let muteBt = document.getElementById("muteId");
                     muteBt.src = "../../images/soundOn.svg";
-                    props.setIsBackgroundMusicPlaying(true);
+                    isBackgroundMusicPlaying = true;
+
                 }
             }
         } else {
-            initialBackgroundAudioCheck = true;
+            initialBackgroundAudioCheck = false;
             audio.play();
             audio.id = "bgmMuteOff";
             let muteBt = document.getElementById("muteId");
             muteBt.src = "../../images/soundOn.svg";
-            props.setIsBackgroundMusicPlaying(true);
+            isBackgroundMusicPlaying = true;
         }
     }
     updateData();
