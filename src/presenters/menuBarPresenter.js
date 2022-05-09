@@ -14,7 +14,7 @@ var audio = document.createElement('audio');
 audio.id = "bgmMute";
 document.body.appendChild(audio);
 let initialBackgroundAudioCheck = false;
-let isBackgroundMusicPlaying = false;
+//let isBackgroundMusicPlaying = false;
 
 export default 
 function MenuBar(props) {
@@ -109,7 +109,7 @@ function MenuBar(props) {
             audio.loop = true;
             //audio.play();
             if (isHourChange) {
-                if (isBackgroundMusicPlaying) audio.play();
+                if (props.isBackgroundMusicPlaying) audio.play();
                 isHourChange = false;
             }
 
@@ -174,7 +174,7 @@ function MenuBar(props) {
 
     function muteAudioACB() {
         if (initialBackgroundAudioCheck) {
-            if(isBackgroundMusicPlaying) {
+            if(props.isBackgroundMusicPlaying) {
                 audio.pause();
                 // id to use audio in musicPresenter
                 audio.id = "bgmMute"
@@ -182,7 +182,7 @@ function MenuBar(props) {
                 // set mute to mute (sound is off)
                 let muteBt = document.getElementById("muteId");
                 muteBt.src = "../../images/soundOff.svg";
-                isBackgroundMusicPlaying = false;
+                props.setIsBackgroundMusicPlaying(false);
             } else {
                 
                 // play the BGM only when no vinyl is played
@@ -194,7 +194,7 @@ function MenuBar(props) {
                     // set mute button to on (sound in on)
                     let muteBt = document.getElementById("muteId");
                     muteBt.src = "../../images/soundOn.svg";
-                    isBackgroundMusicPlaying = true;
+                    props.setIsBackgroundMusicPlaying(true);
                 }
             }
         } else {

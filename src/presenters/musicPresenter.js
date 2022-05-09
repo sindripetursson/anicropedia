@@ -149,7 +149,7 @@ function Music(props) {
         // if no mute was pressed by user, lower bgm volume
         // and show that the sound is off on the mute bt
         if(document.getElementById("bgmMuteOff")) {
-            document.getElementById("bgmMuteOff").volume = 0;
+            document.getElementById("bgmMuteOff").pause();
             
             // vinyl is played, so show mute on bgm mute bt
             var btMuteMenuBarPres = document.getElementById("muteId");
@@ -170,6 +170,7 @@ function Music(props) {
 
             // make sure that the playing song is stoped, since it will be replaced
             audio.pause();
+            props.setIsBackgroundMusicPlaying(false);
 
             // clear the array with the old song, since there should always only be one song in the array
             audioArr.pop();
@@ -201,7 +202,7 @@ function Music(props) {
                 // if no mute is pressed by user, then lower volume of bgm
                 // and show mute is on (sound is off)
                 if(document.getElementById("bgmMuteOff")) {
-                    document.getElementById("bgmMuteOff").volume = 0;
+                    document.getElementById("bgmMuteOff").pause();
                 }
 
                 // vinyl is played, so show mute on bgm mute bt
@@ -209,6 +210,7 @@ function Music(props) {
                 btMuteMenuBarPres.src = "images/soundOff.svg";
 
                 audio.play();
+                props.setIsBackgroundMusicPlaying(true);
 
 
                 var progressed = document.getElementById("progressed");
@@ -238,11 +240,12 @@ function Music(props) {
             // if audio is not paused: toggle to pause
             } else {
                 audio.pause();
+                props.setIsBackgroundMusicPlaying(false);
 
                 // if no mute was pressed, then rise volume of bgm
                 // and display sound on mute bt
                 if(document.getElementById("bgmMuteOff")) {
-                    document.getElementById("bgmMuteOff").volume = 1;
+                    document.getElementById("bgmMuteOff").play();
                     
                     // vinyl is paused, so show no mute on bgm mute bt
                     let btMuteMenuBarPres = document.getElementById("muteId");
@@ -278,6 +281,7 @@ function Music(props) {
     function stopTrack() {
         // stop the track
         audio.pause();
+        props.setIsBackgroundMusicPlaying(false);
 
         // No progressbar in islandview
         if(!props.islandView) {
@@ -299,7 +303,7 @@ function Music(props) {
 
         // rise up bgm
         if(document.getElementById("bgmMuteOff")) {
-            document.getElementById("bgmMuteOff").volume = 1;
+            document.getElementById("bgmMuteOff").play();
 
             // vinyl is paused, so show no mute on bgm mute bt
             var btMuteMenuBarPres = document.getElementById("muteId");
