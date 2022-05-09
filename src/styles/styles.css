@@ -1121,6 +1121,7 @@ button:hover {
   align-items: center;
 }
 .menuBar__sideDrawerClose {
+  cursor: pointer;
   position: absolute;
   top: 30px;
   right: 180px;
