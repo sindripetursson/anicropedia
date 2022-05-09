@@ -100,13 +100,15 @@ function Music(props) {
                 var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
                 btVinylPlayPause.src = "../../images/play-button.png";
 
-                // set vinyl img in musicBar
-                var musicBarImg = document.getElementById("musicBarImg");
-                musicBarImg.src = singleResultGlobal.image_uri;
+                if(!props.islandView) {
+                    // set vinyl img in musicBar
+                    var musicBarImg = document.getElementById("musicBarImg");
+                    musicBarImg.src = singleResultGlobal.image_uri;
 
-                // set artist name in musicBar
-                var artistName = document.getElementById("songName");
-                artistName.textContent = singleResultGlobal.name["name-EUen"];
+                    // set artist name in musicBar
+                    var artistName = document.getElementById("songName");
+                    artistName.textContent = singleResultGlobal.name["name-EUen"];
+                    }
 
                 var progressed = document.getElementById("progressed"); 
 
