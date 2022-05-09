@@ -19,7 +19,9 @@ import { Routes, Route } from "react-router-dom";
 import Details from './presenters/detailsPresenter';
 import Music from './presenters/musicPresenter.js';
 
+
 function App(props) {
+
     const [detailsOn, setDetailsOn] = React.useState(false);
     return (
         <div className="App">
