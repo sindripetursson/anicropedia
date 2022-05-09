@@ -24,8 +24,10 @@ function Music(props) {
 
     function wasCreatedACB(){
         if(!promise){
-        resolvePromise(getMusic('songs'), setPromise);
+            resolvePromise(getMusic('songs'), setPromise);
         }
+        props.userModel.addObserver(musicObserverACB);
+        return function isTakenDownACB() {props.userModel.removeObserver(musicObserverACB);}
     }
 
     function changeCollectionACB(musicTrack, inCollection) {
@@ -34,10 +36,17 @@ function Music(props) {
         } else {
             props.userModel.addItem(musicTrack, 'music');
         }
-        // No checkmark in islandview
-        if(!props.islandView) {
-            document.getElementById('checkmark_' + musicTrack.id).classList= !inCollection? 'checkmark' : 'hidden';
-            document.getElementById('button_' + musicTrack.id).innerHTML = !inCollection? 'Remove from my collection' : 'Add to my collection';
+    }
+
+    function musicObserverACB(payload) {
+        if (props.islandView) {
+            setData({...data});
+        } else if (payload && payload.addMusic) {
+            document.getElementById('checkmark_' + payload.addMusic.id).classList= 'checkmark';
+            document.getElementById('button_' + payload.addMusic.id).innerHTML = 'Remove from my collection';
+        } else if (payload && payload.removeMusic) {
+            document.getElementById('checkmark_' + payload.removeMusic.id).classList= 'hidden';
+            document.getElementById('button_' + payload.removeMusic.id).innerHTML = 'Add to my collection';
         }
     }
 
