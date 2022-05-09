@@ -109,6 +109,8 @@ function MenuBar(props) {
             audio.loop = true;
             //audio.play();
             if (isHourChange) {
+                console.log('Updating weather, hour change true, background audio; ', props.isBackgroundMusicPlaying);
+
                 if (props.isBackgroundMusicPlaying) audio.play();
                 isHourChange = false;
             }
@@ -168,16 +170,19 @@ function MenuBar(props) {
     }
 
     function onHourChangeACB() {
+        console.log('Hour change, background audio; ', props.isBackgroundMusicPlaying);
+
         isHourChange = true;
         updateData();
     }
 
     function muteAudioACB() {
+        console.log('Audio mute triggered, background audio; ', props.isBackgroundMusicPlaying);
         if (initialBackgroundAudioCheck) {
             if(props.isBackgroundMusicPlaying) {
                 audio.pause();
                 // id to use audio in musicPresenter
-                audio.id = "bgmMute"
+                audio.id = "bgmMute";
     
                 // set mute to mute (sound is off)
                 let muteBt = document.getElementById("muteId");
@@ -189,7 +194,7 @@ function MenuBar(props) {
                 if(document.getElementById("vinyl").paused) {    
                     audio.play();
                     // id to use audio in musicPresenter
-                    audio.id = "bgmMuteOff"
+                    audio.id = "bgmMuteOff";
         
                     // set mute button to on (sound in on)
                     let muteBt = document.getElementById("muteId");
@@ -200,8 +205,10 @@ function MenuBar(props) {
         } else {
             initialBackgroundAudioCheck = true;
             audio.play();
+            audio.id = "bgmMuteOff";
             let muteBt = document.getElementById("muteId");
             muteBt.src = "../../images/soundOn.svg";
+            props.setIsBackgroundMusicPlaying(true);
         }
     }
     updateData();
