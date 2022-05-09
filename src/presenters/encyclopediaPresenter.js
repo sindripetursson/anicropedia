@@ -89,10 +89,14 @@ function Encyclopedia(props) {
                 </div>
             </div>
         </div> 
-        {props.islandView ? <EncyclopediaView onItemClicked={getDetails} data={props.userModel.getCategoryArray(currentSpecies)} userModel={props.userModel} currentSpecies={currentSpecies} islandView/> :
-        promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
-        <div> 
-            <EncyclopediaView onItemClicked={getDetails} data={data} userModel={props.userModel} currentSpecies={currentSpecies}/>
-        </div>}
+        <div className="list">
+            <div className={props.islandView ? "list__container__encyclopedia--island" : "list__container__encyclopedia"}>
+                {props.islandView ? <EncyclopediaView onItemClicked={getDetails} data={props.userModel.getCategoryArray(currentSpecies)} userModel={props.userModel} currentSpecies={currentSpecies} islandView/> :
+                promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
+                <div> 
+                    <EncyclopediaView onItemClicked={getDetails} data={data} userModel={props.userModel} currentSpecies={currentSpecies}/>
+                </div>}
+            </div>
+        </div>
     </div>
 }

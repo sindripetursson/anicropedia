@@ -42,7 +42,6 @@ function Signup(props) {
     function onCityChange(cityAddress, latlng) {
         setCityAddress(cityAddress);
         setCityCoordinates(latlng);
-        console.log('In onCityChange with : ', cityAddress, ' and coords: ', latlng);
     }
 
     function signupACB(e) {
@@ -65,7 +64,7 @@ function Signup(props) {
                         document.getElementById('signupPassword').classList.remove('authentication__input--error');
                         document.getElementById('signupEmail').classList.remove('authentication__input--error');
                         document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
-                        document.getElementById('citySearchInput').classList.add('citySearch__input--error');
+                        document.getElementById('citySearchInput').classList.remove('authentication__input--error');
                         document.querySelector('.authentication__errorMessage').innerHTML = '';
                         window.location = '/';
                     })
@@ -73,6 +72,7 @@ function Signup(props) {
                         document.getElementById('signupPassword').classList.remove('authentication__input--error');
                         document.getElementById('signupEmail').classList.remove('authentication__input--error');
                         document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
+                        document.getElementById('citySearchInput').classList.remove('authentication__input--error');
                         const errorCode = error.code;
                         const errorMessage = error.message;
                         const errorText = document.querySelector('.authentication__errorMessage');
@@ -92,7 +92,7 @@ function Signup(props) {
                     });
             } else {
                 document.querySelector('.authentication__errorMessage').innerHTML = 'Please select a valid location.';
-                document.getElementById('citySearchInput').classList.add('citySearch__input--error');
+                document.getElementById('citySearchInput').classList.add('authentication__input--error');
             }
         } else {
             document.querySelector('.authentication__errorMessage').innerHTML = 'The passwords do not match.';
@@ -102,7 +102,16 @@ function Signup(props) {
 
     return (
         <div>
-            <SignupView name={name} onNameChange={onNameChange} email={email} onEmailChange={onEmailChange} password={password} onPasswordChange={onPasswordChange} repeatPassword={repeatPassword} onRepeatPasswordChange={onRepeatPasswordChange} onSignup={signupACB} onCityChange={onCityChange}/>
+            <SignupView name={name} 
+                        onNameChange={onNameChange} 
+                        email={email} 
+                        onEmailChange={onEmailChange} 
+                        password={password} 
+                        onPasswordChange={onPasswordChange} 
+                        repeatPassword={repeatPassword} 
+                        onRepeatPasswordChange={onRepeatPasswordChange} 
+                        onSignup={signupACB} 
+                        onCityChange={onCityChange}/>
         </div>
     )
 }

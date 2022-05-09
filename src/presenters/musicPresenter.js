@@ -29,13 +29,16 @@ function Music(props) {
     }
 
     function changeCollectionACB(musicTrack, inCollection) {
-    if(inCollection) {
-        props.userModel.removeItem(musicTrack, 'music');
-    } else {
-        props.userModel.addItem(musicTrack, 'music');
-    }
-    document.getElementById('checkmark_' + musicTrack.id).classList= !inCollection? 'checkmark' : 'hidden';
-    document.getElementById('button_' + musicTrack.id).innerHTML = !inCollection? 'Remove from my collection' : 'Add to my collection';
+        if(inCollection) {
+            props.userModel.removeItem(musicTrack, 'music');
+        } else {
+            props.userModel.addItem(musicTrack, 'music');
+        }
+        // No checkmark in islandview
+        if(!props.islandView) {
+            document.getElementById('checkmark_' + musicTrack.id).classList= !inCollection? 'checkmark' : 'hidden';
+            document.getElementById('button_' + musicTrack.id).innerHTML = !inCollection? 'Remove from my collection' : 'Add to my collection';
+        }
     }
 
     React.useEffect(wasCreatedACB, []);
@@ -55,7 +58,7 @@ function Music(props) {
             // set the buttons according to the still playing music, eg 'show pause'
             setTimeout(() => {
                 var btTopPlayPause = document.getElementById("togglePlayPause");
-                // No progressbar on islandview
+                // No progressbar in islandview
                 if(!props.islandView) {
                     btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
                 }
@@ -209,7 +212,7 @@ function Music(props) {
                 var progressed = document.getElementById("progressed");
                 // var progress_bar = document.getElementById("progress_bar");  
 
-                // No progressbar on islandview
+                // No progressbar in islandview
                 if(!props.islandView) {
                     audio.ontimeupdate = function() {
                         progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
@@ -226,7 +229,7 @@ function Music(props) {
                     btVinylPlayPause.src = "../../images/pause-button.png";
                 }
                 btTopPlayPause = document.getElementById("togglePlayPause");
-                // No progressbar on islandview
+                // No progressbar in islandview
                 if(!props.islandView) {
                     btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
                 }
@@ -250,7 +253,7 @@ function Music(props) {
                 }
 
                 btTopPlayPause = document.getElementById("togglePlayPause");
-                // No progressbar on islandview
+                // No progressbar in islandview
                 if(!props.islandView) {
                     btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
                 }
@@ -262,7 +265,7 @@ function Music(props) {
                 btVinylPlayPause.src = "../../images/play-button.png";
             }
             btTopPlayPause = document.getElementById("togglePlayPause");
-            // No progressbar on islandview
+            // No progressbar in islandview
             if(!props.islandView) {
                 btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
             }
@@ -274,7 +277,7 @@ function Music(props) {
         // stop the track
         audio.pause();
 
-        // No progressbar on islandview
+        // No progressbar in islandview
         if(!props.islandView) {
             var progressed = document.getElementById("progressed");
             progressed.style.width = "0%";

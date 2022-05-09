@@ -18,7 +18,12 @@ function SettingsView(props){
                         props.setModalNameVisible(!props.modalNameVisible)
                     }
                 >  
-                    <ModalName userModel={props.userModel} setModalNameVisible={props.setModalNameVisible} modalNameVisible={props.modalNameVisible} />
+                    <ModalName userModel={props.userModel} 
+                               setModalNameVisible={props.setModalNameVisible}
+                               modalNameVisible={props.modalNameVisible} 
+                               name={props.name}
+                               onNameChange={props.onNameChange}
+                               onNameSubmit={props.onNameSubmit}/>
                 </Modal>
             </div>
 
@@ -32,7 +37,11 @@ function SettingsView(props){
                         props.setModalCityVisible(!props.modalCityVisible)
                     }
                 >  
-                    <ModalCity userModel={props.userModel} setModalCityVisible={props.setModalCityVisible} modalCityVisible={props.modalCityVisible} />
+                    <ModalCity userModel={props.userModel} 
+                               setModalCityVisible={props.setModalCityVisible} 
+                               modalCityVisible={props.modalCityVisible}
+                               onCityChange={props.onCityChange}
+                               onCitySubmit={props.onCitySubmit} />
                 </Modal>
             </div>
 
@@ -46,7 +55,16 @@ function SettingsView(props){
                         props.setModalPasswordVisible(!props.modalPasswordVisible)
                     }
                 >  
-                    <ModalPassword userModel={props.userModel} setModalPasswordVisible={props.setModalPasswordVisible} modalPasswordVisible={props.modalPasswordVisible} />
+                    <ModalPassword userModel={props.userModel} 
+                                   setModalPasswordVisible={props.setModalPasswordVisible} 
+                                   modalPasswordVisible={props.modalPasswordVisible} 
+                                   oldPassword={props.oldPassword}
+                                   onOldPasswordChange={props.onOldPasswordChange}
+                                   newPassword={props.newPassword}
+                                   onNewPasswordChange={props.onNewPasswordChange}
+                                   repeatNewPassword={props.repeatNewPassword}
+                                   onRepeatNewPasswordChange={props.onRepeatNewPasswordChange}
+                                   onPasswordSubmit={props.onPasswordSubmit}/>
                 </Modal>
             </div>
 

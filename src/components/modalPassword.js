@@ -8,9 +8,9 @@ function ModalPassword(props){
                 <p style={{marginTop: "30px"}} className="settings__label">Old password</p>
                 <input className="settings__input"
                         type="password" 
-                        onChange={props.onPasswordChange}
-                        value={props.password}
-                        id="signupPassword"
+                        onChange={props.onOldPasswordChange}
+                        value={props.oldPassword}
+                        id="oldPassword"
                         placeholder="Enter your old password..."
                 />
             </label>
@@ -18,9 +18,9 @@ function ModalPassword(props){
                 <p className="settings__label">New password</p>
                 <input className="settings__input"
                         type="password" 
-                        onChange={props.onPasswordChange}
-                        value={props.password}
-                        id="signupPassword"
+                        onChange={props.onNewPasswordChange}
+                        value={props.newPassword}
+                        id="newPassword"
                         placeholder="Enter your new password..."
                 />
             </label>
@@ -28,19 +28,19 @@ function ModalPassword(props){
                 <p className="settings__label">Confirm new password</p>
                 <input className="settings__input"
                         type="password" 
-                        onChange={props.onRepeatPasswordChange}
-                        value={props.repeatPassword}
-                        id="signupRepeatPassword"
+                        onChange={props.onRepeatNewPasswordChange}
+                        value={props.repeatNewPassword}
+                        id="newRepeatPassword"
                         placeholder="Repeat your new password..."
                 />
             </label>
             <div className="settings__error">
-                <p className="settings__errorMessage"></p>
+                <p className="settings__errorMessage" id="settingsPasswordError"></p>
             </div>
         </form>
         <div style={{marginTop: "30px"}} className='settings__buttonsContainer'>
             <button className="settings__buttonModal" onClick={() => props.setModalPasswordVisible(!props.modalPasswordVisible)}>Cancel</button>
-            <button type="submit" className="settings__buttonModal" onClick={() => console.log("clicked submit")}>Submit</button>
+            <button type="submit" className="settings__buttonModal" onClick={props.onPasswordSubmit}>Submit</button>
         </div>
         <div  onClick={() => props.setModalPasswordVisible(!props.modalPasswordVisible)} className="close">
             <CloseButton />
