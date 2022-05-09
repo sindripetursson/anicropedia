@@ -306,6 +306,7 @@ body {
   .list__container__encyclopedia--island {
     width: 100%;
     max-width: 100%;
+    height: 36vh;
   }
 }
 .list__container__other--island {
