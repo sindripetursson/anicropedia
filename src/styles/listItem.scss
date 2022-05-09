@@ -2,7 +2,6 @@
 
 .listItem {
     padding: 2px;
-    border: green 1px solid;
     cursor: pointer;
     
     &__image {
@@ -35,6 +34,22 @@
             &--island{
                 width: 60px;
             }
+        }
+    }
+
+    &__imagePlaceholder{
+        height: 128px;
+
+        // &--island{
+        //     height: 60px;
+        // }
+    }
+
+
+    &__imagePlaceholderMusic{
+        min-height: 250px;
+        &--island{
+            height: 80px;
         }
     }
 

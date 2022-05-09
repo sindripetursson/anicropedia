@@ -11,7 +11,9 @@ function EncyclopediaView(props){
             return (
                 <div className={props.islandView ? "list__col__encyclopedia--island" : "list__col__encyclopedia"} key={"encyclopedia_"+singleResult.id} onClick={() => itemClicked()}>
                     <div className="listItem__encyclopedia" >
-                        <img className={props.islandView ? "listItem__image__encyclopedia--island" : "listItem__image__encyclopedia"} alt="" src={singleResult.icon_uri}/>
+                        <div className={props.islandView ? "listItem__imagePlaceholder--island" : "listItem__imagePlaceholder"}>
+                            <img className={props.islandView ? "listItem__image__encyclopedia--island" : "listItem__image__encyclopedia"} alt="" src={singleResult.icon_uri}/>
+                        </div>
                         <div className={props.islandView ? "listItem__text__encyclopedia--island" : "listItem__text__encyclopedia"}>
                             {capitalizeFirstLetter(singleResult.name["name-EUen"])}
                         </div>

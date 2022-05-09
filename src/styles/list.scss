@@ -303,9 +303,6 @@
     }
 
     &__image{
-        // position: absolute;
-        // left: calc(10px + 25%);
-        // transform: translate(-50%, 0);
         display: flex;
         color: #887C66;
         font-family: $font-main;
@@ -317,7 +314,7 @@
     }
 
     &__placeholder{
-        height: 50px;
+        height: 100px;
         width: 100%;
     }
 }

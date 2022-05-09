@@ -6,7 +6,9 @@ function Bugs(props){
     return <div className="details__container">
         <div className="details__row">
             <div className="details__col" >
-                <img className="image" alt="" src={props.singleResult.image_uri} />
+                <div className="details__placeholder">
+                    <img className="image" alt="" src={props.singleResult.image_uri} />
+                </div>
                 <div className="checkmark__placeholder">
                     <div className={props.isInCollection ? "checkmark__image" : "hidden"} >
                         <img alt="checkmark" src="../../images/inCollection.svg"/> 
