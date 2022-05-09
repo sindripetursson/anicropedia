@@ -17,6 +17,7 @@ function Villagers(props) {
     }
 
     function wasCreatedACB(){
+        props.setDetailsOn(false);
         if(!promise){
             resolvePromise(getVillagers('villagers'), setPromise);
         }

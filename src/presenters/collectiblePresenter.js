@@ -23,6 +23,7 @@ function Collectible(props) {
 
 
     function wasCreatedACB(){
+        props.setDetailsOn(false);
         if(!promise){
             resolvePromise(getCollectible('fossils'), setPromise);
         }
