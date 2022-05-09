@@ -50,7 +50,9 @@ function Encyclopedia(props) {
     }
 
     function encyclopediaObserverACB(payload) {
-        if (payload && payload.addFish) {
+        if (props.islandView) {
+            setData({...data});
+        } else if (payload && payload.addFish) {
             const checkmark = document.getElementById("checkmark_fish_" + payload.addFish.id);
             if (checkmark) checkmark.classList = "checkmark";
         } else if (payload && payload.removeFish) {
