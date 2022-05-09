@@ -49,18 +49,8 @@ function SignupView(props) {
                 </label>
                 <label className="authentication__city">
                     <p className="authentication__label">City</p>
-                    <select className="authentication__citySelection"
-                           type="password" 
-                           onChange={props.onCityChange}
-                           id="signupCity">
-                        <option>Stockholm, Sweden</option>
-                        <option>Reykjavík, Iceland</option>
-                        <option>Tokyo, Japan</option>
-                        <option>London, England</option>
-                        <option>New York, United States</option>
-                    </select>
+                    <CitySearch onCityChange={props.onCityChange}/>
                 </label>
-                <CitySearch onCityChange={props.onCityChange}/>
                 <div></div>
                 <div className="authentication__error">
                     <p className="authentication__errorMessage"></p>

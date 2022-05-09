@@ -9,6 +9,7 @@ function Settings(props) {
     const [modalCityVisible, setModalCityVisible] = React.useState(false);
     const [modalPasswordVisible, setModalPasswordVisible] = React.useState(false);
     const [modalClearVisible, setModalClearVisible] = React.useState(false);
+    const [confirmationVisible, setConfirmationVisible] = React.useState(false);
 
     const [name, setName] = React.useState('');
     const [newCityAddress, setNewCityAddress] = React.useState('');
@@ -16,6 +17,10 @@ function Settings(props) {
     const [oldPassword, setOldPassword] = React.useState('');
     const [newPassword, setNewPassword] = React.useState('');
     const [repeatNewPassword, setRepeatNewPassword] = React.useState('');
+
+    function turnOffConfirmation(){
+        setConfirmationVisible(false);
+    }
 
     function onNameSubmitACB() {
         if (name !== '' && name.length < 70) {
@@ -31,6 +36,8 @@ function Settings(props) {
                 document.getElementById('settingsNameError').innerHTML = 'The new name must be shorter than 70 character long.';
             }
         }
+        setConfirmationVisible(true);
+        setTimeout(turnOffConfirmation, 5000);
     }
 
     function onCityChange(cityAddress, latlng) {
@@ -50,6 +57,8 @@ function Settings(props) {
             document.getElementById('citySearchInput').classList.add('settings__input--error');
             document.getElementById('settingsCityError').innerHTML = 'No location selected.';
         }
+        setConfirmationVisible(true);
+        setTimeout(turnOffConfirmation, 5000);
     }
 
     function onPasswordSubmitACB() {
@@ -83,6 +92,9 @@ function Settings(props) {
                 document.getElementById('oldPassword').classList.add('settings__input--error');
                 document.getElementById('settingsPasswordError').innerHTML = 'Incorrect old password.';
             });
+
+        setConfirmationVisible(true);
+        setTimeout(turnOffConfirmation, 5000);
     }
 
     return sessionCheck() || 
@@ -110,7 +122,10 @@ function Settings(props) {
                 onNewPasswordChange={(password) => setNewPassword(password.target.value)}
                 repeatNewPassword={repeatNewPassword}
                 onRepeatNewPasswordChange={(password) => setRepeatNewPassword(password.target.value)}
-                onPasswordSubmit={onPasswordSubmitACB}/>
+                onPasswordSubmit={onPasswordSubmitACB}
+                confirmationVisible={confirmationVisible}
+                turnOffConfirmation={turnOffConfirmation}
+                />
         </div>
         }
     </div>)
