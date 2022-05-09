@@ -17,7 +17,7 @@ var btVinylPlayPause;
 
 export default 
 function Music(props) {
-
+    
     const [promise, setPromise]= React.useState(getMusic('songs'));
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);
@@ -210,7 +210,11 @@ function Music(props) {
                 btMuteMenuBarPres.src = "images/soundOff.svg";
 
                 audio.play();
-                props.setIsBackgroundMusicPlaying(true);
+                if (props.isBackgroundMusicPlaying) {
+                    const backgroundAudio = document.getElementById('bgmMuteOff');
+                    backgroundAudio.pause();
+                    props.setIsBackgroundMusicPlaying(false);
+                }
 
 
                 var progressed = document.getElementById("progressed");
@@ -240,6 +244,11 @@ function Music(props) {
             // if audio is not paused: toggle to pause
             } else {
                 audio.pause();
+                if (props.isBackgroundMusicPlaying) {
+                    const backgroundAudio = document.getElementById('muteBtnOff');
+                    backgroundAudio.pause();
+                    props.setIsBackgroundMusicPlaying(false);
+                }
                 props.setIsBackgroundMusicPlaying(false);
 
                 // if no mute was pressed, then rise volume of bgm
