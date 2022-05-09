@@ -62,8 +62,10 @@ function Music(props) {
                 if(!props.islandView) {
                     btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
                 }
-                var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-                btVinylPlayPause.src = "../../images/pause-button.png";
+                if(!props.islandView) {
+                    var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
+                    btVinylPlayPause.src = "../../images/pause-button.png";
+                }
 
                 if(!props.islandView) {
                 // set vinyl img in musicBar
