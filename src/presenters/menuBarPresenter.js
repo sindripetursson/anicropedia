@@ -11,7 +11,7 @@ let isHourChange = false;
 // let currentMinute; 
 
 var audio = document.createElement('audio');
-audio.id = "bgmMuteOff";
+audio.id = "bgmMute";
 document.body.appendChild(audio);
 let initialBackgroundAudioCheck = false;
 let isBackgroundMusicPlaying = false;
@@ -149,7 +149,7 @@ function MenuBar(props) {
             Object.values(relevantMusic).map(renderFinalSong);
 
             function renderFinalSong(finalSong) {
-                if (finalSong.weather === weatherIndex) {
+                if (finalSong.weather === weatherIndex) { 
                     audio.src = finalSong.music_uri;
                     console.log('Following song was chosen: ' + finalSong['file-name'])
                     console.log('Song URI: ' + finalSong.music_uri);
