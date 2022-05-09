@@ -7,6 +7,7 @@ import { sessionCheck } from "../utils";
 
 export default 
 function Encyclopedia(props) {
+    
     const [promise, setPromise]=React.useState(getSpecies('fish'));
     const [data, setData]= React.useState(null);
     const [error, setError]= React.useState(null);
@@ -18,6 +19,9 @@ function Encyclopedia(props) {
     }
 
     function wasCreatedACB(){
+        
+            props.setDetailsOn(false);
+        
         if(!promise){
             resolvePromise(getSpecies('fish'), setPromise);
         }
