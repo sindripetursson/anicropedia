@@ -4,7 +4,6 @@ import promiseNoData from "../views/promiseNoData.js";
 import resolvePromise from "../resolvePromise";
 import EncyclopediaView from "../views/encyclopediaView";
 import { sessionCheck } from "../utils";
-import { isItemInCollection } from "../utils";
 
 export default 
 function Encyclopedia(props) {

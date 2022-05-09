@@ -21,7 +21,7 @@ function CollectibleView(props){
                         </div>
                         {props.islandView ?
                         <></> :
-                        <img className={isItemInCollection(singleResult, props.category, false, props.userModel) ? "checkmark" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/>
+                        <img id={"checkmark_"+props.category + "_" + (props.category==='fossils'?singleResult['file-name']:singleResult.id)} className={isItemInCollection(singleResult, props.category, false, props.userModel) ? "checkmark" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/>
                         }
                     </div>
                 </div>

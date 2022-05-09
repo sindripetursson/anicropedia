@@ -27,8 +27,28 @@ function Collectible(props) {
         if(!promise){
             resolvePromise(getCollectible('fossils'), setPromise);
         }
+        props.userModel.addObserver(collectiblesObserverACB);
+        return function isTakenDownACB() {props.userModel.removeObserver(collectiblesObserverACB);}
     }
     React.useEffect(wasCreatedACB, []); 
+
+    function collectiblesObserverACB(payload) {
+        if (props.islandView) {
+            setData({...data});
+        } else if (payload && payload.addFossil) {
+            const checkmark = document.getElementById("checkmark_fossils_" + payload.addFossil['file-name']);
+            if (checkmark) checkmark.classList = "checkmark";
+        } else if (payload && payload.removeFossils) {
+            const checkmark = document.getElementById("checkmark_fossils_" + payload.removeFossils['file-name']);
+            if (checkmark) checkmark.classList = "hidden";
+        } else if (payload && payload.addArt) {
+            const checkmark = document.getElementById("checkmark_art_" + payload.addArt.id);
+            if (checkmark) checkmark.classList = "checkmark";
+        } else if (payload && payload.removeArt) {
+            const checkmark = document.getElementById("checkmark_art_" + payload.removeArt.id);
+            if (checkmark) checkmark.classList = "hidden";
+        }
+    }
         
     function promiseChangedACB(){ 
         setData(null); 

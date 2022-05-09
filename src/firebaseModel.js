@@ -167,7 +167,7 @@ function updateModelFromFirebase(model, uid) {
     );
     firebase.database().ref(REF + "/" + uid + "/fossils").on("child_removed", 
         function fossilRemovedInFirebaseACB(firebaseData){ 
-            model.removeItem({'file-name': +firebaseData.key}, 'fossils');
+            model.removeItem({'file-name': firebaseData.key}, 'fossils');
         }
     );
 
