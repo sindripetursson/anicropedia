@@ -78,6 +78,9 @@ body {
 .listItem__imagePlaceholder {
   height: 128px;
 }
+.listItem__imagePlaceholder--island {
+  height: 60px;
+}
 .listItem__imagePlaceholderMusic {
   min-height: 250px;
 }
