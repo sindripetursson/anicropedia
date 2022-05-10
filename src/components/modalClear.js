@@ -9,7 +9,7 @@ function ModalClear(props){
         </label>
         <div style={{marginTop: "30px"}} className='settings__buttonsContainer'>
             <button className="settings__buttonModal" onClick={() => props.setModalClearVisible(!props.modalClearVisible)}>No, cancel</button>
-            <button  style={{marginTop: "10px", border: "white 2px solid", backgroundColor: "#FF5757", color: "white"}} className="settings__buttonModal" onClick={() => console.log("clicked remove")}>Yes, remove everything from my collection</button>
+            <button  style={{marginTop: "10px", border: "white 2px solid", backgroundColor: "#FF5757", color: "white"}} className="settings__buttonModal" onClick={props.onClearDataSubmit}>Yes, remove everything from my collection</button>
         </div>
         <div className="settings__error">
             <p className="settings__errorMessage"></p>

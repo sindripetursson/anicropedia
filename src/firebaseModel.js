@@ -238,6 +238,16 @@ function updateModelFromFirebase(model, uid) {
     );
 }
 
+function clearUserData(uid) {
+    firebase.database().ref(REF + '/' + uid + '/fishes').remove();
+    firebase.database().ref(REF + '/' + uid + '/insects').remove();
+    firebase.database().ref(REF + '/' + uid + '/sea_creatures').remove();
+    firebase.database().ref(REF + '/' + uid + '/art').remove();
+    firebase.database().ref(REF + '/' + uid + '/fossils').remove();
+    firebase.database().ref(REF + '/' + uid + '/music').remove();
+    firebase.database().ref(REF + '/' + uid + '/villagers').remove();
+}
+
 function makeFishPromiseCB(fishId) {
     return getDetails('fish', fishId);
 }
@@ -296,4 +306,4 @@ function firebaseModelPromise(uid) {
     return firebase.database().ref(REF + '/' + uid /* <-- note! Whole object! */).once("value").then(makeBigPromiseACB);
 }
 
-export { updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise };
+export { updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise, clearUserData };

@@ -2,6 +2,8 @@ import React from "react";
 import { sessionCheck } from "../utils";
 import SettingsView from "../views/settingsView";
 import { EmailAuthProvider, getAuth, updatePassword, reauthenticateWithCredential } from "firebase/auth";
+import { clearUserData } from "../firebaseModel";
+import { ReactSession } from "react-client-session";
 
 export default 
 function Settings(props) {
@@ -99,6 +101,11 @@ function Settings(props) {
         setTimeout(turnOffConfirmation, 5000);
     }
 
+    function clearDataSubmitACB() {
+        console.log('Clear data');
+        clearUserData(ReactSession.get("uid"));
+    }
+
     function nameChangeACB(payload) {
         if (payload && payload.updateUserName) {
             setName(payload.updateUserName);
@@ -170,7 +177,7 @@ function Settings(props) {
                 onPasswordSubmit={onPasswordSubmitACB}
                 confirmationVisible={confirmationVisible}
                 turnOffConfirmation={turnOffConfirmation}
-                />
+                onClearDataSubmit={clearDataSubmitACB}                />
         </div>
         }
     </div>)

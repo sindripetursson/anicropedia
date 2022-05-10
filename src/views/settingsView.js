@@ -78,7 +78,10 @@ function SettingsView(props){
                         props.setModalClearVisible(!props.modalClearVisible)
                     }
                 >  
-                    <ModalClear userModel={props.userModel} setModalClearVisible={props.setModalClearVisible} modalClearVisible={props.modalClearVisible} />
+                    <ModalClear userModel={props.userModel} 
+                                setModalClearVisible={props.setModalClearVisible} 
+                                modalClearVisible={props.modalClearVisible} 
+                                onClearDataSubmit={props.onClearDataSubmit}/>
                 </Modal>
             </div>
 
