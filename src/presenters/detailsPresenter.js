@@ -59,8 +59,6 @@ function Details(props) {
 
 
     function detailsModelObserverACB(payload) {
-        console.log('Payload: ', payload);
-        console.log('data: ', data);
         if (props.islandView) {
             setData({...data});
         } else if (payload && payload.addFish && document.getElementById('details_checkmark1_fish_' + payload.addFish.id)) { 
