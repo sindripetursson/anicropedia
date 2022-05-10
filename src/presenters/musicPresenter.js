@@ -132,7 +132,6 @@ function Music(props) {
         // } else 
   
         if(audio.src.includes("stop")) {
-            console.log("stop track");
             setTimeout(() => stopTrack(), 300);
         }
     }
