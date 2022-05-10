@@ -220,8 +220,11 @@ function MenuBar(props) {
 
     function wasCreatedACB() {
         updateData();
-        props.userModel.addObserver(cityChangeObserverACB);
-        return function isTakenDownACB() {props.userModel.removeObserver(cityChangeObserverACB);}
+        console.log('Menu bar user model: ', props.userModel);
+        if (props.userModel) {
+            props.userModel.addObserver(cityChangeObserverACB);
+            return function isTakenDownACB() {props.userModel.removeObserver(cityChangeObserverACB);}
+        }
     }
 
     React.useEffect(wasCreatedACB, []);

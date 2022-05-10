@@ -11,7 +11,7 @@ function Villagers(props){
                 </div>
                 <div className="checkmark__placeholder">
                     <div style={{transform: "translate(0, 25px)"}}  className={props.isInCollection ? "checkmark__image" : "hidden"} >
-                        <img alt="checkmark" src="../../images/inCollection.svg"/> 
+                        <img id="details_checkmark1" alt="checkmark" src="../../images/inCollection.svg"/> 
                         <span style={{paddingTop: "10px"}}>In your villagers!</span>
                     </div>
                 </div>
@@ -20,7 +20,7 @@ function Villagers(props){
                 <div className="details__row">
                     <div className="details__title">
                         {capitalizeFirstLetter(props.singleResult.name["name-EUen"])}
-                        <img className={props.isInCollection ? "checkmark__details" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/> 
+                        <img id="details_checkmark2" className={props.isInCollection ? "checkmark__details" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/> 
                     </div>
                 </div>
             
@@ -84,7 +84,7 @@ function Villagers(props){
                         </a>
                     </div>
                     <div className="details__col">
-                        <button className={props.isInCollection ? "button__negative" : "button__positive"} onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my villagers':'Add to my villagers'}</button>
+                        <button id="details_collection_button" className={props.isInCollection ? "button__negative" : "button__positive"} onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my villagers':'Add to my villagers'}</button>
                     </div>
                 </div>
             </div>
