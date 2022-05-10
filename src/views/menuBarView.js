@@ -110,7 +110,7 @@ function MenuBarView(props) {
 
                 <div className='menuBar__center'>
                     {location.pathname === "/" ? 
-                        <h1 className='menuBar__title'> Welcome, {(ReactSession.get('uid') !== null && props.userModel)?props.userModel.getUserName():''}! </h1> 
+                        <h1 className='menuBar__title'> Welcome, {(ReactSession.get('uid') !== null && props.userModel)?props.name:''}! </h1> 
                     : location.pathname === "/encyclopedia" 
                     || location.pathname === "/villagers" 
                     || location.pathname === "/music" 

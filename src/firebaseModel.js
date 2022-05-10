@@ -208,6 +208,34 @@ function updateModelFromFirebase(model, uid) {
             model.removeItem({id: +firebaseData.key}, 'music');
         }
     );
+
+    // User name update
+    firebase.database().ref(REF + "/" + uid + "/name").on("value", 
+        function nameUpdatedInFirebaseACB(firebaseData){ 
+            model.setUserName(firebaseData.val());
+        }
+    );
+
+    // Address update
+    firebase.database().ref(REF + "/" + uid + "/address").on("value", 
+        function addressUpdatedInFirebaseACB(firebaseData){ 
+            model.setCityAddress(firebaseData.val());
+        }
+    );
+
+    // Latitude update
+    firebase.database().ref(REF + "/" + uid + "/latitude").on("value", 
+    function latitudeUpdatedInFirebaseACB(firebaseData){ 
+        model.setCityLatitude(firebaseData.val());
+    }
+    );
+    
+    // Longitude update
+    firebase.database().ref(REF + "/" + uid + "/longitude").on("value", 
+        function longitudeUpdatedInFirebaseACB(firebaseData){ 
+            model.setCityLongitude(firebaseData.val());
+        }
+    );
 }
 
 function makeFishPromiseCB(fishId) {

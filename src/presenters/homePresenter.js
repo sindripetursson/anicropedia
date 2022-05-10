@@ -7,6 +7,7 @@ function Home(props) {
     React.useEffect(() => {
         props.setDetailsOn(false);
     })
+
     return sessionCheck() || (
         <HomeView/>
     );

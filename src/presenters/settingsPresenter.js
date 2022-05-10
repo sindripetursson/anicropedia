@@ -17,6 +17,8 @@ function Settings(props) {
     const [oldPassword, setOldPassword] = React.useState('');
     const [newPassword, setNewPassword] = React.useState('');
     const [repeatNewPassword, setRepeatNewPassword] = React.useState('');
+    let observerCoords = {lat: null, lng: null};
+    let observerAddress = '';
 
     function turnOffConfirmation(){
         setConfirmationVisible(false);
@@ -96,6 +98,49 @@ function Settings(props) {
         setConfirmationVisible(true);
         setTimeout(turnOffConfirmation, 5000);
     }
+
+    function nameChangeACB(payload) {
+        if (payload && payload.updateUserName) {
+            setName(payload.updateUserName);
+        }
+    }
+
+    function latitudeChangeACB(payload) {
+        if (payload && payload.updateCityLat) {
+            observerCoords = {lat: payload.updateCityLat, lng: null};
+        }
+    }
+
+    function longitudeChangeACB(payload) {
+        if (payload && payload.updateCityLng) {
+            observerCoords = {lat: observerCoords.lat, lng: payload.updateCityLng};
+            setNewCityCoordinates(observerCoords);
+            props.userModel.setCityCoordinates(observerCoords);
+            observerCoords = {lat: null, lng: null};
+        }
+    }
+
+    function addressChangeACB(payload) {
+        if (payload && payload.updateCityAddress) {
+            observerAddress = payload.updateCityAddress;
+            setNewCityAddress(observerAddress);
+            props.userModel.setCityAddress(observerAddress);
+        }
+    }
+
+    function wasCreatedACB(){
+        props.userModel.addObserver(nameChangeACB);
+        props.userModel.addObserver(latitudeChangeACB);
+        props.userModel.addObserver(longitudeChangeACB);
+        props.userModel.addObserver(addressChangeACB);
+        return function isTakenDownACB() {
+            props.userModel.removeObserver(nameChangeACB);
+            props.userModel.removeObserver(latitudeChangeACB);
+            props.userModel.removeObserver(longitudeChangeACB);
+            props.userModel.removeObserver(addressChangeACB);
+        }
+    }
+    React.useEffect(wasCreatedACB, []); 
 
     return sessionCheck() || 
     (<div>

@@ -52,6 +52,20 @@ class UserModel {
         }
     }
 
+    setCityLongitude(longitude) {
+        if (!this.cityCoordinates || (this.cityCoordinates.lng !== longitude)) {
+            this.cityCoordinates.lng = longitude;
+            this.notifyObservers({updateCityLng: longitude});
+        }
+    }
+
+    setCityLatitude(latitude) {
+        if (!this.cityCoordinates || (this.cityCoordinates.lat !== latitude)) {
+            this.cityCoordinates.lat = latitude;
+            this.notifyObservers({updateCityLat: latitude});
+        }
+    }
+
     setUserName(newUserName) {
         if (this.userName !== newUserName) {
             if (typeof newUserName === 'string' || newUserName instanceof String) {

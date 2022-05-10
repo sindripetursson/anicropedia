@@ -23,6 +23,7 @@ function MenuBar(props) {
     const [geoPromise, setGeoPromise]= React.useState();
     const [geoData, setGeoData]= React.useState(null);
     const [, setGeoError]= React.useState(null);
+    const [name, setName] = React.useState('');
     // city
     const [chosenCity, setChosenCity]= React.useState(''); //props.weatherModel.getUserCity());
     var typedCity;
@@ -84,7 +85,6 @@ function MenuBar(props) {
         
         // console.log(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour));
         if(isCityChange || (props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null  && (checkHour !== currentHour))) {
-            isCityChange = false;
             var today = new Date();
             currentHour = today.getHours();
             
@@ -109,12 +109,13 @@ function MenuBar(props) {
 
             audio.loop = true;
             //audio.play();
-            if (isHourChange) {
+            if (isHourChange || isCityChange) {
                 if (isBackgroundMusicPlaying) {
                     audio.play();   
                 }
                 isHourChange = false;
             }
+            isCityChange = false;
 
             console.log("Information: Song is playing!");
             console.log("-----------------------------");
@@ -218,12 +219,22 @@ function MenuBar(props) {
         }
     }
 
+    function nameChangeACB(payload) {
+        if (payload && payload.updateUserName) {
+            setName(payload.updateUserName);
+        }
+    }
+
     function wasCreatedACB() {
         updateData();
-        console.log('Menu bar user model: ', props.userModel);
         if (props.userModel) {
+            setName(props.userModel.getUserName());
             props.userModel.addObserver(cityChangeObserverACB);
-            return function isTakenDownACB() {props.userModel.removeObserver(cityChangeObserverACB);}
+            props.userModel.addObserver(nameChangeACB);
+            return function isTakenDownACB() {
+                props.userModel.removeObserver(cityChangeObserverACB);
+                props.userModel.removeObserver(nameChangeACB);
+            }
         }
     }
 
@@ -241,6 +252,7 @@ function MenuBar(props) {
                 chosenCity={chosenCity} 
                 onMuteAudio={muteAudioACB}
                 userModel={props.userModel}
+                name={name}
             /> 
 
             {timerCreated ||
