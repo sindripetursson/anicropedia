@@ -169,7 +169,7 @@ function Music(props) {
             
             // vinyl is played, so show mute on bgm mute bt
             var btMuteMenuBarPres = document.getElementById("muteId");
-            btMuteMenuBarPres.src = "images/soundOff.svg";
+            btMuteMenuBarPres.src = "images/playBg.svg";
         }
 
         // check if the id from the 'clicked song' is aleady in the array 
@@ -222,7 +222,7 @@ function Music(props) {
 
                 // vinyl is played, so show mute on bgm mute bt
                 let btMuteMenuBarPres = document.getElementById("muteId");
-                btMuteMenuBarPres.src = "images/soundOff.svg";
+                btMuteMenuBarPres.src = "images/playBg.svg";
 
                 audio.play();
 
@@ -262,7 +262,7 @@ function Music(props) {
                     
                     // vinyl is paused, so show no mute on bgm mute bt
                     let btMuteMenuBarPres = document.getElementById("muteId");
-                    btMuteMenuBarPres.src = "images/soundOn.svg";
+                    btMuteMenuBarPres.src = "images/pauseBg.svg";
                 }
 
                 if(singleResultGlobal) {
@@ -318,7 +318,7 @@ function Music(props) {
 
             // vinyl is paused, so show no mute on bgm mute bt
             var btMuteMenuBarPres = document.getElementById("muteId");
-            btMuteMenuBarPres.src = "images/soundOn.svg";
+            btMuteMenuBarPres.src = "images/pauseBg.svg";
         }
 
         audioArr.pop();

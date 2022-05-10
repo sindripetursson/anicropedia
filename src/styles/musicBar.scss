@@ -25,9 +25,7 @@
     display: flex;
     width: 1000px;
     border-radius: 50px;
-    border-style: solid;
     padding: 1em;
-    border-color: #F8EEBC;
     background-color: #F7F4E4;
     filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
 
@@ -101,6 +99,7 @@
     padding: 10px;
     opacity: 0.8;
     transition: opacity .2s;
+    color: #835B26;
 }
     
 .playpause-track:hover,

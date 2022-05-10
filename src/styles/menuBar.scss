@@ -1,16 +1,28 @@
 @import "config";
 
 .menuBar {
-    height: 150px;
+    position: fixed;
+    background-color: #F7F4E4;
+    width: 100vw;
+    height: 130px;
     display: flex;
     align-items: center;
     flex-direction: column;
     filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
     color: #835B26;
+    z-index: 1;
     font-family: 'FinkHeavy';
     font-size: 16pt;
     @media (max-width: 700px){
         height: 100px;
+    }
+
+    &__gutter{
+        height: 150px;
+        width: 100%;
+        @media (max-width: 700px){
+            height: 110px;
+        }
     }
 
     &__hidden {
@@ -42,7 +54,24 @@
         }
     }
 
+    &__bgMusicContainer{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        position: absolute;
+        right: 20px;
+    }
+
+    &__bgMusicLabel{
+        margin-right: 10px;
+        cursor: pointer;
+        @media (max-width: 700px){
+            display: none;
+        }
+    }
+
     &__sidesWithSettings {
+        display: flex;
         flex-direction: column;
         align-items: center;
         width: 15%;
@@ -181,14 +210,14 @@
     &__sideDrawerList {
         list-style: none;
         height: 70vh;
-        background-color: #F5F7E1;
+        background-color: #FFF9E5;
     }
 
     &__sideDrawerListBottom {
         list-style: none;
         height: 33vh;
         margin-top: -1px;
-        background-color: #F5F7E1;
+        background-color: #FFF9E5;
         @media (max-width: 700px){
             padding-top: 30px;
         }

@@ -93,7 +93,7 @@ function MenuBarView(props) {
         <div className='menuBar__drawer'>
             <Sidedrawer show={sideDrawerOpen} ToggleClickHandler={drawerToggleClickHandler}/>
         </div>        
-        <div className='menuBar'>        
+        <div className='menuBar'>      
             <div className='menuBar__upper'>
                 <div className='menuBar__sides'> 
                     {location.pathname === "/" || location.pathname === "/login" ? 
@@ -107,8 +107,11 @@ function MenuBarView(props) {
                     <img className="menuBar__logo" alt="anicropediaLogo" src={"../../images/anicropediaLogo.svg"} />
                 </Link>
                 <div className='menuBar__sidesWithSettings'>
-                    <img className='menuBar__icon' src={"../../images/soundOff.svg"} id="muteId" alt="mute" onClick={muteMusic} value="ChangeMute"/>
-                    <img src='../../images/menu.svg' onClick={drawerToggleClickHandler} alt="user" className="menuBar__icon" />
+                    <div className="menuBar__bgMusicContainer">
+                        <p className="menuBar__bgMusicLabel" onClick={() => muteMusic()}>Background Music</p>
+                        <img className='menuBar__icon' src={"../../images/playBg.svg"} id="muteId" alt="mute" onClick={muteMusic} value="ChangeMute"/>
+                        <img src='../../images/menu.svg' onClick={drawerToggleClickHandler} alt="user" className="menuBar__icon" />
+                    </div>
                 </div>
             </div>
 
@@ -136,6 +139,7 @@ function MenuBarView(props) {
                 </div>
             </div>
         </div>
+        <div className='menuBar__gutter'></div>  
     </div> 
     )
 }
