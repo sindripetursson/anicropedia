@@ -32,6 +32,7 @@ html {
   font-family: "Rubik", sans-serif;
   font-weight: 300;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 img {
@@ -258,9 +259,13 @@ body {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
+.list {
+  overflow-x: hidden;
+}
 .list__container {
   max-width: 1200px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 .list__container__encyclopedia {
   position: relative;
@@ -270,6 +275,7 @@ body {
   background: #F7F4E4;
   border-radius: 0px 50px 50px 50px;
   min-height: 98vh;
+  overflow-x: hidden;
 }
 .list__container__encyclopedia--island {
   position: relative;
@@ -1090,7 +1096,8 @@ button:hover {
 }
 .menuBar__sideDrawerListBottom {
   list-style: none;
-  height: 30vh;
+  height: 33vh;
+  margin-top: -1px;
   background-color: #F5F7E1;
 }
 @media (max-width: 700px) {
@@ -1305,10 +1312,14 @@ a {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
+.island {
+  overflow-x: hidden;
+}
 .island__container {
   max-width: 1200px;
   margin: 0 auto;
   justify-content: center;
+  overflow-x: hidden;
 }
 @media (min-width: 801px) {
   .island__container {
