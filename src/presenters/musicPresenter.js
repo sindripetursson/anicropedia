@@ -299,11 +299,11 @@ function Music(props) {
         if(!props.islandView) {
             // set vinyl img in musicBar
             var musicBarImg = document.getElementById("musicBarImg");
-            musicBarImg.src = "images/placeholder_frame.png";
+            musicBarImg.src = "images/vinyl.svg";
 
             // set artist name in musicBar
             var artistName = document.getElementById("songName");
-            artistName.textContent = "Play your song";
+            artistName.textContent = "Play a song";
         }
 
         // rise up bgm
