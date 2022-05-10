@@ -1,11 +1,4 @@
 .player {
-    // @media (max-width: 1100px) {
-    //     height: 50vh;
-    // }
-    // @media (max-width: 600px) {
-    //     height: 60vh;
-    // }
-    // height: 30vh;
     display: flex;
     
     align-items: center;
@@ -17,17 +10,11 @@
 .border {
     @media (max-width: 1000px) {
         flex-direction: column;
-        // width: 500px;
     }
-    // @media (max-width: 600px) {
-    //     // flex-direction: column;
-    //     // width: 300px;
-    // }
     @include columns(12);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    // width: 1000px;
     max-width: 1200px;
     border-radius: 50px;
     padding: 1em;
@@ -36,15 +23,8 @@
 
 
     &__flex-left {
-        // flex-direction: column;
         flex: 50%;
-        justify-self: center; 
-
-        // &__flex-left-bottom {
-        //     display: flex;
-        //     justify-content: center;
-        // }
-
+        justify-self: center;
     }
 
     &__flex-right {
@@ -118,12 +98,8 @@
         margin-left: 10%;
         margin-right: 10%;
     }
-    // @media (max-width: 600px) {
-    //     display: none;
-    // }
     height: 30px;
     width: 100%;
-    // width: 400px;
     background-color: #F8EEBC;
     border-radius: 25px;
 }
@@ -132,9 +108,6 @@
     @media (max-width: 1100px) {
         width: 0%;
     }
-    // @media (max-width: 600px) {
-    //     display: none;
-    // }
     height: 30px;
     background-color: #88C9A1;
     width: 0%;
