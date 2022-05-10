@@ -10,7 +10,7 @@ function Fish(props){
                     <img className="image" alt="" src={props.singleResult.image_uri} />
                 </div>
                 <div className="checkmark__placeholder">
-                    <div id={"details_checkmark1_fish_" + props.singleResult.id}className={props.isInCollection ? "checkmark__image" : "hidden"} >
+                    <div id={"details_checkmark1_fish_" + props.singleResult.id} className={props.isInCollection ? "checkmark__image" : "hidden"} >
                         <img alt="checkmark" src="../../images/inCollection.svg"/> 
                         <span style={{paddingTop: "10px"}}>In your collection!</span>
                     </div>

@@ -13,8 +13,8 @@ function Sea(props){
                 </div>
                 <div className="details_row">
                     <div className="checkmark__placeholder">
-                        <div className={props.isInCollection ? "checkmark__image" : "hidden"} >
-                            <img id="details_checkmark1" alt="checkmark" src="../../images/inCollection.svg"/> 
+                        <div id={"details_checkmark1_sea_" + props.singleResult.id} className={props.isInCollection ? "checkmark__image" : "hidden"} >
+                            <img alt="checkmark" src="../../images/inCollection.svg"/> 
                             <span style={{paddingTop: "10px"}}>In your collection!</span>
                         </div>
                     </div>  
@@ -24,7 +24,7 @@ function Sea(props){
                 <div className="details__row">
                     <div className="details__title">
                         {capitalizeFirstLetter(props.singleResult.name["name-EUen"])}
-                        <img id="details_checkmark2" className={props.isInCollection ? "checkmark__details" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/> 
+                        <img id={"details_checkmark2_sea_" + props.singleResult.id} className={props.isInCollection ? "checkmark__details" : "hidden"} alt="checkmark" src="../../images/inCollection.svg"/> 
                     </div>
                 </div>
                 <div className={"details__row"}>
@@ -81,7 +81,7 @@ function Sea(props){
                             </a>
                         </div>
                         <div className="details__col">
-                            <button id="details_collection_button" className={props.isInCollection ? "button__negative" : "button__positive"} onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
+                            <button id={"details_collection_button_sea_" + props.singleResult.id} className={props.isInCollection ? "button__negative" : "button__positive"} onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
                         </div>
                     </div>
             </div>
