@@ -259,9 +259,13 @@ body {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
+.list {
+  overflow-x: hidden;
+}
 .list__container {
   max-width: 1200px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 .list__container__encyclopedia {
   position: relative;

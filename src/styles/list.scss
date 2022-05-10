@@ -1,9 +1,11 @@
 @import "config";
 
 .list {
+    overflow-x: hidden;
     &__container {
         max-width: $max-width;
         margin: 0 auto;
+        overflow-x: hidden;
         &__encyclopedia{
             position: relative;
             max-width: $max-width;
