@@ -127,6 +127,7 @@ function MenuBarView(props) {
                     || location.pathname === "/info" 
                     || location.pathname === "/login" 
                     || location.pathname === "/logout"
+                    || location.pathname === "/settings"
                     ?
                         <h1 className='menuBar__title'> {location.pathname.substring(1)} </h1> 
                     :
