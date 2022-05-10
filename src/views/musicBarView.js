@@ -6,7 +6,7 @@ function MusicBarView(props) {
 
                 <div className="border__flex-right">
                     <div className="artist-info">
-                        <img className="artist-info__image" src="images/placeholder_frame.png" id="musicBarImg" alt=""/>
+                        <img className="artist-info__image" src="images/vinyl.svg" id="musicBarImg" alt=""/>
                         <span className="artist-info__song" id="songName">Play your song</span>
                     </div>
                 </div>
