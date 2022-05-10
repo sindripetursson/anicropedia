@@ -32,7 +32,6 @@ html {
   font-family: "Rubik", sans-serif;
   font-weight: 300;
   font-size: 16px;
-  overflow-x: hidden;
 }
 
 img {
@@ -259,13 +258,9 @@ body {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
-.list {
-  overflow-x: hidden;
-}
 .list__container {
   max-width: 1200px;
   margin: 0 auto;
-  overflow-x: hidden;
 }
 .list__container__encyclopedia {
   position: relative;
@@ -275,7 +270,6 @@ body {
   background: #F7F4E4;
   border-radius: 0px 50px 50px 50px;
   min-height: 98vh;
-  overflow-x: hidden;
 }
 .list__container__encyclopedia--island {
   position: relative;
@@ -918,18 +912,31 @@ button:hover {
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
 .menuBar {
-  height: 150px;
+  position: fixed;
+  background-color: #F7F4E4;
+  width: 100vw;
+  height: 130px;
   display: flex;
   align-items: center;
   flex-direction: column;
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
   color: #835B26;
+  z-index: 1;
   font-family: "FinkHeavy";
   font-size: 16pt;
 }
 @media (max-width: 700px) {
   .menuBar {
     height: 100px;
+  }
+}
+.menuBar__gutter {
+  height: 150px;
+  width: 100%;
+}
+@media (max-width: 700px) {
+  .menuBar__gutter {
+    height: 110px;
   }
 }
 .menuBar__hidden {
@@ -959,7 +966,24 @@ button:hover {
     align-items: flex-start;
   }
 }
+.menuBar__bgMusicContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  right: 20px;
+}
+.menuBar__bgMusicLabel {
+  margin-right: 10px;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .menuBar__bgMusicLabel {
+    display: none;
+  }
+}
 .menuBar__sidesWithSettings {
+  display: flex;
   flex-direction: column;
   align-items: center;
   width: 15%;
@@ -1092,13 +1116,13 @@ button:hover {
 .menuBar__sideDrawerList {
   list-style: none;
   height: 70vh;
-  background-color: #F5F7E1;
+  background-color: #FFF9E5;
 }
 .menuBar__sideDrawerListBottom {
   list-style: none;
   height: 33vh;
   margin-top: -1px;
-  background-color: #F5F7E1;
+  background-color: #FFF9E5;
 }
 @media (max-width: 700px) {
   .menuBar__sideDrawerListBottom {
@@ -1312,14 +1336,10 @@ a {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
-.island {
-  overflow-x: hidden;
-}
 .island__container {
   max-width: 1200px;
   margin: 0 auto;
   justify-content: center;
-  overflow-x: hidden;
 }
 @media (min-width: 801px) {
   .island__container {
@@ -1406,9 +1426,7 @@ a {
   display: flex;
   width: 1000px;
   border-radius: 50px;
-  border-style: solid;
   padding: 1em;
-  border-color: #F8EEBC;
   background-color: #F7F4E4;
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
 }
@@ -1493,6 +1511,7 @@ a {
   padding: 10px;
   opacity: 0.8;
   transition: opacity 0.2s;
+  color: #835B26;
 }
 
 .playpause-track:hover,

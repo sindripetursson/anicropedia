@@ -27,7 +27,6 @@ function MusicBarView(props) {
                         </div>
                     </div>
                 </div>
-
             </div>   
         </div>
     );

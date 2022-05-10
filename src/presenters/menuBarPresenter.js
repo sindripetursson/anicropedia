@@ -185,7 +185,7 @@ function MenuBar(props) {
     
                 // set mute to mute (sound is off)
                 let muteBt = document.getElementById("muteId");
-                muteBt.src = "../../images/soundOff.svg";
+                muteBt.src = "../../images/playBg.svg";
                 isBackgroundMusicPlaying = false;
             } else {
                 
@@ -197,7 +197,7 @@ function MenuBar(props) {
         
                     // set mute button to on (sound in on)
                     let muteBt = document.getElementById("muteId");
-                    muteBt.src = "../../images/soundOn.svg";
+                    muteBt.src = "../../images/pauseBg.svg";
                     isBackgroundMusicPlaying = true;
 
                 }
@@ -207,7 +207,7 @@ function MenuBar(props) {
             audio.play();
             audio.id = "bgmMuteOff";
             let muteBt = document.getElementById("muteId");
-            muteBt.src = "../../images/soundOn.svg";
+            muteBt.src = "../../images/pauseBg.svg";
             isBackgroundMusicPlaying = true;
         }
     }
@@ -238,6 +238,10 @@ function MenuBar(props) {
         }
     }
 
+    function stopVinylTrack() {
+        props.onStopVinylTrack();
+    }
+
     React.useEffect(wasCreatedACB, []);
 
     //updateData();
@@ -253,6 +257,7 @@ function MenuBar(props) {
                 onMuteAudio={muteAudioACB}
                 userModel={props.userModel}
                 name={name}
+                onStopTrack={stopVinylTrack}
             /> 
 
             {timerCreated ||
