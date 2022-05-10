@@ -275,6 +275,7 @@ body {
   background: #F7F4E4;
   border-radius: 0px 50px 50px 50px;
   min-height: 98vh;
+  overflow-x: hidden;
 }
 .list__container__encyclopedia--island {
   position: relative;
@@ -1311,10 +1312,14 @@ a {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
+.island {
+  overflow-x: hidden;
+}
 .island__container {
   max-width: 1200px;
   margin: 0 auto;
   justify-content: center;
+  overflow-x: hidden;
 }
 @media (min-width: 801px) {
   .island__container {
