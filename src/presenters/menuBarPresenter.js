@@ -227,6 +227,10 @@ function MenuBar(props) {
         }
     }
 
+    function stopVinylTrack() {
+        props.onStopVinylTrack();
+    }
+
     React.useEffect(wasCreatedACB, []);
 
     //updateData();
@@ -241,6 +245,7 @@ function MenuBar(props) {
                 chosenCity={chosenCity} 
                 onMuteAudio={muteAudioACB}
                 userModel={props.userModel}
+                onStopTrack={stopVinylTrack}
             /> 
 
             {timerCreated ||

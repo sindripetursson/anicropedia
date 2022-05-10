@@ -71,6 +71,12 @@ function MenuBarView(props) {
         } */
     }
 
+    function stopVinyl() {
+        var vinyl = document.getElementById("vinyl");
+        vinyl.src = "stop";
+        vinyl.pause();
+    }
+
     function drawerToggleClickHandler() {
         console.log('click')
         setsideDrawerOpen(!sideDrawerOpen)
@@ -93,7 +99,7 @@ function MenuBarView(props) {
                     {location.pathname === "/" || location.pathname === "/login" ? 
                         <></> : 
                     <Link className='menuBar__link' to="/"> 
-                        <img src='../../images/back.svg' alt="back" className="menuBar__back" /> 
+                        <img src='../../images/back.svg' alt="back" className="menuBar__back" onClick={stopVinyl} /> 
                     </Link> 
                     }
                 </div>
