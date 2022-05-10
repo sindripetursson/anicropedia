@@ -86,7 +86,6 @@ function SettingsView(props){
             </div>
 
             <div className="settings__container">
-                <h2 className="settings__headline">Settings</h2>
                 <label className="settings__name">
                     <p className="settings__label">Name</p>
                     <p className="settings__text">{props.userModel.getUserName()}</p>

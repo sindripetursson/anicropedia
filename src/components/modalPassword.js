@@ -42,9 +42,6 @@ function ModalPassword(props){
             <button className="settings__buttonModal" onClick={() => props.setModalPasswordVisible(!props.modalPasswordVisible)}>Cancel</button>
             <button type="submit" className="settings__buttonModal" onClick={props.onPasswordSubmit}>Submit</button>
         </div>
-        <div  onClick={() => props.setModalPasswordVisible(!props.modalPasswordVisible)} className="close">
-            <CloseButton />
-        </div>
     </div>
 </div>
 }

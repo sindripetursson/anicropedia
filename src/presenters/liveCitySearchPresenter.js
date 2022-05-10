@@ -28,20 +28,24 @@ function CitySearch(props) {
                 {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
                     <div>
                         <input style={{marginBottom: "0"}} className='authentication__input' id='citySearchInput' {...getInputProps({placeholder: "Enter your location..."})}/>
+                        <div className="authentication__containerSizer">
+                            <div className='authentication__container' id='citySearchContainer'>
+                                {loading ? <div>...loading</div> : null}
+                                {suggestions.map((suggestion) => {
+                                    const style = {
+                                        backgroundColor: suggestion.active ? "#98D2E3" : "#FFFFFF",
+                                        borderTop: "1px solid #e6e6e6",
+                                        paddingTop: "3px",
+                                        paddingBottom: "3px"
+                                    }
 
-                        <div className='authentication__container' id='citySearchContainer'>
-                            {loading ? <div>...loading</div> : null}
-                            {suggestions.map((suggestion) => {
-                                const style = {
-                                    backgroundColor: suggestion.active ? "#98D2E3" : "#FFFFFF",
-                                    borderTop: "1px solid #e6e6e6",
-                                }
-
-                                return (
-                                <div key={suggestion.placeId} {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>
-                                );
-                            })}
+                                    return (
+                                    <div key={suggestion.placeId} {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>
+                                    );
+                                })}
+                            </div>
                         </div>
+                        
                     </div>
                 )}
             </PlacesAutocomplete>

@@ -19,9 +19,6 @@ function ModalCity(props){
             <button className="settings__buttonModal" onClick={() => props.setModalCityVisible(!props.modalCityVisible)}>Cancel</button>
             <button className="settings__buttonModal" onClick={props.onCitySubmit}>Submit</button>
         </div>
-        <div  onClick={() => props.setModalCityVisible(!props.modalCityVisible)} className="close">
-            <CloseButton />
-        </div>
     </div>
 </div>
 }

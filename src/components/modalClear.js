@@ -14,9 +14,6 @@ function ModalClear(props){
         <div className="settings__error">
             <p className="settings__errorMessage"></p>
         </div>
-        <div  onClick={() => props.setModalClearVisible(!props.modalClearVisible)} className="close">
-            <CloseButton />
-        </div>
     </div>
 </div>
 }
