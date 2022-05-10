@@ -12,6 +12,7 @@ function Settings(props) {
     const [modalPasswordVisible, setModalPasswordVisible] = React.useState(false);
     const [modalClearVisible, setModalClearVisible] = React.useState(false);
     const [confirmationVisible, setConfirmationVisible] = React.useState(false);
+    const [confirmationClearVisible, setClearConfirmationVisible] = React.useState(false);
 
     const [name, setName] = React.useState('');
     const [newCityAddress, setNewCityAddress] = React.useState('');
@@ -24,6 +25,10 @@ function Settings(props) {
 
     function turnOffConfirmation(){
         setConfirmationVisible(false);
+    }
+
+    function turnOffClearConfirmation(){
+        setClearConfirmationVisible(false);
     }
 
     function onNameSubmitACB() {
@@ -104,6 +109,9 @@ function Settings(props) {
     function clearDataSubmitACB() {
         console.log('Clear data');
         clearUserData(ReactSession.get("uid"));
+        setModalClearVisible(false);
+        setClearConfirmationVisible(true);
+        setTimeout(turnOffClearConfirmation, 5000);
     }
 
     function nameChangeACB(payload) {
@@ -177,6 +185,8 @@ function Settings(props) {
                 onPasswordSubmit={onPasswordSubmitACB}
                 confirmationVisible={confirmationVisible}
                 turnOffConfirmation={turnOffConfirmation}
+                confirmationClearVisible={confirmationClearVisible}
+                turnOffClearConfirmation={turnOffClearConfirmation}
                 onClearDataSubmit={clearDataSubmitACB}                />
         </div>
         }

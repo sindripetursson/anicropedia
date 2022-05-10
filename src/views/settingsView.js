@@ -109,6 +109,9 @@ function SettingsView(props){
             <div className={props.confirmationVisible ? "settings__confirmationPopup" : "none"} onClick={() => props.turnOffConfirmation()}>
                     <p className="settings__confirmationText">Changes have been saved!</p>
             </div>
+            <div className={props.confirmationClearVisible ? "settings__confirmationClearPopup" : "none"} onClick={() => props.turnOffClearConfirmation()}>
+                    <p className="settings__confirmationText">Your collection has been cleared!</p>
+            </div>
         </div>
     );
 }

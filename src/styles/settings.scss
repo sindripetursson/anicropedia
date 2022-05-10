@@ -130,8 +130,22 @@
         height: 10%;
         min-height: 130px;
         overflow-y: auto;
-        overflow-x: hidden;
         background-color: rgba($color: green, $alpha:  0.75);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    &__confirmationClearPopup{
+        position: fixed;
+        z-index: 5;
+        width: 100vw;
+        top: 0;
+        height: 10%;
+        min-height: 130px;
+        overflow-y: auto;
+        background-color: rgba($color: red, $alpha:  0.75);
         display: flex;
         flex-direction: column;
         justify-content: center;
