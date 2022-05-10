@@ -107,7 +107,6 @@ function Settings(props) {
     }
 
     function clearDataSubmitACB() {
-        console.log('Clear data');
         clearUserData(ReactSession.get("uid"));
         setModalClearVisible(false);
         setClearConfirmationVisible(true);

@@ -66,7 +66,8 @@ function Signup(props) {
                         document.getElementById('signupRepeatPassword').classList.remove('authentication__input--error');
                         document.getElementById('citySearchInput').classList.remove('authentication__input--error');
                         document.querySelector('.authentication__errorMessage').innerHTML = '';
-                        window.location = '/';
+                        // Timeout to let firebase create user before big promise in index.js
+                        setTimeout(() => window.location = '/', 100);
                     })
                     .catch((error) => {
                         document.getElementById('signupPassword').classList.remove('authentication__input--error');

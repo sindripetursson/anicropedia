@@ -280,7 +280,6 @@ function makeBigPromiseACB(firebaseData){
     if(!firebaseData.exists()) {
         return new UserModel();
     }
-
     function createModelACB(items) {
         return new UserModel(items[0], items[1], items[2], items[3], items[4], items[5], items[6], 
                              firebaseData.val().address, {'lat': firebaseData.val().latitude, 'lng': firebaseData.val().longitude}, firebaseData.val().name);
