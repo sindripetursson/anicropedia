@@ -1,12 +1,10 @@
 @import "config";
 
 .island {
-    overflow-x: hidden;
     &__container {
         max-width: $max-width;
         margin: 0 auto;
         justify-content: center;
-        overflow-x: hidden;
         @media (min-width: 801px){
             display: flex;
         }
