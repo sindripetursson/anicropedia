@@ -24,9 +24,6 @@ function ModalName(props){
             <button className="settings__buttonModal" onClick={() => props.setModalNameVisible(!props.modalNameVisible)}>Cancel</button>
             <button className="settings__buttonModal" onClick={props.onNameSubmit}>Submit</button>
         </div>
-        <div  onClick={() => props.setModalNameVisible(!props.modalNameVisible)} className="close">
-            <CloseButton />
-        </div>
     </div>
 </div>
 }
