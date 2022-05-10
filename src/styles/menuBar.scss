@@ -186,7 +186,8 @@
 
     &__sideDrawerListBottom {
         list-style: none;
-        height: 30vh;
+        height: 33vh;
+        margin-top: -1px;
         background-color: #F5F7E1;
         @media (max-width: 700px){
             padding-top: 30px;
