@@ -278,8 +278,7 @@ body {
   background: #F7F4E4;
   border-radius: 0px 30px 30px 30px;
   height: 70vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-y: auto;
   width: 40vh;
 }
 @media (max-width: 1200px) {
@@ -315,8 +314,7 @@ body {
   padding: 10px;
   background: #F7F4E4;
   border-radius: 30px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-y: auto;
 }
 .list__row {
   display: flex;

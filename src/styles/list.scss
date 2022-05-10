@@ -20,8 +20,8 @@
                 background: #F7F4E4;
                 border-radius: 0px 30px 30px 30px;
                 height: 70vh;
-                overflow-y: scroll;
-                overflow-x: hidden;
+                overflow-y: auto;
+                // overflow-x: hidden;
                 width: 40vh;
 
                 @media (max-width: 1200px) {
@@ -50,8 +50,8 @@
                 padding: 10px;
                 background: #F7F4E4;
                 border-radius: 30px;
-                overflow-y: scroll;
-                overflow-x: hidden;
+                overflow-y: auto;
+                // overflow-x: hidden;
             }  
         }
     }
