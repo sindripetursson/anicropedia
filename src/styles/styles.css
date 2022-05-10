@@ -1642,15 +1642,20 @@ a {
   margin-bottom: 50px;
   margin-top: 50px;
 }
+.authentication__containerSizer {
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+}
 .authentication__container {
   border-bottom: honeydew;
   border-left: honeydew;
   border-right: honeydew;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
   z-index: 1000;
   border-radius: 0 0 2px 2px;
-  width: 90%;
-  margin-left: 5%;
+  width: 100%;
 }
 
 @font-face {
