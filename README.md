@@ -6,7 +6,7 @@
 To run the app, first run “npm install” to install all npm packages. Then “npm start” can be called and that will create the styles.css file and run the server on localhost:3000. To access the website, users have to create an account ("/signup").
 
 ## Short description
-Anicropedia is a companion app that you can use with the game Animal Crossing: New Horizons. The app will allow users to view all collectable animals and keep a hold of which animals they have caught already. It will display various information such as when the animals can be caught, how much they sell for and their rarity. Other features will be that music will play in the background depending on the weather and time of day of the user. The user will be able to create an account and select where they are located to get accurate information. Collectible paintings and music will be displayed as well, and the user can mark which one he owns to make it easier for them to keep a hold of what they own in the game.
+Anicropedia is a companion app that can be used with the game Animal Crossing: New Horizons. The app allows users to view all collectable animals and keep a hold of which critters they have caught already. Anicropedia displays various information such as when the animals can be caught, how much they sell for and their rarity. Another feature is that music plays in the background depending on the weather and time of day. Users are able to create an account and select where they are located to get accurate information. Collectible paintings and music are displayed as well, and the user can mark which one he owns to make it easier to keep a hold of what they own in the game.
 
 ## What we have done
 The core structure and routing of Anicropedia is ready. Routes available now are “/”, “/encyclopedia”,  “/villagers”, “/music”, “/collectibles'' and “/info”. Anicropedia is connected to the ACNH API which feeds the webpage Animal Crossing data.
@@ -17,12 +17,11 @@ The core structure and routing of Anicropedia is ready. Routes available now are
 - Music (“/music”) has an overview of songs in Animal Crossing. Each track can be played when clicked.
 - Collectibles (“/collectibles”) has an overview of every fossil and art that Animal Crossing players can collect. Each collectable has its own detailed view when being clicked.
 - Info (“/info”) has general information about Anicropedia, and the creator's contact information.
-- My Island ("/island") provides user with an interface to collect and review their saved animals and fossils collection, as well as play their collected music.
+- My Island ("/island") provides users with an interface to collect and review their saved animals and fossils collection, as well as play their collected music.
 - Signup ("signup") has the functionality to create user accounts.
 - Login ("/login") has the functionality to login the user.
 - Logout ("/logout") has the functionality to logout the user.
 - Settings ("/settings") has the functionality to change user name, the location, the password and clear the My Island collection.
-
 
 Additionally, custom icons and logos have been created for the website such as: homepage icons, back button, user icon, wooden frames, music vinyl and the Anicropedia logo.
  
@@ -31,7 +30,7 @@ A connection to Firebase has been established to persist the data from the UserM
 
 Furthermore, features on the page:
 
-A weather API is linked, that aligns the weather data (sunny, rainy, snowy) with fitting music published by the ACNH API and plays them in the background. In order to be accessible for countries around the world, users can type in their specific location that switches them between content specific areas in north and south. On the music page, user can listen and add their favorite music to their My Island page. To support the audio usability, a musicbar is displayed showing the currently playing song and a progessbar. Moreover, in the menubar is a hamburger menu located, which opens a sidebar with fast access to each page.
+A weather API is linked, that aligns the weather data (sunny, rainy, snowy) with fitting music published by the ACNH API and plays them in the background. In order to be accessible for countries around the world, users can type in their specific location that switches them between content specific areas in north and south. On the music page, users can listen and add their favorite music to their My Island page. To support the audio usability, a music bar is displayed showing the currently playing song with a progress bar. Moreover, in the menu bar is a hamburger menu located, which opens a sidebar with fast access to each page.
 
 ## What we used
 
@@ -40,3 +39,6 @@ A weather API is linked, that aligns the weather data (sunny, rainy, snowy) with
 - Google Places API: https://developers.google.com/maps/documentation/places/web-service/overview
 - Animal Crossing Loader: https://dribbble.com/shots/13905159-Animal-Crossing-New-Horizons-loader
 - Background Wallpaper by Ashaife: https://ko-fi.com/post/Animal-Crossing-Leaf-Wallpapers-N4N51I7CL
+
+## Disclaimer
+Anicropedia is a student-made project website and claims no ownership of any intellectual property associated with Nintendo or Animal Crossing. The content found on the site and the git repository are the sole property of Nintendo and are only used for non-commercial and educational purposes.
