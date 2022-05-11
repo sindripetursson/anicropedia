@@ -22,6 +22,7 @@ function Signup(props) {
     const [repeatPassword, setRepeatPassword] = React.useState('');
     const [cityAddress, setCityAddress] = React.useState('');
     const [cityCoordinates, setCityCoordinates] = React.useState({lat: null, lng: null});
+    const [userCreationPopup, setUserCreationPopup] = React.useState(false);
 
     function onNameChange(newName) {
         setName(newName.target.value);
@@ -67,7 +68,11 @@ function Signup(props) {
                         document.getElementById('citySearchInput').classList.remove('authentication__input--error');
                         document.querySelector('.authentication__errorMessage').innerHTML = '';
                         // Timeout to let firebase create user before big promise in index.js
-                        setTimeout(() => window.location = '/', 1000);
+                        setUserCreationPopup(true);
+                        setTimeout(() => {
+                            window.location = '/'; 
+                            setUserCreationPopup(false);
+                        }, 1000);
                     })
                     .catch((error) => {
                         document.getElementById('signupPassword').classList.remove('authentication__input--error');
@@ -112,7 +117,8 @@ function Signup(props) {
                         repeatPassword={repeatPassword} 
                         onRepeatPasswordChange={onRepeatPasswordChange} 
                         onSignup={signupACB} 
-                        onCityChange={onCityChange}/>
+                        onCityChange={onCityChange}
+                        userCreationPopup={userCreationPopup}/>
         </div>
     )
 }

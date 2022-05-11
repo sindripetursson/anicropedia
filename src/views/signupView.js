@@ -62,6 +62,9 @@ function SignupView(props) {
                     <p style={{marginTop: "30px"}}> Already have an account? Log in here! </p>
                 </Link>  
             </form>
+            <div className={props.userCreationPopup ? "settings__confirmationPopup" : "hidden"} onClick={() => props.turnOffConfirmation()}>
+                    <p className="settings__confirmationText">User successfully created! Redirecting to the home page...</p>
+            </div>
         </div>
     );
 }
