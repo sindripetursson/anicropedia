@@ -1,7 +1,9 @@
 # Anicropedia
 
 ## Link: [https://anicropedia-5699f.web.app/](https://anicropedia-5699f.web.app/)
-To run the app, first “npm install” has to be run. Then “npm start” can be called and that will create the styles.css file and run the server on localhost:3000.
+
+## Setup
+To run the app, first run “npm install” to install all npm packages. Then “npm start” can be called and that will create the styles.css file and run the server on localhost:3000.
 
 ## Short description
 Anicropedia is a companion app that you can use with the game Animal Crossing: New Horizons. The app will allow users to view all collectable animals and keep a hold of which animals they have caught already. It will display various information such as when the animals can be caught, how much they sell for and their rarity. Other features will be that music will play in the background depending on the weather and time of day of the user. The user will be able to create an account and select where they are located to get accurate information. Collectible paintings and music will be displayed as well, and the user can mark which one he owns to make it easier for them to keep a hold of what they own in the game.
