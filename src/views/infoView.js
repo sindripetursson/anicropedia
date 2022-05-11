@@ -14,13 +14,13 @@ function InfoView(props){
                     </div>
                     <div className="info__col">
                         <div className="info__heading">
-                            Encyclopedia
+                            Critterpedia
                         </div> 
                         <div className="info__text">  
-                            Here all information can be found about the different collectibles in the game. These collectibles are split into Fish, Sea Creatures and Insects.
-                            By clicking on a specific creature you can see information about when and where they can be found, their selling price and rarity. <br /><br />
-                            Each creature can be added to your collection by clicking the creature and pressing the “Add to my collection” button at the bottom.
-                            Filters can be applied to display only creatures available at a certain time of day or year.
+                            Here all information can be found about the different critters in the game. These collectible critters are split into Fish, Sea Creatures and Insects.
+                            By clicking on a specific critter, you can see information about when and where they can be found, their selling price and rarity. <br /><br />
+                            Each creature can be added to your Island by clicking the creature and pressing the “Add to My Island" button at the bottom.
+                            Filters can be applied to display only critters available at a certain time of day or year.
                         </div>
                     </div>
                     <div className="info__col">
@@ -49,7 +49,7 @@ function InfoView(props){
                             My Island
                         </div> 
                         <div className="info__text">  
-                            Here you will find information about all items that you have collected already. You will also see the villagers on your island.
+                            Here you will find information about all items that you have already collected. You will also see the villagers on your island. This screen helps you always keep track of what is missing from your AC collection!
                         </div>
                     </div>
                     <div className="info__col">
@@ -58,7 +58,7 @@ function InfoView(props){
                         </div>
                         <div className="info__text">
                             Here you can view and play all of the music tracks created by K.K. Slider.
-                            By pressing the play button, you can listen to the song, and decide if you want to add it to your collection.
+                            By pressing the play button, you can listen to the song, and decide if you want to add it to your Island.
                         </div>
                     </div>
                     <div className="info__col">
@@ -66,7 +66,7 @@ function InfoView(props){
                             Collectibles
                         </div>
                         <div className="info__text">
-                            Here you can see all of the art and fossils that can be found in the game. You can add them to your collection by clicking on them and pressing the “Add to my collection button”.
+                            Here you can see all of the art and fossils that can be found in the game. You can add them to your Island by clicking on them and pressing the “Add to My Island" button.
                         </div>
                     </div>
                     <div className="info__col">

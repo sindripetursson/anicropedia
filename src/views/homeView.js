@@ -14,9 +14,9 @@ function HomeView(props) {
                         </Link>
                     </div>
                     <div className="list__col__home" >
-                        <Link className="listItem__home" to="/encyclopedia">
+                        <Link className="listItem__home" to="/critterpedia">
                             <img className="listItem__image__home" alt="" src={"../../images/homeIcons/encyclopedia.png"}/>
-                            <h3 className="listItem__text__villagers"> Encyclopedia </h3>
+                            <h3 className="listItem__text__villagers"> Critterpedia </h3>
                         </Link>
                     </div>
                     <div className="list__col__home" >

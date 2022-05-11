@@ -77,7 +77,7 @@ function Encyclopedia(props) {
     <div className="dropshadow">
         <div className={props.islandView ? "list__nav--island" : "list__nav"}>
             {props.islandView ?
-            <div className="island__header">My encyclopedia</div>
+            <div className="island__header">My critterpedia</div>
             :
             <></>  
             }

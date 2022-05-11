@@ -11,7 +11,7 @@ function Art(props){
                 <div className="checkmark__placeholder">
                     <div id={"details_checkmark1_art_" + props.singleResult.id} className={props.isInCollection ? "checkmark__image" : "hidden"} >
                         <img alt="checkmark" src="../../images/inCollection.svg"/> 
-                        <span style={{paddingTop: "10px"}}>In your collection!</span>
+                        <span style={{paddingTop: "10px"}}>In your Island!</span>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ function Art(props){
                         </a>
                     </div>
                     <div className="details__col">
-                        <button id={"details_collection_button_art_" + props.singleResult.id} className={props.isInCollection ? "button__negative" : "button__positive"} onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from my collection':'Add to my collection'}</button>
+                        <button id={"details_collection_button_art_" + props.singleResult.id} className={props.isInCollection ? "button__negative" : "button__positive"} onClick={() => props.onCollectionChange()}>{props.isInCollection?'Remove from My Island':'Add to My Island'}</button>
                     </div>
                 </div>
             </div>

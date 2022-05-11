@@ -31,7 +31,7 @@ function MusicView(props){
                         <button id={'button_' + singleResult.id} style={{marginBottom:"20px", width: "80%"}} onClick={(e) => {
                             props.onCollectionChange(singleResult, isItemInCollection(singleResult, 'music', true, props.userModel));
                             e.stopPropagation();
-                        }}>{isItemInCollection(singleResult, 'music', true, props.userModel)?'Remove from my collection':'Add to my collection'}</button>
+                        }}>{isItemInCollection(singleResult, 'music', true, props.userModel)?'Remove from My Island':'Add to My Island'}</button>
                     </div>
                 </div>
             </div>

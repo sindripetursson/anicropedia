@@ -30,7 +30,7 @@ function App(props) {
             <Routes>
                 <Route path="/" exact element={ <Home setDetailsOn={setDetailsOn}/> }/>
                 <Route path="/island" element={<Island userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/>}/>
-                <Route path="/encyclopedia" element={<Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
+                <Route path="/critterpedia" element={<Encyclopedia userModel={props.userModel} detailsModel={props.detailsModel} species={'fish'} setDetailsOn={setDetailsOn}/>}/>
                 <Route path="/villagers" element={ <Villagers userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>
                 <Route path="/music" element={ <Music userModel={props.userModel} detailsModel={props.detailsModel}/> }/>
                 <Route path="/collectibles" element={ <Collectible userModel={props.userModel} detailsModel={props.detailsModel} setDetailsOn={setDetailsOn}/> }/>

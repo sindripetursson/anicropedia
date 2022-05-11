@@ -108,15 +108,15 @@ function SettingsView(props){
                     <button style={{marginTop: "10px"}}className="settings__button" onClick={() => props.setModalPasswordVisible(!props.modalPasswordVisible)}>Change password</button>
                 </label>
                 <label className="settings__delete">
-                    <p className="settings__label">Clear my collection</p>
-                    <button style={{marginTop: "10px", border: "#FF5757 2px solid", color: "#FF5757"}}className="settings__button" onClick={() => props.setModalClearVisible(!props.modalClearVisible)}>Clear my collection</button>
+                    <p className="settings__label">Clear My Island</p>
+                    <button style={{marginTop: "10px", border: "#FF5757 2px solid", color: "#FF5757"}}className="settings__button" onClick={() => props.setModalClearVisible(!props.modalClearVisible)}>Clear My Island</button>
                 </label>
             </div> 
             <div className={props.confirmationVisible ? "settings__confirmationPopup" : "hidden"} onClick={() => props.turnOffConfirmation()}>
                 <p className="settings__confirmationText">Changes have been saved!</p>
             </div>
             <div className={props.confirmationClearVisible ? "settings__confirmationClearPopup" : "hidden"} onClick={() => props.turnOffClearConfirmation()}>
-                <p className="settings__confirmationText">Your collection has been cleared!</p>
+                <p className="settings__confirmationText">My Island has been cleared!</p>
             </div>
         </div>
     );

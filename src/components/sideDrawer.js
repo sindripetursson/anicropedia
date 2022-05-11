@@ -26,8 +26,8 @@ const sideDrawer = props => {
             </li>
 
             <li className="menuBar__sideDrawerItem">
-                <Link className="menuBar__sideDrawerLink" to="/encyclopedia" onClick={props.ToggleClickHandler}>
-                    <h3 className="menuBar__sideDrawerText"> Encyclopedia </h3>
+                <Link className="menuBar__sideDrawerLink" to="/critterpedia" onClick={props.ToggleClickHandler}>
+                    <h3 className="menuBar__sideDrawerText"> Critterpedia </h3>
                 </Link>  
             </li>
 
