@@ -64,62 +64,62 @@ function Details(props) {
             document.getElementById('details_checkmark1_fish_' + payload.addFish.id).classList = "checkmark__image";
             document.getElementById('details_checkmark2_fish_' + payload.addFish.id).classList = "checkmark__details";
             document.getElementById('details_collection_button_fish_' + payload.addFish.id).classList = 'button__negative';
-            document.getElementById('details_collection_button_fish_' + payload.addFish.id).innerHTML = 'Remove from my collection';
+            document.getElementById('details_collection_button_fish_' + payload.addFish.id).innerHTML = 'Remove from My Island';
         } else if (payload && payload.removeFish && document.getElementById('details_checkmark1_fish_' + payload.removeFish.id)) {
             document.getElementById('details_checkmark1_fish_' + payload.removeFish.id).classList = "hidden";
             document.getElementById('details_checkmark2_fish_' + payload.removeFish.id).classList = "hidden";
             document.getElementById('details_collection_button_fish_' + payload.removeFish.id).classList = 'button__positive';
-            document.getElementById('details_collection_button_fish_' + payload.removeFish.id).innerHTML = 'Add to my collection';
+            document.getElementById('details_collection_button_fish_' + payload.removeFish.id).innerHTML = 'Add to My Island';
         } else if (payload && payload.addInsect && document.getElementById('details_checkmark1_bugs_' + payload.addInsect.id)) { 
             document.getElementById('details_checkmark1_bugs_' + payload.addInsect.id).classList = "checkmark__image";
             document.getElementById('details_checkmark2_bugs_' + payload.addInsect.id).classList = "checkmark__details";
             document.getElementById('details_collection_button_bugs_' + payload.addInsect.id).classList = 'button__negative';
-            document.getElementById('details_collection_button_bugs_' + payload.addInsect.id).innerHTML = 'Remove from my collection';
+            document.getElementById('details_collection_button_bugs_' + payload.addInsect.id).innerHTML = 'Remove from My Island';
         } else if (payload && payload.removeInsect && document.getElementById('details_checkmark1_bugs_' + payload.removeInsect.id)) {
             document.getElementById('details_checkmark1_bugs_' + payload.removeInsect.id).classList = "hidden";
             document.getElementById('details_checkmark2_bugs_' + payload.removeInsect.id).classList = "hidden";
             document.getElementById('details_collection_button_bugs_' + payload.removeInsect.id).classList = 'button__positive';
-            document.getElementById('details_collection_button_bugs_' + payload.removeInsect.id).innerHTML = 'Add to my collection';
+            document.getElementById('details_collection_button_bugs_' + payload.removeInsect.id).innerHTML = 'Add to My Island';
         } else if (payload && payload.addSeaCreature && document.getElementById('details_checkmark1_sea_' + payload.addSeaCreature.id)) { 
             document.getElementById('details_checkmark1_sea_' + payload.addSeaCreature.id).classList = "checkmark__image";
             document.getElementById('details_checkmark2_sea_' + payload.addSeaCreature.id).classList = "checkmark__details";
             document.getElementById('details_collection_button_sea_' + payload.addSeaCreature.id).classList = 'button__negative';
-            document.getElementById('details_collection_button_sea_' + payload.addSeaCreature.id).innerHTML = 'Remove from my collection';
+            document.getElementById('details_collection_button_sea_' + payload.addSeaCreature.id).innerHTML = 'Remove from My Island';
         } else if (payload && payload.removeSeaCreature && document.getElementById('details_checkmark1_sea_' + payload.removeSeaCreature.id)) {
             document.getElementById('details_checkmark1_sea_' + payload.removeSeaCreature.id).classList = "hidden";
             document.getElementById('details_checkmark2_sea_' + payload.removeSeaCreature.id).classList = "hidden";
             document.getElementById('details_collection_button_sea_' + payload.removeSeaCreature.id).classList = 'button__positive';
-            document.getElementById('details_collection_button_sea_' + payload.removeSeaCreature.id).innerHTML = 'Add to my collection';
+            document.getElementById('details_collection_button_sea_' + payload.removeSeaCreature.id).innerHTML = 'Add to My Island';
         } else if (payload && payload.addArt && document.getElementById('details_checkmark1_art_' + payload.addArt.id)) { 
             document.getElementById('details_checkmark1_art_' + payload.addArt.id).classList = "checkmark__image";
             document.getElementById('details_checkmark2_art_' + payload.addArt.id).classList = "checkmark__details";
             document.getElementById('details_collection_button_art_' + payload.addArt.id).classList = 'button__negative';
-            document.getElementById('details_collection_button_art_' + payload.addArt.id).innerHTML = 'Remove from my collection';
+            document.getElementById('details_collection_button_art_' + payload.addArt.id).innerHTML = 'Remove from My Island';
         } else if (payload && payload.removeArt && document.getElementById('details_checkmark1_art_' + payload.removeArt.id)) {
             document.getElementById('details_checkmark1_art_' + payload.removeArt.id).classList = "hidden";
             document.getElementById('details_checkmark2_art_' + payload.removeArt.id).classList = "hidden";
             document.getElementById('details_collection_button_art_' + payload.removeArt.id).classList = 'button__positive';
-            document.getElementById('details_collection_button_art_' + payload.removeArt.id).innerHTML = 'Add to my collection';
+            document.getElementById('details_collection_button_art_' + payload.removeArt.id).innerHTML = 'Add to My Island';
         } else if (payload && payload.addArt && document.getElementById('details_checkmark1_art_' + payload.addArt.id)) { 
             document.getElementById('details_checkmark1_art_' + payload.addArt.id).classList = "checkmark__image";
             document.getElementById('details_checkmark2_art_' + payload.addArt.id).classList = "checkmark__details";
             document.getElementById('details_collection_button_art_' + payload.addArt.id).classList = 'button__negative';
-            document.getElementById('details_collection_button_art_' + payload.addArt.id).innerHTML = 'Remove from my collection';
+            document.getElementById('details_collection_button_art_' + payload.addArt.id).innerHTML = 'Remove from My Island';
         } else if (payload && payload.removeArt && document.getElementById('details_checkmark1_art_' + payload.removeArt.id)) {
             document.getElementById('details_checkmark1_art_' + payload.removeArt.id).classList = "hidden";
             document.getElementById('details_checkmark2_art_' + payload.removeArt.id).classList = "hidden";
             document.getElementById('details_collection_button_art_' + payload.removeArt.id).classList = 'button__positive';
-            document.getElementById('details_collection_button_art_' + payload.removeArt.id).innerHTML = 'Add to my collection';
+            document.getElementById('details_collection_button_art_' + payload.removeArt.id).innerHTML = 'Add to My Island';
         } else if (payload && payload.addFossil && document.getElementById('details_checkmark1_fossils_' + payload.addFossil['file-name'])) { 
             document.getElementById('details_checkmark1_fossils_' + payload.addFossil['file-name']).classList = "checkmark__image";
             document.getElementById('details_checkmark2_fossils_' + payload.addFossil['file-name']).classList = "checkmark__details";
             document.getElementById('details_collection_button_fossils_' + payload.addFossil['file-name']).classList = 'button__negative';
-            document.getElementById('details_collection_button_fossils_' + payload.addFossil['file-name']).innerHTML = 'Remove from my collection';
+            document.getElementById('details_collection_button_fossils_' + payload.addFossil['file-name']).innerHTML = 'Remove from My Island';
         } else if (payload && payload.removeFossils && document.getElementById('details_checkmark1_fossils_' + payload.removeFossils['file-name'])) {
             document.getElementById('details_checkmark1_fossils_' + payload.removeFossils['file-name']).classList = "hidden";
             document.getElementById('details_checkmark2_fossils_' + payload.removeFossils['file-name']).classList = "hidden";
             document.getElementById('details_collection_button_fossils_' + payload.removeFossils['file-name']).classList = 'button__positive';
-            document.getElementById('details_collection_button_fossils_' + payload.removeFossils['file-name']).innerHTML = 'Add to my collection';
+            document.getElementById('details_collection_button_fossils_' + payload.removeFossils['file-name']).innerHTML = 'Add to My Island';
         } else if (payload && payload.addVillager && document.getElementById('details_checkmark1_villagers_' + payload.addVillager.id)) {
             document.getElementById('details_checkmark1_villagers_' + payload.addVillager.id).classList = "checkmark__image";
             document.getElementById('details_checkmark2_villagers_' + payload.addVillager.id).classList = "checkmark__details";

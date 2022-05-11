@@ -43,10 +43,10 @@ function Music(props) {
             setData({...data});
         } else if (payload && payload.addMusic) {
             document.getElementById('checkmark_' + payload.addMusic.id).classList= 'checkmark';
-            document.getElementById('button_' + payload.addMusic.id).innerHTML = 'Remove from my collection';
+            document.getElementById('button_' + payload.addMusic.id).innerHTML = 'Remove from My Island';
         } else if (payload && payload.removeMusic) {
             document.getElementById('checkmark_' + payload.removeMusic.id).classList= 'hidden';
-            document.getElementById('button_' + payload.removeMusic.id).innerHTML = 'Add to my collection';
+            document.getElementById('button_' + payload.removeMusic.id).innerHTML = 'Add to My Island';
         }
     }
 
