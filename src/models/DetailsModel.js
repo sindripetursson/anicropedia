@@ -1,13 +1,10 @@
 import resolvePromise from "../resolvePromise";
 import { getDetails } from "../source/detailsSource";
 
-
 class DetailsModel{
-    constructor(currentId, currentCategory){
+    constructor(){
         this.observers = [];
-        // this.searchResultsPromiseState = {}; 
         this.currentDetailsPromiseState = {};
-        // this.searchParams = {};
     }
 
     setCurrentItem(category,id){
@@ -16,7 +13,7 @@ class DetailsModel{
             model.notifyObservers();
         }
 
-        if(id !== undefined && id !== this.currentId || category !== this.currentCategory) {
+        if((id !== undefined && id !== this.currentId) || category !== this.currentCategory) {
             this.currentId = id;
             this.currentCategory = category;
             resolvePromise(getDetails(category,id), this.currentDetailsPromiseState, notifyACB);

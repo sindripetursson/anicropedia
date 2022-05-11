@@ -6,9 +6,9 @@ import { sessionCheckDetails } from "../utils.js";
 
 export default 
 function Details(props) {
-    const [promise, setPromise]= React.useState(function initializePromiseACB() {return getDetails('villagers',1)});
-    const [data, setData]= React.useState(null);
-    const [error, setError]= React.useState(null);
+    const [promise, setPromise] = React.useState(function initializePromiseACB() {return getDetails('villagers',1)});
+    const [data, setData] = React.useState(null);
+    const [error, setError] = React.useState(null);
 	const [isInCollection, setIsInCollection] = React.useState(false);
     
     function isItemInCurrentCollection() {
@@ -42,7 +42,7 @@ function Details(props) {
     }
 
     function wasCreatedACB(){  
-      	props.detailsModel.addObserver(detailsObserverACB);   // 1. subscribe
+      	props.detailsModel.addObserver(detailsObserverACB);
         if (props.userModel) {
             props.userModel.addObserver(detailsModelObserverACB);
         }
@@ -51,12 +51,11 @@ function Details(props) {
             if (props.userModel) {
                 props.userModel.removeObserver(detailsModelObserverACB);
             }
-        } // 2.unsubscribe
-
+        }
         return isTakenDownACB;
     }
-    React.useEffect(wasCreatedACB, []);//  stricter: [props.model] but that never changes 
 
+    React.useEffect(wasCreatedACB, []);
 
     function detailsModelObserverACB(payload) {
         if (props.islandView) {
@@ -141,10 +140,9 @@ function Details(props) {
         let cancelled = false;
         function changedAgainACB() { 
             cancelled = true; 
-        };  // also called at teardown!
+        };
         if(promise) {
-            promise
-            .then(function saveDataACB(dt) {  
+            promise.then(function saveDataACB(dt) {  
                 if(!cancelled) setData(dt);
             })
             .catch(function saveErrACB(err) { 
@@ -152,16 +150,14 @@ function Details(props) {
             });
         }
 
-        return changedAgainACB;  // promiseChangedACB will be called for the new value!
-  }
-  
+        return changedAgainACB;
+    }
 
     React.useEffect(promiseChangedACB, [promise]);
 
-    return  sessionCheckDetails() || (<div onClick={(event) => event.stopPropagation()}>
-    
-    {promiseNoData({promise, data, error}) ||      // same as {promise:promise, data:data, error:error}
-            <DetailsView onCloseClicked={closeClicked} data={data} onCollectionChange={changeCollectionACB} isInCollection={isInCollection} userModel={props.userModel}/>}
-            </div>)
-              
+    return  sessionCheckDetails() || 
+    (<div onClick={(event) => event.stopPropagation()}>
+        {promiseNoData({promise, data, error}) ||
+        <DetailsView onCloseClicked={closeClicked} data={data} onCollectionChange={changeCollectionACB} isInCollection={isInCollection} userModel={props.userModel}/>}
+    </div>)
 } 

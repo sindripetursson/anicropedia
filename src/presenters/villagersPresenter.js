@@ -7,9 +7,9 @@ import { sessionCheck } from "../utils";
 
 export default 
 function Villagers(props) {
-    const [promise, setPromise]=React.useState(getVillagers('villagers'));
-    const [data, setData]= React.useState(getVillagers('villagers'));
-    const [error, setError]= React.useState(null);
+    const [promise, setPromise] = React.useState(getVillagers('villagers'));
+    const [data, setData] = React.useState(getVillagers('villagers'));
+    const [error, setError] = React.useState(null);
 
     function getDetails(clickedItem){
         props.detailsModel.setCurrentItem('villagers', clickedItem.id);
@@ -47,8 +47,7 @@ function Villagers(props) {
             cancelled = true; 
         };
         if(promise) {
-            promise
-            .then(function saveDataACB(dt) {  
+            promise.then(function saveDataACB(dt) {  
                 if(!cancelled) setData(dt);
             })
             .catch(function saveErrACB(err) { 
@@ -60,11 +59,12 @@ function Villagers(props) {
     
     React.useEffect(promiseChangedACB, [promise]);
 
-    return sessionCheck() || (<div>
+    return sessionCheck() || 
+    (<div>
     {props.islandView ?   
         <VillagersView onItemClicked={getDetails} data={props.userModel.villagers} userModel={props.userModel} islandView/> 
     :
-    promiseNoData({promise, data, error}) || 
+        promiseNoData({promise, data, error}) || 
         <VillagersView onItemClicked={getDetails} data={data} userModel={props.userModel}/>}
     </div>)
 }

@@ -7,9 +7,9 @@ import { sessionCheck } from "../utils";
 
 export default 
 function Collectible(props) {
-    const [promise, setPromise]=React.useState(getCollectible('fossils'));
-    const [data, setData]= React.useState(null);
-    const [error, setError]= React.useState(null);
+    const [promise, setPromise] = React.useState(getCollectible('fossils'));
+    const [data, setData] = React.useState(null);
+    const [error, setError] = React.useState(null);
     const [category, setCurrentCategory] = React.useState('fossils');
 
     function getDetails(clickedItem){
@@ -20,7 +20,6 @@ function Collectible(props) {
         }
         props.setDetailsOn(true);
     }
-
 
     function wasCreatedACB(){
         props.setDetailsOn(false);
@@ -57,17 +56,16 @@ function Collectible(props) {
         let cancelled = false;
         function changedAgainACB() { 
         cancelled = true; 
-        };  // also called at teardown!
+        };
         if(promise) {
-        promise
-        .then(function saveDataACB(dt) {  
-            if(!cancelled) setData(dt);
-        })
-        .catch(function saveErrACB(err) { 
-            if(!cancelled) setError(err);
-        });
+            promise.then(function saveDataACB(dt) {  
+                if(!cancelled) setData(dt);
+            })
+            .catch(function saveErrACB(err) { 
+                if(!cancelled) setError(err);
+            });
         }
-        return changedAgainACB;  // promiseChangedACB will be called for the new value!
+        return changedAgainACB;
     }
         
     React.useEffect(promiseChangedACB, [promise]);
@@ -96,8 +94,8 @@ function Collectible(props) {
                 <div 
                     className={category === 'art' ? "list__col__button" : "list__col__button inactive" }
                     onClick={() => {
-                    setPromise(getCollectible('art'));
-                    setCurrentCategory('art');
+                        setPromise(getCollectible('art'));
+                        setCurrentCategory('art');
                     }
                     }>
                     <div className="list__nav__container">

@@ -7,8 +7,8 @@ import Villagers from '../presenters/villagersPresenter';
 
 export default 
 function Island(props) {
-    return sessionCheck() || (<div>
-    {
+    return sessionCheck() ||
+    (<div>{
         <div className="island__container">
             <div className="island__col">
                 <div className="island__encyclopedia"> 
@@ -30,6 +30,5 @@ function Island(props) {
                 </div>
             </div>
         </div>
-    }
-    </div>)
+    }</div>)
 }

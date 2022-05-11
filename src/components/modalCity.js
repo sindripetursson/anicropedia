@@ -1,4 +1,3 @@
-import CloseButton from "./close_button";
 import CitySearch from "../presenters/liveCitySearchPresenter";
 
 function ModalCity(props){

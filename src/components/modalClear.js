@@ -1,5 +1,3 @@
-import CloseButton from "./close_button";
-
 function ModalClear(props){
     return <div className="settings__modalContainer" onClick={() => props.setModalClearVisible(!props.modalClearVisible)}>
     <div className="settings__modal" onClick={(event) => event.stopPropagation()}>

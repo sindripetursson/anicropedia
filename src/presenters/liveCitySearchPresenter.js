@@ -7,7 +7,7 @@ import PlacesAutocomplete, {
 export default
 function CitySearch(props) {
     const [address, setAddress] = React.useState('');
-    const [coordinates, setCoordinates] = React.useState({lat: null, lng: null});
+    const [, setCoordinates] = React.useState({lat: null, lng: null});
 
     async function handleSelectACB(value) {
         const results = await geocodeByAddress(value);
@@ -38,14 +38,12 @@ function CitySearch(props) {
                                         paddingTop: "3px",
                                         paddingBottom: "3px"
                                     }
-
                                     return (
-                                    <div key={suggestion.placeId} {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>
+                                        <div key={suggestion.placeId} {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>
                                     );
                                 })}
                             </div>
                         </div>
-                        
                     </div>
                 )}
             </PlacesAutocomplete>

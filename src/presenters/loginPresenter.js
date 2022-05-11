@@ -5,7 +5,6 @@ import firebaseConfig from "../firebaseConfig.js";
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
 import { ReactSession } from "react-client-session";
 
-
 const UserModel = require("../models/UserModel.js").default;
 let firebaseModel = require("../models/firebaseModel.js");
 const {updateFirebaseFromModel, updateModelFromFirebase}=firebaseModel;
