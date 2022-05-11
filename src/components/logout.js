@@ -13,5 +13,5 @@ export default function Logout(props) {
     });
     window.location = '/';
 
-    return (<div></div>);
+    return (<></>);
 }
