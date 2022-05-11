@@ -29,4 +29,4 @@ yarn-error.log*
 /src/styles/styles.css.map
 
 # firebase cache
-.firebase/*
+/.firebase
