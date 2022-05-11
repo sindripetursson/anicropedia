@@ -37,6 +37,8 @@ function Settings(props) {
             props.userModel.setUserName(name);
             setModalNameVisible(false);
             setName('');
+            setConfirmationVisible(true);
+            setTimeout(turnOffConfirmation, 5000);
         } else {
             document.getElementById('settingsName').classList.add('settings__input--error');
             if (name === '') {
@@ -45,8 +47,6 @@ function Settings(props) {
                 document.getElementById('settingsNameError').innerHTML = 'The new name must be shorter than 70 character long.';
             }
         }
-        setConfirmationVisible(true);
-        setTimeout(turnOffConfirmation, 5000);
     }
 
     function onCityChange(cityAddress, latlng) {
@@ -62,12 +62,12 @@ function Settings(props) {
             setModalCityVisible(false);
             setNewCityAddress('');
             setNewCityCoordinates({lat: null, lng: null});
+            setConfirmationVisible(true);
+            setTimeout(turnOffConfirmation, 5000);
         } else {
             document.getElementById('citySearchInput').classList.add('settings__input--error');
             document.getElementById('settingsCityError').innerHTML = 'No location selected.';
         }
-        setConfirmationVisible(true);
-        setTimeout(turnOffConfirmation, 5000);
     }
 
     function onPasswordSubmitACB() {
@@ -90,6 +90,8 @@ function Settings(props) {
                         setNewPassword('');
                         setRepeatNewPassword('');
                         setModalPasswordVisible(false);
+                        setConfirmationVisible(true);
+                        setTimeout(turnOffConfirmation, 5000);
                     })
                     .catch((e) => document.getElementById('settingsPasswordError').innerHTML = 'Error updating password, please try again later.');
                 } else {
@@ -101,9 +103,6 @@ function Settings(props) {
                 document.getElementById('oldPassword').classList.add('settings__input--error');
                 document.getElementById('settingsPasswordError').innerHTML = 'Incorrect old password.';
             });
-
-        setConfirmationVisible(true);
-        setTimeout(turnOffConfirmation, 5000);
     }
 
     function clearDataSubmitACB() {

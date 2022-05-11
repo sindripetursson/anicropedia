@@ -8,67 +8,13 @@ import { ReactSession } from "react-client-session";
 export default 
 function MenuBarView(props) {
     const location = useLocation();
-    const [hideCitySelect, sethideCitySelect] = React.useState(true);
-    const [hideCitySearch, sethideCitySearch] = React.useState(false);
 
     const [sideDrawerOpen, setsideDrawerOpen] = React.useState(false);
     const [backdropOpen, setbackdropOpen] = React.useState(false);
 
-    const fire = (event) => {
-        if (event.keyCode === 13) {
-            sethideCitySearch(true);
-            sethideCitySelect(false);
-            props.onSearchNow();
-        }
-    }
-
-    // information from the input element
-    function sendCityACB(evt) {
-        props.onUserInput(evt.target.value)
-    }
-
-    function renderCities(data) {
-        function renderSingleData(singleResult) {
-            return (
-                <option value={
-                    singleResult.lat + ',' + 
-                    singleResult.lon + ',' + 
-                    singleResult.name + ',' + 
-                    singleResult.country + ',' + 
-                    singleResult.state
-                    } 
-                    key={singleResult.lat}>
-                        {(
-                            singleResult.name + ', ' + 
-                            singleResult.country + ', ' + 
-                            singleResult.state
-                        )}
-                </option>
-            );
-        }
-        return Object.values(data).map(renderSingleData);
-    }
-
-    // information from the select element
-    function chooseParameterACB(evt) {
-        sethideCitySelect(true);
-        props.onSetChosenCity(evt.target.value);
-    }
-
     function muteMusic() {
         // Send mute request to presenter
         props.onMuteAudio();
-
-        // set the image to alter the src
-        //var image = document.getElementById('muteId');
-
-        // if src matches the actual one and is clicked, then change it
-        /*if (image.src.match("images/soundOn.svg")) {
-            image.src = "images/soundOff.svg";
-        }
-        else {
-            image.src = "images/soundOn.svg";
-        } */
     }
 
     function stopVinyl() {

@@ -1,15 +1,15 @@
 import MenuBarView from "../views/menuBarView.js";
 import React from "react";
 import { getGeo } from "../source/geoSource.js";
-import Timer from "../views/timer.js";
+import Timer from "../components/timer.js";
 import { ReactSession } from "react-client-session";
 
 // global hour and audio
 let currentHour; 
 let cityHour;
 let isHourChange = false;
-// let currentMinute;
 let isCityChange = false;
+let weatherIndex;
 
 var audio = document.createElement('audio');
 audio.id = "bgmMute";
@@ -24,9 +24,6 @@ function MenuBar(props) {
     const [geoData, setGeoData]= React.useState(null);
     const [, setGeoError]= React.useState(null);
     const [name, setName] = React.useState('');
-    // city
-    const [chosenCity, setChosenCity]= React.useState(''); //props.weatherModel.getUserCity());
-    var typedCity;
     // timer
     const [timerCreated, setTimerCreated ]= React.useState(false);
     
@@ -50,65 +47,26 @@ function MenuBar(props) {
         }
         return changedAgainACB; 
     }
-    
-    // catch input element
-    function saveTypedCityACB(typedCityName) {
-        typedCity = typedCityName;
-    };
-    
-    // get the promise for the input
-    function searchNowACB() {
-        setGeoPromise(getGeo(typedCity));
-        props.weatherModel.setBackgroundMusicPromise();
-    };
-
-    // catch the select element
-    function setChosenCityACB(chosenCity) {     
-        // save the city in the model, so that the city persists for the next weather search   
-        props.weatherModel.setUserCity(chosenCity);
-        setChosenCity(props.weatherModel.getUserCity());
-        
-        updateData();
-    };
-
 
     // final song filter function
     function filterWeatherDataOnAudio() {
-        var checkToday = new Date();
-        var checkHour = checkToday.getHours();
+        let checkToday = new Date();
+        let checkHour = checkToday.getHours();
 
-        // var checkMinute = checkToday.getMinutes();
-
-        // console.log("Compare checkHour vs currentHour: " + checkHour + ', ' + currentHour);
-
-        // console.log('weather: ' + props.weatherModel.getCityWeather());
-        
-        // console.log(props.weatherModel.getCityWeather() != null && (checkHour !== currentHour));
         if(isCityChange || (props.weatherModel.getCityWeather(props.userModel.getCityCoordinates()) != null  && (checkHour !== currentHour))) {
-            var today = new Date();
+            let today = new Date();
             currentHour = today.getHours();
-            
-            // currentMinute = today.getMinutes();
 
-            var currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
-            cityHour = (today.getUTCHours() + (props.weatherModel.getCityWeather().timezone / 60 / 60)) % 24;
+            let currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
+            cityHour = Math.floor((today.getUTCHours() + (props.weatherModel.getCityWeather().timezone / 60 / 60)) % 24);
             if (cityHour < 0) cityHour += 24; //Corrects hour if it goes into minus
             const relevantMusic = []
-            var weatherIndex;
 
-            console.log("-----------------------------");
-            console.log('Weather in ' + props.userModel.getCityAddress() + ': ' + props.weatherModel.getCityWeather().weather[0].main);
-
-            matchCityWeatherOnACWeather();
-
-            console.log('Weather mapped to AC weather: ' + weatherIndex)
-
+            matchCityWeatherOnACWeather(currentWeather);
             filterAllSongsFittingCurrentHour(relevantMusic);
-
             filterSongFittingCurrentWeather(relevantMusic);
 
             audio.loop = true;
-            //audio.play();
             if (isHourChange || isCityChange) {
                 if (isBackgroundMusicPlaying) {
                     audio.play();   
@@ -116,13 +74,10 @@ function MenuBar(props) {
                 isHourChange = false;
             }
             isCityChange = false;
-
-            console.log("Information: Song is playing!");
-            console.log("-----------------------------");
         }
 
         
-        function matchCityWeatherOnACWeather() {
+        function matchCityWeatherOnACWeather(currentWeather) {
             switch (currentWeather) {
                 case "Snow":
                     weatherIndex = "Snowy";
@@ -155,8 +110,6 @@ function MenuBar(props) {
             function renderFinalSong(finalSong) {
                 if (finalSong.weather === weatherIndex) { 
                     audio.src = finalSong.music_uri;
-                    console.log('Following song was chosen: ' + finalSong['file-name'])
-                    console.log('Song URI: ' + finalSong.music_uri);
                 }
             }
         }
@@ -249,11 +202,7 @@ function MenuBar(props) {
 
     return <div> 
             <MenuBarView 
-                onUserInput={saveTypedCityACB} 
-                onSearchNow={searchNowACB} 
                 data={geoData} 
-                onSetChosenCity={setChosenCityACB} 
-                chosenCity={chosenCity} 
                 onMuteAudio={muteAudioACB}
                 userModel={props.userModel}
                 name={name}
