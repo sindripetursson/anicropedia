@@ -10,7 +10,7 @@ function VillagersView(props){
                 <div className={props.islandView ? "list__col__other--island" : "list__col"} key={"villagers_"+singleResult.id} onClick={() => itemClicked()}>
                     <div className={props.islandView ? "listItem__villagers--island" : "listItem__villagers"}>
                         <div className={props.islandView ? "listItem__imagePlaceholder--island" : "listItem__imagePlaceholder"}>
-                            <img className={props.islandView ? "listItem__image__villagers--island" : "listItem__image__villagers"} alt="villager" src={singleResult.icon_uri}/>
+                            <img className={props.islandView ? "listItem__image__villagers--island" : "listItem__image__villagers"} alt="villager" src={singleResult.icon_uri} loading="lazy"/>
                         </div>
                         <div className="listItem__text__villagers">
                             {singleResult.name["name-EUen"]}
