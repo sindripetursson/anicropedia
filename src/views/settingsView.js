@@ -18,12 +18,13 @@ function SettingsView(props){
                         props.setModalNameVisible(!props.modalNameVisible)
                     }
                 >  
-                    <ModalName userModel={props.userModel} 
-                               setModalNameVisible={props.setModalNameVisible}
-                               modalNameVisible={props.modalNameVisible} 
-                               name={props.name}
-                               onNameChange={props.onNameChange}
-                               onNameSubmit={props.onNameSubmit}/>
+                        <ModalName userModel={props.userModel} 
+                            setModalNameVisible={props.setModalNameVisible}
+                            modalNameVisible={props.modalNameVisible} 
+                            name={props.name}
+                            onNameChange={props.onNameChange}
+                            onNameSubmit={props.onNameSubmit}
+                        />
                 </Modal>
             </div>
 
@@ -37,11 +38,13 @@ function SettingsView(props){
                         props.setModalCityVisible(!props.modalCityVisible)
                     }
                 >  
-                    <ModalCity userModel={props.userModel} 
-                               setModalCityVisible={props.setModalCityVisible} 
-                               modalCityVisible={props.modalCityVisible}
-                               onCityChange={props.onCityChange}
-                               onCitySubmit={props.onCitySubmit} />
+                    <ModalCity 
+                        userModel={props.userModel} 
+                        setModalCityVisible={props.setModalCityVisible} 
+                        modalCityVisible={props.modalCityVisible}
+                        onCityChange={props.onCityChange}
+                        onCitySubmit={props.onCitySubmit} 
+                    />
                 </Modal>
             </div>
 
@@ -55,16 +58,18 @@ function SettingsView(props){
                         props.setModalPasswordVisible(!props.modalPasswordVisible)
                     }
                 >  
-                    <ModalPassword userModel={props.userModel} 
-                                   setModalPasswordVisible={props.setModalPasswordVisible} 
-                                   modalPasswordVisible={props.modalPasswordVisible} 
-                                   oldPassword={props.oldPassword}
-                                   onOldPasswordChange={props.onOldPasswordChange}
-                                   newPassword={props.newPassword}
-                                   onNewPasswordChange={props.onNewPasswordChange}
-                                   repeatNewPassword={props.repeatNewPassword}
-                                   onRepeatNewPasswordChange={props.onRepeatNewPasswordChange}
-                                   onPasswordSubmit={props.onPasswordSubmit}/>
+                    <ModalPassword 
+                        userModel={props.userModel} 
+                        setModalPasswordVisible={props.setModalPasswordVisible} 
+                        modalPasswordVisible={props.modalPasswordVisible} 
+                        oldPassword={props.oldPassword}
+                        onOldPasswordChange={props.onOldPasswordChange}
+                        newPassword={props.newPassword}
+                        onNewPasswordChange={props.onNewPasswordChange}
+                        repeatNewPassword={props.repeatNewPassword}
+                        onRepeatNewPasswordChange={props.onRepeatNewPasswordChange}
+                        onPasswordSubmit={props.onPasswordSubmit}
+                    />
                 </Modal>
             </div>
 
@@ -78,10 +83,12 @@ function SettingsView(props){
                         props.setModalClearVisible(!props.modalClearVisible)
                     }
                 >  
-                    <ModalClear userModel={props.userModel} 
-                                setModalClearVisible={props.setModalClearVisible} 
-                                modalClearVisible={props.modalClearVisible} 
-                                onClearDataSubmit={props.onClearDataSubmit}/>
+                    <ModalClear 
+                        userModel={props.userModel} 
+                        setModalClearVisible={props.setModalClearVisible} 
+                        modalClearVisible={props.modalClearVisible} 
+                        onClearDataSubmit={props.onClearDataSubmit}
+                    />
                 </Modal>
             </div>
 
@@ -104,13 +111,12 @@ function SettingsView(props){
                     <p className="settings__label">Clear my collection</p>
                     <button style={{marginTop: "10px", border: "#FF5757 2px solid", color: "#FF5757"}}className="settings__button" onClick={() => props.setModalClearVisible(!props.modalClearVisible)}>Clear my collection</button>
                 </label>
-
             </div> 
             <div className={props.confirmationVisible ? "settings__confirmationPopup" : "hidden"} onClick={() => props.turnOffConfirmation()}>
-                    <p className="settings__confirmationText">Changes have been saved!</p>
+                <p className="settings__confirmationText">Changes have been saved!</p>
             </div>
             <div className={props.confirmationClearVisible ? "settings__confirmationClearPopup" : "hidden"} onClick={() => props.turnOffClearConfirmation()}>
-                    <p className="settings__confirmationText">Your collection has been cleared!</p>
+                <p className="settings__confirmationText">Your collection has been cleared!</p>
             </div>
         </div>
     );
