@@ -6,14 +6,14 @@ import resolvePromise from "../resolvePromise";
 import MusicBarView from "../views/musicBarView.js";
 import { sessionCheck } from "../utils";
 
-var audio = document.createElement('audio');
+let audio = document.createElement('audio');
 audio.id = "vinyl"
 document.body.appendChild(audio);
 
-var btTopPlayPause;
-var audioArr = [];
-var singleResultGlobal;
-var btVinylPlayPause;
+let btTopPlayPause;
+let audioArr = [];
+let singleResultGlobal;
+let btVinylPlayPause;
 
 export default 
 function Music(props) {
@@ -52,19 +52,6 @@ function Music(props) {
 
     React.useEffect(wasCreatedACB, []);
 
-    // check the focus (case: music is played, user leaves view and returns)
-    const focusDiv = React.useRef();
-    React.useEffect(() => {
-        if(focusDiv.current) focusDiv.current.focus(); 
-        checkForPlaying();
-    }, [focusDiv]);
-
-    function checkForPlaying() {  
-        if(audio.src.includes("stop")) {
-            setTimeout(() => stopTrack(), 300);
-        }
-    }
-
     function promiseChangedACB(){ 
     setData(null); 
     setError(null); 
@@ -97,7 +84,7 @@ function Music(props) {
             document.getElementById("bgmMuteOff").pause();
             
             // vinyl is played, so show mute on bgm mute bt
-            var btMuteMenuBarPres = document.getElementById("muteId");
+            let btMuteMenuBarPres = document.getElementById("muteId");
             btMuteMenuBarPres.src = "images/playBg.svg";
         }
 
@@ -127,11 +114,11 @@ function Music(props) {
             audio.loop = true;
             if(!props.islandView) {
                 // set vinyl img in musicBar
-                var musicBarImg = document.getElementById("musicBarImg");
+                let musicBarImg = document.getElementById("musicBarImg");
                 musicBarImg.src = singleResultGlobal.image_uri;
 
                 // set artist name in musicBar
-                var artistName = document.getElementById("songName");
+                let artistName = document.getElementById("songName");
                 artistName.textContent = singleResultGlobal.name["name-EUen"];
             }
             
@@ -155,9 +142,7 @@ function Music(props) {
 
                 audio.play();
 
-
-                var progressed = document.getElementById("progressed");
-                // var progress_bar = document.getElementById("progress_bar");  
+                let progressed = document.getElementById("progressed");
 
                 // No progressbar in islandview
                 if(!props.islandView) {
@@ -165,11 +150,6 @@ function Music(props) {
                         progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
                     }
                 }
-
-                // user could be able to choose song position on the music bar
-                // progress_bar.onclick = function(e) {
-                //   audio.currentTime = ((e.offsetX/progress_bar.offsetWidth) * audio.duration);
-                // }
 
                 if(singleResultGlobal) {
                     btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
@@ -226,18 +206,18 @@ function Music(props) {
 
         // No progressbar in islandview
         if(!props.islandView && !(audio.src.includes("stop"))) {
-            var progressed = document.getElementById("progressed");
+            let progressed = document.getElementById("progressed");
             progressed.style.width = "0%";
         }
 
 
         if(!props.islandView && !(audio.src.includes("stop"))) {
             // set vinyl img in musicBar
-            var musicBarImg = document.getElementById("musicBarImg");
+            let musicBarImg = document.getElementById("musicBarImg");
             musicBarImg.src = "images/vinyl.svg";
 
             // set artist name in musicBar
-            var artistName = document.getElementById("songName");
+            let artistName = document.getElementById("songName");
             artistName.textContent = "Play a song";
         }
 
@@ -246,7 +226,7 @@ function Music(props) {
             document.getElementById("bgmMuteOff").play();
 
             // vinyl is paused, so show no mute on bgm mute bt
-            var btMuteMenuBarPres = document.getElementById("muteId");
+            let btMuteMenuBarPres = document.getElementById("muteId");
             btMuteMenuBarPres.src = "images/pauseBg.svg";
         }
 
@@ -271,34 +251,49 @@ function Music(props) {
 
     React.useEffect(promiseChangedACB, [promise]);
 
+    // If component is unmounted, stop the music
+    React.useEffect(() => {
+        return () => {
+            if (audio) {
+                audio.pause();
+                audio.src = '';
+                // Turn background music back on if it is playing
+                if(document.getElementById("bgmMuteOff")) {
+                    document.getElementById("bgmMuteOff").play();
+                    let btMuteMenuBarPres = document.getElementById("muteId");
+                    btMuteMenuBarPres.src = "images/pauseBg.svg";
+                }
+            }
+        }
+    }, [])
+
     return sessionCheck() || 
     (<div>
-    {props.islandView ? 
-        <MusicView 
-        data={props.userModel.music}
-        onPlayPause={playPause} 
-        onPlayPressed={playTrack}        
-        onPausePressed={playTrack}  
-        userModel={props.userModel}
-        onCollectionChange={changeCollectionACB}
-        islandView
-        />
-    :
-    promiseNoData({promise, data, error}) ||   
-        <div>
-            <MusicBarView 
-                onPlayPressed={playTrack} 
-                onStopPressed={stopTrack}
-            />
+        {props.islandView ? 
             <MusicView 
-                data={data}
-                onPlayPause={playPause} 
-                onPlayPressed={playTrack}        
-                onPausePressed={playTrack}  
-                userModel={props.userModel}
-                onCollectionChange={changeCollectionACB}
+            data={props.userModel.music}
+            onPlayPause={playPause} 
+            onPlayPressed={playTrack}        
+            onPausePressed={playTrack}  
+            userModel={props.userModel}
+            onCollectionChange={changeCollectionACB}
+            islandView
             />
-            <div ref={focusDiv}></div>
-        </div>}
-    </div>) 
+        :
+        promiseNoData({promise, data, error}) ||   
+            <div>
+                <MusicBarView 
+                    onPlayPressed={playTrack} 
+                    onStopPressed={stopTrack}
+                />
+                <MusicView 
+                    data={data}
+                    onPlayPause={playPause} 
+                    onPlayPressed={playTrack}        
+                    onPausePressed={playTrack}  
+                    userModel={props.userModel}
+                    onCollectionChange={changeCollectionACB}
+                />
+            </div>}
+    </div>); 
 } 
