@@ -44,7 +44,6 @@ function VillagersView(props){
             </div>
         </div>
     );
-
 }
 
 export default VillagersView;

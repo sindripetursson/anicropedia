@@ -2,11 +2,8 @@ import { capitalizeFirstLetter } from "../utils";
 import {isItemInCollection} from "../utils";
 
 function CollectibleView(props){
-
     function renderData(data){
-
         function renderSingleData(singleResult){
-
             function itemClicked(){
                 props.onItemClicked(singleResult);
             }
@@ -30,7 +27,7 @@ function CollectibleView(props){
         return Object.values(data).map(renderSingleData);
     }
 
-    return(
+    return (
         <div className={props.islandView ? "list__row__encyclopedia--island" : "list__row__encyclopedia"}>
             {props.islandView && props.data.length === 0 ?
                 <div className="island__message">Add {props.category} to your island!</div>
@@ -39,7 +36,6 @@ function CollectibleView(props){
             }
         </div>
     );
-
 }
 
 export default CollectibleView;

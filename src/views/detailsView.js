@@ -64,5 +64,5 @@ function DetailsView(props) {
         <div>
             {renderResults(props.data)}
         </div>
-    )
+    );
 }

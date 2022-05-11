@@ -9,21 +9,21 @@ function LoginView(props) {
                 <label className="authentication__email">
                     <p className="authentication__label">Email</p>
                     <input className="authentication__input"
-                           type="email" 
-                           onChange={props.onEmailChange}
-                           value={props.email}
-                           id="loginEmail"
-                           placeholder="Enter your email..."
+                        type="email" 
+                        onChange={props.onEmailChange}
+                        value={props.email}
+                        id="loginEmail"
+                        placeholder="Enter your email..."
                     />
                 </label>
                 <label className="authentication__password">
                     <p className="authentication__label">Password</p>
                     <input className="authentication__input"
-                           type="password" 
-                           onChange={props.onPasswordChange}
-                           value={props.password}
-                           id="loginPassword"
-                           placeholder="Enter your password..."
+                        type="password" 
+                        onChange={props.onPasswordChange}
+                        value={props.password}
+                        id="loginPassword"
+                        placeholder="Enter your password..."
                     />
                 </label>
                 <div className="authentication__error">

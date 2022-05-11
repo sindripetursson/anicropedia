@@ -46,5 +46,5 @@ function HomeView(props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

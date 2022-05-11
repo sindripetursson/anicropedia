@@ -17,15 +17,13 @@ import { Routes, Route } from "react-router-dom";
 import Details from './presenters/detailsPresenter';
 import Music from './presenters/musicPresenter.js';
 
-
 function App(props) {
-
     const [detailsOn, setDetailsOn] = React.useState(false);
     return (
         <div className="App">
-        <div className={detailsOn ? "details" : "hidden"} onClick={() => setDetailsOn(false)}>
-            <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
-        </div>
+            <div className={detailsOn ? "details" : "hidden"} onClick={() => setDetailsOn(false)}>
+                <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
+            </div>
             <div className={window.location.pathname !== "/login" && window.location.pathname !== "/signup" ? "": "hidden"}>
                 <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel} userModel={props.userModel}/>
             </div>

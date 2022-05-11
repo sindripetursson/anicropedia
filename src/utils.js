@@ -12,7 +12,7 @@ function isItemInCollection(itemToCheck, category, hasId, userModel) {
     function itemInCollectionCB(item) {
         if(hasId) return item.id === itemToCheck.id;
         else return item.name["name-EUen"] === itemToCheck.name["name-EUen"];
-        }
+    }
     return (userModel.getCategoryArray(category).filter(itemInCollectionCB)).length > 0; 
 }
 

@@ -7,7 +7,6 @@ function EncyclopediaView(props){
             function itemClicked(){
                 props.onItemClicked(singleResult);
             }
-
             return (
                 <div className={props.islandView ? "list__col__encyclopedia--island" : "list__col__encyclopedia"} key={"encyclopedia_"+singleResult.id} onClick={() => itemClicked()}>
                     <div className="listItem__encyclopedia" >
