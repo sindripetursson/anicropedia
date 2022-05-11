@@ -128,6 +128,10 @@ function MenuBar(props) {
     }
 
     function muteAudioACB() {
+        // Play/pause button only works when no vinyl is playing
+        if(!document.getElementById("vinyl").paused) { 
+            return;
+        }
         if (!initialBackgroundAudioCheck) {
             if(isBackgroundMusicPlaying) {
                 audio.pause();
@@ -139,17 +143,14 @@ function MenuBar(props) {
                 muteBt.src = "../../images/playBg.svg";
                 isBackgroundMusicPlaying = false;
             } else {
-                // play the BGM only when no vinyl is played
-                if(document.getElementById("vinyl").paused) {    
-                    audio.play();
-                    // id to use audio in musicPresenter
-                    audio.id = "bgmMuteOff";
-        
-                    // set mute button to on (sound in on)
-                    let muteBt = document.getElementById("muteId");
-                    muteBt.src = "../../images/pauseBg.svg";
-                    isBackgroundMusicPlaying = true;
-                }
+                audio.play();
+                // id to use audio in musicPresenter
+                audio.id = "bgmMuteOff";
+    
+                // set mute button to on (sound in on)
+                let muteBt = document.getElementById("muteId");
+                muteBt.src = "../../images/pauseBg.svg";
+                isBackgroundMusicPlaying = true;
             }
         } else {
             initialBackgroundAudioCheck = false;
