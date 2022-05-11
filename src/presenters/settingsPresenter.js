@@ -185,7 +185,8 @@ function Settings(props) {
                 turnOffConfirmation={turnOffConfirmation}
                 confirmationClearVisible={confirmationClearVisible}
                 turnOffClearConfirmation={turnOffClearConfirmation}
-                onClearDataSubmit={clearDataSubmitACB}                />
+                onClearDataSubmit={clearDataSubmitACB}                
+            />
         </div>
         }
     </div>)

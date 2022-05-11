@@ -5,7 +5,6 @@ import firebaseConfig from "../firebaseConfig.js";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { ReactSession } from "react-client-session";
 
-
 const UserModel = require("../models/UserModel.js").default;
 const userModel= new UserModel();
 let firebaseModel = require("../models/firebaseModel.js");
@@ -108,17 +107,19 @@ function Signup(props) {
 
     return (
         <div>
-            <SignupView name={name} 
-                        onNameChange={onNameChange} 
-                        email={email} 
-                        onEmailChange={onEmailChange} 
-                        password={password} 
-                        onPasswordChange={onPasswordChange} 
-                        repeatPassword={repeatPassword} 
-                        onRepeatPasswordChange={onRepeatPasswordChange} 
-                        onSignup={signupACB} 
-                        onCityChange={onCityChange}
-                        userCreationPopup={userCreationPopup}/>
+            <SignupView 
+                name={name} 
+                onNameChange={onNameChange} 
+                email={email} 
+                onEmailChange={onEmailChange} 
+                password={password} 
+                onPasswordChange={onPasswordChange} 
+                repeatPassword={repeatPassword} 
+                onRepeatPasswordChange={onRepeatPasswordChange} 
+                onSignup={signupACB} 
+                onCityChange={onCityChange}
+                userCreationPopup={userCreationPopup}
+            />
         </div>
     )
 }

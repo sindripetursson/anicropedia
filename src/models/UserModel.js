@@ -145,10 +145,6 @@ class UserModel {
         }
     }
 
-    // Next step: split back into addItem and removeItem. Have some way in the presenter
-    // to distinguish between if an item is being added or removed. Has to be this way
-    // because firebase calls this method at the moment and adds it back into the model
-    // when it should be being removed.
     removeItem(itemToRemove, category){
         function hasSameIdCB(item){
             if (category === 'fossils') {

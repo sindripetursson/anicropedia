@@ -9,38 +9,7 @@ class WeatherModel {
         this.currentBackgroundMusicPromiseState = {};
         this.currentGeoPromiseState = [];
     }
-/*
-    setUserCity(chosenCity) {
 
-        const cityArray = chosenCity.split(",");
-        
-        // 0 = Latitude, 1 = Longitude, 2 = CityName, 3 = Country, 4 = State
-        this.userCity[0] = cityArray[0];
-        this.userCity[1] = cityArray[1];
-        this.userCity[2] = cityArray[2];
-    }
-
-    getCityLat() {
-        if(this.userCity[0] != null) {
-            return this.userCity[0];
-        } else
-        return "No City selected";
-    }
-    
-    getCityLon() {
-        if(this.userCity[1] != null) {
-            return this.userCity[1];
-        } else
-        return "No City selected";
-    }
-
-    getUserCity() {
-        if(this.userCity[2] != null) {
-            return this.userCity[2];
-        } else
-        return "No City selected";
-    }
-*/
     setBackgroundMusicPromise() {
         resolvePromise(getBackgroundMusic(), this.currentBackgroundMusicPromiseState)
     }

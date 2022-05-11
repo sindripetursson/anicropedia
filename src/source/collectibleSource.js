@@ -10,6 +10,5 @@ export function getCollectible(collectible) {
         method: "GET",
         headers: {
         },
-        //redirect: 'follow'
     }).then(treatHTTPResponseACB);
 }

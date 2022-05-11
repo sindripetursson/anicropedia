@@ -1,6 +1,5 @@
 import MenuBarView from "../views/menuBarView.js";
 import React from "react";
-import { getGeo } from "../source/geoSource.js";
 import Timer from "../components/timer.js";
 import { ReactSession } from "react-client-session";
 
@@ -11,7 +10,7 @@ let isHourChange = false;
 let isCityChange = false;
 let weatherIndex;
 
-var audio = document.createElement('audio');
+let audio = document.createElement('audio');
 audio.id = "bgmMute";
 document.body.appendChild(audio);
 let initialBackgroundAudioCheck = true;
@@ -19,8 +18,8 @@ let isBackgroundMusicPlaying = false;
 
 export default 
 function MenuBar(props) {
-    // // geo
-    const [geoPromise, setGeoPromise]= React.useState();
+    // geo
+    const [geoPromise,]= React.useState();
     const [geoData, setGeoData]= React.useState(null);
     const [, setGeoError]= React.useState(null);
     const [name, setName] = React.useState('');
@@ -35,7 +34,7 @@ function MenuBar(props) {
         let cancelled = false;
         function changedAgainACB() { 
               cancelled = true; 
-        };  // also called at teardown!
+        };
         if(geoPromise) {
             geoPromise
               .then(function saveDataACB(dt) {  
@@ -59,7 +58,8 @@ function MenuBar(props) {
 
             let currentWeather = props.weatherModel.getCityWeather().weather[0].main; 
             cityHour = Math.floor((today.getUTCHours() + (props.weatherModel.getCityWeather().timezone / 60 / 60)) % 24);
-            if (cityHour < 0) cityHour += 24; //Corrects hour if it goes into minus
+            // Corrects hour if it goes into minus
+            if (cityHour < 0) cityHour += 24;
             const relevantMusic = []
 
             matchCityWeatherOnACWeather(currentWeather);
@@ -75,7 +75,6 @@ function MenuBar(props) {
             }
             isCityChange = false;
         }
-
         
         function matchCityWeatherOnACWeather(currentWeather) {
             switch (currentWeather) {
@@ -119,7 +118,6 @@ function MenuBar(props) {
         if(ReactSession.get('uid') !== null && props.userModel) {
             props.weatherModel.setBackgroundMusicPromise();
             props.weatherModel.setCityWeatherPromise(props.userModel.getCityCoordinates());
-            
             setTimeout(filterWeatherDataOnAudio, 2000);
         }   
     }
@@ -141,7 +139,6 @@ function MenuBar(props) {
                 muteBt.src = "../../images/playBg.svg";
                 isBackgroundMusicPlaying = false;
             } else {
-                
                 // play the BGM only when no vinyl is played
                 if(document.getElementById("vinyl").paused) {    
                     audio.play();
@@ -152,7 +149,6 @@ function MenuBar(props) {
                     let muteBt = document.getElementById("muteId");
                     muteBt.src = "../../images/pauseBg.svg";
                     isBackgroundMusicPlaying = true;
-
                 }
             }
         } else {
@@ -197,23 +193,22 @@ function MenuBar(props) {
 
     React.useEffect(wasCreatedACB, []);
 
-    //updateData();
     React.useEffect(geoPromiseChangedACB, [geoPromise]);
 
     return <div> 
-            <MenuBarView 
-                data={geoData} 
-                onMuteAudio={muteAudioACB}
-                userModel={props.userModel}
-                name={name}
-                onStopTrack={stopVinylTrack}
-            /> 
+        <MenuBarView 
+            data={geoData} 
+            onMuteAudio={muteAudioACB}
+            userModel={props.userModel}
+            name={name}
+            onStopTrack={stopVinylTrack}
+        /> 
 
-            {timerCreated ||
-                <Timer 
-                onUpdateData={onHourChangeACB}
-                onTimerCreated={setTimerCreated}
-                />
-            }
-        </div> 
+        {timerCreated ||
+            <Timer 
+            onUpdateData={onHourChangeACB}
+            onTimerCreated={setTimerCreated}
+            />
+        }
+    </div> 
 }

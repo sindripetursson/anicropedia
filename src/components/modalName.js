@@ -1,5 +1,3 @@
-import CloseButton from "./close_button"
-
 function ModalName(props){
     return <div className="settings__modalContainer" onClick={() => props.setmodalNameVisible(!props.modalNameVisible)}>
     <div className="settings__modal" onClick={(event) => event.stopPropagation()}>

@@ -8,7 +8,6 @@ firebase.initializeApp(firebaseConfig);
 //  REF is the “root” Firebase path.
 const REF="encyclopedia";
 
-
 function updateFirebaseFromModel(model, uid) {
     function firebaseObserverACB(payload) {
         if(payload && payload.addFish) {
@@ -302,7 +301,7 @@ function makeBigPromiseACB(firebaseData){
 }
 
 function firebaseModelPromise(uid) {
-    return firebase.database().ref(REF + '/' + uid /* <-- note! Whole object! */).once("value").then(makeBigPromiseACB);
+    return firebase.database().ref(REF + '/' + uid).once("value").then(makeBigPromiseACB);
 }
 
 export { updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise, clearUserData };

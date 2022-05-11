@@ -1,5 +1,3 @@
-import CloseButton from "./close_button";
-
 function ModalPassword(props){
     return <div className="settings__modalContainer" onClick={() => props.setModalPasswordVisible(!props.modalPasswordVisible)}>
     <div className="settings__modal" onClick={(event) => event.stopPropagation()}>

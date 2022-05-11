@@ -8,9 +8,9 @@ import { sessionCheck } from "../utils";
 export default 
 function Encyclopedia(props) {
     
-    const [promise, setPromise]=React.useState(getSpecies('fish'));
-    const [data, setData]= React.useState(null);
-    const [error, setError]= React.useState(null);
+    const [promise, setPromise] = React.useState(getSpecies('fish'));
+    const [data, setData] = React.useState(null);
+    const [error, setError] = React.useState(null);
     const [currentSpecies, setCurrentSpecies] = React.useState('fish');
 
     function getDetails(clickedItem){
@@ -35,17 +35,16 @@ function Encyclopedia(props) {
         let cancelled = false;
         function changedAgainACB() { 
         cancelled = true; 
-        };  // also called at teardown!
+        };
         if(promise) {
-        promise
-        .then(function saveDataACB(dt) {  
+        promise.then(function saveDataACB(dt) {  
             if(!cancelled) setData(dt);
         })
         .catch(function saveErrACB(err) { 
             if(!cancelled) setError(err);
         });
         }
-        return changedAgainACB;  // promiseChangedACB will be called for the new value!
+        return changedAgainACB;
     }
 
     function encyclopediaObserverACB(payload) {
@@ -85,11 +84,9 @@ function Encyclopedia(props) {
             <div className="list__row__nav">
                 <div className={currentSpecies === 'fish' ? "list__col__button" : "list__col__button inactive" }
                     onClick={() => {
-                    setPromise(getSpecies('fish'));
-                    setCurrentSpecies('fish');
-
-                    }}
-                    >
+                        setPromise(getSpecies('fish'));
+                        setCurrentSpecies('fish');
+                    }}>
                     <div className="list__nav__container">
                         <img className="list__nav__icon" alt="Fish" src="../../images/fishIcon.svg"/>
                         <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Fish </div>
@@ -97,10 +94,9 @@ function Encyclopedia(props) {
                 </div>
                 <div className={currentSpecies === 'bugs' ? "list__col__button" : "list__col__button inactive" }
                     onClick={() => {
-                    setPromise(getSpecies('bugs'));
-                    setCurrentSpecies('bugs');
-                    }
-                    }>
+                        setPromise(getSpecies('bugs'));
+                        setCurrentSpecies('bugs');
+                    }}>
                     <div className="list__nav__container">
                         <img className="list__nav__icon" alt="Insects" src="../../images/bugsIcon.svg"/>
                         <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Insects </div>
@@ -108,10 +104,9 @@ function Encyclopedia(props) {
                 </div>
                 <div className={currentSpecies === 'sea' ? "list__col__button" : "list__col__button inactive" }
                     onClick={() => {
-                    setPromise(getSpecies('sea'));
-                    setCurrentSpecies('sea');
-                    }
-                    }>
+                        setPromise(getSpecies('sea'));
+                        setCurrentSpecies('sea');
+                    }}>
                         <div className="list__nav__container">
                             <img className="list__nav__icon" alt="SeaCreatures" src="../../images/seaIcon.svg"/>
                         <div className={props.islandView ? "list__nav__text--island" : "list__nav__text"}> Sea Creatures </div>
@@ -122,7 +117,7 @@ function Encyclopedia(props) {
         <div className="list">
             <div className={props.islandView ? "list__container__encyclopedia--island" : "list__container__encyclopedia"}>
                 {props.islandView ? <EncyclopediaView onItemClicked={getDetails} data={props.userModel.getCategoryArray(currentSpecies)} userModel={props.userModel} currentSpecies={currentSpecies} islandView/> :
-                promiseNoData({promise, data, error}) ||    // same as {promise:promise, data:data, error:error}
+                promiseNoData({promise, data, error}) ||
                 <div> 
                     <EncyclopediaView onItemClicked={getDetails} data={data} userModel={props.userModel} currentSpecies={currentSpecies}/>
                 </div>}
