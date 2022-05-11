@@ -138,6 +138,15 @@ function InfoView(props){
                         </div>
                     </div>
                 </div>
+                <div className="info__row--disclaimer">
+                    <div className="info__col--disclaimer">
+                        <div className="info__heading--disclaimer">
+                            Disclaimer
+                        </div>
+                        <div className="info__text--disclaimer">
+                        Anicropedia is a student-made project website and claims no ownership of any intellectual property associated with Nintendo or Animal Crossing. The content found on the site and the git repository are the sole property of Nintendo and are only used for non-commercial and educational purposes.</div>
+                    </div>
+                </div>
             </div>
         </div>
     );
