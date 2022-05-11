@@ -69,7 +69,7 @@ function MenuBar(props) {
             audio.loop = true;
             if (isHourChange || isCityChange) {
                 if (isBackgroundMusicPlaying) {
-                    audio.play();   
+                    audio.play().catch((e) => {return;});   
                 }
                 isHourChange = false;
             }
@@ -143,7 +143,7 @@ function MenuBar(props) {
                 muteBt.src = "../../images/playBg.svg";
                 isBackgroundMusicPlaying = false;
             } else {
-                audio.play();
+                audio.play().catch((e) => {return;});
                 // id to use audio in musicPresenter
                 audio.id = "bgmMuteOff";
     
@@ -154,7 +154,7 @@ function MenuBar(props) {
             }
         } else {
             initialBackgroundAudioCheck = false;
-            audio.play();
+            audio.play().catch((e) => {return;});
             audio.id = "bgmMuteOff";
             let muteBt = document.getElementById("muteId");
             muteBt.src = "../../images/pauseBg.svg";

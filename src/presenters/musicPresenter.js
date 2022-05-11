@@ -140,7 +140,7 @@ function Music(props) {
                 let btMuteMenuBarPres = document.getElementById("muteId");
                 btMuteMenuBarPres.src = "images/playBg.svg";
 
-                audio.play();
+                audio.play().catch((e) => {return;});
 
                 let progressed = document.getElementById("progressed");
 
@@ -167,7 +167,7 @@ function Music(props) {
                 // if no mute was pressed, then rise volume of bgm
                 // and display sound on mute bt
                 if(document.getElementById("bgmMuteOff")) {
-                    document.getElementById("bgmMuteOff").play();
+                    document.getElementById("bgmMuteOff").play().catch((e) => {return;});
                     
                     // vinyl is paused, so show no mute on bgm mute bt
                     let btMuteMenuBarPres = document.getElementById("muteId");
@@ -223,7 +223,7 @@ function Music(props) {
 
         // rise up bgm
         if(document.getElementById("bgmMuteOff")) {
-            document.getElementById("bgmMuteOff").play();
+            document.getElementById("bgmMuteOff").play().catch((e) => {return;});
 
             // vinyl is paused, so show no mute on bgm mute bt
             let btMuteMenuBarPres = document.getElementById("muteId");
@@ -259,7 +259,7 @@ function Music(props) {
                 audio.src = '';
                 // Turn background music back on if it is playing
                 if(document.getElementById("bgmMuteOff")) {
-                    document.getElementById("bgmMuteOff").play();
+                    document.getElementById("bgmMuteOff").play().catch((e) => {return;});
                     let btMuteMenuBarPres = document.getElementById("muteId");
                     btMuteMenuBarPres.src = "images/pauseBg.svg";
                 }
