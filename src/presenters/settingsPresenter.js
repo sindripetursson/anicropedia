@@ -2,7 +2,7 @@ import React from "react";
 import { sessionCheck } from "../utils";
 import SettingsView from "../views/settingsView";
 import { EmailAuthProvider, getAuth, updatePassword, reauthenticateWithCredential } from "firebase/auth";
-import { clearUserData } from "../firebaseModel";
+import { clearUserData } from "../models/firebaseModel";
 import { ReactSession } from "react-client-session";
 
 export default 

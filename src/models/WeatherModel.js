@@ -1,7 +1,7 @@
-import resolvePromise from "./resolvePromise";
-import { getWeather } from "./source/weatherSource";
-import { getBackgroundMusic } from "./source/musicSource";
-import { getGeo } from "./source/geoSource";
+import resolvePromise from "../resolvePromise";
+import { getWeather } from "../source/weatherSource";
+import { getBackgroundMusic } from "../source/musicSource";
+import { getGeo } from "../source/geoSource";
 
 class WeatherModel {
     constructor() {

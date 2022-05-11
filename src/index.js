@@ -13,13 +13,13 @@ import { ReactSession } from 'react-client-session';
 import promiseNoData from './views/promiseNoData';
 
 firebase.initializeApp(firebaseConfig);  
-let firebaseModel = require("./firebaseModel.js");
+let firebaseModel = require("./models/firebaseModel.js");
 const {updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise}=firebaseModel;
 
-const DetailsModel = require("./DetailsModel.js").default;
+const DetailsModel = require("./models/DetailsModel.js").default;
 const detailsModel= new DetailsModel();
 
-const WeatherModel = require("./WeatherModel.js").default;
+const WeatherModel = require("./models/WeatherModel.js").default;
 const weatherModel= new WeatherModel();
 
 
