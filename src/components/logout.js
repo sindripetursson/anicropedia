@@ -12,4 +12,6 @@ export default function Logout(props) {
         console.error('Error logging user out: ', error);
     });
     window.location = '/';
+
+    return (<div></div>);
 }
