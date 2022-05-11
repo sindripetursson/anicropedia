@@ -1,6 +1,4 @@
 import './App.css';
-import "./css/style.css";
-import "./css/topbar.css";
 import "./styles/styles.css";
 import Home from './presenters/homePresenter';
 import Info from './presenters/infoPresenter';

@@ -24,7 +24,6 @@ function MenuBarView(props) {
     }
 
     function drawerToggleClickHandler() {
-        console.log('click')
         setsideDrawerOpen(!sideDrawerOpen)
         setbackdropOpen(!backdropOpen)
     };

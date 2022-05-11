@@ -52,7 +52,6 @@ function Music(props) {
 
     React.useEffect(wasCreatedACB, []);
 
-
     // check the focus (case: music is played, user leaves view and returns)
     const focusDiv = React.useRef();
     React.useEffect(() => {
@@ -60,77 +59,7 @@ function Music(props) {
         checkForPlaying();
     }, [focusDiv]);
 
-    function checkForPlaying() {
-        // // check if music is still playing since user leavt the view 
-        // if(!audio.paused) {
-        //     // 300 ms timeout, the views need some time to load
-        //     // set the buttons according to the still playing music, eg 'show pause'
-        //     setTimeout(() => {
-        //         var btTopPlayPause = document.getElementById("togglePlayPause");
-        //         // No progressbar in islandview
-        //         if(!props.islandView) {
-        //             btTopPlayPause.className = "playpause-track fa fa-pause-circle fa-5x";
-        //         }
-        //         if(!props.islandView) {
-        //             var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-        //             btVinylPlayPause.src = "../../images/pause-button.png";
-        //         }
-
-        //         if(!props.islandView) {
-        //         // set vinyl img in musicBar
-        //         var musicBarImg = document.getElementById("musicBarImg");
-        //         musicBarImg.src = singleResultGlobal.image_uri;
-
-                
-        //         // set artist name in musicBar
-        //         var artistName = document.getElementById("songName");
-        //         artistName.textContent = singleResultGlobal.name["name-EUen"];
-
-        //         };
-
-        //         var progressed = document.getElementById("progressed"); 
-
-        //         // No progressbar on islandview
-        //         if(!props.islandView) {
-        //             audio.ontimeupdate = function() {
-        //                 progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
-        //             }
-        //         }
-        //     }, 300);
-        // } else if(audio.paused && audioArr[0] !== undefined && !(audio.src == "stop")) {
-
-        //     console.log(audio.src)
-        //     console.log("not allowed");
-        //     // 300 ms timeout, the views need some time to load
-        //     // set the buttons according to the still playing music, eg 'show pause'
-        //     setTimeout(() => {
-        //         var btTopPlayPause = document.getElementById("togglePlayPause");
-        //         // No progressbar on islandview
-        //         if(!props.islandView) {
-        //             btTopPlayPause.className = "playpause-track fa fa-play-circle fa-5x";
-        //         }
-        //         var btVinylPlayPause = document.getElementById("togglePlayPause." + singleResultGlobal.id);
-        //         btVinylPlayPause.src = "../../images/play-button.png";
-
-        //         if(!props.islandView) {
-        //             // set vinyl img in musicBar
-        //             var musicBarImg = document.getElementById("musicBarImg");
-        //             musicBarImg.src = singleResultGlobal.image_uri;
-
-        //             // set artist name in musicBar
-        //             var artistName = document.getElementById("songName");
-        //             artistName.textContent = singleResultGlobal.name["name-EUen"];
-        //             }
-
-        //         var progressed = document.getElementById("progressed"); 
-
-        //          // No progressbar on islandview
-        //         if(!props.islandView) {
-        //             progressed.style.width = (audio.currentTime*100/audio.duration)+"%";
-        //         }
-        //     }, 300);
-        // } else 
-  
+    function checkForPlaying() {  
         if(audio.src.includes("stop")) {
             setTimeout(() => stopTrack(), 300);
         }
