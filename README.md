@@ -27,7 +27,7 @@ The core structure and routing of Anicropedia is ready. Routes available now are
 Additionally, custom icons and logos have been created for the website such as: homepage icons, back button, user icon, wooden frames, music vinyl and the Anicropedia logo.
  
 Two models have been created, where one is persistent and one is not. The DetailsModel is not persistent and is used to keep a hold of which details the user is currently looking at. These details get displayed whenever an item is clicked. The persistent model is the UserModel, which contains every item that the user has added to his collection.
-A connection to Firebase has been established to persist the data from the UserModel. The user model is connected to firebase and each user has access to his own persistent data.
+A connection to Firebase has been established to persist the data from the UserModel. The UserModel is connected to Firebase and each user has access to his own persistent data.
 
 Furthermore, features on the page:
 
