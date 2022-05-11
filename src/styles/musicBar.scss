@@ -21,7 +21,6 @@
     background-color: #F7F4E4;
     filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
 
-
     &__flex-left {
         flex: 50%;
         justify-self: center;
@@ -30,7 +29,6 @@
     &__flex-right {
         flex: 50%;
     }
-
 }
 
 .buttons-music {
@@ -53,7 +51,6 @@
     margin: auto;
     align-items: center;
     
-
     &__image {
         @media (max-width: 600px) {
             margin-top: 10px;

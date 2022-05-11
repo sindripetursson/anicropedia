@@ -10,6 +10,5 @@ export function getDetails(type,id) {
         method: "GET",
         headers: {
         },
-        //redirect: 'follow'
     }).then(treatHTTPResponseACB);
 }

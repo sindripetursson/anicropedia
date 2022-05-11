@@ -10,6 +10,5 @@ export function getSpecies(species) {
         method: "GET",
         headers: {
         },
-        //redirect: 'follow'
     }).then(treatHTTPResponseACB);
 }

@@ -13,14 +13,14 @@
     z-index: 1;
     font-family: 'FinkHeavy';
     font-size: 16pt;
-    @media (max-width: 700px){
+    @media (max-width: 700px) {
         height: 100px;
     }
 
-    &__gutter{
+    &__gutter {
         height: 150px;
         width: 100%;
-        @media (max-width: 700px){
+        @media (max-width: 700px) {
             height: 110px;
         }
     }
@@ -54,7 +54,7 @@
         }
     }
 
-    &__bgMusicContainer{
+    &__bgMusicContainer {
         display: flex;
         align-items: center;
         flex-direction: row;
@@ -62,7 +62,7 @@
         right: 20px;
     }
 
-    &__bgMusicLabel{
+    &__bgMusicLabel {
         margin-right: 10px;
         cursor: pointer;
         @media (max-width: 700px){
@@ -108,7 +108,7 @@
     }
 
     &__backLower {
-        @media (max-width: 1000px){
+        @media (max-width: 1000px) {
             display: none;
         }
         font-size: 40px;
@@ -128,7 +128,7 @@
         font-size: 40px;
         width: 100%;
         text-transform: capitalize;
-        @media (max-width: 700px){
+        @media (max-width: 700px) {
             font-size: 24px;
         }
     }
@@ -145,13 +145,13 @@
         height: 40px;
         width: 40px;
         cursor: pointer;
-        @media (max-width: 1000px){
+        @media (max-width: 1000px) {
             display: none;
         }
     }
 
     &__search {
-        @media (max-width: 1000px){
+        @media (max-width: 1000px) {
             display: none;
         }
         background-color: #F5F7E1;
@@ -166,7 +166,7 @@
     }
 
     &__filter {
-        @media (max-width: 1000px){
+        @media (max-width: 1000px) {
             display: none;
         }
         width: 100px;
@@ -218,7 +218,7 @@
         height: 33vh;
         margin-top: -1px;
         background-color: #FFF9E5;
-        @media (max-width: 700px){
+        @media (max-width: 700px) {
             padding-top: 30px;
         }
     }
@@ -264,7 +264,7 @@
         align-items: center;
     }
 
-    &__sideDrawerClose{
+    &__sideDrawerClose {
         cursor: pointer;
         position: absolute;
         top: 30px;

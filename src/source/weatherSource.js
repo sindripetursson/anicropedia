@@ -10,6 +10,5 @@ export function getWeather(lat,lon) {
         method: "GET",
         headers: {
         },
-        //redirect: 'follow'
     }).then(treatHTTPResponseACB);
 }
