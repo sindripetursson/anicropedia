@@ -35,8 +35,8 @@ A weather API is linked, that aligns the weather data (sunny, rainy, snowy) with
 
 ## What we used
 
-Animal Crossing API: http://acnhapi.com/
-OpenWeather API: https://openweathermap.org/api
-Google Places API: https://developers.google.com/maps/documentation/places/web-service/overview
-Animal Crossing Loader: https://dribbble.com/shots/13905159-Animal-Crossing-New-Horizons-loader
-Background Wallpaper by Ashaife: https://ko-fi.com/post/Animal-Crossing-Leaf-Wallpapers-N4N51I7CL
+- Animal Crossing API: http://acnhapi.com/
+- OpenWeather API: https://openweathermap.org/api
+- Google Places API: https://developers.google.com/maps/documentation/places/web-service/overview
+- Animal Crossing Loader: https://dribbble.com/shots/13905159-Animal-Crossing-New-Horizons-loader
+- Background Wallpaper by Ashaife: https://ko-fi.com/post/Animal-Crossing-Leaf-Wallpapers-N4N51I7CL
