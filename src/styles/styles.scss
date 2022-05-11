@@ -11,7 +11,7 @@
     box-sizing: inherit;
 }
 
-html { /* stylelint-disable-line */
+html {
     box-sizing: border-box;
     overflow-x: hidden;
     font-family: $font-main;
@@ -19,7 +19,7 @@ html { /* stylelint-disable-line */
     font-size: 16px;
 }
 
-img { /* stylelint-disable-line */
+img {
     max-width: 100%;
 }
 
@@ -27,17 +27,15 @@ body{
     background: url(../../public/images/bg_cream.png) top;
 }
 
-  
-  // TODO import
-  @import "listItem";
-  @import "list";
-  @import "details";
-  @import "months";
-  @import "menuBar";
-  @import "loading";
-  @import "info";
-  @import "island";
-  @import "musicBar";
-  @import "page404";
-  @import "authentication";
-  @import "settings";
+@import "listItem";
+@import "list";
+@import "details";
+@import "months";
+@import "menuBar";
+@import "loading";
+@import "info";
+@import "island";
+@import "musicBar";
+@import "page404";
+@import "authentication";
+@import "settings";

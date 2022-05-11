@@ -1,8 +1,7 @@
 @import "config";
 
 .info {
-
-    &__container{
+    &__container {
         max-width: $max-width;
         margin: 0 auto;
         background-color: #F7F4E4;
@@ -30,16 +29,14 @@
         font-size: 11pt;
         font-weight: 400;
         color: #887C66;
-        // border: red solid 2px
     }  
 
-    &__row{
+    &__row {
         @include row();
         flex-wrap: wrap;
-
     }
 
-    &__row--developers{
+    &__row--developers {
         @include row();
         flex-wrap: wrap;
         
@@ -48,7 +45,7 @@
         }
     }
 
-    &__col{
+    &__col {
         @include columns(12);
         padding: 12.5px;
 
@@ -63,7 +60,7 @@
         }
     }
 
-    &__col--developers{
+    &__col--developers {
         @include columns(12);
         padding: 12.5px;
         position: relative;
@@ -86,10 +83,9 @@
     }
 }
 
-.infoItem{
+.infoItem {
     padding: 2px;
     margin: 10px;
-    // text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;

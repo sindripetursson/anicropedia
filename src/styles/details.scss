@@ -1,6 +1,5 @@
 @import "config";
 
-
 .details {
     position:fixed;
     width: 100%;
@@ -28,7 +27,7 @@
         overflow-y: auto;
         overflow-x: auto;
         
-        @media (max-width: 1000px){
+        @media (max-width: 1000px) {
            width: 80%;
         }
         @media (max-width: 500px) {
@@ -51,33 +50,30 @@
 
     &__col {
         @include columns(6);
-        // padding-left: 5%;
-        &__three{
+        &__three {
             @include columns(4);
             padding: 2%;
-            // border: green 1px solid;
         }
 
-        &__one{
+        &__one {
             @include columns(12);
             padding: 2%;
         }
 
-        &__two{
+        &__two {
             @include columns(6);
             padding: 2%;
         }
 
-        &__splitter{
+        &__splitter {
             @include columns(6);
             padding-left: 5%;
             border-left: #835B26 dashed 2px;
 
-            @media (max-width: 1000px){
+            @media (max-width: 1000px) {
                 @include columns(12);
                 padding-left: 0;
                 border-left: none;
-                // margin-top: 10%;
                 border-top: #835B26 dashed 2px;
             }
         }
@@ -85,8 +81,6 @@
         @media (max-width: 1000px) {
             @include columns(12);
         }
-        
-
     }
 
     &__nav {
@@ -97,14 +91,14 @@
         cursor: pointer;
     }
 
-    &__title{
+    &__title {
         font-family: $font-header;
         font-size: 24pt;
         color: #835B26;
         text-align: left;
     }
 
-    &__heading{
+    &__heading {
         font-family: $font-main;
         font-weight: 500;
         color: #835B26;
@@ -112,7 +106,7 @@
         margin-bottom: 5px;
     }
 
-    &__content{
+    &__content {
         font-family: $font-main;
         font-size: 10pt;
         font-weight: 400;
@@ -120,7 +114,7 @@
         text-align: left;
     }
 
-    &__placeholder{
+    &__placeholder {
         width: 100%;
         min-height: 250px;
         display: flex;
@@ -134,12 +128,12 @@
     }
 }
 
-.hidden{
+.hidden {
     display: none;
     opacity: 0;
 }
 
-.close{
+.close {
     position: absolute;
     transform: scale(0.75);
     top: 5%;
@@ -147,7 +141,7 @@
     cursor: pointer;
 }
 
-button{
+button {
     background-color: #F5F7E1;
     border: #DED9C0 2px solid;
     color: #8B7A66;
@@ -165,14 +159,13 @@ button{
     }
 }
 
-button:hover{
+button:hover {
     background-color: white;
     color: #8B7A66;
-    // margin-bottom: 10px;
 }
 
-.button{
-    &__positive{
+.button {
+    &__positive {
         background-color: #61D16C;
         color: white;
         border: white 2px solid;
@@ -181,7 +174,7 @@ button:hover{
         margin-bottom: 30px;
     }
 
-    &__negative{
+    &__negative {
         background-color: #FF5757;
         color: white;
         border: white 2px solid;
@@ -191,26 +184,25 @@ button:hover{
     }
 }
 
-.image{
-
-    &__villagers{
+.image {
+    &__villagers {
         width: 20vw;
         max-width: 300px;
         min-width: 200px;
     }
 
-    @media(max-width: 1000px){
+    @media(max-width: 1000px) {
         max-height: 20vh;
     }
 }
 
-.frame{
+.frame {
     position: absolute;
     width: 25vw;
     max-width: 360px;
     min-width: 250px;
     min-height: 250px;
-    @media(max-width: 1000px){
+    @media(max-width: 1000px) {
         max-height: 20vh;
     }
 }
@@ -218,21 +210,21 @@ button:hover{
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-    }
+}
     
-    /* Track */
-    ::-webkit-scrollbar-track {
+/* Track */
+::-webkit-scrollbar-track {
     background: #DED9C0; 
     border-radius: 10px;
-    }
-    
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #8B7A66; 
     border-radius: 10px;
-    }
-    
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: #835B26; 
-    }
+}

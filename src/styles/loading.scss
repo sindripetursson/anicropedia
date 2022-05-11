@@ -1,8 +1,7 @@
 @import "config";
 
 .loading {
-
-    &__container{
+    &__container {
         position: fixed;
         width: 100vw;
         height: 100vh;
@@ -11,12 +10,11 @@
         left: 0;
     }
 
-    &__icon{
+    &__icon {
         width: 20%;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
-
 }

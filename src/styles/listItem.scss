@@ -7,16 +7,16 @@
     &__image {
         border-style: solid;
 
-        &__home{
+        &__home {
             width: 200px;
             border-radius: 20px;
         }
 
-        &__music{
+        &__music {
             width: 75%;
             margin-top: 20px;
             border-radius: 20px;
-            &--island{
+            &--island {
                 max-width: 80px;
                 margin: 10px;
                 margin-left: 20px;
@@ -24,31 +24,31 @@
             }
         }
 
-        &__villagers{
+        &__villagers {
             &--island{
                 width: 60px;
             }
         }
         
-        &__encyclopedia{
+        &__encyclopedia {
             &--island{
                 width: 60px;
             }
         }
     }
 
-    &__imagePlaceholder{
+    &__imagePlaceholder {
         height: 128px;
 
-        &--island{
+        &--island {
             height: 60px;
         }
     }
 
 
-    &__imagePlaceholderMusic{
+    &__imagePlaceholderMusic {
         min-height: 250px;
-        &--island{
+        &--island {
             height: 80px;
         }
     }
@@ -56,7 +56,7 @@
     &__text {
         width: 90%;
 
-        &__home{
+        &__home {
             width: 100%;
             padding-left: 5%;
             padding-right: 5%;
@@ -66,7 +66,7 @@
             font-weight: bold;
         }
 
-        &__villagers{
+        &__villagers {
             width: 100%;
             padding-left: 5%;
             padding-right: 5%;
@@ -76,7 +76,7 @@
             font-weight: bold;
         }
 
-        &__music{
+        &__music {
             padding-left: 5%;
             padding-right: 5%;
             width: 100%;
@@ -97,7 +97,7 @@
             }
         }
 
-        &__encyclopedia{
+        &__encyclopedia {
             width: 100%;
             padding-left: 5%;
             padding-right: 5%;
@@ -151,7 +151,6 @@
         background: #F7F4E4;
         border-radius: 50px;
         filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
-        // overflow: visible;
         transition: 1s;
         &:hover {
             background: #DED9C0;;
@@ -167,7 +166,6 @@
             background: #F7F4E4;
             border-radius: 30px;
             filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
-            // overflow: visible;
             transition: 1s;
             &:hover {
                 background: #DED9C0;
@@ -188,7 +186,6 @@
         background: #F7F4E4;
         filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
         transition: 1s;
-        // padding-bottom: 20px;
         &:hover {
             background: #DED9C0;
             transition: 1s;
@@ -220,7 +217,7 @@
     }
 
     &__buttonContainer{
-        &--island{
+        &--island {
             width: 80%;
         }
     }
@@ -230,9 +227,5 @@
         width: 40px;
         height: 40px;
         background: #DED9C0;
-    }
-
-    &playbuttonContainer{
-        width: 100%;
     }
 }
