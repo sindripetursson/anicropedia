@@ -1,7 +1,7 @@
 import React from 'react';
 import PlacesAutocomplete, {
     geocodeByAddress,
-    getLatLng
+    getLatLng,
 } from 'react-places-autocomplete';
 
 export default
@@ -24,6 +24,8 @@ function CitySearch(props) {
                 onChange={setAddress} 
                 onSelect={handleSelectACB} 
                 debounce={300}
+                onError={(status, clearSuggestions) => {clearSuggestions();}}
+                clearItemsOnError={true}
             >
                 {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
                     <div>
