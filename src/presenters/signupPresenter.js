@@ -72,7 +72,7 @@ function Signup(props) {
                         setTimeout(() => {
                             window.location = '/'; 
                             setUserCreationPopup(false);
-                        }, 1000);
+                        }, 2000);
                     })
                     .catch((error) => {
                         document.getElementById('signupPassword').classList.remove('authentication__input--error');
