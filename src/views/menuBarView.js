@@ -17,12 +17,6 @@ function MenuBarView(props) {
         props.onMuteAudio();
     }
 
-    function stopVinyl() {
-        var vinyl = document.getElementById("vinyl");
-        vinyl.src = "stop";
-        vinyl.pause();
-    }
-
     function drawerToggleClickHandler() {
         setsideDrawerOpen(!sideDrawerOpen)
         setbackdropOpen(!backdropOpen)
@@ -44,7 +38,7 @@ function MenuBarView(props) {
                     {location.pathname === "/" || location.pathname === "/login" ? 
                         <></> : 
                     <Link className='menuBar__link' to="/"> 
-                        <img src='../../images/back.svg' alt="back" className="menuBar__back" onClick={stopVinyl} /> 
+                        <img src='../../images/back.svg' alt="back" className="menuBar__back"/> 
                     </Link> 
                     }
                 </div>

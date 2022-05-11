@@ -263,6 +263,7 @@ function Music(props) {
                     let btMuteMenuBarPres = document.getElementById("muteId");
                     btMuteMenuBarPres.src = "images/pauseBg.svg";
                 }
+                audioArr.pop();
             }
         }
     }, [])
