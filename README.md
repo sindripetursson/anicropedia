@@ -1,36 +1,37 @@
 # Anicropedia
 ## Link: [https://www.anicropedia.com](https://www.anicropedia.com)
-## Link: [https://anicropedia-5699f.web.app/](https://anicropedia-5699f.web.app/)
+
+# Group members
+Adam Cerven, cerven@kth.se\
+Benjamin Esdor, esdor@kth.se\
+Kári Steinn Aðalsteinsson, ksad@kth.se\
+Sindri Petursson, sindrip@kth.se
 
 ## Setup
-To run the app, first run “npm install” to install all npm packages. Then “npm start” can be called and that will create the styles.css file and run the server on localhost:3000. To access the website, users have to create an account ("/signup").
+To run the app locally, first run “npm install” to install all npm packages. Then “npm start” can be called and that will create the styles.css file and run the server on localhost:3000. To access the website, users have to create an account ("/signup").
 
 ## Short description
-Anicropedia is a companion app that can be used with the game Animal Crossing: New Horizons. The app allows users to view all collectable animals and keep a hold of which critters they have caught already. Anicropedia displays various information such as when the animals can be caught, how much they sell for and their rarity. Another feature is that music plays in the background depending on the weather and time of day. Users are able to create an account and select where they are located to get accurate information. Collectible paintings and music are displayed as well, and the user can mark which one he owns to make it easier to keep a hold of what they own in the game.
+Anicropedia is a companion app that can be used with the game Animal Crossing: New Horizons. The app allows users to view all collectable animals and keep a hold of which critters they have caught already. Anicropedia displays various information such as when the critters can be caught, how much they sell for and their rarity. Another feature is that music plays in the background depending on the weather and time of day. Users are able to create an account and select where they are located to get accurate information. Collectibles, villagers and music are displayed as well, and the user can mark which one he owns to make it easier to keep a hold of what they own in the game.
 
 ## What we have done
-The core structure and routing of Anicropedia is ready. Routes available now are “/”, “/encyclopedia”,  “/villagers”, “/music”, “/collectibles'' and “/info”. Anicropedia is connected to the ACNH API which feeds the webpage Animal Crossing data.
-
-- Homepage (“/”) has an overview of each aspect of Anicropedia.
+The routes on the website are:
+- Homepage (“/”) has an overview of each of the main tabs of Anicropedia.
 - Critterpedia (“/critterpedia) has an overview of every fish, insect and sea creature that Animal Crossing players can catch. Each thing has its own detailed view when being clicked.
 - Villagers (“/villagers”) has an overview of every villager in Animal Crossing. Each villager has its own detailed view when being clicked.
-- Music (“/music”) has an overview of songs in Animal Crossing. Each track can be played when clicked.
+- Music (“/music”) has an overview of music tracks that can be bought in Animal Crossing. Each track can be played when clicked.
 - Collectibles (“/collectibles”) has an overview of every fossil and art that Animal Crossing players can collect. Each collectable has its own detailed view when being clicked.
 - Info (“/info”) has general information about Anicropedia, and the creator's contact information.
-- My Island ("/island") provides users with an interface to collect and review their saved animals and fossils collection, as well as play their collected music.
-- Signup ("signup") has the functionality to create user accounts.
+- My Island ("/island") provides users with an interface to review their saved critters, collectibles, music and villager information.
+- Signup ("/signup") has the functionality to create user accounts.
 - Login ("/login") has the functionality to login the user.
 - Logout ("/logout") has the functionality to logout the user.
 - Settings ("/settings") has the functionality to change user name, the location, the password and clear the My Island collection.
 
-Additionally, custom icons and logos have been created for the website such as: homepage icons, back button, user icon, wooden frames, music vinyl and the Anicropedia logo.
+Custom icons and logos have been created for the website such as: homepage icons, back button, wooden frames, music vinyl and the Anicropedia logo.
  
-Two models have been created, where one is persistent and one is not. The DetailsModel is not persistent and is used to keep a hold of which details the user is currently looking at. These details get displayed whenever an item is clicked. The persistent model is the UserModel, which contains every item that the user has added to his collection.
-A connection to Firebase has been established to persist the data from the UserModel. The UserModel is connected to Firebase and each user has access to his own persistent data.
+The website uses firebase to manage user data and database. 
 
-Furthermore, features on the page:
-
-A weather API is linked, that aligns the weather data (sunny, rainy, snowy) with fitting music published by the ACNH API and plays them in the background. In order to be accessible for countries around the world, users can type in their specific location that switches them between content specific areas in north and south. On the music page, users can listen and add their favorite music to their My Island page. To support the audio usability, a music bar is displayed showing the currently playing song with a progress bar. Moreover, in the menu bar is a hamburger menu located, which opens a sidebar with fast access to each page.
+A weather API is linked, that aligns the weather data (sunny, rainy, snowy) and time of the users location with fitting music published by the ACNH API and plays it in the background. In Animal Crossing: New Horizons there is hourly music that plays depending on the weather in the game, so we decided to take this feature from the game and implement it on our website using the users real weather and time. As some critters are only available at certain times and those times are depentant on if the user is in the southern or northern hemisphere, we make sure to display the correct information, based on the latitude of the location that the player provided. In the menu bar there is a hamburger menu, which opens a sidebar with fast access to each page, settings and logout.
 
 ## What we used
 
