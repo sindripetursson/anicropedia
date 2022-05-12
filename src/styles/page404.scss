@@ -1,7 +1,19 @@
 @import "config";
 
 .page404 {
+    justify-content: center;
+    align-items: center;
     &__image {
         width: 700px;
+        padding-top: 20vh;
+    }
+
+    &__button {
+        font-family: "FinkHeavy";
+        color: #835B26;
+        text-align: left;
+        padding-top: 25px;
+        font-size: 48px;
+        text-align: center;
     }
 }

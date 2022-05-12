@@ -24,7 +24,14 @@ function App(props) {
             <div className={detailsOn ? "details" : "hidden"} onClick={() => setDetailsOn(false)}>
                 <Details detailsModel={props.detailsModel} userModel={props.userModel} setDetailsOn={setDetailsOn}/>  
             </div>
-            <div className={window.location.pathname !== "/login" && window.location.pathname !== "/signup" ? "": "hidden"}>
+            <div className={window.location.pathname === "/" ||
+                            window.location.pathname === "/island" ||
+                            window.location.pathname === "/critterpedia" ||
+                            window.location.pathname === "/villagers" ||
+                            window.location.pathname === "/music" ||
+                            window.location.pathname === "/collectibles" ||
+                            window.location.pathname === "/info" ||
+                            window.location.pathname === "/settings" ? "": "hidden"}>
                 <MenuBar setDetailsOn={setDetailsOn} weatherModel={props.weatherModel} userModel={props.userModel}/>
             </div>
             <Routes>

@@ -1580,8 +1580,21 @@ a {
   font-family: "FinkHeavy";
   src: url("../fonts/finkHeavy.otf"), url("../fonts/finkHeavy.ttf") format("truetype");
 }
+.page404 {
+  justify-content: center;
+  align-items: center;
+}
 .page404__image {
   width: 700px;
+  padding-top: 20vh;
+}
+.page404__button {
+  font-family: "FinkHeavy";
+  color: #835B26;
+  text-align: left;
+  padding-top: 25px;
+  font-size: 48px;
+  text-align: center;
 }
 
 @font-face {
