@@ -33,6 +33,18 @@ function Music(props) {
     function changeCollectionACB(musicTrack, inCollection) {
         if(inCollection) {
             props.userModel.removeItem(musicTrack, 'music');
+            if (props.islandView && audio) {
+                audio.pause();
+                audio.src = '';
+                // Turn background music back on if it is playing
+                if(document.getElementById("bgmMuteOff")) {
+                    document.getElementById("bgmMuteOff").play().catch((e) => {return;});
+                    let btMuteMenuBarPres = document.getElementById("muteId");
+                    btMuteMenuBarPres.src = "images/pauseBg.svg";
+                }
+                audioArr.pop();
+                singleResultGlobal = null;
+            }
         } else {
             props.userModel.addItem(musicTrack, 'music');
         }
